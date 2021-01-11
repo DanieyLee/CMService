@@ -9,21 +9,21 @@ import { IRootState } from 'app/shared/reducers';
 
 import { IArticle } from 'app/shared/model/article.model';
 import { getEntities as getArticles } from 'app/entities/article/article.reducer';
-import { getEntity, updateEntity, createEntity, reset } from './articl-enclosure.reducer';
-import { IArticlEnclosure } from 'app/shared/model/articl-enclosure.model';
+import { getEntity, updateEntity, createEntity, reset } from './article-enclosure.reducer';
+import { IArticleEnclosure } from 'app/shared/model/article-enclosure.model';
 import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
 import { mapIdList } from 'app/shared/util/entity-utils';
 
-export interface IArticlEnclosureUpdateProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
+export interface IArticleEnclosureUpdateProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
-export const ArticlEnclosureUpdate = (props: IArticlEnclosureUpdateProps) => {
+export const ArticleEnclosureUpdate = (props: IArticleEnclosureUpdateProps) => {
   const [articleId, setArticleId] = useState('0');
   const [isNew, setIsNew] = useState(!props.match.params || !props.match.params.id);
 
-  const { articlEnclosureEntity, articles, loading, updating } = props;
+  const { articleEnclosureEntity, articles, loading, updating } = props;
 
   const handleClose = () => {
-    props.history.push('/articl-enclosure');
+    props.history.push('/article-enclosure');
   };
 
   useEffect(() => {
@@ -46,7 +46,7 @@ export const ArticlEnclosureUpdate = (props: IArticlEnclosureUpdateProps) => {
 
     if (errors.length === 0) {
       const entity = {
-        ...articlEnclosureEntity,
+        ...articleEnclosureEntity,
         ...values,
       };
 
@@ -62,8 +62,8 @@ export const ArticlEnclosureUpdate = (props: IArticlEnclosureUpdateProps) => {
     <div>
       <Row className="justify-content-center">
         <Col md="8">
-          <h2 id="cmServiceApp.articlEnclosure.home.createOrEditLabel">
-            <Translate contentKey="cmServiceApp.articlEnclosure.home.createOrEditLabel">Create or edit a ArticlEnclosure</Translate>
+          <h2 id="cmServiceApp.articleEnclosure.home.createOrEditLabel">
+            <Translate contentKey="cmServiceApp.articleEnclosure.home.createOrEditLabel">Create or edit a articleEnclosure</Translate>
           </h2>
         </Col>
       </Row>
@@ -72,31 +72,31 @@ export const ArticlEnclosureUpdate = (props: IArticlEnclosureUpdateProps) => {
           {loading ? (
             <p>Loading...</p>
           ) : (
-            <AvForm model={isNew ? {} : articlEnclosureEntity} onSubmit={saveEntity}>
+            <AvForm model={isNew ? {} : articleEnclosureEntity} onSubmit={saveEntity}>
               {!isNew ? (
                 <AvGroup>
-                  <Label for="articl-enclosure-id">
+                  <Label for="article-enclosure-id">
                     <Translate contentKey="global.field.id">ID</Translate>
                   </Label>
-                  <AvInput id="articl-enclosure-id" type="text" className="form-control" name="id" required readOnly />
+                  <AvInput id="article-enclosure-id" type="text" className="form-control" name="id" required readOnly />
                 </AvGroup>
               ) : null}
               <AvGroup>
-                <Label id="enclosureURLLabel" for="articl-enclosure-enclosureURL">
-                  <Translate contentKey="cmServiceApp.articlEnclosure.enclosureURL">Enclosure URL</Translate>
+                <Label id="enclosureURLLabel" for="article-enclosure-enclosureURL">
+                  <Translate contentKey="cmServiceApp.articleEnclosure.enclosureURL">Enclosure URL</Translate>
                 </Label>
-                <AvField id="articl-enclosure-enclosureURL" type="text" name="enclosureURL" />
+                <AvField id="article-enclosure-enclosureURL" type="text" name="enclosureURL" />
               </AvGroup>
               <AvGroup>
-                <Label id="enclosureTypeLabel" for="articl-enclosure-enclosureType">
-                  <Translate contentKey="cmServiceApp.articlEnclosure.enclosureType">Enclosure Type</Translate>
+                <Label id="enclosureTypeLabel" for="article-enclosure-enclosureType">
+                  <Translate contentKey="cmServiceApp.articleEnclosure.enclosureType">Enclosure Type</Translate>
                 </Label>
                 <AvInput
-                  id="articl-enclosure-enclosureType"
+                  id="article-enclosure-enclosureType"
                   type="select"
                   className="form-control"
                   name="enclosureType"
-                  value={(!isNew && articlEnclosureEntity.enclosureType) || 'IMAGE'}
+                  value={(!isNew && articleEnclosureEntity.enclosureType) || 'IMAGE'}
                 >
                   <option value="IMAGE">{translate('cmServiceApp.FileType.IMAGE')}</option>
                   <option value="VIDEO">{translate('cmServiceApp.FileType.VIDEO')}</option>
@@ -104,54 +104,54 @@ export const ArticlEnclosureUpdate = (props: IArticlEnclosureUpdateProps) => {
                 </AvInput>
               </AvGroup>
               <AvGroup>
-                <Label id="createUserLabel" for="articl-enclosure-createUser">
-                  <Translate contentKey="cmServiceApp.articlEnclosure.createUser">Create User</Translate>
+                <Label id="createUserLabel" for="article-enclosure-createUser">
+                  <Translate contentKey="cmServiceApp.articleEnclosure.createUser">Create User</Translate>
                 </Label>
-                <AvField id="articl-enclosure-createUser" type="text" name="createUser" />
+                <AvField id="article-enclosure-createUser" type="text" name="createUser" />
               </AvGroup>
               <AvGroup>
-                <Label id="creatTimeLabel" for="articl-enclosure-creatTime">
-                  <Translate contentKey="cmServiceApp.articlEnclosure.creatTime">Creat Time</Translate>
+                <Label id="creatTimeLabel" for="article-enclosure-creatTime">
+                  <Translate contentKey="cmServiceApp.articleEnclosure.creatTime">Creat Time</Translate>
                 </Label>
                 <AvInput
-                  id="articl-enclosure-creatTime"
+                  id="article-enclosure-creatTime"
                   type="datetime-local"
                   className="form-control"
                   name="creatTime"
                   placeholder={'YYYY-MM-DD HH:mm'}
-                  value={isNew ? displayDefaultDateTime() : convertDateTimeFromServer(props.articlEnclosureEntity.creatTime)}
+                  value={isNew ? displayDefaultDateTime() : convertDateTimeFromServer(props.articleEnclosureEntity.creatTime)}
                 />
               </AvGroup>
               <AvGroup>
-                <Label id="updateUserLabel" for="articl-enclosure-updateUser">
-                  <Translate contentKey="cmServiceApp.articlEnclosure.updateUser">Update User</Translate>
+                <Label id="updateUserLabel" for="article-enclosure-updateUser">
+                  <Translate contentKey="cmServiceApp.articleEnclosure.updateUser">Update User</Translate>
                 </Label>
-                <AvField id="articl-enclosure-updateUser" type="text" name="updateUser" />
+                <AvField id="article-enclosure-updateUser" type="text" name="updateUser" />
               </AvGroup>
               <AvGroup>
-                <Label id="updateTimeLabel" for="articl-enclosure-updateTime">
-                  <Translate contentKey="cmServiceApp.articlEnclosure.updateTime">Update Time</Translate>
+                <Label id="updateTimeLabel" for="article-enclosure-updateTime">
+                  <Translate contentKey="cmServiceApp.articleEnclosure.updateTime">Update Time</Translate>
                 </Label>
                 <AvInput
-                  id="articl-enclosure-updateTime"
+                  id="article-enclosure-updateTime"
                   type="datetime-local"
                   className="form-control"
                   name="updateTime"
                   placeholder={'YYYY-MM-DD HH:mm'}
-                  value={isNew ? displayDefaultDateTime() : convertDateTimeFromServer(props.articlEnclosureEntity.updateTime)}
+                  value={isNew ? displayDefaultDateTime() : convertDateTimeFromServer(props.articleEnclosureEntity.updateTime)}
                 />
               </AvGroup>
               <AvGroup>
-                <Label id="noteLabel" for="articl-enclosure-note">
-                  <Translate contentKey="cmServiceApp.articlEnclosure.note">Note</Translate>
+                <Label id="noteLabel" for="article-enclosure-note">
+                  <Translate contentKey="cmServiceApp.articleEnclosure.note">Note</Translate>
                 </Label>
-                <AvField id="articl-enclosure-note" type="text" name="note" />
+                <AvField id="article-enclosure-note" type="text" name="note" />
               </AvGroup>
               <AvGroup>
-                <Label for="articl-enclosure-article">
-                  <Translate contentKey="cmServiceApp.articlEnclosure.article">Article</Translate>
+                <Label for="article-enclosure-article">
+                  <Translate contentKey="cmServiceApp.articleEnclosure.article">Article</Translate>
                 </Label>
-                <AvInput id="articl-enclosure-article" type="select" className="form-control" name="articleId">
+                <AvInput id="article-enclosure-article" type="select" className="form-control" name="articleId">
                   <option value="" key="0" />
                   {articles
                     ? articles.map(otherEntity => (
@@ -162,7 +162,7 @@ export const ArticlEnclosureUpdate = (props: IArticlEnclosureUpdateProps) => {
                     : null}
                 </AvInput>
               </AvGroup>
-              <Button tag={Link} id="cancel-save" to="/articl-enclosure" replace color="info">
+              <Button tag={Link} id="cancel-save" to="/article-enclosure" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;
                 <span className="d-none d-md-inline">
@@ -185,10 +185,10 @@ export const ArticlEnclosureUpdate = (props: IArticlEnclosureUpdateProps) => {
 
 const mapStateToProps = (storeState: IRootState) => ({
   articles: storeState.article.entities,
-  articlEnclosureEntity: storeState.articlEnclosure.entity,
-  loading: storeState.articlEnclosure.loading,
-  updating: storeState.articlEnclosure.updating,
-  updateSuccess: storeState.articlEnclosure.updateSuccess,
+  articleEnclosureEntity: storeState.articleEnclosure.entity,
+  loading: storeState.articleEnclosure.loading,
+  updating: storeState.articleEnclosure.updating,
+  updateSuccess: storeState.articleEnclosure.updateSuccess,
 });
 
 const mapDispatchToProps = {
@@ -202,4 +202,4 @@ const mapDispatchToProps = {
 type StateProps = ReturnType<typeof mapStateToProps>;
 type DispatchProps = typeof mapDispatchToProps;
 
-export default connect(mapStateToProps, mapDispatchToProps)(ArticlEnclosureUpdate);
+export default connect(mapStateToProps, mapDispatchToProps)(ArticleEnclosureUpdate);

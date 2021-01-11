@@ -5,10 +5,10 @@ import java.io.Serializable;
 import cn.hupig.www.code.cmservice.domain.enumeration.FileType;
 
 /**
- * A DTO for the {@link cn.hupig.www.code.cmservice.domain.ArticlEnclosure} entity.
+ * A DTO for the {@link cn.hupig.www.code.cmservice.domain.ArticleEnclosure} entity.
  */
-public class ArticlEnclosureDTO implements Serializable {
-    
+public class ArticleEnclosureDTO implements Serializable {
+
     private Long id;
 
     private String enclosureURL;
@@ -29,7 +29,7 @@ public class ArticlEnclosureDTO implements Serializable {
     private Long articleId;
 
     private String articleTitle;
-    
+
     public Long getId() {
         return id;
     }
@@ -115,11 +115,11 @@ public class ArticlEnclosureDTO implements Serializable {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof ArticlEnclosureDTO)) {
+        if (!(o instanceof ArticleEnclosureDTO)) {
             return false;
         }
 
-        return id != null && id.equals(((ArticlEnclosureDTO) o).id);
+        return id != null && id.equals(((ArticleEnclosureDTO) o).id);
     }
 
     @Override
@@ -130,7 +130,7 @@ public class ArticlEnclosureDTO implements Serializable {
     // prettier-ignore
     @Override
     public String toString() {
-        return "ArticlEnclosureDTO{" +
+        return "articleEnclosureDTO{" +
             "id=" + getId() +
             ", enclosureURL='" + getEnclosureURL() + "'" +
             ", enclosureType='" + getEnclosureType() + "'" +

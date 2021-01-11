@@ -7,21 +7,21 @@ Main page styles
 }
 
 .table-article-list-div-home {
-  height: 84px;
+  height: 82px;
   overflow: hidden;
   display: block;
   text-overflow: ellipsis;
   width: 100%;
   white-space: nowrap;
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 10px 4px 13px 4px;
+  padding: 5px 0px 13px 0px;
   position: relative;
 }
 
 .table-article-div-left-top {
   float: left;
   padding-left: 0.5rem;
-  width: 60%;
+  width: 50%;
   a {
     color: snow;
     font-size: 1rem;
@@ -55,7 +55,8 @@ Main page styles
   width: 100%;
   img {
     width: 18px;
-    margin: 0px 8px 3px 0px;
+    margin-right: 8px;
+    margin-top: 2px;
     float: left;
   }
 }
@@ -70,14 +71,13 @@ Main page styles
 
 .table-article-div-left-down-down {
   a {
-    max-width: 60%;
+    max-width: 75%;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     font-weight: 200;
     font-size: 0.95rem;
     margin-left: 20px;
-    float: left;
     color: snow;
     opacity: 0.8;
     padding-top: 2px;
@@ -92,10 +92,10 @@ Main page styles
   padding-right: 1rem;
   font-size: 0.875rem;
   font-weight: 300;
-  position: absolute;
-  right: 0;
-  top: 16px;
   max-width: 150px;
+  margin-top: 8px;
+  margin-left: auto;
+  float: right;
   img {
     width: 16px;
     filter: invert(100%);

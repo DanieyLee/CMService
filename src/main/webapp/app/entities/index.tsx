@@ -10,7 +10,7 @@ import SoftwareType from './software-type';
 import SoftwareComments from './software-comments';
 import SoftwareScore from './software-score';
 import Article from './article';
-import ArticlEnclosure from './articl-enclosure';
+import ArticleEnclosure from './article-enclosure';
 import ArticleType from './article-type';
 import ArticleComment from './article-comment';
 import Wallpaper from './wallpaper';
@@ -28,7 +28,7 @@ const Routes = ({ match }) => (
       <ErrorBoundaryRoute path={`${match.url}software-comments`} component={SoftwareComments} />
       <ErrorBoundaryRoute path={`${match.url}software-score`} component={SoftwareScore} />
       <ErrorBoundaryRoute path={`${match.url}article`} component={Article} />
-      <ErrorBoundaryRoute path={`${match.url}articl-enclosure`} component={ArticlEnclosure} />
+      <ErrorBoundaryRoute path={`${match.url}article-enclosure`} component={ArticleEnclosure} />
       <ErrorBoundaryRoute path={`${match.url}article-type`} component={ArticleType} />
       <ErrorBoundaryRoute path={`${match.url}article-comment`} component={ArticleComment} />
       <ErrorBoundaryRoute path={`${match.url}wallpaper`} component={Wallpaper} />

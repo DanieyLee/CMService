@@ -26,9 +26,8 @@ Main page styles
 
 .wallpaper-content-text-div-map-img {
   float: left;
-  width: 31.75%;
   height: 220px;
-  margin: 0.75%;
+  margin: 5px 0.75%;
   overflow: hidden;
   border-radius: 5px;
   background-color: #262626;
@@ -69,5 +68,29 @@ Main page styles
     position: absolute;
     bottom: 10px;
     right: 15px;
+  }
+}
+
+@media only screen and (min-width: 1150px){
+  .wallpaper-content-text-div-map-img{
+    width: 23.5%;
+  }
+}
+
+@media only screen and (max-width: 1150px){
+  .wallpaper-content-text-div-map-img{
+    width: 31.83%;
+  }
+}
+
+@media only screen and (max-width: 777px){
+  .wallpaper-content-text-div-map-img{
+    width: 48.5%;
+  }
+}
+
+@media only screen and (max-width: 444px){
+  .wallpaper-content-text-div-map-img{
+    width: 99%;
   }
 }

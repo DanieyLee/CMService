@@ -7,15 +7,15 @@ import { Translate, ICrudGetAllAction, TextFormat, getSortState, IPaginationBase
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { IRootState } from 'app/shared/reducers';
-import { getEntities, reset } from './articl-enclosure.reducer';
-import { IArticlEnclosure } from 'app/shared/model/articl-enclosure.model';
+import { getEntities, reset } from './article-enclosure.reducer';
+import { IArticleEnclosure } from 'app/shared/model/article-enclosure.model';
 import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
 import { ITEMS_PER_PAGE } from 'app/shared/util/pagination.constants';
 import { overridePaginationStateWithQueryParams } from 'app/shared/util/entity-utils';
 
-export interface IArticlEnclosureProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {}
+export interface IArticleEnclosureProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {}
 
-export const ArticlEnclosure = (props: IArticlEnclosureProps) => {
+export const ArticleEnclosure = (props: IArticleEnclosureProps) => {
   const [paginationState, setPaginationState] = useState(
     overridePaginationStateWithQueryParams(getSortState(props.location, ITEMS_PER_PAGE), props.location.search)
   );
@@ -75,15 +75,15 @@ export const ArticlEnclosure = (props: IArticlEnclosureProps) => {
     setSorting(true);
   };
 
-  const { articlEnclosureList, match, loading } = props;
+  const { articleEnclosureList, match, loading } = props;
   return (
     <div>
-      <h2 id="articl-enclosure-heading">
-        <Translate contentKey="cmServiceApp.articlEnclosure.home.title">Articl Enclosures</Translate>
+      <h2 id="article-enclosure-heading">
+        <Translate contentKey="cmServiceApp.articleEnclosure.home.title">Articl Enclosures</Translate>
         <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
           <FontAwesomeIcon icon="plus" />
           &nbsp;
-          <Translate contentKey="cmServiceApp.articlEnclosure.home.createLabel">Create new Articl Enclosure</Translate>
+          <Translate contentKey="cmServiceApp.articleEnclosure.home.createLabel">Create new Articl Enclosure</Translate>
         </Link>
       </h2>
       <div className="table-responsive">
@@ -95,7 +95,7 @@ export const ArticlEnclosure = (props: IArticlEnclosureProps) => {
           threshold={0}
           initialLoad={false}
         >
-          {articlEnclosureList && articlEnclosureList.length > 0 ? (
+          {articleEnclosureList && articleEnclosureList.length > 0 ? (
             <Table responsive>
               <thead>
                 <tr>
@@ -103,81 +103,81 @@ export const ArticlEnclosure = (props: IArticlEnclosureProps) => {
                     <Translate contentKey="global.field.id">ID</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('enclosureURL')}>
-                    <Translate contentKey="cmServiceApp.articlEnclosure.enclosureURL">Enclosure URL</Translate>{' '}
+                    <Translate contentKey="cmServiceApp.articleEnclosure.enclosureURL">Enclosure URL</Translate>{' '}
                     <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('enclosureType')}>
-                    <Translate contentKey="cmServiceApp.articlEnclosure.enclosureType">Enclosure Type</Translate>{' '}
+                    <Translate contentKey="cmServiceApp.articleEnclosure.enclosureType">Enclosure Type</Translate>{' '}
                     <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('createUser')}>
-                    <Translate contentKey="cmServiceApp.articlEnclosure.createUser">Create User</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="cmServiceApp.articleEnclosure.createUser">Create User</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('creatTime')}>
-                    <Translate contentKey="cmServiceApp.articlEnclosure.creatTime">Creat Time</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="cmServiceApp.articleEnclosure.creatTime">Creat Time</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('updateUser')}>
-                    <Translate contentKey="cmServiceApp.articlEnclosure.updateUser">Update User</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="cmServiceApp.articleEnclosure.updateUser">Update User</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('updateTime')}>
-                    <Translate contentKey="cmServiceApp.articlEnclosure.updateTime">Update Time</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="cmServiceApp.articleEnclosure.updateTime">Update Time</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('note')}>
-                    <Translate contentKey="cmServiceApp.articlEnclosure.note">Note</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="cmServiceApp.articleEnclosure.note">Note</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th>
-                    <Translate contentKey="cmServiceApp.articlEnclosure.article">Article</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="cmServiceApp.articleEnclosure.article">Article</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th />
                 </tr>
               </thead>
               <tbody>
-                {articlEnclosureList.map((articlEnclosure, i) => (
+                {articleEnclosureList.map((articleEnclosure, i) => (
                   <tr key={`entity-${i}`}>
                     <td>
-                      <Button tag={Link} to={`${match.url}/${articlEnclosure.id}`} color="link" size="sm">
-                        {articlEnclosure.id}
+                      <Button tag={Link} to={`${match.url}/${articleEnclosure.id}`} color="link" size="sm">
+                        {articleEnclosure.id}
                       </Button>
                     </td>
-                    <td>{articlEnclosure.enclosureURL}</td>
+                    <td>{articleEnclosure.enclosureURL}</td>
                     <td>
-                      <Translate contentKey={`cmServiceApp.FileType.${articlEnclosure.enclosureType}`} />
+                      <Translate contentKey={`cmServiceApp.FileType.${articleEnclosure.enclosureType}`} />
                     </td>
-                    <td>{articlEnclosure.createUser}</td>
+                    <td>{articleEnclosure.createUser}</td>
                     <td>
-                      {articlEnclosure.creatTime ? (
-                        <TextFormat type="date" value={articlEnclosure.creatTime} format={APP_DATE_FORMAT} />
+                      {articleEnclosure.creatTime ? (
+                        <TextFormat type="date" value={articleEnclosure.creatTime} format={APP_DATE_FORMAT} />
                       ) : null}
                     </td>
-                    <td>{articlEnclosure.updateUser}</td>
+                    <td>{articleEnclosure.updateUser}</td>
                     <td>
-                      {articlEnclosure.updateTime ? (
-                        <TextFormat type="date" value={articlEnclosure.updateTime} format={APP_DATE_FORMAT} />
+                      {articleEnclosure.updateTime ? (
+                        <TextFormat type="date" value={articleEnclosure.updateTime} format={APP_DATE_FORMAT} />
                       ) : null}
                     </td>
-                    <td>{articlEnclosure.note}</td>
+                    <td>{articleEnclosure.note}</td>
                     <td>
-                      {articlEnclosure.articleTitle ? (
-                        <Link to={`article/${articlEnclosure.articleId}`}>{articlEnclosure.articleTitle}</Link>
+                      {articleEnclosure.articleTitle ? (
+                        <Link to={`article/${articleEnclosure.articleId}`}>{articleEnclosure.articleTitle}</Link>
                       ) : (
                         ''
                       )}
                     </td>
                     <td className="text-right">
                       <div className="btn-group flex-btn-group-container">
-                        <Button tag={Link} to={`${match.url}/${articlEnclosure.id}`} color="info" size="sm">
+                        <Button tag={Link} to={`${match.url}/${articleEnclosure.id}`} color="info" size="sm">
                           <FontAwesomeIcon icon="eye" />{' '}
                           <span className="d-none d-md-inline">
                             <Translate contentKey="entity.action.view">View</Translate>
                           </span>
                         </Button>
-                        <Button tag={Link} to={`${match.url}/${articlEnclosure.id}/edit`} color="primary" size="sm">
+                        <Button tag={Link} to={`${match.url}/${articleEnclosure.id}/edit`} color="primary" size="sm">
                           <FontAwesomeIcon icon="pencil-alt" />{' '}
                           <span className="d-none d-md-inline">
                             <Translate contentKey="entity.action.edit">Edit</Translate>
                           </span>
                         </Button>
-                        <Button tag={Link} to={`${match.url}/${articlEnclosure.id}/delete`} color="danger" size="sm">
+                        <Button tag={Link} to={`${match.url}/${articleEnclosure.id}/delete`} color="danger" size="sm">
                           <FontAwesomeIcon icon="trash" />{' '}
                           <span className="d-none d-md-inline">
                             <Translate contentKey="entity.action.delete">Delete</Translate>
@@ -192,7 +192,7 @@ export const ArticlEnclosure = (props: IArticlEnclosureProps) => {
           ) : (
             !loading && (
               <div className="alert alert-warning">
-                <Translate contentKey="cmServiceApp.articlEnclosure.home.notFound">No Articl Enclosures found</Translate>
+                <Translate contentKey="cmServiceApp.articleEnclosure.home.notFound">No Articl Enclosures found</Translate>
               </div>
             )
           )}
@@ -202,13 +202,13 @@ export const ArticlEnclosure = (props: IArticlEnclosureProps) => {
   );
 };
 
-const mapStateToProps = ({ articlEnclosure }: IRootState) => ({
-  articlEnclosureList: articlEnclosure.entities,
-  loading: articlEnclosure.loading,
-  totalItems: articlEnclosure.totalItems,
-  links: articlEnclosure.links,
-  entity: articlEnclosure.entity,
-  updateSuccess: articlEnclosure.updateSuccess,
+const mapStateToProps = ({ articleEnclosure }: IRootState) => ({
+  articleEnclosureList: articleEnclosure.entities,
+  loading: articleEnclosure.loading,
+  totalItems: articleEnclosure.totalItems,
+  links: articleEnclosure.links,
+  entity: articleEnclosure.entity,
+  updateSuccess: articleEnclosure.updateSuccess,
 });
 
 const mapDispatchToProps = {
@@ -219,4 +219,4 @@ const mapDispatchToProps = {
 type StateProps = ReturnType<typeof mapStateToProps>;
 type DispatchProps = typeof mapDispatchToProps;
 
-export default connect(mapStateToProps, mapDispatchToProps)(ArticlEnclosure);
+export default connect(mapStateToProps, mapDispatchToProps)(ArticleEnclosure);

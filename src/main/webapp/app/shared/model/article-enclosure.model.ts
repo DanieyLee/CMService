@@ -1,7 +1,7 @@
 import { Moment } from 'moment';
 import { FileType } from 'app/shared/model/enumerations/file-type.model';
 
-export interface IArticlEnclosure {
+export interface IArticleEnclosure {
   id?: number;
   enclosureURL?: string;
   enclosureType?: FileType;
@@ -14,4 +14,4 @@ export interface IArticlEnclosure {
   articleId?: number;
 }
 
-export const defaultValue: Readonly<IArticlEnclosure> = {};
+export const defaultValue: Readonly<IArticleEnclosure> = {};

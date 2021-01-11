@@ -1,5 +1,5 @@
 {
-  "name": "ArticlEnclosure",
+  "name": "ArticleEnclosure",
   "fields": [
     {
       "fieldName": "enclosureURL",
@@ -35,13 +35,13 @@
     {
       "relationshipType": "many-to-one",
       "otherEntityName": "article",
-      "otherEntityRelationshipName": "articlEnclosure",
+      "otherEntityRelationshipName": "articleEnclosure",
       "relationshipName": "article",
       "otherEntityField": "title"
     }
   ],
   "changelogDate": "20201213145725",
-  "entityTableName": "articl_enclosure",
+  "entityTableName": "article_enclosure",
   "dto": "mapstruct",
   "pagination": "infinite-scroll",
   "service": "serviceImpl",

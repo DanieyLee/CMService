@@ -12,12 +12,12 @@ import java.time.Instant;
 import cn.hupig.www.code.cmservice.domain.enumeration.FileType;
 
 /**
- * A ArticlEnclosure.
+ * A ArticleEnclosure.
  */
 @Entity
-@Table(name = "articl_enclosure")
+@Table(name = "article_enclosure")
 @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-public class ArticlEnclosure implements Serializable {
+public class ArticleEnclosure implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -48,7 +48,7 @@ public class ArticlEnclosure implements Serializable {
     private String note;
 
     @ManyToOne
-    @JsonIgnoreProperties(value = "articlEnclosures", allowSetters = true)
+    @JsonIgnoreProperties(value = "ArticleEnclosures", allowSetters = true)
     private Article article;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -64,7 +64,7 @@ public class ArticlEnclosure implements Serializable {
         return enclosureURL;
     }
 
-    public ArticlEnclosure enclosureURL(String enclosureURL) {
+    public ArticleEnclosure enclosureURL(String enclosureURL) {
         this.enclosureURL = enclosureURL;
         return this;
     }
@@ -77,7 +77,7 @@ public class ArticlEnclosure implements Serializable {
         return enclosureType;
     }
 
-    public ArticlEnclosure enclosureType(FileType enclosureType) {
+    public ArticleEnclosure enclosureType(FileType enclosureType) {
         this.enclosureType = enclosureType;
         return this;
     }
@@ -90,7 +90,7 @@ public class ArticlEnclosure implements Serializable {
         return createUser;
     }
 
-    public ArticlEnclosure createUser(String createUser) {
+    public ArticleEnclosure createUser(String createUser) {
         this.createUser = createUser;
         return this;
     }
@@ -103,7 +103,7 @@ public class ArticlEnclosure implements Serializable {
         return creatTime;
     }
 
-    public ArticlEnclosure creatTime(Instant creatTime) {
+    public ArticleEnclosure creatTime(Instant creatTime) {
         this.creatTime = creatTime;
         return this;
     }
@@ -116,7 +116,7 @@ public class ArticlEnclosure implements Serializable {
         return updateUser;
     }
 
-    public ArticlEnclosure updateUser(String updateUser) {
+    public ArticleEnclosure updateUser(String updateUser) {
         this.updateUser = updateUser;
         return this;
     }
@@ -129,7 +129,7 @@ public class ArticlEnclosure implements Serializable {
         return updateTime;
     }
 
-    public ArticlEnclosure updateTime(Instant updateTime) {
+    public ArticleEnclosure updateTime(Instant updateTime) {
         this.updateTime = updateTime;
         return this;
     }
@@ -142,7 +142,7 @@ public class ArticlEnclosure implements Serializable {
         return note;
     }
 
-    public ArticlEnclosure note(String note) {
+    public ArticleEnclosure note(String note) {
         this.note = note;
         return this;
     }
@@ -155,7 +155,7 @@ public class ArticlEnclosure implements Serializable {
         return article;
     }
 
-    public ArticlEnclosure article(Article article) {
+    public ArticleEnclosure article(Article article) {
         this.article = article;
         return this;
     }
@@ -170,10 +170,10 @@ public class ArticlEnclosure implements Serializable {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof ArticlEnclosure)) {
+        if (!(o instanceof ArticleEnclosure)) {
             return false;
         }
-        return id != null && id.equals(((ArticlEnclosure) o).id);
+        return id != null && id.equals(((ArticleEnclosure) o).id);
     }
 
     @Override
@@ -184,7 +184,7 @@ public class ArticlEnclosure implements Serializable {
     // prettier-ignore
     @Override
     public String toString() {
-        return "ArticlEnclosure{" +
+        return "articleEnclosure{" +
             "id=" + getId() +
             ", enclosureURL='" + getEnclosureURL() + "'" +
             ", enclosureType='" + getEnclosureType() + "'" +

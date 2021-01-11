@@ -110,11 +110,40 @@ Main page styles
 .software-list-div {
   border: 1px solid hsla(210,8%,51%,.09)!important;
   float: left;
-  width: 24%;
   height: 320px;
   background-color: #262626;
   border-radius: 5px;
   padding: 20px;
-  margin: 0.5%;
+  margin: 5px 0.5%;
   position: relative;
+}
+
+@media only screen and (min-width: 1200px){
+  .software-list-div{
+    width: 19%;
+  }
+}
+
+@media only screen and (max-width: 1200px){
+  .software-list-div{
+    width: 24%;
+  }
+}
+
+@media only screen and (max-width: 900px){
+  .software-list-div{
+    width: 32.33%;
+  }
+}
+
+@media only screen and (max-width: 666px){
+  .software-list-div{
+    width: 49%;
+  }
+}
+
+@media only screen and (max-width: 444px){
+  .software-list-div{
+    width: 99%;
+  }
 }

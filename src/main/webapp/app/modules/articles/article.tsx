@@ -103,6 +103,12 @@ export const Article = (props: IArticleProps) => {
                         <span>{article.title}</span>
                       </Button>
                     </div>
+                    <div className="table-article-div-right-down">
+                      <img src="content/images/look.svg" alt="look" />
+                      <span>{article.views > 1000 ? article.views.toString().substring(0,article.views.toString().length-3) + "k" : article.views}</span>
+                      <img src="content/images/heart.svg" alt="heart" />
+                      <span>{article.likeNumber > 1000? article.likeNumber.toString().substring(0,article.likeNumber.toString().length-3) + "k" : article.likeNumber}</span>
+                    </div>
                     <div className="table-article-div-right-top">
                       {article.articleTypeType ? article.articleTypeType : ''}
                     </div>
@@ -119,12 +125,6 @@ export const Article = (props: IArticleProps) => {
                           <span>{article.content}</span>
                         </Button>
                       </div>
-                    </div>
-                    <div className="table-article-div-right-down">
-                      <img src="content/images/look.svg" alt="look" />
-                      <span>{article.views > 1000 ? article.views.toString().substring(0,article.views.toString().length-3) + "k" : article.views}</span>
-                      <img src="content/images/heart.svg" alt="heart" />
-                      <span>{article.likeNumber > 1000? article.likeNumber.toString().substring(0,article.likeNumber.toString().length-3) + "k" : article.likeNumber}</span>
                     </div>
                   </div>
                 </div>

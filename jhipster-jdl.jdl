@@ -70,7 +70,7 @@ entity Article {					//文章表
     note String 					//备注
 }
 
-entity ArticlEnclosure {			//文章附件表
+entity ArticleEnclosure {			//文章附件表
     enclosureURL String,			//附件路径
     enclosureType FileType,			//附件类型
     createUser  String,				//创建者
@@ -182,7 +182,7 @@ relationship ManyToOne { //软件的关系
 relationship ManyToOne { //文章的关系
 	Article{articleType(type)} to ArticleType,
     ArticleComment{article(title)} to Article,
-    ArticlEnclosure{article(title)} to Article,
+    articleEnclosure{article(title)} to Article,
     Article{userLink(firstName)} to UserLink,
     ArticleComment{userLink(firstName)} to UserLink
 }
@@ -195,7 +195,7 @@ relationship ManyToOne {
 
 // Set pagination options
 paginate UserLink, SoftwareType,
-		SoftwareScore, ArticlEnclosure,
+		SoftwareScore, articleEnclosure,
         ArticleType, SystemImage with infinite-scroll
 paginate Software, SoftwareComments,
 		Article, ArticleComment,

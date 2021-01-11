@@ -37,9 +37,9 @@ import article, {
   ArticleState
 } from 'app/entities/article/article.reducer';
 // prettier-ignore
-import articlEnclosure, {
-  ArticlEnclosureState
-} from 'app/entities/articl-enclosure/articl-enclosure.reducer';
+import articleEnclosure, {
+  ArticleEnclosureState
+} from 'app/entities/article-enclosure/article-enclosure.reducer';
 // prettier-ignore
 import articleType, {
   ArticleTypeState
@@ -79,7 +79,7 @@ export interface IRootState {
   readonly softwareComments: SoftwareCommentsState;
   readonly softwareScore: SoftwareScoreState;
   readonly article: ArticleState;
-  readonly articlEnclosure: ArticlEnclosureState;
+  readonly articleEnclosure: ArticleEnclosureState;
   readonly articleType: ArticleTypeState;
   readonly articleComment: ArticleCommentState;
   readonly wallpaper: WallpaperState;
@@ -106,7 +106,7 @@ const rootReducer = combineReducers<IRootState>({
   softwareComments,
   softwareScore,
   article,
-  articlEnclosure,
+  articleEnclosure,
   articleType,
   articleComment,
   wallpaper,

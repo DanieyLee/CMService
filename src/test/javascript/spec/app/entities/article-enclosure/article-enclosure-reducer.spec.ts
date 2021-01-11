@@ -14,9 +14,9 @@ import reducer, {
   getEntity,
   updateEntity,
   reset,
-} from 'app/entities/articl-enclosure/articl-enclosure.reducer';
+} from 'app/entities/article-enclosure/article-enclosure.reducer';
 import { REQUEST, SUCCESS, FAILURE } from 'app/shared/reducers/action-type.util';
-import { IArticlEnclosure, defaultValue } from 'app/shared/model/articl-enclosure.model';
+import { IArticleEnclosure, defaultValue } from 'app/shared/model/article-enclosure.model';
 
 describe('Entities reducer tests', () => {
   function isEmpty(element): boolean {
@@ -30,7 +30,7 @@ describe('Entities reducer tests', () => {
   const initialState = {
     loading: false,
     errorMessage: null,
-    entities: [] as ReadonlyArray<IArticlEnclosure>,
+    entities: [] as ReadonlyArray<IArticleEnclosure>,
     entity: defaultValue,
     links: {
       next: 0,
@@ -65,7 +65,7 @@ describe('Entities reducer tests', () => {
 
   describe('Requests', () => {
     it('should set state to loading', () => {
-      testMultipleTypes([REQUEST(ACTION_TYPES.FETCH_ARTICLENCLOSURE_LIST), REQUEST(ACTION_TYPES.FETCH_ARTICLENCLOSURE)], {}, state => {
+      testMultipleTypes([REQUEST(ACTION_TYPES.FETCH_ARTICLEENCLOSURE_LIST), REQUEST(ACTION_TYPES.FETCH_ARTICLEENCLOSURE)], {}, state => {
         expect(state).toMatchObject({
           errorMessage: null,
           updateSuccess: false,
@@ -77,9 +77,9 @@ describe('Entities reducer tests', () => {
     it('should set state to updating', () => {
       testMultipleTypes(
         [
-          REQUEST(ACTION_TYPES.CREATE_ARTICLENCLOSURE),
-          REQUEST(ACTION_TYPES.UPDATE_ARTICLENCLOSURE),
-          REQUEST(ACTION_TYPES.DELETE_ARTICLENCLOSURE),
+          REQUEST(ACTION_TYPES.CREATE_ARTICLEENCLOSURE),
+          REQUEST(ACTION_TYPES.UPDATE_ARTICLEENCLOSURE),
+          REQUEST(ACTION_TYPES.DELETE_ARTICLEENCLOSURE),
         ],
         {},
         state => {
@@ -110,11 +110,11 @@ describe('Entities reducer tests', () => {
     it('should set a message in errorMessage', () => {
       testMultipleTypes(
         [
-          FAILURE(ACTION_TYPES.FETCH_ARTICLENCLOSURE_LIST),
-          FAILURE(ACTION_TYPES.FETCH_ARTICLENCLOSURE),
-          FAILURE(ACTION_TYPES.CREATE_ARTICLENCLOSURE),
-          FAILURE(ACTION_TYPES.UPDATE_ARTICLENCLOSURE),
-          FAILURE(ACTION_TYPES.DELETE_ARTICLENCLOSURE),
+          FAILURE(ACTION_TYPES.FETCH_ARTICLEENCLOSURE_LIST),
+          FAILURE(ACTION_TYPES.FETCH_ARTICLEENCLOSURE),
+          FAILURE(ACTION_TYPES.CREATE_ARTICLEENCLOSURE),
+          FAILURE(ACTION_TYPES.UPDATE_ARTICLEENCLOSURE),
+          FAILURE(ACTION_TYPES.DELETE_ARTICLEENCLOSURE),
         ],
         'error message',
         state => {
@@ -134,7 +134,7 @@ describe('Entities reducer tests', () => {
       const links = parseHeaderForLinks(payload.headers.link);
       expect(
         reducer(undefined, {
-          type: SUCCESS(ACTION_TYPES.FETCH_ARTICLENCLOSURE_LIST),
+          type: SUCCESS(ACTION_TYPES.FETCH_ARTICLEENCLOSURE_LIST),
           payload,
         })
       ).toEqual({
@@ -150,7 +150,7 @@ describe('Entities reducer tests', () => {
       const payload = { data: { 1: 'fake1' } };
       expect(
         reducer(undefined, {
-          type: SUCCESS(ACTION_TYPES.FETCH_ARTICLENCLOSURE),
+          type: SUCCESS(ACTION_TYPES.FETCH_ARTICLEENCLOSURE),
           payload,
         })
       ).toEqual({
@@ -164,7 +164,7 @@ describe('Entities reducer tests', () => {
       const payload = { data: 'fake payload' };
       expect(
         reducer(undefined, {
-          type: SUCCESS(ACTION_TYPES.CREATE_ARTICLENCLOSURE),
+          type: SUCCESS(ACTION_TYPES.CREATE_ARTICLEENCLOSURE),
           payload,
         })
       ).toEqual({
@@ -178,7 +178,7 @@ describe('Entities reducer tests', () => {
     it('should delete entity', () => {
       const payload = 'fake payload';
       const toTest = reducer(undefined, {
-        type: SUCCESS(ACTION_TYPES.DELETE_ARTICLENCLOSURE),
+        type: SUCCESS(ACTION_TYPES.DELETE_ARTICLEENCLOSURE),
         payload,
       });
       expect(toTest).toMatchObject({
@@ -201,65 +201,65 @@ describe('Entities reducer tests', () => {
       axios.delete = sinon.stub().returns(Promise.resolve(resolvedObject));
     });
 
-    it('dispatches ACTION_TYPES.FETCH_ARTICLENCLOSURE_LIST actions', async () => {
+    it('dispatches ACTION_TYPES.FETCH_ARTICLEENCLOSURE_LIST actions', async () => {
       const expectedActions = [
         {
-          type: REQUEST(ACTION_TYPES.FETCH_ARTICLENCLOSURE_LIST),
+          type: REQUEST(ACTION_TYPES.FETCH_ARTICLEENCLOSURE_LIST),
         },
         {
-          type: SUCCESS(ACTION_TYPES.FETCH_ARTICLENCLOSURE_LIST),
+          type: SUCCESS(ACTION_TYPES.FETCH_ARTICLEENCLOSURE_LIST),
           payload: resolvedObject,
         },
       ];
       await store.dispatch(getEntities()).then(() => expect(store.getActions()).toEqual(expectedActions));
     });
 
-    it('dispatches ACTION_TYPES.FETCH_ARTICLENCLOSURE actions', async () => {
+    it('dispatches ACTION_TYPES.FETCH_ARTICLEENCLOSURE actions', async () => {
       const expectedActions = [
         {
-          type: REQUEST(ACTION_TYPES.FETCH_ARTICLENCLOSURE),
+          type: REQUEST(ACTION_TYPES.FETCH_ARTICLEENCLOSURE),
         },
         {
-          type: SUCCESS(ACTION_TYPES.FETCH_ARTICLENCLOSURE),
+          type: SUCCESS(ACTION_TYPES.FETCH_ARTICLEENCLOSURE),
           payload: resolvedObject,
         },
       ];
       await store.dispatch(getEntity(42666)).then(() => expect(store.getActions()).toEqual(expectedActions));
     });
 
-    it('dispatches ACTION_TYPES.CREATE_ARTICLENCLOSURE actions', async () => {
+    it('dispatches ACTION_TYPES.CREATE_ARTICLEENCLOSURE actions', async () => {
       const expectedActions = [
         {
-          type: REQUEST(ACTION_TYPES.CREATE_ARTICLENCLOSURE),
+          type: REQUEST(ACTION_TYPES.CREATE_ARTICLEENCLOSURE),
         },
         {
-          type: SUCCESS(ACTION_TYPES.CREATE_ARTICLENCLOSURE),
+          type: SUCCESS(ACTION_TYPES.CREATE_ARTICLEENCLOSURE),
           payload: resolvedObject,
         },
       ];
       await store.dispatch(createEntity({ id: 1 })).then(() => expect(store.getActions()).toEqual(expectedActions));
     });
 
-    it('dispatches ACTION_TYPES.UPDATE_ARTICLENCLOSURE actions', async () => {
+    it('dispatches ACTION_TYPES.UPDATE_ARTICLEENCLOSURE actions', async () => {
       const expectedActions = [
         {
-          type: REQUEST(ACTION_TYPES.UPDATE_ARTICLENCLOSURE),
+          type: REQUEST(ACTION_TYPES.UPDATE_ARTICLEENCLOSURE),
         },
         {
-          type: SUCCESS(ACTION_TYPES.UPDATE_ARTICLENCLOSURE),
+          type: SUCCESS(ACTION_TYPES.UPDATE_ARTICLEENCLOSURE),
           payload: resolvedObject,
         },
       ];
       await store.dispatch(updateEntity({ id: 1 })).then(() => expect(store.getActions()).toEqual(expectedActions));
     });
 
-    it('dispatches ACTION_TYPES.DELETE_ARTICLENCLOSURE actions', async () => {
+    it('dispatches ACTION_TYPES.DELETE_ARTICLEENCLOSURE actions', async () => {
       const expectedActions = [
         {
-          type: REQUEST(ACTION_TYPES.DELETE_ARTICLENCLOSURE),
+          type: REQUEST(ACTION_TYPES.DELETE_ARTICLEENCLOSURE),
         },
         {
-          type: SUCCESS(ACTION_TYPES.DELETE_ARTICLENCLOSURE),
+          type: SUCCESS(ACTION_TYPES.DELETE_ARTICLEENCLOSURE),
           payload: resolvedObject,
         },
       ];
