@@ -1,0 +1,56 @@
+{
+  "cmServiceApp": {
+    "software": {
+      "home": {
+        "title": "软件",
+        "createLabel": "创建新软件",
+        "createOrEditLabel": "创建或编辑软件",
+        "notFound": "没有找到软件"
+      },
+      "created": "软件 {{ param }} 创建成功",
+      "updated": "软件 {{ param }} 更新成功",
+      "deleted": "软件 {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除软件 {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "软件"
+      },
+      "public": {
+        "title": "全部软件",
+        "content": {
+          "one": "请勿用于",
+          "two": "所有内容均来源于",
+          "three": "，由尤艾网所整理发表，",
+          "four": "着我赞同其观点或证实其内容的真实性。"
+        },
+        "sign": {
+          "one": "非法用途",
+          "two": "互联网",
+          "three": "并不意味"
+        }
+      },
+      "stars": "星标",
+      "name": "软件名称",
+      "explain": "软件简介",
+      "softwareICO": "软件图标",
+      "score": "评分",
+      "size": "大小",
+      "version": "版本",
+      "applySystem": "适用系统",
+      "show": "是否显示",
+      "allow": "是否允许下载",
+      "downloadUrl": "下载地址",
+      "downloadNumber": "下载次数",
+      "browseNumber": "浏览次数",
+      "state": "上架状态",
+      "createUser": "创建者",
+      "creatTime": "创建时间",
+      "updateUser": "修改者",
+      "updateTime": "修改时间",
+      "note": "备注",
+      "softwareType": "软件类型",
+      "userLink": "所属用户"
+    }
+  }
+}

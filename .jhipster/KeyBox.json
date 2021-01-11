@@ -1,0 +1,69 @@
+{
+  "name": "KeyBox",
+  "fields": [
+    {
+      "fieldName": "userAccount",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "password",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "secondPassword",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "loginAddress",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "explain",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "display",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "createUser",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "creatTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "updateUser",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "updateTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "note",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "userLink",
+      "otherEntityRelationshipName": "keyBox",
+      "relationshipName": "userLink",
+      "otherEntityField": "firstName"
+    }
+  ],
+  "changelogDate": "20201213150225",
+  "entityTableName": "key_box",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -1,0 +1,27 @@
+{
+  "cmServiceApp": {
+    "articleType": {
+      "home": {
+        "title": "ArticleTypes",
+        "createLabel": "Article Type を追加",
+        "createOrEditLabel": "Article Typeを追加または編集",
+        "notFound": "No Article Types found"
+      },
+      "created": "A new Article Type is created with identifier {{ param }}",
+      "updated": "A Article Type is updated with identifier {{ param }}",
+      "deleted": "A Article Type is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Article Type {{ id }}を削除してもよろしいですか？"
+      },
+      "detail": {
+        "title": "Article Type"
+      },
+      "type": "Type",
+      "createUser": "Create User",
+      "creatTime": "Creat Time",
+      "updateUser": "Update User",
+      "updateTime": "Update Time",
+      "note": "Note"
+    }
+  }
+}

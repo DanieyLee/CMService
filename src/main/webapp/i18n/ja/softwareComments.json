@@ -1,0 +1,30 @@
+{
+  "cmServiceApp": {
+    "softwareComments": {
+      "home": {
+        "title": "SoftwareComments",
+        "createLabel": "Software Comments を追加",
+        "createOrEditLabel": "Software Commentsを追加または編集",
+        "notFound": "No Software Comments found"
+      },
+      "created": "A new Software Comments is created with identifier {{ param }}",
+      "updated": "A Software Comments is updated with identifier {{ param }}",
+      "deleted": "A Software Comments is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Software Comments {{ id }}を削除してもよろしいですか？"
+      },
+      "detail": {
+        "title": "Software Comments"
+      },
+      "txTitle": "Tx Title",
+      "content": "Content",
+      "createUser": "Create User",
+      "creatTime": "Creat Time",
+      "updateUser": "Update User",
+      "updateTime": "Update Time",
+      "note": "Note",
+      "software": "Software",
+      "userLink": "User Link"
+    }
+  }
+}

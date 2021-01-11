@@ -1,0 +1,78 @@
+{
+  "name": "Article",
+  "fields": [
+    {
+      "fieldName": "title",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "author",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "content",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text"
+    },
+    {
+      "fieldName": "views",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "likeNumber",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "state",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "createUser",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "creatTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "updateUser",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "updateTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "note",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "articleType",
+      "otherEntityRelationshipName": "article",
+      "relationshipName": "articleType",
+      "otherEntityField": "type"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "userLink",
+      "otherEntityRelationshipName": "article",
+      "relationshipName": "userLink",
+      "otherEntityField": "firstName"
+    }
+  ],
+  "changelogDate": "20201213145625",
+  "entityTableName": "article",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

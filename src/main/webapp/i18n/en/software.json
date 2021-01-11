@@ -1,0 +1,56 @@
+{
+  "cmServiceApp": {
+    "software": {
+      "home": {
+        "title": "Software",
+        "createLabel": "Create a new Software",
+        "createOrEditLabel": "Create or edit a Software",
+        "notFound": "No Software found"
+      },
+      "created": "A new Software is created with identifier {{ param }}",
+      "updated": "A Software is updated with identifier {{ param }}",
+      "deleted": "A Software is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Software {{ id }}?"
+      },
+      "detail": {
+        "title": "Software"
+      },
+      "public": {
+        "title": "All Software",
+        "content": {
+          "one": "Do not use for",
+          "two": "All content comes from",
+          "three": ", published by youai.com,",
+          "four": " it means that I agree with its point of view or confirm the authenticity of its content."
+        },
+        "sign": {
+          "one": " illegal use",
+          "two": " internet",
+          "three": " it doesn't mean that"
+        }
+      },
+      "stars": "Stars",
+      "name": "Name",
+      "explain": "Explain",
+      "softwareICO": "Software ICO",
+      "score": "Score",
+      "size": "Size",
+      "version": "Version",
+      "applySystem": "Apply System",
+      "show": "Show",
+      "allow": "Allow",
+      "downloadUrl": "Download Url",
+      "downloadNumber": "Download Number",
+      "browseNumber": "Browse Number",
+      "state": "State",
+      "createUser": "Create User",
+      "creatTime": "Creat Time",
+      "updateUser": "Update User",
+      "updateTime": "Update Time",
+      "note": "Note",
+      "softwareType": "Software Type",
+      "userLink": "User Link"
+    }
+  }
+}

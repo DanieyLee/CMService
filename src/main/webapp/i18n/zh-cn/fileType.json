@@ -1,0 +1,10 @@
+{
+  "cmServiceApp": {
+    "FileType": {
+      "null": "",
+      "IMAGE": "Image",
+      "VIDEO": "Video",
+      "AUDIO": "Audio"
+    }
+  }
+}

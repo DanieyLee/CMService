@@ -1,0 +1,140 @@
+/* ==========================================================================
+Main page styles
+========================================================================== */
+
+.article-home-div {
+  width: 100%;
+}
+
+.table-article-list-div-home {
+  height: 84px;
+  overflow: hidden;
+  display: block;
+  text-overflow: ellipsis;
+  width: 100%;
+  white-space: nowrap;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 10px 4px 13px 4px;
+  position: relative;
+}
+
+.table-article-div-left-top {
+  float: left;
+  padding-left: 0.5rem;
+  a {
+    color: snow;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  a:hover {
+    color: #66d9ef;
+    text-decoration: none;
+  }
+}
+
+.table-article-div-right-top {
+  float: right;
+  padding-right: 1rem;
+  a {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+}
+
+.table-article-div-left-down {
+  padding-left: 1rem;
+  font-weight: 300;
+  font-size: 1rem;
+  width: 100%;
+  img {
+    width: 18px;
+    margin: 0px 8px 3px 0px;
+    float: left;
+  }
+}
+
+.table-article-div-left-down-up {
+  max-width: 15%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  float: left;
+}
+
+.table-article-div-left-down-down {
+  a {
+    max-width: 60%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: 200;
+    font-size: 0.95rem;
+    margin-left: 20px;
+    float: left;
+    color: snow;
+    opacity: 0.8;
+    padding-top: 2px;
+  }
+  a:hover {
+    color: #66d9ef;
+    text-decoration: none;
+  }
+}
+
+.table-article-div-right-down {
+  padding-right: 1rem;
+  font-size: 0.875rem;
+  font-weight: 300;
+  position: absolute;
+  right: 0;
+  bottom: 7px;
+  img {
+    width: 16px;
+    filter: invert(100%);
+    margin: 0px 10px 3px 10px;
+  }
+  span {
+    color: #66d9ef;
+  }
+}
+
+.justify-content-center {
+  margin-top: 50px;
+  font-size: 1rem;
+  li {
+    width: 3rem;
+    height: 3rem;
+    margin: 1rem;
+    a {
+      background-color: #262626 !important;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      border-radius: 5px;
+      text-align: center;
+      color: snow;
+    }
+    a:hover {
+      color: #262626;
+      background-color: #66d9ef !important;
+    }
+  }
+}
+
+.content-separator-list {
+  height: 40px;
+}
+
+.title-content-text-div {
+  margin-left: 0.5rem;
+  color: #fff;
+  font-weight: 200;
+  a span {
+    color: #f48fb1;
+  }
+  h3 {
+    font-weight: 300;
+  }
+  div {
+    font-size: 0.875rem;
+  }
+}

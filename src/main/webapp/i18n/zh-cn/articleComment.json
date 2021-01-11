@@ -1,0 +1,29 @@
+{
+  "cmServiceApp": {
+    "articleComment": {
+      "home": {
+        "title": "Article Comments",
+        "createLabel": "创建新 Article Comment",
+        "createOrEditLabel": "创建或编辑 Article Comment",
+        "notFound": "No Article Comments found"
+      },
+      "created": "Article Comment {{ param }} 创建成功",
+      "updated": "Article Comment {{ param }} 更新成功",
+      "deleted": "Article Comment {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Article Comment {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Article Comment"
+      },
+      "content": "Content",
+      "createUser": "Create User",
+      "creatTime": "Creat Time",
+      "updateUser": "Update User",
+      "updateTime": "Update Time",
+      "note": "Note",
+      "article": "Article",
+      "userLink": "User Link"
+    }
+  }
+}

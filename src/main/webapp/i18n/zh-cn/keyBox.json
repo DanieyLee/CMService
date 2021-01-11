@@ -1,0 +1,47 @@
+{
+  "cmServiceApp": {
+    "keyBox": {
+      "home": {
+        "title": "密码盒子",
+        "createLabel": "创建新密码",
+        "createOrEditLabel": "创建或编辑密码",
+        "notFound": "没有找到密码"
+      },
+      "created": "密码 {{ param }} 创建成功",
+      "updated": "密码 {{ param }} 更新成功",
+      "deleted": "密码 {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除密码 {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "密码盒子"
+      },
+      "public": {
+        "title": "密码仓库",
+        "content": {
+          "one": "提供服务：",
+          "two": "所有密码都已经过",
+          "three": "处理，只提供免费使用，不提供",
+          "four": "，如有问题请与我联系。"
+        },
+        "sign": {
+          "one": "密码储存、快速查找",
+          "two": "特殊加密算法",
+          "three": "技术与保管服务"
+        }
+      },
+      "userAccount": "账号",
+      "password": "密码",
+      "secondPassword": "二级密码",
+      "loginAddress": "访问地址",
+      "explain": "说明",
+      "display": "是否显示",
+      "createUser": "创建者",
+      "creatTime": "创建时间",
+      "updateUser": "修改者",
+      "updateTime": "修改时间",
+      "note": "名称",
+      "userLink": "所属用户"
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "cmServiceApp": {
+    "article": {
+      "home": {
+        "title": "文章",
+        "createLabel": "创建新文章",
+        "createOrEditLabel": "创建或编辑文章",
+        "notFound": "没有找到文章"
+      },
+      "created": "文章 {{ param }} 创建成功",
+      "updated": "文章 {{ param }} 更新成功",
+      "deleted": "文章 {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除文章 {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "文章"
+      },
+      "public": {
+        "title": "全部文章",
+        "content": {
+          "one": "请勿用于",
+          "two": "所有内容均来源于",
+          "three": "，由尤艾网所整理发表，",
+          "four": "着我赞同其观点或证实其内容的真实性。"
+        },
+        "sign": {
+          "one": "非法用途",
+          "two": "互联网",
+          "three": "并不意味"
+        }
+      },
+      "title": "标题",
+      "author": "作者",
+      "content": "内容",
+      "views": "浏览次数",
+      "likeNumber": "喜欢数量",
+      "state": "上架状态",
+      "createUser": "创建者",
+      "creatTime": "创建时间",
+      "updateUser": "修改者",
+      "updateTime": "修改时间",
+      "note": "备注",
+      "articleType": "文章类型",
+      "userLink": "所属用户"
+    }
+  }
+}

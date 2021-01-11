@@ -1,0 +1,29 @@
+{
+  "cmServiceApp": {
+    "softwareScore": {
+      "home": {
+        "title": "SoftwareScores",
+        "createLabel": "Software Score を追加",
+        "createOrEditLabel": "Software Scoreを追加または編集",
+        "notFound": "No Software Scores found"
+      },
+      "created": "A new Software Score is created with identifier {{ param }}",
+      "updated": "A Software Score is updated with identifier {{ param }}",
+      "deleted": "A Software Score is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Software Score {{ id }}を削除してもよろしいですか？"
+      },
+      "detail": {
+        "title": "Software Score"
+      },
+      "score": "Score",
+      "createUser": "Create User",
+      "creatTime": "Creat Time",
+      "updateUser": "Update User",
+      "updateTime": "Update Time",
+      "note": "Note",
+      "software": "Software",
+      "userLink": "User Link"
+    }
+  }
+}

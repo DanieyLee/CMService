@@ -1,0 +1,30 @@
+{
+  "cmServiceApp": {
+    "softwareComments": {
+      "home": {
+        "title": "Software Comments",
+        "createLabel": "创建新 Software Comments",
+        "createOrEditLabel": "创建或编辑 Software Comments",
+        "notFound": "No Software Comments found"
+      },
+      "created": "Software Comments {{ param }} 创建成功",
+      "updated": "Software Comments {{ param }} 更新成功",
+      "deleted": "Software Comments {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Software Comments {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Software Comments"
+      },
+      "txTitle": "Tx Title",
+      "content": "Content",
+      "createUser": "Create User",
+      "creatTime": "Creat Time",
+      "updateUser": "Update User",
+      "updateTime": "Update Time",
+      "note": "Note",
+      "software": "Software",
+      "userLink": "User Link"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "cmServiceApp": {
+    "SystemType": {
+      "null": "",
+      "WIN": "Windows",
+      "LINUX": "Linux",
+      "MACOS": "MacOS",
+      "ANDROID": "Android",
+      "IOS": "Apple"
+    }
+  }
+}

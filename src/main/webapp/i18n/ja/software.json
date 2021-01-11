@@ -1,0 +1,56 @@
+{
+  "cmServiceApp": {
+    "software": {
+      "home": {
+        "title": "ソフトウェア",
+        "createLabel": "ソフトウェアを追加",
+        "createOrEditLabel": "ソフトウェアを追加または編集",
+        "notFound": "ソフトウェアが見つかりませんでした"
+      },
+      "created": "A new Software is created with identifier {{ param }}",
+      "updated": "A Software is updated with identifier {{ param }}",
+      "deleted": "A Software is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "ソフトウェア {{ id }}を削除してもよろしいですか？"
+      },
+      "detail": {
+        "title": "ソフトウェア"
+      },
+      "public": {
+        "title": "すべてのソフトウェア",
+        "content": {
+          "one": "使用しないでください",
+          "two": "すべての内容は",
+          "three": "，ヨモネットで整理して発表します，",
+          "four": " 私はその観点に賛成します。またはその内容の真実性を確認します。"
+        },
+        "sign": {
+          "one": " 不法な用途",
+          "two": " インターネット",
+          "three": "意味ではない"
+        }
+      },
+      "stars": "Stars",
+      "name": "Name",
+      "explain": "Explain",
+      "softwareICO": "Software ICO",
+      "score": "Score",
+      "size": "Size",
+      "version": "Version",
+      "applySystem": "Apply System",
+      "show": "Show",
+      "allow": "Allow",
+      "downloadUrl": "Download Url",
+      "downloadNumber": "Download Number",
+      "browseNumber": "Browse Number",
+      "state": "State",
+      "createUser": "Create User",
+      "creatTime": "Creat Time",
+      "updateUser": "Update User",
+      "updateTime": "Update Time",
+      "note": "Note",
+      "softwareType": "Software Type",
+      "userLink": "User Link"
+    }
+  }
+}

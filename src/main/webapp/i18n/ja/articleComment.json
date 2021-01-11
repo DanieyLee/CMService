@@ -1,0 +1,29 @@
+{
+  "cmServiceApp": {
+    "articleComment": {
+      "home": {
+        "title": "ArticleComments",
+        "createLabel": "Article Comment を追加",
+        "createOrEditLabel": "Article Commentを追加または編集",
+        "notFound": "No Article Comments found"
+      },
+      "created": "A new Article Comment is created with identifier {{ param }}",
+      "updated": "A Article Comment is updated with identifier {{ param }}",
+      "deleted": "A Article Comment is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Article Comment {{ id }}を削除してもよろしいですか？"
+      },
+      "detail": {
+        "title": "Article Comment"
+      },
+      "content": "Content",
+      "createUser": "Create User",
+      "creatTime": "Creat Time",
+      "updateUser": "Update User",
+      "updateTime": "Update Time",
+      "note": "Note",
+      "article": "Article",
+      "userLink": "User Link"
+    }
+  }
+}

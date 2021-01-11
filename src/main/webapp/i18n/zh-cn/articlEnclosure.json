@@ -1,0 +1,29 @@
+{
+  "cmServiceApp": {
+    "articlEnclosure": {
+      "home": {
+        "title": "Articl Enclosures",
+        "createLabel": "创建新 Articl Enclosure",
+        "createOrEditLabel": "创建或编辑 Articl Enclosure",
+        "notFound": "No Articl Enclosures found"
+      },
+      "created": "Articl Enclosure {{ param }} 创建成功",
+      "updated": "Articl Enclosure {{ param }} 更新成功",
+      "deleted": "Articl Enclosure {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Articl Enclosure {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Articl Enclosure"
+      },
+      "enclosureURL": "Enclosure URL",
+      "enclosureType": "Enclosure Type",
+      "createUser": "Create User",
+      "creatTime": "Creat Time",
+      "updateUser": "Update User",
+      "updateTime": "Update Time",
+      "note": "Note",
+      "article": "Article"
+    }
+  }
+}

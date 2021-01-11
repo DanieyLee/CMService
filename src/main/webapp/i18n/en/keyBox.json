@@ -1,0 +1,47 @@
+{
+  "cmServiceApp": {
+    "keyBox": {
+      "home": {
+        "title": "Key Boxes",
+        "createLabel": "Create a new Key Box",
+        "createOrEditLabel": "Create or edit a Key Box",
+        "notFound": "No Key Boxes found"
+      },
+      "created": "A new Key Box is created with identifier {{ param }}",
+      "updated": "A Key Box is updated with identifier {{ param }}",
+      "deleted": "A Key Box is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Key Box {{ id }}?"
+      },
+      "detail": {
+        "title": "Key Box"
+      },
+      "public": {
+        "title": "Key Box",
+        "content": {
+          "one": "Providing services: ",
+          "two": "All passwords have been passed",
+          "three": " handle, Free use only, Not available",
+          "four": ", If you have any questions, please contact me."
+        },
+        "sign": {
+          "one": " Password storage、Quick search",
+          "two": " Special encryption algorithm",
+          "three": " Technology and custody services"
+        }
+      },
+      "userAccount": "User Account",
+      "password": "Password",
+      "secondPassword": "Second Password",
+      "loginAddress": "Login Address",
+      "explain": "Explain",
+      "display": "Display",
+      "createUser": "Create User",
+      "creatTime": "Creat Time",
+      "updateUser": "Update User",
+      "updateTime": "Update Time",
+      "note": "Name",
+      "userLink": "User Link"
+    }
+  }
+}

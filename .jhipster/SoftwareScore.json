@@ -1,0 +1,57 @@
+{
+  "name": "SoftwareScore",
+  "fields": [
+    {
+      "fieldName": "score",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createUser",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "creatTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "updateUser",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "updateTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "note",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "software",
+      "otherEntityRelationshipName": "softwareScore",
+      "relationshipName": "software",
+      "otherEntityField": "name"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "userLink",
+      "otherEntityRelationshipName": "softwareScore",
+      "relationshipName": "userLink",
+      "otherEntityField": "firstName"
+    }
+  ],
+  "changelogDate": "20201213145525",
+  "entityTableName": "software_score",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

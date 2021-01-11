@@ -1,0 +1,173 @@
+{
+  "global": {
+    "title": "尤艾",
+    "browsehappy": "<strong>古い</strong>ブラウザーが使われています。より良い体験を得るために<a href=\"http://browsehappy.com/?locale=en\">ブラウザをアップデート</a>してください。",
+    "menu": {
+      "home": "ホーム",
+      "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
+      "articles": "分かち合う",
+      "softwares": "ソフトウェア",
+      "pictures": "壁紙",
+      "code-boxs": "キーホルダー",
+      "entities": {
+        "main": "エンティティ",
+        "userLink": "ユーザ拡張情報",
+        "software": "ソフトウェア",
+        "softwareType": "ソフトウェアタイプ",
+        "softwareComments": "ソフトウェアコメント",
+        "softwareScore": "ソフトウェアスコア",
+        "article": "記事",
+        "articleEnclosure": "物品囲い",
+        "articleType": "記事タイプ",
+        "articleComment": "記事コメント",
+        "wallpaper": "壁紙",
+        "systemImage": "システムイメージ",
+        "keyBox": "キーボックス",
+        "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
+      },
+      "account": {
+        "main": "私の",
+        "settings": "設定",
+        "password": "パスワード",
+        "sessions": "セッション",
+        "login": "認証",
+        "logout": "ログアウト",
+        "register": "登録"
+      },
+      "admin": {
+        "main": "管理",
+        "userManagement": "ユーザー管理",
+        "tracker": "ユーザートラッカー",
+        "metrics": "メトリクス",
+        "health": "ヘルスステータス",
+        "configuration": "設定",
+        "logs": "ログ",
+        "audits": "監査",
+        "apidocs": "API",
+        "database": "データベース",
+        "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
+      },
+      "language": "言語"
+    },
+    "form": {
+      "username.label": "ユーザー名",
+      "username.placeholder": "ユーザー名",
+      "currentpassword.label": "Current password",
+      "currentpassword.placeholder": "Current password",
+      "newpassword.label": "新しいパスワード",
+      "newpassword.placeholder": "新しいパスワード",
+      "confirmpassword.label": "新しいパスワード(確認)",
+      "confirmpassword.placeholder": "新しいパスワード(確認)",
+      "email.label": "メールアドレス",
+      "email.placeholder": "あなたのメールアドレス"
+    },
+    "messages": {
+      "info": {
+        "authenticated": {
+          "prefix": "口座を持っているなら、直接に行ってもいいです",
+          "link": "認証"
+        },
+        "register": {
+          "noaccount": "もしあなたがまだアカウントを持っていないなら、クリックしてください",
+          "link": "アカウントを登録する"
+        }
+      },
+      "error": {
+        "dontmatch": "パスワードが一致しません!"
+      },
+      "validate": {
+        "newpassword": {
+          "required": "パスワードを入力してください。",
+          "minlength": "パスワードは4文字以上で入力してください。",
+          "maxlength": "パスワードは50文字以下で入力してください。",
+          "strength": "パスワード強度:"
+        },
+        "confirmpassword": {
+          "required": "パスワード(確認)を入力してください。",
+          "minlength": "パスワード(確認)は4文字以上で入力してください。",
+          "maxlength": "パスワード(確認)は50文字以下で入力してください。"
+        },
+        "email": {
+          "required": "メールアドレスを入力してください。",
+          "invalid": "正しいメールアドレスを入力してください。",
+          "minlength": "メールアドレスは5文字以上で入力してください。",
+          "maxlength": "メールアドレスは50文字以下で入力してください。"
+        }
+      }
+    },
+    "field": {
+      "id": "ID"
+    },
+    "ribbon": {
+      "dev": "Development"
+    },
+    "item-count": "表示第 {{first}} - {{second}} バー，共に {{total}} バー"
+  },
+  "entity": {
+    "action": {
+      "addblob": "Add blob",
+      "addimage": "Add image",
+      "back": "戻る",
+      "cancel": "キャンセル",
+      "delete": "削除",
+      "edit": "編集",
+      "open": "Open",
+      "save": "保存",
+      "view": "表示"
+    },
+    "detail": {
+      "field": "フィールド",
+      "value": "値"
+    },
+    "delete": {
+      "title": "削除の確認"
+    },
+    "validation": {
+      "required": "This field is required.",
+      "minlength": "This field is required to be at least {{min}} characters.",
+      "maxlength": "This field cannot be longer than {{max}} characters.",
+      "min": "This field should be more than {{min}}.",
+      "max": "This field cannot be more than {{max}}.",
+      "minbytes": "This field should be more than {{min}} bytes.",
+      "maxbytes": "This field cannot be more than {{max}} bytes.",
+      "pattern": "This field should follow pattern {{pattern}}.",
+      "number": "This field should be a number.",
+      "datetimelocal": "This field should be a date and time."
+    }
+  },
+  "error": {
+    "internalServerError": "Internal server error",
+    "server.not.reachable": "Server not reachable",
+    "url.not.found": "Not found",
+    "NotNull": "Field {{fieldName}} cannot be empty!",
+    "Size": "Field {{fieldName}} does not meet min/max size requirements!",
+    "userexists": "Login name already used!",
+    "emailexists": "Email is already in use!",
+    "idexists": "A new {{entityName}} cannot already have an ID",
+    "idnull": "Invalid ID",
+    "file": {
+      "could.not.extract": "Could not extract file",
+      "not.image": "File was expected to be an image but was found to be \"{{ fileType }}\""
+    }
+  },
+  "footer": {
+    "statement": "免責声明：",
+    "statement.one": "尤艾網が発表した文章、情報、画像、ソフトウェアなどはインターネットから由来しています。尤艾網が整理して発表したものです。その観点に賛成したり、内容の真実性を確認したり、違法用途に使うことを意味していません。",
+    "statement.two": "尤艾ネットはもっと多い情報を伝達することができることを望んで、もっと多い内容を学んで、もし設計、著作権などの問題があるならば、直ちに連絡して下さい。lixin 520 gj@163.comあなたの権利を保証します。ありがとうございます。",
+    "down.cloud": "Yuoai.comスペース & 騰訊雲サービスの利用",
+    "down.icp": "Copyright © 2020 Yuoai.com | 広東ICP準備 2020135022号-1",
+    "down.copyright": "広東省の公共網が整備されている 44030502002265",
+    "share": "分かち合う",
+    "hot.articles": "人気ランキング",
+    "new.articles": "最近リリース",
+    "software": "ソフトウェア",
+    "download.software": "ダウンロード",
+    "new.software": "最近増加しました",
+    "stars.software": "星標",
+    "explain": "説明",
+    "about": "について",
+    "contact": "連絡してください",
+    "help": "ヘルプ",
+    "copyright": "著作権声明"
+  }
+}

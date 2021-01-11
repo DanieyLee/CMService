@@ -1,0 +1,48 @@
+{
+  "cmServiceApp": {
+    "article": {
+      "home": {
+        "title": "Articles",
+        "createLabel": "Create a new Article",
+        "createOrEditLabel": "Create or edit a Article",
+        "notFound": "No Articles found"
+      },
+      "created": "A new Article is created with identifier {{ param }}",
+      "updated": "A Article is updated with identifier {{ param }}",
+      "deleted": "A Article is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Article {{ id }}?"
+      },
+      "detail": {
+        "title": "Article"
+      },
+      "public": {
+        "title": "All Article",
+        "content": {
+          "one": "Do not use for",
+          "two": "All content comes from",
+          "three": ", published by youai.com,",
+          "four": " it means that I agree with its point of view or confirm the authenticity of its content."
+        },
+        "sign": {
+          "one": " illegal use",
+          "two": " internet",
+          "three": " it doesn't mean that"
+        }
+      },
+      "title": "Title",
+      "author": "Author",
+      "content": "Content",
+      "views": "Views",
+      "likeNumber": "Like Number",
+      "state": "State",
+      "createUser": "Create User",
+      "creatTime": "Creat Time",
+      "updateUser": "Update User",
+      "updateTime": "Update Time",
+      "note": "Note",
+      "articleType": "Article Type",
+      "userLink": "User Link"
+    }
+  }
+}

@@ -1,0 +1,69 @@
+/* ==========================================================================
+Main page styles
+========================================================================== */
+.div-width-auto {
+  width: 100%;
+}
+
+.title-content-text-div {
+  margin-left: 0.5rem;
+  color: #fff;
+  font-weight: 200;
+  a span {
+    color: #f48fb1;
+  }
+  h3 {
+    font-weight: 300;
+  }
+  div {
+    font-size: 0.875rem;
+  }
+}
+
+.wallpaper-content-text-div-map-img {
+  float: left;
+  width: 31.75%;
+  height: 220px;
+  margin: 0.75%;
+  overflow: hidden;
+  border-radius: 5px;
+  background-color: #262626;
+  border: 1px solid rgba(120, 130, 140, 0.09) !important;
+  position: relative;
+  img {
+    float: left;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    margin: auto;
+  }
+  a {
+    position: absolute;
+    bottom: 8px;
+    left: 15px;
+    width: 60%;
+    white-space: nowrap;
+    text-align: left;
+    color: snow;
+    font-size: 1rem;
+    padding: 0;
+    div {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+  a:hover {
+    color: #aaa;
+    text-decoration: none;
+  }
+  span {
+    font-weight: 300;
+    font-size: 0.8rem;
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+  }
+}

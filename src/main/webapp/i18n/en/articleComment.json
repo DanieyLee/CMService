@@ -1,0 +1,29 @@
+{
+  "cmServiceApp": {
+    "articleComment": {
+      "home": {
+        "title": "Article Comments",
+        "createLabel": "Create a new Article Comment",
+        "createOrEditLabel": "Create or edit a Article Comment",
+        "notFound": "No Article Comments found"
+      },
+      "created": "A new Article Comment is created with identifier {{ param }}",
+      "updated": "A Article Comment is updated with identifier {{ param }}",
+      "deleted": "A Article Comment is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Article Comment {{ id }}?"
+      },
+      "detail": {
+        "title": "Article Comment"
+      },
+      "content": "Content",
+      "createUser": "Create User",
+      "creatTime": "Creat Time",
+      "updateUser": "Update User",
+      "updateTime": "Update Time",
+      "note": "Note",
+      "article": "Article",
+      "userLink": "User Link"
+    }
+  }
+}

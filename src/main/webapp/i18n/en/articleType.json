@@ -1,0 +1,27 @@
+{
+  "cmServiceApp": {
+    "articleType": {
+      "home": {
+        "title": "Article Types",
+        "createLabel": "Create a new Article Type",
+        "createOrEditLabel": "Create or edit a Article Type",
+        "notFound": "No Article Types found"
+      },
+      "created": "A new Article Type is created with identifier {{ param }}",
+      "updated": "A Article Type is updated with identifier {{ param }}",
+      "deleted": "A Article Type is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Article Type {{ id }}?"
+      },
+      "detail": {
+        "title": "Article Type"
+      },
+      "type": "Type",
+      "createUser": "Create User",
+      "creatTime": "Creat Time",
+      "updateUser": "Update User",
+      "updateTime": "Update Time",
+      "note": "Note"
+    }
+  }
+}

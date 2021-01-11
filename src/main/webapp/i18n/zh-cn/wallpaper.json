@@ -1,0 +1,49 @@
+{
+  "cmServiceApp": {
+    "wallpaper": {
+      "home": {
+        "title": "壁纸",
+        "createLabel": "创建新壁纸",
+        "createOrEditLabel": "创建或编辑壁纸",
+        "notFound": "没有找到壁纸"
+      },
+      "created": "壁纸 {{ param }} 创建成功",
+      "updated": "壁纸 {{ param }} 更新成功",
+      "deleted": "壁纸 {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除壁纸 {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "壁纸"
+      },
+      "public": {
+        "title": "全部壁纸",
+        "content": {
+          "one": "请勿用于",
+          "two": "所有内容均来源于",
+          "three": "，由尤艾网所整理发表，",
+          "four": "着我赞同其观点或证实其内容的真实性。"
+        },
+        "sign": {
+          "one": "非法用途",
+          "two": "互联网",
+          "three": "并不意味"
+        }
+      },
+      "imageName": "图片名",
+      "imageUrl": "图片地址",
+      "imagePixel": "图片分辨率",
+      "imageType": "图片类型",
+      "visitorVolume": "浏览人数",
+      "isDownload": "是否允许下载",
+      "like": "喜欢",
+      "state": "上架状态",
+      "createUser": "创建者",
+      "creatTime": "创建时间",
+      "updateUser": "修改者",
+      "updateTime": "修改时间",
+      "note": "备注",
+      "userLink": "所属用户"
+    }
+  }
+}

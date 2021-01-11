@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity KeyBox.
+    -->
+    <changeSet id="20201213150225-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="user_link_id"
+                                 baseTableName="key_box"
+                                 constraintName="fk_key_box_user_link_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="user_link"/>
+
+    </changeSet>
+</databaseChangeLog>

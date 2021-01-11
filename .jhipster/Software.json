@@ -1,0 +1,111 @@
+{
+  "name": "Software",
+  "fields": [
+    {
+      "fieldName": "stars",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "explain",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "softwareICO",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    },
+    {
+      "fieldName": "score",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "size",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "version",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "applySystem",
+      "fieldType": "SystemType",
+      "fieldValues": "WIN (Windows),LINUX (Linux),MACOS (MacOS),ANDROID (Android),IOS (Apple)"
+    },
+    {
+      "fieldName": "show",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "allow",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "downloadUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "downloadNumber",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "browseNumber",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "state",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "createUser",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "creatTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "updateUser",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "updateTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "note",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "softwareType",
+      "otherEntityRelationshipName": "software",
+      "relationshipName": "softwareType",
+      "otherEntityField": "type"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "userLink",
+      "otherEntityRelationshipName": "software",
+      "relationshipName": "userLink",
+      "otherEntityField": "firstName"
+    }
+  ],
+  "changelogDate": "20201213145225",
+  "entityTableName": "software",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

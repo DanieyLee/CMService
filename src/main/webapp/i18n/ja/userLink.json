@@ -1,0 +1,27 @@
+{
+  "cmServiceApp": {
+    "userLink": {
+      "home": {
+        "title": "UserLinks",
+        "createLabel": "User Link を追加",
+        "createOrEditLabel": "User Linkを追加または編集",
+        "notFound": "No User Links found"
+      },
+      "created": "A new User Link is created with identifier {{ param }}",
+      "updated": "A User Link is updated with identifier {{ param }}",
+      "deleted": "A User Link is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "User Link {{ id }}を削除してもよろしいですか？"
+      },
+      "detail": {
+        "title": "User Link"
+      },
+      "firstName": "First Name",
+      "sex": "Sex",
+      "age": "Age",
+      "theme": "Theme",
+      "passwordKey": "Password Key",
+      "user": "User"
+    }
+  }
+}

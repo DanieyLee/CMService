@@ -1,0 +1,48 @@
+{
+  "cmServiceApp": {
+    "article": {
+      "home": {
+        "title": "文章",
+        "createLabel": "文章を追加",
+        "createOrEditLabel": "文章を追加または編集",
+        "notFound": "記事が見つかりませんでした"
+      },
+      "created": "A new Article is created with identifier {{ param }}",
+      "updated": "A Article is updated with identifier {{ param }}",
+      "deleted": "A Article is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "文章 {{ id }}を削除してもよろしいですか？"
+      },
+      "detail": {
+        "title": "文章"
+      },
+      "public": {
+        "title": "すべての記事",
+        "content": {
+          "one": "使用しないでください",
+          "two": "すべての内容は",
+          "three": "，ヨモネットで整理して発表します，",
+          "four": " 私はその観点に賛成します。またはその内容の真実性を確認します。"
+        },
+        "sign": {
+          "one": " 不法な用途",
+          "two": " インターネット",
+          "three": "意味ではない"
+        }
+      },
+      "title": "Title",
+      "author": "Author",
+      "content": "Content",
+      "views": "Views",
+      "likeNumber": "Like Number",
+      "state": "State",
+      "createUser": "Create User",
+      "creatTime": "Creat Time",
+      "updateUser": "Update User",
+      "updateTime": "Update Time",
+      "note": "Note",
+      "articleType": "Article Type",
+      "userLink": "User Link"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "cmServiceApp": {
+    "systemImage": {
+      "home": {
+        "title": "System Images",
+        "createLabel": "Create a new System Image",
+        "createOrEditLabel": "Create or edit a System Image",
+        "notFound": "No System Images found"
+      },
+      "created": "A new System Image is created with identifier {{ param }}",
+      "updated": "A System Image is updated with identifier {{ param }}",
+      "deleted": "A System Image is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete System Image {{ id }}?"
+      },
+      "detail": {
+        "title": "System Image"
+      },
+      "imageURL": "Image URL",
+      "imageType": "Image Type",
+      "createUser": "Create User",
+      "creatTime": "Creat Time",
+      "updateUser": "Update User",
+      "updateTime": "Update Time",
+      "note": "Note",
+      "userLink": "User Link"
+    }
+  }
+}

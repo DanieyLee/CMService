@@ -1,0 +1,29 @@
+{
+  "cmServiceApp": {
+    "softwareScore": {
+      "home": {
+        "title": "Software Scores",
+        "createLabel": "创建新 Software Score",
+        "createOrEditLabel": "创建或编辑 Software Score",
+        "notFound": "No Software Scores found"
+      },
+      "created": "Software Score {{ param }} 创建成功",
+      "updated": "Software Score {{ param }} 更新成功",
+      "deleted": "Software Score {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Software Score {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Software Score"
+      },
+      "score": "Score",
+      "createUser": "Create User",
+      "creatTime": "Creat Time",
+      "updateUser": "Update User",
+      "updateTime": "Update Time",
+      "note": "Note",
+      "software": "Software",
+      "userLink": "User Link"
+    }
+  }
+}

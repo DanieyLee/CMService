@@ -1,0 +1,211 @@
+entity UserLink {					//用户的扩展信息
+    firstName String required,		//用户昵称
+    sex Boolean,					//性别
+    age	Long,						//年龄
+    theme String,					//主题
+    passwordKey Long min(6)			//密码盒子加密用的key
+}
+
+entity Software {					//软件表
+    stars Boolean,					//星标软件
+    name String required,			//软件名称
+    explain String,					//软件简介
+    softwareICO ImageBlob,			//软件图标
+    score Double,					//评分
+    size Long,						//大小
+    version String,					//版本
+    applySystem SystemType,			//适用系统
+    show Boolean,					//是否显示
+    allow Boolean,					//是否允许下载
+    downloadUrl String,				//下载地址
+    downloadNumber Long,			//下载次数
+    browseNumber Long,				//浏览次数
+    state Boolean,					//上架状态
+    createUser  String,				//创建者
+    creatTime Instant,				//创建时间
+    updateUser  String,				//修改者
+    updateTime Instant,				//修改时间
+    note String 					//备注
+}
+
+entity SoftwareType {				//软件分类表
+    type String required unique,	//类型
+    createUser  String,				//创建者
+    creatTime Instant,				//创建时间
+    updateUser  String,				//修改者
+    updateTime Instant,				//修改时间
+    note String 					//备注
+}
+
+entity SoftwareComments{			//软件评论表
+    txTitle String required,		//评论标题
+    content String required,		//评论内容
+    createUser  String,				//创建者
+    creatTime Instant,				//创建时间
+    updateUser  String,				//修改者
+    updateTime Instant,				//修改时间
+    note String 					//备注
+}
+
+entity SoftwareScore{				//软件评分表
+    score Double required,			//评分
+    createUser  String,				//创建者
+    creatTime Instant,				//创建时间
+    updateUser  String,				//修改者
+    updateTime Instant,				//修改时间
+    note String 					//备注
+}
+
+entity Article {					//文章表
+    title String required,			//文章标题
+    author String,					//作者
+    content TextBlob,				//文章内容
+    views Long,						//浏览次数
+    likeNumber Long,				//喜欢数量
+    state Boolean,					//上架状态
+    createUser  String,				//创建者
+    creatTime Instant,				//创建时间
+    updateUser  String,				//修改者
+    updateTime Instant,				//修改时间
+    note String 					//备注
+}
+
+entity ArticlEnclosure {			//文章附件表
+    enclosureURL String,			//附件路径
+    enclosureType FileType,			//附件类型
+    createUser  String,				//创建者
+    creatTime Instant,				//创建时间
+    updateUser  String,				//修改者
+    updateTime Instant,				//修改时间
+    note String 					//备注
+}
+
+entity ArticleType {				//文章类型表
+    type String required unique,	//类型
+    createUser  String,				//创建者
+    creatTime Instant,				//创建时间
+    updateUser  String,				//修改者
+    updateTime Instant,				//修改时间
+    note String 					//备注
+}
+
+entity ArticleComment {				//文章评论表
+    content String,					//评论内容
+    createUser  String,				//创建者
+    creatTime Instant,				//创建时间
+    updateUser  String,				//修改者
+    updateTime Instant,				//修改时间
+    note String 					//备注
+}
+
+entity Wallpaper{ 					//壁纸表
+    imageName String,				//图片名
+    imageUrl String required, 		//图片地址
+    imagePixel String, 				//图片分辨率
+    imageType ImageType, 			//图片类型
+    visitorVolume Integer, 			//浏览人数
+    isDownload  Boolean, 			//是否允许下载
+    like Long,    					//喜欢
+    state Boolean,					//上架状态
+    createUser  String,				//创建者
+    creatTime Instant,				//创建时间
+    updateUser  String,				//修改者
+    updateTime Instant,				//修改时间
+    note String 					//备注
+}
+
+entity SystemImage {				//系统图片表，用来储存图标，等系统用图的
+    imageURL String required,		//图片在服务器的路径
+    imageType ImageType,			//图片类型
+    createUser  String,				//创建者
+    creatTime Instant,				//创建时间
+    updateUser  String,				//修改者
+    updateTime Instant,				//修改时间
+    note String 					//备注
+}
+
+entity KeyBox {						//密码盒子
+    userAccount String,				//账号
+    password String,				//密码
+    secondPassword String, 			//二级密码
+    loginAddress String,			//地址
+    explain String,					//说明
+    display Boolean,				//是否显示
+    createUser  String,				//创建者
+    creatTime Instant,				//创建时间
+    updateUser  String,				//修改者
+    updateTime Instant,				//修改时间
+    note String 					//备注
+}
+
+enum SystemType {
+	WIN (Windows),
+    LINUX (Linux),
+    MACOS (MacOS),
+    ANDROID (Android),
+    IOS (Apple)
+}
+
+enum FileType {
+	IMAGE (Image),
+	VIDEO (Video),
+	AUDIO (Audio)
+}
+
+enum ImageType {
+    PNG (png),
+    JPG (jpg),
+    JPEG (jpeg),
+    BMP (bmp),
+    GIF (gif),
+    PSD (psd),
+    AI (ai),
+    CDR (cdr),
+    PCD (pcd),
+    SVG (svg),
+    RAW (raw)
+}
+
+relationship OneToOne { //用来做系统用户关联
+	UserLink{user(login)} to User
+}
+
+relationship ManyToOne { //软件的关系
+	Software{softwareType(type)} to SoftwareType,
+	SoftwareScore{software(name)} to Software,
+	SoftwareComments{software(name)} to Software,
+	Software{userLink(firstName)} to UserLink,
+	SoftwareScore{userLink(firstName)} to UserLink,
+	SoftwareComments{userLink(firstName)} to UserLink
+}
+
+relationship ManyToOne { //文章的关系
+	Article{articleType(type)} to ArticleType,
+    ArticleComment{article(title)} to Article,
+    ArticlEnclosure{article(title)} to Article,
+    Article{userLink(firstName)} to UserLink,
+    ArticleComment{userLink(firstName)} to UserLink
+}
+
+relationship ManyToOne {
+    Wallpaper{userLink(firstName)} to UserLink,
+    SystemImage{userLink(firstName)} to UserLink,
+    KeyBox{userLink(firstName)} to UserLink
+}
+
+// Set pagination options
+paginate UserLink, SoftwareType,
+		SoftwareScore, ArticlEnclosure,
+        ArticleType, SystemImage with infinite-scroll
+paginate Software, SoftwareComments,
+		Article, ArticleComment,
+        Wallpaper, KeyBox with pagination
+
+// Use Data Transfer Objects (DTO)
+dto all with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

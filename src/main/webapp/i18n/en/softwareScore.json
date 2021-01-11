@@ -1,0 +1,29 @@
+{
+  "cmServiceApp": {
+    "softwareScore": {
+      "home": {
+        "title": "Software Scores",
+        "createLabel": "Create a new Software Score",
+        "createOrEditLabel": "Create or edit a Software Score",
+        "notFound": "No Software Scores found"
+      },
+      "created": "A new Software Score is created with identifier {{ param }}",
+      "updated": "A Software Score is updated with identifier {{ param }}",
+      "deleted": "A Software Score is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Software Score {{ id }}?"
+      },
+      "detail": {
+        "title": "Software Score"
+      },
+      "score": "Score",
+      "createUser": "Create User",
+      "creatTime": "Creat Time",
+      "updateUser": "Update User",
+      "updateTime": "Update Time",
+      "note": "Note",
+      "software": "Software",
+      "userLink": "User Link"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "cmServiceApp": {
+    "softwareType": {
+      "home": {
+        "title": "SoftwareTypes",
+        "createLabel": "Software Type を追加",
+        "createOrEditLabel": "Software Typeを追加または編集",
+        "notFound": "No Software Types found"
+      },
+      "created": "A new Software Type is created with identifier {{ param }}",
+      "updated": "A Software Type is updated with identifier {{ param }}",
+      "deleted": "A Software Type is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Software Type {{ id }}を削除してもよろしいですか？"
+      },
+      "detail": {
+        "title": "Software Type"
+      },
+      "type": "Type",
+      "createUser": "Create User",
+      "creatTime": "Creat Time",
+      "updateUser": "Update User",
+      "updateTime": "Update Time",
+      "note": "Note"
+    }
+  }
+}

@@ -1,0 +1,173 @@
+{
+  "global": {
+    "title": "尤艾",
+    "browsehappy": "您目前使用<strong>过于老旧</strong>的浏览器, 建议您<a href=\"http://browsehappy.com/?locale=en\">升级浏览器</a>让您有更佳的上网体验.",
+    "menu": {
+      "home": "首页",
+      "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
+      "articles": "分享",
+      "softwares": "文件下载",
+      "pictures": "美图",
+      "code-boxs": "密码盒子",
+      "entities": {
+        "main": "实体",
+        "userLink": "用户扩展信息",
+        "software": "软件",
+        "softwareType": "软件类型",
+        "softwareComments": "软件评论",
+        "softwareScore": "软件评分",
+        "article": "文章",
+        "articleEnclosure": "文章附件",
+        "articleType": "文章类型",
+        "articleComment": "文章评论",
+        "wallpaper": "壁纸",
+        "systemImage": "系统图片",
+        "keyBox": "钥匙盒子",
+        "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
+      },
+      "account": {
+        "main": "我的",
+        "settings": "信息修改",
+        "password": "修改密码",
+        "sessions": "会话",
+        "login": "登录",
+        "logout": "退出",
+        "register": "注册"
+      },
+      "admin": {
+        "main": "管理",
+        "userManagement": "用户管理",
+        "tracker": "追踪使用者",
+        "metrics": "资源监控",
+        "health": "服务状态",
+        "configuration": "配置",
+        "logs": "日志",
+        "audits": "审核",
+        "apidocs": "API",
+        "database": "数据库",
+        "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
+      },
+      "language": "语言"
+    },
+    "form": {
+      "username.label": "账号",
+      "username.placeholder": "您的账号",
+      "currentpassword.label": "当前密码",
+      "currentpassword.placeholder": "您的当前密码",
+      "newpassword.label": "新密码",
+      "newpassword.placeholder": "您的新密码",
+      "confirmpassword.label": "新密码确认",
+      "confirmpassword.placeholder": "确认您的新密码",
+      "email.label": "电子邮件",
+      "email.placeholder": "您的电子邮件"
+    },
+    "messages": {
+      "info": {
+        "authenticated": {
+          "prefix": "如果你已经有账户了，可以直接",
+          "link": "登录"
+        },
+        "register": {
+          "noaccount": "如果你还没有账号，点击",
+          "link": "注册账户"
+        }
+      },
+      "error": {
+        "dontmatch": "您输入的密码和确认密码不匹配!"
+      },
+      "validate": {
+        "newpassword": {
+          "required": "您的密码是必填项.",
+          "minlength": "您的密码长度至少要有4个字符",
+          "maxlength": "您的密码长度不能超过50个字符",
+          "strength": "密码强度:"
+        },
+        "confirmpassword": {
+          "required": "您的确认密码是必填项.",
+          "minlength": "您的确认密码长度至少要有4个字符",
+          "maxlength": "您的确认密码长度不能超过50个字符"
+        },
+        "email": {
+          "required": "您的电子邮件是必填项.",
+          "invalid": "您的电子邮件格式格式不正确.",
+          "minlength": "您的电子邮件长度至少要有5个字符",
+          "maxlength": "您的电子邮件长度不能超过50个字符"
+        }
+      }
+    },
+    "field": {
+      "id": "ID"
+    },
+    "ribbon": {
+      "dev": "Development"
+    },
+    "item-count": "显示第 {{first}} - {{second}} 条，共 {{total}} 条"
+  },
+  "entity": {
+    "action": {
+      "addblob": "增加 BLOB",
+      "addimage": "增加图片",
+      "back": "返回",
+      "cancel": "取消",
+      "delete": "删除",
+      "edit": "编辑",
+      "open": "Open",
+      "save": "保存",
+      "view": "查看"
+    },
+    "detail": {
+      "field": "字段",
+      "value": "值"
+    },
+    "delete": {
+      "title": "确认删除"
+    },
+    "validation": {
+      "required": "本字段不能为空.",
+      "minlength": "本字段最短长度为 {{min}} 个字符.",
+      "maxlength": "本字段最大长度为 {{max}} 个字符.",
+      "min": "本字段不能小于 {{min}}.",
+      "max": "本字段不能大于 {{max}}.",
+      "minbytes": "本字段不少于 {{min}} 字符.",
+      "maxbytes": "本字段不多余 {{max}} 字符.",
+      "pattern": "本字段必须符合模式 {{pattern}}.",
+      "number": "本字段必须为数字.",
+      "datetimelocal": "本字段必须为日期和时间."
+    }
+  },
+  "error": {
+    "internalServerError": "Internal server error",
+    "server.not.reachable": "服务器无法访问",
+    "url.not.found": "Not found",
+    "NotNull": "域 {{fieldName}} 不能为空!",
+    "Size": "域 {{fieldName}} 不满足最大/最小值限制!",
+    "userexists": "该用户名已存在!",
+    "emailexists": "该邮箱已被使用!",
+    "idexists": "新建的 {{entityName}} 不能包含ID",
+    "idnull": "Invalid ID",
+    "file": {
+      "could.not.extract": "Could not extract file",
+      "not.image": "File was expected to be an image but was found to be \"{{ fileType }}\""
+    }
+  },
+  "footer": {
+    "statement": "免责声明：",
+    "statement.one": "尤艾网所发布的文章、信息、图片、软件等来源于互联网，由尤艾网所整理发表，并不意味着我赞同其观点或证实其内容的真实性以及用于违法用途。",
+    "statement.two": "尤艾网希望能传递更多的信息，学习更多的内容，如有设计、版权等问题，请立即联系lixin520gj@163.com，我会更改或删除相关文章，保证您的权利，谢谢。",
+    "down.cloud": "Yuoai.com 空间 & 使用腾讯云服务",
+    "down.icp": "Copyright © 2020 Yuoai.com | 粤ICP备 2020135022号-1",
+    "down.copyright": "粤公网安备 44030502002265号",
+    "share": "分享",
+    "hot.articles": "热推排行榜",
+    "new.articles": "最近发布",
+    "software": "软件",
+    "download.software": "下载榜",
+    "new.software": "最近新增",
+    "stars.software": "星标",
+    "explain": "说明",
+    "about": "关于",
+    "contact": "联系我",
+    "help": "帮助",
+    "copyright": "版权声明"
+  }
+}

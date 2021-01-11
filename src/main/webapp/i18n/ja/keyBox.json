@@ -1,0 +1,47 @@
+{
+  "cmServiceApp": {
+    "keyBox": {
+      "home": {
+        "title": "キーボックス",
+        "createLabel": "キーを追加",
+        "createOrEditLabel": "キーを追加または編集",
+        "notFound": "キーボックスが見つかりません"
+      },
+      "created": "新しいキーボックスが識別子 {{ param }}",
+      "updated": "キーボックスは識別子で更新されます {{ param }}",
+      "deleted": "キーボックスは識別子で削除されます {{ param }}",
+      "delete": {
+        "question": "キーボックス {{ id }}を削除してもよろしいですか？"
+      },
+      "detail": {
+        "title": "キーボックス"
+      },
+      "public": {
+        "title": "パスワード倉庫",
+        "content": {
+          "one": "サービスを提供する：",
+          "two": "すべてのパスワードはもう済みました",
+          "three": " 処理，無料でご利用いただけます，提供しない",
+          "four": "，問題があれば連絡してください。"
+        },
+        "sign": {
+          "one": "パスワードの保存、クイック検索",
+          "two": " 特殊暗号化アルゴリズム",
+          "three": " 技術と保管サービス"
+        }
+      },
+      "userAccount": "アカウント",
+      "password": "パスワード",
+      "secondPassword": "二番目 パスワード",
+      "loginAddress": "ログインアドレス",
+      "explain": "説明する",
+      "display": "ディスプレイ",
+      "createUser": "ユーザーの作成",
+      "creatTime": "クリート時間",
+      "updateUser": "更新ユーザー",
+      "updateTime": "更新時間",
+      "note": "名前",
+      "userLink": "ユーザーリンク"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "cn.hupig.www.code.cmservice",
+      "nativeLanguage": "zh-cn"
+    },
+    "jhipsterVersion": "6.10.5",
+    "applicationType": "monolith",
+    "baseName": "CMService",
+    "packageName": "cn.hupig.www.code.cmservice",
+    "packageFolder": "cn/hupig/www/code/cmservice",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "YjIyNjg4Y2NjOGIzZTIxOTA5ZTRlODY3NDc2MDJkODZlNjQwY2Y0MWFhNmZhMGFkNWE3YmQxN2NhNzI1OWZhYzEwZGYxZTViNzhiZTYzMmEyOWRhMjM1ODIwM2U1NDNhZDdmYmQ5M2RjNWRlYjE0OTAxODQ2NmZiMzE2OGFmZWQ=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "react",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "creationTimestamp": 1606895201090,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "zh-cn",
+    "languages": ["zh-cn", "en", "ja"],
+    "blueprints": []
+  }
+}

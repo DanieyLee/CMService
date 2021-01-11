@@ -1,0 +1,79 @@
+{
+  "name": "Wallpaper",
+  "fields": [
+    {
+      "fieldName": "imageName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "imageUrl",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "imagePixel",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "imageType",
+      "fieldType": "ImageType",
+      "fieldValues": "PNG (png),JPG (jpg),JPEG (jpeg),BMP (bmp),GIF (gif),PSD (psd),AI (ai),CDR (cdr),PCD (pcd),SVG (svg),RAW (raw)"
+    },
+    {
+      "fieldName": "visitorVolume",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "isDownload",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "like",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "state",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "createUser",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "creatTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "updateUser",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "updateTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "note",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "userLink",
+      "otherEntityRelationshipName": "wallpaper",
+      "relationshipName": "userLink",
+      "otherEntityField": "firstName"
+    }
+  ],
+  "changelogDate": "20201213150025",
+  "entityTableName": "wallpaper",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

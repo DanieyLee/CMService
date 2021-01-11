@@ -1,0 +1,29 @@
+{
+  "cmServiceApp": {
+    "articlEnclosure": {
+      "home": {
+        "title": "Articl Enclosures",
+        "createLabel": "Create a new Articl Enclosure",
+        "createOrEditLabel": "Create or edit a Articl Enclosure",
+        "notFound": "No Articl Enclosures found"
+      },
+      "created": "A new Articl Enclosure is created with identifier {{ param }}",
+      "updated": "A Articl Enclosure is updated with identifier {{ param }}",
+      "deleted": "A Articl Enclosure is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Articl Enclosure {{ id }}?"
+      },
+      "detail": {
+        "title": "Articl Enclosure"
+      },
+      "enclosureURL": "Enclosure URL",
+      "enclosureType": "Enclosure Type",
+      "createUser": "Create User",
+      "creatTime": "Creat Time",
+      "updateUser": "Update User",
+      "updateTime": "Update Time",
+      "note": "Note",
+      "article": "Article"
+    }
+  }
+}
