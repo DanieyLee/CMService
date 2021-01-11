@@ -29,7 +29,7 @@ export const App = (props: IAppProps) => {
     props.getProfile();
   }, []);
 
-  const paddingTop = '60px';
+  const paddingTop = '0px';
   return (
     <Router basename={baseHref}>
       <div className="app-container" style={{ paddingTop }}>

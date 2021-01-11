@@ -21,10 +21,16 @@ Main page styles
 .table-article-div-left-top {
   float: left;
   padding-left: 0.5rem;
+  width: 60%;
   a {
     color: snow;
     font-size: 1rem;
     font-weight: 600;
+    width: 100%;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   a:hover {
     color: #66d9ef;
@@ -88,7 +94,8 @@ Main page styles
   font-weight: 300;
   position: absolute;
   right: 0;
-  bottom: 7px;
+  top: 16px;
+  max-width: 150px;
   img {
     width: 16px;
     filter: invert(100%);
@@ -130,6 +137,10 @@ Main page styles
   font-weight: 200;
   a span {
     color: #f48fb1;
+  }
+  a span:hover {
+    color: #ff4343;
+    text-decoration: none;
   }
   h3 {
     font-weight: 300;

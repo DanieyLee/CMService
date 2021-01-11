@@ -9,6 +9,10 @@ Main page styles
   a span {
     color: #f48fb1;
   }
+  a span:hover {
+    color: #ff4343;
+    text-decoration: none;
+  }
   h3 {
     font-weight: 300;
   }
@@ -16,6 +20,8 @@ Main page styles
     font-size: 0.875rem;
   }
 }
+
+
 
 .software-list-div-title {
   padding: 0px;

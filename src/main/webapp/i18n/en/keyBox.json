@@ -34,13 +34,13 @@
       "password": "Password",
       "secondPassword": "Second Password",
       "loginAddress": "Login Address",
-      "explain": "Explain",
+      "explain": "Name",
       "display": "Display",
       "createUser": "Create User",
       "creatTime": "Creat Time",
       "updateUser": "Update User",
       "updateTime": "Update Time",
-      "note": "Name",
+      "note": "Remarks",
       "userLink": "User Link"
     }
   }

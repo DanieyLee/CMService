@@ -67,7 +67,7 @@ export const KeyBox = (props: IKeyBoxProps) => {
 
   const changeFilter = evt => setFilter(evt.target.value);
 
-  const propsFilterFn = configProp => configProp.prefix.toUpperCase().includes(filter.toUpperCase());
+  const filterFn = l => l.explain.toUpperCase().includes(filter.toUpperCase());
 
   const { keyBoxList, match, loading, totalItems } = props;
   return (
@@ -94,37 +94,48 @@ export const KeyBox = (props: IKeyBoxProps) => {
         </div>
       </div>
       <div className="table-responsive">
-        <div>
-          <span>
-            <Translate contentKey="configuration.filter">Filter</Translate>
-          </span>{' '}
+        <div className="table-responsive-filter">
           <Input type="search" value={filter} onChange={changeFilter} name="search" id="search" />
-          <label>Spring configuration</label>
+          <div>
+            <Translate contentKey="configuration.filter">Filter</Translate>
+          </div>
         </div>
         {keyBoxList && keyBoxList.length > 0 ? (
             <div className="table-responsive-div-all-keybos">
-              {keyBoxList.filter(propsFilterFn)
+              {keyBoxList.filter(filterFn)
                 .map((keyBox, i) => (
                 <div key={`entity-${i}`} className="table-responsive-div-all-keybos-map-table">
-                  <Button tag={Link} to={`${match.url}/${keyBox.id}`} color="link" size="sm">
-                    <div>{keyBox.explain}</div>
+                  <div className="table-responsive-div-all-keybos-time">
+                    {keyBox.updateTime ?
+                    <TextFormat type="date" value={keyBox.updateTime} format={APP_LOCAL_DATE_FORMAT_ZH_CN} /> : null}
+                  </div>
+                  <Button className="table-responsive-clear table-responsive-title" tag={Link} to={`${match.url}/${keyBox.id}`} color="link" size="sm">
+                    <span>{keyBox.explain}</span>
                   </Button>
-                  <div>{keyBox.userAccount}</div>
                   <div>
-                    <div>
+                    <Translate contentKey="cmServiceApp.keyBox.userAccount">UserAccount</Translate>{": "}
+                    <span>{keyBox.userAccount}</span>
+                  </div>
+                  <div>
+                    <span>
+                      <Translate contentKey="cmServiceApp.keyBox.password">Password</Translate>{": "}
                       <span>{keyBox.display ? "******" : keyBox.password}</span>
-                      <FontAwesomeIcon icon="eye" />
-                    </div>
-                    <div>
+                    </span>
+                    {' '}
+                    <span>
+                      <Translate contentKey="cmServiceApp.keyBox.secondPassword">SecondPassword</Translate>{": "}
                       <span>{keyBox.display ? "******" : keyBox.secondPassword}</span>
                       <FontAwesomeIcon icon="eye" />
-                    </div>
+                    </span>
                   </div>
-                  <a href={`${keyBox.loginAddress}`} >{keyBox.loginAddress}</a>
-                  <div>{keyBox.note}</div>
-
-                  <div>{keyBox.creatTime ? <TextFormat type="date" value={keyBox.creatTime} format={APP_LOCAL_DATE_FORMAT_ZH} /> : null}</div>
-                  <div>{keyBox.updateTime ? <TextFormat type="date" value={keyBox.updateTime} format={APP_LOCAL_DATE_FORMAT_ZH_CN} /> : null}</div>
+                  <div>
+                    <Translate contentKey="cmServiceApp.keyBox.loginAddress">LoginAddress</Translate>{": "}
+                    <a className="table-responsive-clear table-responsive-a-address" href={"http://" + keyBox.loginAddress} >{keyBox.loginAddress}</a>
+                  </div>
+                  <div>
+                    <Translate contentKey="cmServiceApp.keyBox.note">Note</Translate>{": "}
+                    <span>{keyBox.note}</span>
+                  </div>
                   <div className="text-center table-responsive-div-all-keybos-margin">
                     <div className="btn-group flex-btn-group-container">
                       <Button

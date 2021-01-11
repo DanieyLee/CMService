@@ -34,13 +34,13 @@
       "password": "密码",
       "secondPassword": "二级密码",
       "loginAddress": "访问地址",
-      "explain": "说明",
+      "explain": "名称",
       "display": "是否显示",
       "createUser": "创建者",
       "creatTime": "创建时间",
       "updateUser": "修改者",
       "updateTime": "修改时间",
-      "note": "名称",
+      "note": "备注",
       "userLink": "所属用户"
     }
   }

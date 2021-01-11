@@ -6,6 +6,10 @@ Main page styles
   font-size: 1.75rem;
   margin-left: 0.5rem;
   margin-bottom: 0.5rem;
+  a {
+    height: 2rem;
+    padding: 3px 12px;
+  }
 }
 
 .key-box-heading-title-div {
@@ -16,6 +20,10 @@ Main page styles
   a {
     color: #f48fb1;
   }
+  a span:hover {
+    color: #ff4343;
+    text-decoration: none;
+  }
 }
 
 .table-responsive-div-all-keybos {
@@ -25,22 +33,69 @@ Main page styles
 }
 
 .table-responsive-div-all-keybos-map-table {
-  width: 23%;
-  height: 300px;
+  width: 100%;
   float: left;
   border: 1px solid hsla(210,8%,51%,.09)!important;
-  text-align: center;
+  text-align: left;
   margin: 1%;
   background-color: #262626;
   border-radius: 5px;
   padding: 5px;
   position: relative;
+  font-size: 0.95rem;
+}
+
+.table-responsive-clear {
+  color: #ffffff;
+  font-size: 0.95rem;
+  text-align: left;
+  padding: 0;
+  font-weight: 400;
 }
 
 .table-responsive-div-all-keybos-margin {
-  margin: 10px auto;
   position: absolute;
   bottom: 5px;
-  width: 100%;
-  right: 0;
+  right: calc(1% + 5px);
+}
+
+.table-responsive-filter {
+  width: 98%;
+  height: calc(1.5em + 0.75rem + 2px);
+  margin: 10px 1%;
+  input {
+    width: 49%;
+    float: left;
+    min-width: 280px;
+    background-color: #eeeeee;
+    border: 1px solid hsla(210,8%,51%,.09);
+  }
+  span {
+    float: left;
+    padding: 7px;
+  }
+}
+
+.table-responsive-div-all-keybos-time {
+  float: right;
+  margin: 0px 1% 0px 5px;
+}
+
+.table-responsive-title {
+  font-size: 1.2rem;
+  color: #66d9ef;
+}
+
+.table-responsive-title:hover {
+  color: #0070ff;
+  text-decoration: none;
+}
+
+.table-responsive-a-address {
+  color: #f48fb1;
+}
+
+.table-responsive-a-address:hover {
+  color: #ff4343;
+  text-decoration: none;
 }

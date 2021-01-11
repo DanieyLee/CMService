@@ -12,6 +12,10 @@ Main page styles
   a span {
     color: #f48fb1;
   }
+  a span:hover {
+    color: #ff4343;
+    text-decoration: none;
+  }
   h3 {
     font-weight: 300;
   }

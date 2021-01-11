@@ -34,13 +34,13 @@
       "password": "パスワード",
       "secondPassword": "二番目 パスワード",
       "loginAddress": "ログインアドレス",
-      "explain": "説明する",
+      "explain": "名前",
       "display": "ディスプレイ",
       "createUser": "ユーザーの作成",
       "creatTime": "クリート時間",
       "updateUser": "更新ユーザー",
       "updateTime": "更新時間",
-      "note": "名前",
+      "note": "コメント",
       "userLink": "ユーザーリンク"
     }
   }
