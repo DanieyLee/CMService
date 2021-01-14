@@ -7,3 +7,12 @@ Main page styles
   height: 497px;
   background-size: contain;
 }
+
+.alert-warning {
+  border: 1px solid rgba(120, 130, 140, 0.09);
+  background-color: #262626;
+  color: #ccc;
+  .alert-link {
+    color: #fff;
+  }
+}

@@ -1,0 +1,148 @@
+.home-explain-about {
+  text-align: center;
+  margin-top: 80px;
+  .lead {
+    font-weight: 400;
+    font-size: 18px;
+  }
+  h2 {
+    margin: 30px auto;
+  }
+}
+
+.home-explain-about-text {
+  border: 1px solid rgba(120, 130, 140, 0.09);
+  background-color: #262626;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 60px auto;
+  white-space: pre-line;
+  width: 80%;
+  max-width: 650px;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 72px;
+}
+
+.home-explain-contact {
+  text-align: center;
+  margin-top: 80px;
+  .lead {
+    font-weight: 400;
+    font-size: 18px;
+  }
+  h2 {
+    margin: 30px auto;
+  }
+}
+
+.home-explain-contact-text-email {
+  width: 80%;
+  margin: 0 auto;
+  overflow: hidden;
+  display: block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  div {
+    width: 80%;
+    float: left;
+    min-width: 180px;
+    input {
+      border-radius: 0.25rem 0rem 0rem 0.25rem;
+      height: 3rem;
+      padding-left: 28px;
+    }
+  }
+}
+
+.home-explain-contact-text-button {
+  width: 20%;
+  float: right;
+  margin-left: auto;
+  padding: 6px 0px;
+  min-width: 40px;
+  border-radius: 0rem 0.25rem 0.25rem 0rem;
+  height: 3rem;
+}
+
+.home-explain-contact-qrcode-div {
+  margin: 40px auto;
+}
+
+.home-explain-contact-img {
+  width: 40%;
+  margin: 10px;
+  border-radius: 0.25rem;
+  min-width: 230px;
+  max-width: 300px;
+}
+
+.home-explain-help {
+  text-align: left;
+  margin-top: 50px;
+  white-space: pre-line;
+  padding: 0 20px;
+  .lead {
+    font-weight: 400;
+    font-size: 14px;
+  }
+  h2 {
+    margin: 30px auto;
+  }
+}
+
+.home-explain-help-text {
+  font-size: 1rem;
+  color: #f48fb1;
+}
+
+.home-explain-help-text-table {
+  width: 90%;
+  margin: 10px auto;
+  text-align: left;
+  overflow: hidden;
+  border-radius: 0.25rem;
+  background-color: #262626;
+}
+
+.home-explain-help-text-table-div {
+  display:table;
+  width: 100%;
+  word-wrap: break-word;
+  white-space: normal;
+  word-break:break-all;
+  div {
+    border: 1px solid rgba(120, 130, 140, 0.09);
+    width: 70%;
+    padding: 15px;
+    display: table-cell
+  }
+  div:first-child {
+    width: 30%;
+    display: table-cell
+  }
+}
+
+.home-explain-copyright {
+  text-align: left;
+  margin-top: 50px;
+  white-space: pre-line;
+  padding: 0 20px;
+  h2 {
+    margin: 30px auto;
+  }
+}
+
+.home-explain-copyright-text {
+  border: 1px solid rgba(120, 130, 140, 0.09);
+  background-color: #262626;
+  border-radius: 5px;
+  padding: 20px;
+  margin: 60px auto;
+  white-space: pre-line;
+  width: 100%;
+  max-width: 1200px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 50px;
+}

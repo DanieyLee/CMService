@@ -17,12 +17,12 @@ export const Brand = props => (
   <div className="footer-title-div">
     <tbody>
       <tr>
-        <NavbarBrand tag={Link} to="/" className="f-flex brand-logo">
+        <div className="f-flex brand-logo">
           <BrandIcon />
           <span className="footer-title">
             <Translate contentKey="global.title">CMService</Translate>
           </span>
-        </NavbarBrand>
+        </div>
       </tr>
       <tr>
         <div className="footer-brand-tr-div">
@@ -50,11 +50,11 @@ export const Articles = props => (
   <div className="footer-div">
     <tbody>
       <tr>
-        <NavLink tag={Link} to="/articles" className="f-flex align-items-center">
+        <div className="f-flex align-items-center">
           <span className="footer-title-span">
             <Translate contentKey="footer.share">Share</Translate>
           </span>
-        </NavLink>
+        </div>
       </tr>
       <tr>
         <NavLink tag={Link} to="/articles" className="f-flex align-items-center">
@@ -83,11 +83,11 @@ export const Softwares = props => (
   <div className="footer-div">
     <tbody>
       <tr>
-        <NavLink tag={Link} to="/softwares" className="f-flex align-items-center">
+        <div className="f-flex align-items-center">
           <span className="footer-title-span">
             <Translate contentKey="footer.software">Software</Translate>
           </span>
-        </NavLink>
+        </div>
       </tr>
       <tr>
         <NavLink tag={Link} to="/softwares" className="f-flex align-items-center">
@@ -123,35 +123,35 @@ export const Explain = props => (
   <div className="footer-div">
     <tbody>
       <tr>
-        <NavLink tag={Link} to="/softwares" className="f-flex align-items-center">
+        <div className="f-flex align-items-center">
           <span className="footer-title-span">
             <Translate contentKey="footer.explain">Explain</Translate>
           </span>
-        </NavLink>
+        </div>
       </tr>
       <tr>
-        <NavLink tag={Link} to="/softwares" className="f-flex align-items-center">
+        <NavLink tag={Link} to="/about" className="f-flex align-items-center">
           <span>
             <Translate contentKey="footer.about">About</Translate>
           </span>
         </NavLink>
       </tr>
       <tr>
-        <NavLink tag={Link} to="/softwares" className="f-flex align-items-center">
+        <NavLink tag={Link} to="/contact" className="f-flex align-items-center">
           <span>
             <Translate contentKey="footer.contact">Contact</Translate>
           </span>
         </NavLink>
       </tr>
       <tr>
-        <NavLink tag={Link} to="/softwares" className="f-flex align-items-center">
+        <NavLink tag={Link} to="/help" className="f-flex align-items-center">
           <span>
             <Translate contentKey="footer.help">Help</Translate>
           </span>
         </NavLink>
       </tr>
       <tr>
-        <NavLink tag={Link} to="/softwares" className="f-flex align-items-center">
+        <NavLink tag={Link} to="/copyright" className="f-flex align-items-center">
           <span>
             <Translate contentKey="footer.copyright">Copyright</Translate>
           </span>

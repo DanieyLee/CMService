@@ -13,6 +13,10 @@ import Articles from 'app/modules/articles/articles';
 import Softwares from 'app/modules/softwares/softwares';
 import Pictures from 'app/modules/pictures/pictures';
 import CodeBoxs from 'app/modules/code-boxs/code-boxs';
+import About from 'app/modules/explain/explain-about';
+import Contact from 'app/modules/explain/explain-contact';
+import Help from 'app/modules/explain/explain-help';
+import Copyright from 'app/modules/explain/explain-copyright';
 import Entities from 'app/entities';
 import PrivateRoute from 'app/shared/auth/private-route';
 import ErrorBoundaryRoute from 'app/shared/error/error-boundary-route';
@@ -50,6 +54,10 @@ const Routes = () => (
       <ErrorBoundaryRoute exact path={`/softwares/:id`} component={SoftwaresDetail} />
       <ErrorBoundaryRoute path="/pictures" exact component={Pictures} />
       <ErrorBoundaryRoute exact path={`/pictures/:id`} component={WallpaperDetail} />
+      <ErrorBoundaryRoute path="/about" exact component={About} />
+      <ErrorBoundaryRoute path="/contact" exact component={Contact} />
+      <ErrorBoundaryRoute path="/help" exact component={Help} />
+      <ErrorBoundaryRoute path="/copyright" exact component={Copyright} />
       <PrivateRoute path="/code-boxs" exact component={CodeBoxs} hasAnyAuthorities={[AUTHORITIES.USER]} />
       <PrivateRoute path="/" component={Entities} hasAnyAuthorities={[AUTHORITIES.USER]} />
       <ErrorBoundaryRoute component={PageNotFound} />

@@ -11,10 +11,6 @@ $header-color-hover: darken($header-color, 20%);
   font-size: 1.2rem;
   color: #fff;
   font-weight: 400;
-  &:hover {
-    color: $header-color-hover;
-    text-decoration: none;
-  }
 }
 
 .footer-image-div {
