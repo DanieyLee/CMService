@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import cn.hupig.www.code.cmservice.service.ArticleService;
+import cn.hupig.www.code.cmservice.service.Rewrite_ArticleService;
 import cn.hupig.www.code.cmservice.service.dto.ArticleDTO;
 import io.github.jhipster.web.util.PaginationUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -38,10 +38,10 @@ public class Rewrite_ArticleResource {
     @Value("${jhipster.clientApp.name}")
     private String applicationName;
 
-    private final ArticleService articleService;
+    private final Rewrite_ArticleService rewrite_ArticleService;
 
-    public Rewrite_ArticleResource(ArticleService articleService) {
-        this.articleService = articleService;
+    public Rewrite_ArticleResource(Rewrite_ArticleService rewrite_ArticleService) {
+        this.rewrite_ArticleService = rewrite_ArticleService;
     }
 
     /**
@@ -51,10 +51,10 @@ public class Rewrite_ArticleResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of articles in body.
      */
     @GetMapping("/public/articles")
-    @ApiOperation(value = "查询所有文章-无权限-带分页")
+    @ApiOperation(value = "查询所有文章-无权限-带分页-只查上架的")
     public ResponseEntity<List<ArticleDTO>> getAllArticles(Pageable pageable) {
         log.debug("REST request to get a page of Articles");
-        Page<ArticleDTO> page = articleService.findAll(pageable);
+        Page<ArticleDTO> page = rewrite_ArticleService.findAllState(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
@@ -69,7 +69,7 @@ public class Rewrite_ArticleResource {
     @ApiOperation(value = "查询单个文章-无权限")
     public ResponseEntity<ArticleDTO> getArticle(@PathVariable Long id) {
         log.debug("REST request to get Article : {}", id);
-        Optional<ArticleDTO> articleDTO = articleService.findOne(id);
+        Optional<ArticleDTO> articleDTO = rewrite_ArticleService.findOneState(id);
         return ResponseUtil.wrapOrNotFound(articleDTO);
     }
 
