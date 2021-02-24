@@ -10,18 +10,30 @@ import { IRootState } from 'app/shared/reducers';
 
 export type IHomeProp = StateProps;
 
+export const BrandIcon = props => (
+  <div {...props} className="brand-icon">
+    <img src="content/images/logo-jhipster.svg" alt="Logo" />
+  </div>
+);
+
 export const Home = (props: IHomeProp) => {
   const { account } = props;
 
   return (
     <Row>
       <Col md="12">
-        <h2>
-          <Translate contentKey="home.title">Welcome, Java Hipster!</Translate>
-        </h2>
-        <p className="lead">
-          <Translate contentKey="home.subtitle">This is your homepage</Translate>
-        </p>
+        <div className="home-top-01">
+          <BrandIcon />
+          <h2>
+            <Translate contentKey="home.title">Welcome, Java Hipster!</Translate>
+          </h2>
+          <p className="lead">
+            <Translate contentKey="home.subtitle">This is your homepage</Translate>
+          </p>
+        </div>
+
+
+
         {account && account.login ? (
           <div>
             <Alert color="success">
@@ -48,6 +60,7 @@ export const Home = (props: IHomeProp) => {
           </div>
         )}
         <p></p>
+
       </Col>
     </Row>
   );

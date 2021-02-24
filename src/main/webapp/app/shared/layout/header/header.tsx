@@ -57,7 +57,7 @@ const Header = (props: IHeaderProps) => {
               <Articles />
               <Softwares />
               <Pictures />
-              <CodeBoxs />
+              {/*<CodeBoxs />*/}
             </div>
             <div className="header-label-text-login">
               <AccountMenu isAuthenticated={props.isAuthenticated} />

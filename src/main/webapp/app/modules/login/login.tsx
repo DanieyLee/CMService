@@ -1,3 +1,5 @@
+import './login.scss';
+
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Redirect, RouteComponentProps } from 'react-router-dom';

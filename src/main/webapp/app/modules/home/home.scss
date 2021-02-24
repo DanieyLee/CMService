@@ -16,3 +16,19 @@ Main page styles
     color: #fff;
   }
 }
+
+.home-top-01 {
+  width: 90%;
+  margin: 0 auto;
+  border: 1px solid red;
+  padding: 128px 24px;
+  text-align: left;
+  align-items: flex-start;
+  flex-direction: row;
+  max-width: 960px;
+  .brand-icon {
+    width: 195px;
+    height: 175px;
+    margin-right: 64px;
+  }
+}
