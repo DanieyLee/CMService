@@ -69,7 +69,7 @@
         },
         "register": {
           "noaccount": "如果你还没有账号，点击",
-          "link": "注册账户"
+          "link": "注册"
         }
       },
       "error": {

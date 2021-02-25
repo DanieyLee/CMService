@@ -18,17 +18,86 @@ Main page styles
 }
 
 .home-top-01 {
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
-  border: 1px solid red;
-  padding: 128px 24px;
+  padding: 128px 0px 68px 0px;
   text-align: left;
   align-items: flex-start;
   flex-direction: row;
-  max-width: 960px;
+  max-width: 1024px;
+  overflow: hidden;
   .brand-icon {
-    width: 195px;
-    height: 175px;
-    margin-right: 64px;
+    width: 309px;
+    height: 118px;
+    margin-right: 34px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
+}
+
+.home-top-02 {
+  width: calc(100% - 333px);
+  float: right;
+  min-width: 300px;
+  p {
+    text-indent:2em;
+  }
+}
+
+.home-login-div {
+  margin: 0 auto;
+  text-align: center;
+  width: auto;
+  border: 0;
+  background-color: transparent;
+}
+
+.home-login-div-span {
+  width: 110px;
+  background-color: #fff;
+  border: 1px solid rgba(120, 130, 140, 0.09);
+  padding: 4px 12px;
+  font-size: 0.85rem;
+  font-weight: 200;
+  span {
+    color: #000;
+  }
+}
+.radius-left {
+  border-radius: 5px 0px 0px 5px;
+}
+
+.radius-right {
+  border-radius: 0px 5px 5px 0px;
+}
+
+.home-logged-message-div {
+  width: auto;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 300px;
+  font-weight: 300;
+}
+
+.home-login-low {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.home-login-low-text {
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.66;
+  letter-spacing: 0.03333em;
+  margin-top: 10px;
+}
+.home-login-low-text-github {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.43;
+  letter-spacing: 0.01071em;
+  color: #1f69c0;
+  margin-top: 5px;
 }
