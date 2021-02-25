@@ -15,6 +15,7 @@ import java.util.Optional;
 @SuppressWarnings("unused")
 @Repository
 public interface ArticleRepository extends JpaRepository<Article, Long> {
+	
 	Page<Article> findAllByState(Pageable pageable, Boolean state);
 	
 	Optional<Article> findByIdAndState(Long id, Boolean state);

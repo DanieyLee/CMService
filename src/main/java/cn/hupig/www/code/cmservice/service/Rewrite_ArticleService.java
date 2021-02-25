@@ -21,6 +21,15 @@ public interface Rewrite_ArticleService {
     Page<ArticleDTO> findAllState(Pageable pageable);
 
     /**
+     * Get top10 the articles.
+     *
+     * @param pageable the pagination information.
+     * @return the list of entities.
+     */
+    Page<ArticleDTO> findTopState();
+
+    
+    /**
      * Get the "id" article.
      *
      * @param id the id of the entity.

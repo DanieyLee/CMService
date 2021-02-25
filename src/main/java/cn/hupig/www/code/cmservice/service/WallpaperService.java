@@ -28,6 +28,13 @@ public interface WallpaperService {
      */
     Page<WallpaperDTO> findAll(Pageable pageable);
 
+    /**
+     * Get top the wallpapers.
+     *
+     * @param pageable the pagination information.
+     * @return the list of entities.
+     */
+    Page<WallpaperDTO> findTop();
 
     /**
      * Get the "id" wallpaper.

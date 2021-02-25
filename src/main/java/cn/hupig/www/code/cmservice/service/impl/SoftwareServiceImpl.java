@@ -9,7 +9,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -45,6 +47,15 @@ public class SoftwareServiceImpl implements SoftwareService {
     @Transactional(readOnly = true)
     public Page<SoftwareDTO> findAll(Pageable pageable) {
         log.debug("Request to get all Software");
+        return softwareRepository.findAll(pageable)
+            .map(softwareMapper::toDto);
+    }
+    
+    @Override
+    @Transactional(readOnly = true)
+    public Page<SoftwareDTO> findTop() {
+        log.debug("Request to get all Software");
+        Pageable pageable = PageRequest.of(0, 12,Sort.Direction.DESC,"updateTime");
         return softwareRepository.findAll(pageable)
             .map(softwareMapper::toDto);
     }

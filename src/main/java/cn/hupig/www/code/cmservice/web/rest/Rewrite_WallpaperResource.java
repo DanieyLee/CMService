@@ -58,6 +58,21 @@ public class Rewrite_WallpaperResource {
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
+    
+    /**
+     * {@code GET  /wallpapers} : get top4 the wallpapers.
+     *
+     * @param pageable the pagination information.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of wallpapers in body.
+     */
+    @GetMapping("/public/wallpapers/top")
+    @ApiOperation(value = "查询4张壁纸-无权限-带分页")
+    public ResponseEntity<List<WallpaperDTO>> getTopWallpapers() {
+        log.debug("REST request to get a page of Wallpapers");
+        Page<WallpaperDTO> page = wallpaperService.findTop();
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
 
     /**
      * {@code GET  /wallpapers/:id} : get the "id" wallpaper.

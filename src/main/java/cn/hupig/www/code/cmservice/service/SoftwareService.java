@@ -28,6 +28,14 @@ public interface SoftwareService {
      */
     Page<SoftwareDTO> findAll(Pageable pageable);
 
+    /**
+     * Get top the software.
+     *
+     * @param pageable the pagination information.
+     * @return the list of entities.
+     */
+    Page<SoftwareDTO> findTop();
+
 
     /**
      * Get the "id" software.

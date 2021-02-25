@@ -1,0 +1,81 @@
+/* ==========================================================================
+Main page styles
+========================================================================== */
+
+.software-top-title {
+  font-size: 1.2rem;
+  margin: 0 auto;
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.software-top-down-list {
+  float: left;
+  margin: 10px 2%;
+  border: 1px solid rgba(120, 130, 140, 0.09);
+  border-radius: 5px;
+  background-color: #272c34;
+  padding: 6px;
+  text-align: center;
+}
+
+.software-home-top-list-button{
+  padding: 0px;
+  img{
+    width: 80px;
+    height: 80px;
+  }
+}
+
+.software-home-top-list-div{
+  margin: 2px auto;
+  a {
+    padding: 0px;
+    color: snow;
+    width: 80px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.75rem;
+  }
+}
+
+.software-home-top {
+  height: 520px;
+  white-space: nowrap;
+  overflow:hidden;
+  text-overflow: ellipsis;
+}
+
+
+@media only screen and (min-width: 1200px){
+  .software-top-down-list{
+    width: 21%;
+  }
+}
+
+@media only screen and (max-width: 1200px){
+  .software-top-down-list{
+    width: 29.2%;
+  }
+}
+
+@media only screen and (max-width: 900px){
+  .software-top-down-list{
+    width: 46%;
+  }
+}
+
+@media only screen and (max-width: 560px){
+  .software-top-down-list{
+    width: 100%;
+  }
+}
+
+.software-home-top-height {
+  height: 460px;
+  white-space: nowrap;
+  overflow:hidden;
+  text-overflow: ellipsis;
+}

@@ -60,6 +60,21 @@ public class Rewrite_SoftwareResource {
     }
     
     /**
+     * {@code GET  /software} : get top12 the software.
+     *
+     * @param pageable the pagination information.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of software in body.
+     */
+    @GetMapping("/public/software/top")
+    @ApiOperation(value = "查询12个软件-无权限")
+    public ResponseEntity<List<SoftwareDTO>> getSoftware() {
+        log.debug("REST request to get a page of Software");
+        Page<SoftwareDTO> page = softwareService.findTop();
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+    
+    /**
      * {@code GET  /software/:id} : get the "id" software.
      *
      * @param id the id of the softwareDTO to retrieve.

@@ -5,7 +5,9 @@ import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -37,6 +39,15 @@ public class Rewrite_ArticleServiceImpl implements Rewrite_ArticleService {
     @Transactional(readOnly = true)
     public Page<ArticleDTO> findAllState(Pageable pageable) {
         log.debug("Request to get all Articles");
+        return articleRepository.findAllByState(pageable, true)
+            .map(articleMapper::toDto);
+    }
+    
+    @Override
+    @Transactional(readOnly = true)
+    public Page<ArticleDTO> findTopState() {
+        log.debug("Request to get all Articles");
+        Pageable pageable = PageRequest.of(0, 8,Sort.Direction.DESC,"updateTime");
         return articleRepository.findAllByState(pageable, true)
             .map(articleMapper::toDto);
     }

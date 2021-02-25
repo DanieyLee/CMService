@@ -60,6 +60,21 @@ public class Rewrite_ArticleResource {
     }
     
     /**
+     * {@code GET  /articles} : get top8 the articles.
+     *
+     * @param pageable the pagination information.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of articles in body.
+     */
+    @GetMapping("/public/articles/top")
+    @ApiOperation(value = "查询8篇文章-无权限-只查上架的")
+    public ResponseEntity<List<ArticleDTO>> getTopArticles() {
+        log.debug("REST request to get a page of Articles");
+        Page<ArticleDTO> page = rewrite_ArticleService.findTopState();
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
+    }
+    
+    /**
      * {@code GET  /articles/:id} : get the "id" article.
      *
      * @param id the id of the articleDTO to retrieve.

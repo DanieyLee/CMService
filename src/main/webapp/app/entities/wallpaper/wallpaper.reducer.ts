@@ -117,6 +117,14 @@ export const getPublicEntities: ICrudGetAllAction<IWallpaper> = (page, size, sor
   };
 };
 
+export const getTopPublicEntities: ICrudGetAllAction<IWallpaper> = () => {
+  const requestUrl = `api/public/wallpapers/top`;
+  return {
+    type: ACTION_TYPES.FETCH_WALLPAPER_LIST,
+    payload: axios.get<IWallpaper>(requestUrl),
+  };
+};
+
 export const getEntity: ICrudGetAction<IWallpaper> = id => {
   const requestUrl = `${apiUrl}/${id}`;
   return {

@@ -6,7 +6,13 @@ import { Translate } from 'react-jhipster';
 import { connect } from 'react-redux';
 import { Row, Col, Alert, Button } from 'reactstrap';
 
+import ErrorBoundaryRoute from 'app/shared/error/error-boundary-route';
+
 import { IRootState } from 'app/shared/reducers';
+import Articles from 'app/modules/articles/article-list';
+import Softwares from 'app/modules/softwares/software-list';
+import Wallpaper from 'app/modules/pictures/wallpaper-list';
+import { Frame, Service } from './home-components';
 
 export type IHomeProp = StateProps;
 
@@ -20,7 +26,7 @@ export const Home = (props: IHomeProp) => {
           <img src="content/images/yuoai.png" alt="Logo" />
           <div className="home-top-02">
             <h3>
-              <Translate contentKey="home.title">Welcome, Java Hipster!</Translate>
+              <Translate contentKey="home.title">Welcome</Translate>
             </h3>
             <p>
               <Translate contentKey="home.subtitle">This is your homepage</Translate>
@@ -50,9 +56,28 @@ export const Home = (props: IHomeProp) => {
           </Alert>
         )}
         <div className="home-login-low">
-          <div className="home-login-low-text">本项目使用Jhipster框架开发</div>
-          <div className="home-login-low-text-github">项目稍后会在github开源</div>
+          <div className="home-login-low-text">
+            <Translate contentKey="home.like">Like</Translate>
+          </div>
+          <div className="home-login-low-text-github">
+            <Translate contentKey="home.github">Github</Translate>
+          </div>
         </div>
+        <div className="home-article-and-software">
+          <div className="home-as-box">
+            <ErrorBoundaryRoute component={Articles} />
+          </div>
+          <div className="home-as-box">
+            <ErrorBoundaryRoute component={Softwares} />
+          </div>
+        </div>
+        <div className="home-picture-top">
+          <ErrorBoundaryRoute component={Wallpaper} />
+        </div>
+        <Frame />
+        {/*<br />*/}
+        {/*<hr className="home-box-top-hr"/>*/}
+        <Service />
       </Col>
     </Row>
   );

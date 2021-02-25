@@ -129,6 +129,14 @@ export const getPublicEntities: ICrudGetAllAction<ISoftware> = (page, size, sort
   };
 };
 
+export const getTopPublicEntities: ICrudGetAllAction<ISoftware> = () => {
+  const requestUrl = `api/public/software/top`;
+  return {
+    type: ACTION_TYPES.FETCH_SOFTWARE_LIST,
+    payload: axios.get<ISoftware>(requestUrl),
+  };
+};
+
 export const getEntity: ICrudGetAction<ISoftware> = id => {
   const requestUrl = `${apiUrl}/${id}`;
   return {

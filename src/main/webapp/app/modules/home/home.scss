@@ -77,8 +77,18 @@ Main page styles
   width: auto;
   margin: 0 auto;
   text-align: center;
-  padding: 0 300px;
+  padding: 0;
   font-weight: 300;
+  div {
+    background-color: transparent;
+    border: 0;
+    span {
+      padding: 4px 12px;
+      border-radius: 4px;
+      background-color: #d4edda;
+      border-color: #c3e6cb;
+    }
+  }
 }
 
 .home-login-low {
@@ -100,4 +110,27 @@ Main page styles
   letter-spacing: 0.01071em;
   color: #1f69c0;
   margin-top: 5px;
+}
+
+.home-article-and-software {
+  width: 100%;
+  max-width: 2000px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.home-as-box {
+  border: 1px solid rgba(120, 130, 140, 0.09);
+  background-color: #262626;
+  width: 48%;
+  float: left;
+  margin: 80px 1%;
+  padding: 20px 20px;
+  border-radius: 5px;
+}
+
+.home-box-top-hr-link {
+  color: snow;
+  font-size: 0.95rem;
+  padding: 0px;
 }

@@ -13,7 +13,22 @@
       "chat": "JHipster public chat room",
       "follow": "Twitterの @jhipster"
     },
-    "like": "JHipsterを気に入ったら、是非スターをつけてください。",
-    "github": "GitHub"
+    "like": "本プロジェクトはJhipsperフレームを使って開発されます。",
+    "github": "プロジェクトは後ほどgithubでオープンします。",
+    "more": "もっと見る",
+    "article": "チュートリアル",
+    "software": "ソフト",
+    "wallpaper": {
+      "name": "美しい壁紙",
+      "explain": "全ネットは精巧で美しい高清の壁紙を収集して、無料でダウンロードします。すべての内容はインターネットから由来しています。デザインや版権などの問題があれば、私に連絡してください。"
+    },
+    "frame": {
+      "title": "尤艾-使用するフレーム",
+      "content": "これらのオープンソースのフレームワークは、<尤艾>の安全性と安定性を向上させます。",
+      "name": "WEB",
+      "name2": "Service",
+      "title2": "もっとあります",
+      "content2": "Jhipsper公式サイトを参照して、完全な技術リストを確認してください。どのようにJhipsperを使って高速開発を行うかを理解してください。"
+    }
   }
 }

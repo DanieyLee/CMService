@@ -129,6 +129,14 @@ export const getPublicEntities: ICrudGetAllAction<IArticle> = (page, size, sort)
   };
 };
 
+export const getTopPublicEntities: ICrudGetAllAction<IArticle> = () => {
+  const requestUrl = `api/public/articles/top`;
+  return {
+    type: ACTION_TYPES.FETCH_ARTICLE_LIST,
+    payload: axios.get<IArticle>(requestUrl),
+  };
+};
+
 export const getEntity: ICrudGetAction<IArticle> = id => {
   const requestUrl = `${apiUrl}/${id}`;
   return {

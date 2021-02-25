@@ -1,0 +1,55 @@
+/* ==========================================================================
+Main page styles
+========================================================================== */
+
+.home-frame-div {
+  text-align: center;
+  padding: 32px 24px;
+  width: 90%;
+  margin: 0 auto;
+  h2 {
+    margin: 40px 0 16px;
+    font-size: 35px;
+    font-weight: 350;
+    line-height: 1.235;
+    letter-spacing: 0.00735em;
+  }
+  h3 {
+    margin: 40px 0 16px;
+    font-size: 1.5rem;
+    font-weight: 350;
+    line-height: 1.334;
+    letter-spacing: 0em;
+    img {
+      width: 30px;
+      height: 30px;
+      margin: 0px 8px 4px 0px;
+    }
+  }
+  p {
+    margin-bottom: 16px;
+    color: snow;
+    font-size: 0.95rem;
+    word-break: break-word;
+    font-weight: 350;
+    line-height: 1.5;
+    letter-spacing: 0.00938em;
+  }
+}
+
+.home-frame-div-img-web img{
+  width: 128px;
+  height: 128px;
+  margin: 10px;
+}
+
+.home-frame-div-img-java img{
+  width: 96px;
+  height: 96px;
+  margin: 12px 15px;
+}
+
+.home-frame-div-img-java-liquibase img{
+  width: 371px;
+  height: 95px;
+}
