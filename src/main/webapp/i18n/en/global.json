@@ -23,6 +23,7 @@
         "wallpaper": "Wallpaper",
         "systemImage": "System Image",
         "keyBox": "Key Box",
+        "phone": "Phone",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

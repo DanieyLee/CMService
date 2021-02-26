@@ -140,7 +140,7 @@ entity KeyBox {						//密码盒子
 
 entity Phone {						//密码盒子
     phone String,				    //手机号
-    code String,				    //验证码
+    code Integer,				    //验证码
     effectiveTime Instant, 			//生效持续时间
     sendTime Instant,			    //发送时间
     createUser  String,				//创建者

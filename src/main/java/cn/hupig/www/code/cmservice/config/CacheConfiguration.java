@@ -60,6 +60,7 @@ public class CacheConfiguration {
             createCache(cm, cn.hupig.www.code.cmservice.domain.Wallpaper.class.getName());
             createCache(cm, cn.hupig.www.code.cmservice.domain.SystemImage.class.getName());
             createCache(cm, cn.hupig.www.code.cmservice.domain.KeyBox.class.getName());
+            createCache(cm, cn.hupig.www.code.cmservice.domain.Phone.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -26,6 +26,7 @@
     <include file="config/liquibase/changelog/20201213150025_added_entity_Wallpaper.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20201213150125_added_entity_SystemImage.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20201213150225_added_entity_KeyBox.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210226154607_added_entity_Phone.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20201213145125_added_entity_constraints_UserLink.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20201213145225_added_entity_constraints_Software.xml" relativeToChangelogFile="false"/>
@@ -37,6 +38,7 @@
     <include file="config/liquibase/changelog/20201213150025_added_entity_constraints_Wallpaper.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20201213150125_added_entity_constraints_SystemImage.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20201213150225_added_entity_constraints_KeyBox.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210226154607_added_entity_constraints_Phone.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

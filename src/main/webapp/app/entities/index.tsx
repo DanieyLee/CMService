@@ -16,6 +16,7 @@ import ArticleComment from './article-comment';
 import Wallpaper from './wallpaper';
 import SystemImage from './system-image';
 import KeyBox from './key-box';
+import Phone from './phone';
 /* jhipster-needle-add-route-import - JHipster will add routes here */
 
 const Routes = ({ match }) => (
@@ -34,6 +35,7 @@ const Routes = ({ match }) => (
       <ErrorBoundaryRoute path={`${match.url}wallpaper`} component={Wallpaper} />
       <ErrorBoundaryRoute path={`${match.url}system-image`} component={SystemImage} />
       <ErrorBoundaryRoute path={`${match.url}key-box`} component={KeyBox} />
+      <ErrorBoundaryRoute path={`${match.url}phone`} component={Phone} />
       {/* jhipster-needle-add-route-path - JHipster will add routes here */}
     </Switch>
   </div>

@@ -60,6 +60,10 @@ import systemImage, {
 import keyBox, {
   KeyBoxState
 } from 'app/entities/key-box/key-box.reducer';
+// prettier-ignore
+import phone, {
+  PhoneState
+} from 'app/entities/phone/phone.reducer';
 /* jhipster-needle-add-reducer-import - JHipster will add reducer here */
 
 export interface IRootState {
@@ -85,6 +89,7 @@ export interface IRootState {
   readonly wallpaper: WallpaperState;
   readonly systemImage: SystemImageState;
   readonly keyBox: KeyBoxState;
+  readonly phone: PhoneState;
   /* jhipster-needle-add-reducer-type - JHipster will add reducer type here */
   readonly loadingBar: any;
 }
@@ -112,6 +117,7 @@ const rootReducer = combineReducers<IRootState>({
   wallpaper,
   systemImage,
   keyBox,
+  phone,
   /* jhipster-needle-add-reducer-combine - JHipster will add reducer here */
   loadingBar,
 });
