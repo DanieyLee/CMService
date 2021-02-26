@@ -25,6 +25,7 @@ import { AUTHORITIES } from 'app/config/constants';
 import ArticlesDetail from 'app/modules/articles/article-detail';
 import SoftwaresDetail from 'app/modules/softwares/software-detail';
 import WallpaperDetail from 'app/modules/pictures/wallpaper-detail';
+import CodeBoxsDetail from 'app/modules/code-boxs/key-box-detail';
 
 const Account = Loadable({
   loader: () => import(/* webpackChunkName: "account" */ 'app/modules/account'),
@@ -54,6 +55,7 @@ const Routes = () => (
       <ErrorBoundaryRoute exact path={`/softwares/:id`} component={SoftwaresDetail} />
       <ErrorBoundaryRoute path="/pictures" exact component={Pictures} />
       <ErrorBoundaryRoute exact path={`/pictures/:id`} component={WallpaperDetail} />
+      <ErrorBoundaryRoute exact path={`/code-boxs/:id`} component={CodeBoxsDetail} />
       <ErrorBoundaryRoute path="/about" exact component={About} />
       <ErrorBoundaryRoute path="/contact" exact component={Contact} />
       <ErrorBoundaryRoute path="/help" exact component={Help} />

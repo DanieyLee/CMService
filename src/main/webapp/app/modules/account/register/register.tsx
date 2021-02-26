@@ -99,6 +99,7 @@ export const RegisterPage = (props: IRegisterProps) => {
             <span>
               <Translate contentKey="global.messages.info.authenticated.prefix">If you want to </Translate>
             </span>
+            <span> </span>
             <Link className="alert-link" to="/login" >
               <Translate contentKey="global.messages.info.authenticated.link"> sign in</Translate>
             </Link>

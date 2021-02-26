@@ -4,7 +4,29 @@ Main page styles
 .modal-content {
   background-color:#212121;
   color:#fff;
+  max-width: 420px;
+  margin: 60px auto;
   .close {
     color: #fff;
   }
+  #login-title {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .modal-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);;
+    button {
+      width: 100px;
+      height: 35px;
+      padding: 5px;
+    }
+  }
+  .form-login-link-text {
+    color: snow;
+    margin-left: 1rem;
+    margin-top: 2px;
+    font-weight: 400;
+    float: right;
+    font-size: 0.95rem;
+  }
 }
+

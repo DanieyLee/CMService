@@ -138,6 +138,18 @@ entity KeyBox {						//密码盒子
     note String 					//备注
 }
 
+entity Phone {						//密码盒子
+    phone String,				    //手机号
+    code String,				    //验证码
+    effectiveTime Instant, 			//生效持续时间
+    sendTime Instant,			    //发送时间
+    createUser  String,				//创建者
+    creatTime Instant,				//创建时间
+    updateUser  String,				//修改者
+    updateTime Instant,				//修改时间
+    note String 					//备注
+}
+
 enum SystemType {
 	WIN (Windows),
     LINUX (Linux),
@@ -190,7 +202,8 @@ relationship ManyToOne { //文章的关系
 relationship ManyToOne {
     Wallpaper{userLink(firstName)} to UserLink,
     SystemImage{userLink(firstName)} to UserLink,
-    KeyBox{userLink(firstName)} to UserLink
+    KeyBox{userLink(firstName)} to UserLink,
+    Phone{userLink(firstName)} to UserLink,
 }
 
 // Set pagination options
