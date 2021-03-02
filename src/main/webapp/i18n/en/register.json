@@ -2,7 +2,8 @@
   "register": {
     "title": "Registration",
     "form": {
-      "button": "Register"
+      "button": "Register",
+      "send": "Send code"
     },
     "messages": {
       "validate": {
@@ -13,7 +14,8 @@
           "pattern": "Your username is invalid."
         }
       },
-      "success": "<strong>Registration saved!</strong> Please check your email for confirmation.",
+      "send": "The verification code is sent successfully. Please check your SMS. The verification code is valid within 24 hours.",
+      "success": "<strong>Registration saved!</strong> .",
       "error": {
         "fail": "<strong>Registration failed!</strong> Please try again later.",
         "userexists": "<strong>Login name already registered!</strong> Please choose another one.",

@@ -53,14 +53,16 @@
     "form": {
       "username.label": "Username",
       "username.placeholder": "Your username",
+      "code.label": "Code",
+      "code.placeholder": "Code received",
       "currentpassword.label": "Current password",
       "currentpassword.placeholder": "Current password",
       "newpassword.label": "New password",
       "newpassword.placeholder": "New password",
       "confirmpassword.label": "New password confirmation",
       "confirmpassword.placeholder": "Confirm the new password",
-      "email.label": "Email",
-      "email.placeholder": "Your email"
+      "phone.label": "Phone",
+      "phone.placeholder": "Your Phone"
     },
     "messages": {
       "info": {
@@ -88,11 +90,17 @@
           "minlength": "Your confirmation password is required to be at least 4 characters.",
           "maxlength": "Your confirmation password cannot be longer than 50 characters."
         },
-        "email": {
-          "required": "Your email is required.",
-          "invalid": "Your email is invalid.",
-          "minlength": "Your email is required to be at least 5 characters.",
-          "maxlength": "Your email cannot be longer than 50 characters."
+        "phone": {
+          "required": "Your phone is required.",
+          "invalid": "Your phone is invalid.",
+          "minlength": "Your phone is required to be at least 8 characters.",
+          "maxlength": "Your phone cannot be longer than 11 characters."
+        },
+        "code": {
+          "required": "Verification code is required",
+          "invalid": "Incorrect format of captcha",
+          "minlength": "The length of the verification code should be at least 6 characters",
+          "maxlength": "The length of the verification code cannot exceed 6 characters"
         }
       }
     },
@@ -144,6 +152,8 @@
     "NotNull": "Field {{ fieldName }} cannot be empty!",
     "Size": "Field {{ fieldName }} does not meet min/max size requirements!",
     "userexists": "Login name already used!",
+    "phoneexists": "Verification code error!",
+    "phonecodeexists": "The verification code is valid within 24 hours, please do not send it repeatedly!",
     "emailexists": "Email is already in use!",
     "idexists": "A new {{ entityName }} cannot already have an ID",
     "idnull": "Invalid ID",

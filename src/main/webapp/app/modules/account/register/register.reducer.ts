@@ -54,6 +54,24 @@ export const handleRegister = (login, email, password, langKey = 'en') => ({
   },
 });
 
+// Register
+export const phoneRegister = (login, firstName, password, langKey = 'en') => ({
+  type: ACTION_TYPES.CREATE_ACCOUNT,
+  payload: axios.post('api/public/register', { login, firstName, password, langKey }),
+  meta: {
+    successMessage: translate('register.messages.success'),
+  },
+});
+
+// SendCode
+export const sendCode = phoneNumber => ({
+  type: ACTION_TYPES.CREATE_ACCOUNT,
+  payload: axios.post('api/public/send/code', { phoneNumber }),
+  meta: {
+    successMessage: translate('register.messages.send'),
+  },
+});
+
 export const reset = () => ({
   type: ACTION_TYPES.RESET,
 });

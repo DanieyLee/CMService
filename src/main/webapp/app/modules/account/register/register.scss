@@ -1,0 +1,26 @@
+/* ==========================================================================
+Main page styles
+========================================================================== */
+.register-from-top-div {
+  width: 80%;
+  margin: 0 auto;
+  text-align: left;
+  .register-from-text-button {
+    width: 100px;
+    height: 35px;
+    padding: 5px;
+  }
+  .register-from-text-input-phone {
+    width: 70%;
+  }
+  .register-from-text-button-phone {
+    width: 28%;
+    float: right;
+    margin-top: 2rem;
+  }
+  #register-title {
+    font-size: 1.95rem;
+    margin-bottom: 20px;
+    font-weight: 300;
+  }
+}

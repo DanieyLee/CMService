@@ -1,3 +1,6 @@
+import './register.scss';
+
+import { toast } from 'react-toastify';
 import React, { useState, useEffect } from 'react';
 import { Translate, translate } from 'react-jhipster';
 import { connect } from 'react-redux';
@@ -6,8 +9,9 @@ import { Row, Col, Alert, Button } from 'reactstrap';
 
 import PasswordStrengthBar from 'app/shared/layout/password/password-strength-bar';
 import { IRootState } from 'app/shared/reducers';
-import { handleRegister, reset } from './register.reducer';
+import { phoneRegister, sendCode, reset } from './register.reducer';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export interface IRegisterProps extends StateProps, DispatchProps {}
 
@@ -21,8 +25,38 @@ export const RegisterPage = (props: IRegisterProps) => {
     []
   );
 
+  const countDown = name => {
+    const button = document.getElementById(name) as HTMLButtonElement;
+    const text = button.innerHTML;
+    let num = 60;
+    button.setAttribute("disabled","false");
+    button.innerHTML = num.toString();
+    const interval = setInterval(() => {
+      if (num > 1){
+        num--;
+        button.innerHTML = num.toString();
+      } else {
+        button.innerHTML = text;
+        button.removeAttribute("disabled");
+        clearInterval(interval);
+      }
+    }, 1000);
+  }
+
   const handleValidSubmit = (event, values) => {
-    props.handleRegister(values.username, values.email, values.firstPassword, props.currentLocale);
+    const phone = (document.getElementById('phoneNumber') as HTMLInputElement).value;
+    if (phone === "") {
+      toast.error(translate('global.messages.validate.phone.required'));
+    } else {
+      props.phoneRegister(phone, values.code, values.firstPassword, props.currentLocale);
+      countDown("register-submit");
+      event.preventDefault();
+    }
+  };
+
+  const phoneValidSubmit = (event, values) => {
+    props.sendCode(values.phoneNumber);
+    countDown("send-submit");
     event.preventDefault();
   };
 
@@ -30,39 +64,45 @@ export const RegisterPage = (props: IRegisterProps) => {
 
   return (
     <div>
-      <Row className="justify-content-center">
+      <Row className="justify-content-center register-from-top-div">
         <Col md="8">
           <h1 id="register-title">
             <Translate contentKey="register.title">Registration</Translate>
           </h1>
-        </Col>
-      </Row>
-      <Row className="justify-content-center">
-        <Col md="8">
-          <AvForm id="register-form" onValidSubmit={handleValidSubmit}>
+          <AvForm id="send-form" onValidSubmit={phoneValidSubmit}>
+            <Button id="send-submit" className="register-from-text-button-phone" color="primary" type="submit">
+              <Translate contentKey="register.form.send">Send</Translate>
+            </Button>
             <AvField
-              name="username"
-              label={translate('global.form.username.label')}
-              placeholder={translate('global.form.username.placeholder')}
+              name="phoneNumber"
+              className="register-from-text-input-phone"
+              label={translate('global.form.phone.label')}
+              placeholder={translate('global.form.phone.placeholder')}
+              type="phoneNumber"
               validate={{
-                required: { value: true, errorMessage: translate('register.messages.validate.login.required') },
+                required: { value: true, errorMessage: translate('global.messages.validate.phone.required') },
                 pattern: {
-                  value: '^[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$|^[_.@A-Za-z0-9-]+$',
-                  errorMessage: translate('register.messages.validate.login.pattern'),
+                  value: '^((13[0-9])|(14[0,1,4-9])|(15[0-3,5-9])|(16[2,5,6,7])|(17[0-8])|(18[0-9])|(19[0-3,5-9]))\\d{8}$',
+                  errorMessage: translate('global.messages.validate.phone.invalid'),
                 },
-                minLength: { value: 1, errorMessage: translate('register.messages.validate.login.minlength') },
-                maxLength: { value: 50, errorMessage: translate('register.messages.validate.login.maxlength') },
+                minLength: { value: 8, errorMessage: translate('global.messages.validate.phone.minlength') },
+                maxLength: { value: 11, errorMessage: translate('global.messages.validate.phone.maxlength') },
               }}
             />
+          </AvForm>
+          <AvForm id="register-form" onValidSubmit={handleValidSubmit}>
             <AvField
-              name="email"
-              label={translate('global.form.email.label')}
-              placeholder={translate('global.form.email.placeholder')}
-              type="email"
+              name="code"
+              label={translate('global.form.code.label')}
+              placeholder={translate('global.form.code.placeholder')}
               validate={{
-                required: { value: true, errorMessage: translate('global.messages.validate.email.required') },
-                minLength: { value: 5, errorMessage: translate('global.messages.validate.email.minlength') },
-                maxLength: { value: 254, errorMessage: translate('global.messages.validate.email.maxlength') },
+                required: { value: true, errorMessage: translate('global.messages.validate.code.required') },
+                pattern: {
+                  value: '^[0-9]*$',
+                  errorMessage: translate('global.messages.validate.code.invalid'),
+                },
+                minLength: { value: 6, errorMessage: translate('global.messages.validate.code.minlength') },
+                maxLength: { value: 6, errorMessage: translate('global.messages.validate.code.maxlength') },
               }}
             />
             <AvField
@@ -90,8 +130,12 @@ export const RegisterPage = (props: IRegisterProps) => {
                 match: { value: 'firstPassword', errorMessage: translate('global.messages.error.dontmatch') },
               }}
             />
-            <Button id="register-submit" color="primary" type="submit">
+            <Button id="register-submit" className="register-from-text-button" color="primary" type="submit">
               <Translate contentKey="register.form.button">Register</Translate>
+            </Button>
+            &nbsp;
+            <Button className="register-from-text-button" tag={Link} to="/" replace color="info">
+              <Translate contentKey="entity.action.cancel">Cancel</Translate>
             </Button>
           </AvForm>
           <p>&nbsp;</p>
@@ -114,7 +158,7 @@ const mapStateToProps = ({ locale }: IRootState) => ({
   currentLocale: locale.currentLocale,
 });
 
-const mapDispatchToProps = { handleRegister, reset };
+const mapDispatchToProps = { phoneRegister, sendCode, reset };
 type StateProps = ReturnType<typeof mapStateToProps>;
 type DispatchProps = typeof mapDispatchToProps;
 

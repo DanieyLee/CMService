@@ -2,7 +2,8 @@
   "register": {
     "title": "登録",
     "form": {
-      "button": "登録する"
+      "button": "登録する",
+      "send": "認証コードを送信"
     },
     "messages": {
       "validate": {
@@ -13,7 +14,8 @@
           "pattern": "Your username is invalid."
         }
       },
-      "success": "<strong>登録が完了しました!</strong> 送られたメールを確認して下さい。",
+      "send": "認証コードの送信に成功しました。メッセージを確認してください。この検証コードは24時間以内で有効です。",
+      "success": "<strong>登録が完了しました!</strong> 。",
       "error": {
         "fail": "<strong>登録が失敗しました!</strong> 後ほど再度登録を行ってください。",
         "userexists": "<strong>ユーザー名が既に登録されています!</strong> 別のユーザー名を使用してください。",

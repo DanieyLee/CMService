@@ -53,14 +53,16 @@
     "form": {
       "username.label": "ユーザー名",
       "username.placeholder": "ユーザー名",
+      "code.label": "認証コード",
+      "code.placeholder": "受信した認証コード",
       "currentpassword.label": "Current password",
       "currentpassword.placeholder": "Current password",
       "newpassword.label": "新しいパスワード",
       "newpassword.placeholder": "新しいパスワード",
       "confirmpassword.label": "新しいパスワード(確認)",
       "confirmpassword.placeholder": "新しいパスワード(確認)",
-      "email.label": "メールアドレス",
-      "email.placeholder": "あなたのメールアドレス"
+      "phone.label": "携帯の番号",
+      "phone.placeholder": "あなたの携帯番号"
     },
     "messages": {
       "info": {
@@ -88,11 +90,17 @@
           "minlength": "パスワード(確認)は4文字以上で入力してください。",
           "maxlength": "パスワード(確認)は50文字以下で入力してください。"
         },
-        "email": {
-          "required": "メールアドレスを入力してください。",
-          "invalid": "正しいメールアドレスを入力してください。",
-          "minlength": "メールアドレスは5文字以上で入力してください。",
-          "maxlength": "メールアドレスは50文字以下で入力してください。"
+        "phone": {
+          "required": "携帯番号は必須項目です。",
+          "invalid": "あなたの携帯番号のフォーマットは正しくないです。",
+          "minlength": "あなたの携帯番号の長さは少なくとも8文字が必要です。",
+          "maxlength": "あなたの携帯番号は11文字を超えてはいけません。"
+        },
+        "code": {
+          "required": "認証コードは必須項目です。",
+          "invalid": "認証コードフォーマットが不正です。",
+          "minlength": "認証コードの長さは少なくとも6文字必要です。",
+          "maxlength": "認証コードの長さは6文字を超えてはいけません。"
         }
       }
     },
@@ -142,7 +150,9 @@
     "url.not.found": "Not found",
     "NotNull": "Field {{fieldName}} cannot be empty!",
     "Size": "Field {{fieldName}} does not meet min/max size requirements!",
-    "userexists": "Login name already used!",
+    "userexists": "ユーザ名は既に存在します!",
+    "phoneexists": "認証コードエラー!",
+    "phonecodeexists": "検証コードは24時間有効です。重複して送らないでください!",
     "emailexists": "Email is already in use!",
     "idexists": "A new {{entityName}} cannot already have an ID",
     "idnull": "Invalid ID",
