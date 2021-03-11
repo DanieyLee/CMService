@@ -7,7 +7,7 @@ import { NavLink as Link } from 'react-router-dom';
 import { NavDropdown } from './menu-components';
 
 export const EntitiesMenu = props => (
-  <NavDropdown name={translate('global.menu.entities.main')} id="entity-menu" style={{ maxHeight: '80vh', overflow: 'auto' }}>
+  <NavDropdown icon="shapes" id="entity-menu" style={{ maxHeight: '80vh', overflow: 'auto' }}>
     <MenuItem icon="asterisk" to="/user-link">
       <Translate contentKey="global.menu.entities.userLink" />
     </MenuItem>

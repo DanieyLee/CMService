@@ -64,8 +64,8 @@ export const RegisterPage = (props: IRegisterProps) => {
 
   return (
     <div>
-      <Row className="justify-content-center register-from-top-div">
-        <Col md="10">
+      <Row className="register-from-top-div">
+        <Col md="12">
           <h1 id="register-title">
             <Translate contentKey="register.title">Registration</Translate>
           </h1>

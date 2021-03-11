@@ -13,7 +13,7 @@
     "finish": {
       "title": "Reset password",
       "form": {
-        "button": "Validate new password"
+        "button": "Reset"
       },
       "messages": {
         "info": "Choose a new password",

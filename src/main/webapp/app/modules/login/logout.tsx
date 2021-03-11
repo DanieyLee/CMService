@@ -3,6 +3,10 @@ import { connect } from 'react-redux';
 
 import { IRootState } from 'app/shared/reducers';
 import { logout } from 'app/shared/reducers/authentication';
+import { Translate } from 'react-jhipster';
+import { Row, Col, NavLink, Button } from 'reactstrap';
+import { NavLink as Link } from 'react-router-dom';
+
 
 export interface ILogoutProps extends StateProps, DispatchProps {
   idToken: string;
@@ -22,8 +26,17 @@ export const Logout = (props: ILogoutProps) => {
   });
 
   return (
-    <div className="p-5">
-      <h4>Logged out successfully!</h4>
+    <div className="logout-home">
+      <Row>
+        <Col md="12">
+          <h4>
+            <Translate contentKey="home.logout.text">text</Translate>
+            <NavLink tag={Link} to="/" className="f-flex">
+              <Translate contentKey="home.logout.go">go</Translate>
+            </NavLink>
+          </h4>
+        </Col>
+      </Row>
     </div>
   );
 };

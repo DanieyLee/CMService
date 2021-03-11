@@ -29,6 +29,10 @@
       "name2": "Service",
       "title2": "There's more!",
       "content2": "Please refer to the official website of jhipster for a complete list of technologies and learn how to use jhipster for rapid development."
+    },
+    "logout": {
+      "text": "You have successfully logged out. Click：",
+      "go": "Go home"
     }
   }
 }

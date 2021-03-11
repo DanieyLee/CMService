@@ -51,10 +51,9 @@ Main page styles
     font-weight: 300;
     max-width: 150px;
     margin-left: auto;
-    img {
-      width: 16px;
-      filter: invert(100%);
-      margin: 0px 10px 3px 10px;
+    svg {
+      height: 18px;
+      margin: 3px 6px -2px 16px;
     }
     span {
       color: #f48fb1;

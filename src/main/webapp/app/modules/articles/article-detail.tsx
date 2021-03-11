@@ -68,9 +68,9 @@ export const ArticleDetail = (props: IArticleDetailProps) => {
               </span>
             </div>
             <div className="jh-entity-table-article-div-right">
-              <img src="content/images/look.svg" alt="look" />
+              <FontAwesomeIcon icon={'eye'} />
               <span>{articleEntity.views > 1000 ? articleEntity.views.toString().substring(0,articleEntity.views.toString().length-3) + "k" : articleEntity.views}</span>
-              <img src="content/images/heart.svg" alt="heart" />
+              <FontAwesomeIcon icon={'heart'} />
               <span>{articleEntity.likeNumber > 1000? articleEntity.likeNumber.toString().substring(0,articleEntity.likeNumber.toString().length-3) + "k" : articleEntity.likeNumber}</span>
             </div>
           </div>

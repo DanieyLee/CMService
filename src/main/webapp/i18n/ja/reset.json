@@ -11,9 +11,9 @@
       }
     },
     "finish": {
-      "title": "Reset password",
+      "title": "リセットパスワード",
       "form": {
-        "button": "Validate new password"
+        "button": "リセット"
       },
       "messages": {
         "info": "Choose a new password",

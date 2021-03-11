@@ -94,7 +94,6 @@ export const Wallpaper = (props: IWallpaperProps) => {
                     <Button tag={Link} to={`${match.url}/${wallpaper.id}`} color="link" size="sm">
                       <div>{wallpaper.imageName}</div>
                     </Button>
-                    <span>{wallpaper.imagePixel}</span>
                   </div>
                 </div>
               ))}

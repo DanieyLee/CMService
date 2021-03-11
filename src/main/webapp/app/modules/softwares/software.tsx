@@ -105,13 +105,13 @@ export const Software = (props: ISoftwareProps) => {
                           <img
                             src={`data:${software.softwareICOContentType};base64,${software.softwareICO}`}
                           />
-                          ) : <img src="content/images/failed.svg" alt="Failed" />}
+                          ) : <FontAwesomeIcon icon={'box-open'} />}
                     </Button>
                     <div className="software-list-div-content">
                       <div className="software-list-div-content-up">{software.version}</div>
                       <div className="software-list-div-content-center">
                         {software.stars ? (
-                          <img src="content/images/stars.svg" alt="Stars" />
+                            <FontAwesomeIcon icon={'star'}/>
                           ) : ''}
                         <Button tag={Link} to={`${match.url}/${software.id}`} color="link" size="sm">
                           {software.name}
@@ -121,15 +121,15 @@ export const Software = (props: ISoftwareProps) => {
                     </div>
                     <div className="software-list-div-footer">
                       <div>
-                        <img src="content/images/disk.svg" alt="Disk" />
+                        <FontAwesomeIcon icon={'save'} />
                         <span>{software.size > 1000 ? software.size.toString().substring(0,software.size.toString().length-3) + "k" : software.size}</span>
                       </div>
                       <div>
-                        <img src="content/images/download.svg" alt="Download" />
+                        <FontAwesomeIcon icon={'download'} />
                         <span>{software.downloadNumber > 1000 ? software.downloadNumber.toString().substring(0,software.downloadNumber.toString().length-3)+"k" : software.downloadNumber}</span>
                       </div>
                       <div>
-                        <img src="content/images/time.svg" alt="Time" />
+                        <FontAwesomeIcon icon={'clock'} />
                         <span>{software.updateTime ? <TextFormat type="date" value={software.updateTime} format={APP_DATE_FORMAT_SIMPLE} /> : null}</span>
                       </div>
                     </div>

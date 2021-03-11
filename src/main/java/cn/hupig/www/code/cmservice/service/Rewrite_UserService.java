@@ -55,11 +55,11 @@ public class Rewrite_UserService {
     }
 
     public void registerUser(String phoneNumber, String code, String password, String langKey) {
-        if (userRepository.findOneByLogin(phoneNumber).isPresent()){
-        	throw new UsernameAlreadyUsedException();
-        }
         if (!judgeCode(phoneNumber, code)) {
         	throw new PhoneAlreadyUsedException();
+        }
+        if (userRepository.findOneByLogin(phoneNumber).isPresent()){
+        	throw new UsernameAlreadyUsedException();
         }
         User newUser = new User();
         String encryptedPassword = passwordEncoder.encode(password);
@@ -106,11 +106,11 @@ public class Rewrite_UserService {
     }
     
     private boolean judgeCode(String phoneNumber, String code) {
-    	Phone Phone = phoneRepository.findOneByPhoneAndCode(phoneNumber, Integer.parseInt(code)).get();
-    	if (Phone == null) {
+    	Optional<Phone> Phone = phoneRepository.findOneByPhoneAndCode(phoneNumber, Integer.parseInt(code));
+    	if (!Phone.isPresent()) {
     		return false;
     	}
-    	return Times.timeSlot(Phone.getSendTime(), Phone.getEffectiveTime());
+    	return Times.timeSlot(Phone.get().getSendTime(), Phone.get().getEffectiveTime());
     }
 
     private void clearUserCaches(User user) {

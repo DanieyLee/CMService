@@ -6,7 +6,7 @@
       "home": "首页",
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "articles": "分享",
-      "softwares": "文件下载",
+      "softwares": "软件",
       "pictures": "美图",
       "code-boxs": "密码盒子",
       "entities": {
@@ -32,7 +32,7 @@
         "password": "修改密码",
         "sessions": "会话",
         "login": "登录",
-        "logout": "退出",
+        "logout": "退出登录",
         "register": "注册"
       },
       "admin": {
@@ -44,7 +44,7 @@
         "configuration": "配置",
         "logs": "日志",
         "audits": "审核",
-        "apidocs": "API",
+        "apidocs": "接口测试",
         "database": "数据库",
         "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
       },
@@ -72,7 +72,7 @@
         },
         "register": {
           "noaccount": "如果你还没有账号，点击",
-          "link": "注册账户"
+          "link": "注册"
         }
       },
       "error": {

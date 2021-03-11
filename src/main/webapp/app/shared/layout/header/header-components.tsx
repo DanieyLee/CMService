@@ -64,11 +64,9 @@ export const Pictures = props => (
 );
 
 export const CodeBoxs = props => (
-  <NavItem>
+  <NavItem className="dropdown">
     <NavLink tag={Link} to="/code-boxs" className="d-flex align-items-center">
-      <span>
-        <Translate contentKey="global.menu.code-boxs">CodeBoxs</Translate>
-      </span>
+      <FontAwesomeIcon icon={'box'} />
     </NavLink>
   </NavItem>
 );

@@ -11,7 +11,7 @@ Main page styles
 #settings-title {
   font-size: 1.8rem;
   font-weight: 300;
-  margin: 10px auto;
+  margin: 40px auto;
 }
 
 .form-control {
@@ -29,4 +29,9 @@ Main page styles
     min-width: 180px;
     min-height: 180px;
   }
+}
+
+.justify-content-center-settings {
+  width: 80%;
+  margin: 0 auto;
 }

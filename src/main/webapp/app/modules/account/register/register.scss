@@ -3,6 +3,7 @@ Main page styles
 ========================================================================== */
 .register-from-top-div {
   margin: 0 auto;
+  width: 80%;
   text-align: left;
   .register-from-text-button {
     width: 100px;
@@ -11,13 +12,14 @@ Main page styles
     margin-top: 20px;
   }
   .register-from-text-button-phone {
-    margin: 2rem 0px;
+    margin: 62px 0px 20px 0px;
     width: 100%;
     min-width: 110px;
   }
   #register-title {
     font-size: 1.95rem;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    margin-top: 40px;
     font-weight: 300;
   }
 }

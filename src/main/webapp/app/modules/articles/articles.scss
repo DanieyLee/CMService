@@ -121,34 +121,12 @@ Main page styles
   margin-top: 8px;
   margin-left: auto;
   float: right;
-  img {
-    width: 16px;
-    filter: invert(100%);
-    margin: 0px 10px 3px 10px;
+  svg {
+    height: 18px;
+    margin: 3px 8px -2px 14px;
   }
   span {
     color: #66d9ef;
-  }
-}
-
-.justify-content-center {
-  margin-top: 50px;
-  font-size: 1rem;
-  li {
-    width: 3rem;
-    height: 3rem;
-    margin: 1rem;
-    a {
-      background-color: #262626 !important;
-      border: 1px solid rgba(255, 255, 255, 0.12) !important;
-      border-radius: 5px;
-      text-align: center;
-      color: snow;
-    }
-    a:hover {
-      color: #262626;
-      background-color: #66d9ef !important;
-    }
   }
 }
 

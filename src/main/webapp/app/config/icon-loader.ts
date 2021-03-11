@@ -28,11 +28,49 @@ import { faTimesCircle } from '@fortawesome/free-solid-svg-icons/faTimesCircle';
 import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
 import { faRoad } from '@fortawesome/free-solid-svg-icons/faRoad';
 import { faCloud } from '@fortawesome/free-solid-svg-icons/faCloud';
+import { faTools } from '@fortawesome/free-solid-svg-icons/faTools';
+import { faArchive } from '@fortawesome/free-solid-svg-icons/faArchive';
+import { faCertificate } from '@fortawesome/free-solid-svg-icons/faCertificate';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons/faInfoCircle';
+import { faCog } from '@fortawesome/free-solid-svg-icons/faCog';
+import { faCogs } from '@fortawesome/free-solid-svg-icons/faCogs';
+import { faDragon } from '@fortawesome/free-solid-svg-icons/faDragon';
+import { faUserCircle } from '@fortawesome/free-solid-svg-icons/faUserCircle';
+import { faThLarge } from '@fortawesome/free-solid-svg-icons/faThLarge';
+import { faUserAlt } from '@fortawesome/free-solid-svg-icons/faUserAlt';
+import { faBox } from '@fortawesome/free-solid-svg-icons/faBox';
+import { faHeartbeat } from '@fortawesome/free-solid-svg-icons/faHeartbeat';
+import { faShapes } from '@fortawesome/free-solid-svg-icons/faShapes';
+import { faClock } from '@fortawesome/free-solid-svg-icons/faClock';
+import { faDownload } from '@fortawesome/free-solid-svg-icons/faDownload';
+import { faStar } from '@fortawesome/free-solid-svg-icons/faStar';
+import { faGlobeAmericas } from '@fortawesome/free-solid-svg-icons/faGlobeAmericas';
+import { faSpider } from '@fortawesome/free-solid-svg-icons/faSpider';
+import { faSun } from '@fortawesome/free-solid-svg-icons/faSun';
+import { faMoon } from '@fortawesome/free-solid-svg-icons/faMoon';
+import { faBug } from '@fortawesome/free-solid-svg-icons/faBug';
+import { faBomb } from '@fortawesome/free-solid-svg-icons/faBomb';
+import { faBoxOpen } from '@fortawesome/free-solid-svg-icons/faBoxOpen';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 
 export const loadIcons = () => {
   library.add(
+    faBomb,
+    faBoxOpen,
+    faBug,
+    faSun,
+    faMoon,
+    faSpider,
+    faGlobeAmericas,
+    faStar,
+    faDownload,
+    faClock,
+    faShapes,
+    faHeartbeat,
+    faBox,
+    faUserAlt,
+    faThLarge,
     faSort,
     faEye,
     faSync,
@@ -62,6 +100,14 @@ export const loadIcons = () => {
     faRoad,
     faCloud,
     faTimesCircle,
-    faSearch
+    faSearch,
+    faTools,
+    faArchive,
+    faCertificate,
+    faInfoCircle,
+    faCog,
+    faCogs,
+    faDragon,
+    faUserCircle
   );
 };

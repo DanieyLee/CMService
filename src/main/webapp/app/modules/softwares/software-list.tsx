@@ -14,6 +14,7 @@ import { IRootState } from 'app/shared/reducers';
 import { getTopPublicEntities } from 'app/entities/software/software.reducer';
 import { ITEMS_PER_PAGE } from 'app/shared/util/pagination.constants';
 import { overridePaginationStateWithQueryParams } from 'app/shared/util/entity-utils';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export interface ISoftwareProps extends StateProps, DispatchProps, RouteComponentProps<{ url: string }> {}
 
@@ -83,10 +84,10 @@ export const Software = (props: ISoftwareProps) => {
               <div key={`entity-${i}`} className="software-top-down-list">
                 <Button className="software-home-top-list-button" tag={Link} to={`/softwares/${software.id}`} color="link" size="sm" >
                   {software.softwareICO ? (
-                      <img
-                        src={`data:${software.softwareICOContentType};base64,${software.softwareICO}`}
-                      />
-                      ) : <img src="content/images/failed.svg" alt="Failed" />}
+                    <img
+                      src={`data:${software.softwareICOContentType};base64,${software.softwareICO}`}
+                    />
+                    ) : <FontAwesomeIcon icon={'box-open'} />}
                 </Button>
                 <div className="software-home-top-list-div">
                     <Button tag={Link} to={`/softwares/${software.id}`} color="link" size="sm">

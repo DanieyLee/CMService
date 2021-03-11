@@ -52,18 +52,15 @@ const Header = (props: IHeaderProps) => {
         <Brand />
         <Collapse isOpen={menuOpen} navbar>
           <Nav id="header-tabs" className="ml-auto" navbar>
-            <div className="header-label-text">
-              <Home />
-              <Articles />
-              <Softwares />
-              <Pictures />
-              <CodeBoxs />
-            </div>
-            <div className="header-label-text-login">
-              <AccountMenu isAuthenticated={props.isAuthenticated} />
-              {props.isAuthenticated && props.isAdmin && <AdminMenu showSwagger={props.isSwaggerEnabled} />}
-              {props.isAuthenticated && props.isAdmin && <EntitiesMenu />}
-            </div>
+            <Home />
+            <Articles />
+            <Softwares />
+            <Pictures />
+            <div className="header-label-text" />
+            {props.isAuthenticated && <CodeBoxs />}
+            {props.isAuthenticated && props.isAdmin && <EntitiesMenu />}
+            {props.isAuthenticated && props.isAdmin && <AdminMenu showSwagger={props.isSwaggerEnabled} />}
+            <AccountMenu isAuthenticated={props.isAuthenticated} />
           </Nav>
         </Collapse>
       </Navbar>

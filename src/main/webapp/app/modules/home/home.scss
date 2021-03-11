@@ -127,3 +127,43 @@ Main page styles
   font-size: 0.95rem;
   padding: 0px;
 }
+
+.justify-content-center {
+  margin-top: 30px;
+  font-size: 1.2rem;
+  float: right;
+  margin-left: auto;
+  margin-right: 0px;
+  .jhi-item-count {
+    display:none
+  }
+  .disabled {
+    display:none
+  }
+  li {
+    margin: 0px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-radius: 30px;
+    width: 50px;
+    height: 50px;
+    padding: 3px 0px 0px 1px;
+    background-color: #262626 !important;
+    a {
+      background-color: transparent !important;
+      border: 0px !important;
+      border-radius: 25px;
+      text-align: center;
+      color: snow;
+      box-shadow: none !important;
+    }
+    a:hover {
+      color: #ff4343;
+      background-color: transparent !important;
+      box-shadow: none !important;
+
+    }
+  }
+  li:hover {
+    background-color: #212121 !important;
+  }
+}

@@ -37,7 +37,7 @@ const swaggerItem = (
 );
 
 export const AdminMenu = ({ showSwagger }) => (
-  <NavDropdown name={translate('global.menu.admin.main')} style={{ width: '140%' }} id="admin-menu">
+  <NavDropdown icon="cogs" style={{ width: '100%' }} id="admin-menu">
     {adminMenuItems}
     {showSwagger && swaggerItem}
   </NavDropdown>

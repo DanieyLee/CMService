@@ -24,16 +24,36 @@ export const PasswordPage = (props: IUserPasswordProps) => {
     };
   }, []);
 
+  const countDown = (name, time) => {
+    const button = document.getElementById(name) as HTMLButtonElement;
+    const text = button.innerHTML;
+    let num = time;
+    button.setAttribute("disabled","false");
+    button.innerHTML = num.toString();
+    const interval = setInterval(() => {
+      if (num > 1){
+        num--;
+        button.innerHTML = num.toString();
+      } else {
+        button.innerHTML = text;
+        button.removeAttribute("disabled");
+        clearInterval(interval);
+      }
+    }, 1000);
+  }
+
   const handleValidSubmit = (event, values) => {
     props.savePassword(values.currentPassword, values.newPassword);
+    countDown("login-re-password-submit", 5);
+    event.preventDefault();
   };
 
   const updatePassword = event => setPassword(event.target.value);
 
   return (
     <div>
-      <Row className="justify-content-center">
-        <Col md="8">
+      <Row className="justify-content-center-password">
+        <Col md="12">
           <h2 id="password-title">
             <Translate contentKey="password.title" interpolate={{ username: props.account.firstName }}>
               Password for {props.account.firstName}
@@ -86,7 +106,7 @@ export const PasswordPage = (props: IUserPasswordProps) => {
                 },
               }}
             />
-            <Button className="register-from-text-button" color="success" type="submit">
+            <Button id="login-re-password-submit" className="register-from-text-button" color="success" type="submit">
               <Translate contentKey="password.form.button">Save</Translate>
             </Button>
           </AvForm>

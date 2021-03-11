@@ -62,8 +62,8 @@ export const PasswordResetFinishPage = (props: IPasswordResetFinishProps) => {
 
   return (
     <div>
-      <Row className="justify-content-center">
-        <Col md="8">
+      <Row className="justify-content-center-reset-password">
+        <Col md="12">
           <h1>
             <Translate contentKey="reset.finish.title">Reset password</Translate>
           </h1>

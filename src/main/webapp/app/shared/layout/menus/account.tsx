@@ -32,7 +32,7 @@ const accountMenuItems = (
 );
 
 export const AccountMenu = ({ isAuthenticated = false }) => (
-  <NavDropdown name={translate('global.menu.account.main')} id="account-menu">
+  <NavDropdown icon="user-alt" id="account-menu">
     {isAuthenticated ? accountMenuItemsAuthenticated : accountMenuItems}
   </NavDropdown>
 );

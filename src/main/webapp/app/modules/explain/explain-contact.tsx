@@ -23,6 +23,7 @@ export const ExplainContact = (props: IHomeProp) => {
     input.value = handleValidSubmit; // 修改文本框的内容
     input.select(); // 选中文本
     document.execCommand("Copy");
+    alert("复制成功");
   }
 
   return (

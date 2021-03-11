@@ -30,3 +30,18 @@ Main page styles
   }
 }
 
+.logout-home {
+  width: 100%;
+  padding: 50px;
+  span {
+    font-size: 1.75rem;
+    font-weight: 400;
+  }
+  a span{
+    margin-left: 10px;
+    color: #f48fb1;
+  }
+  a span:hover{
+    color: #ff4343;
+  }
+}

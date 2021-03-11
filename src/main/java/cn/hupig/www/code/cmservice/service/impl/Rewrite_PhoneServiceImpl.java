@@ -57,7 +57,7 @@ public class Rewrite_PhoneServiceImpl implements Rewrite_PhoneService {
     
     private boolean judgePhone(String phone) {
     	return phoneRepository.findFirstByPhoneAndEffectiveTimeAfter(
-    					phone, Times.getInstant()).get() != null;
+				phone, Times.getInstant()).isPresent();
     }
     
 }

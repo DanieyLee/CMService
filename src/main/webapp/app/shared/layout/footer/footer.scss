@@ -13,13 +13,6 @@ $header-color-hover: darken($header-color, 20%);
   font-weight: 400;
 }
 
-.footer-image-div {
-  height: 25px;
-  width: 25px;
-  margin-right: 10px;
-  margin-bottom: 3px;
-  filter: invert(100%);
-}
 .footer-brand-tr-div {
   font-size: 10px;
   color: #ccc;
@@ -28,15 +21,9 @@ $header-color-hover: darken($header-color, 20%);
 }
 
 .footer-image-brand {
-  width: 16px;
-  height: auto;
-  margin-right: 5px;
-  padding-bottom: 6px;
-  filter: invert(100%);
-}
-
-.footer-icp-image {
-  margin: 0px 5px 3px 5px;
+  width: 18px;
+  height: 18px;
+  margin-right: 2px;
 }
 
 .f-flex {
@@ -51,7 +38,7 @@ $header-color-hover: darken($header-color, 20%);
 }
 
 .footer-div {
-  text-align: -webkit-center;
+  text-align: left;
 }
 
 .footer-language-div {
@@ -59,11 +46,17 @@ $header-color-hover: darken($header-color, 20%);
   font-size: 80%;
   color: rgba(255, 255, 255, 0.7);
   text-align: right;
+  svg {
+    height: 22px !important;
+    width: 22px !important;
+    margin: 4px 10px -4px 10px;
+    color: snow;
+  }
 }
 
 .footer-12-div {
   overflow: hidden;
-  padding: 2.5rem 0 1.5rem 0;
+  padding: 2.5rem 5% 1.5rem 5%;
 }
 
 .footer-title-span {
@@ -81,9 +74,27 @@ $header-color-hover: darken($header-color, 20%);
   text-align: center;
   line-height: 35px;
   padding-top: 30px;
+  svg {
+    width: 18px !important;
+    height: 18px !important;
+    color: snow;
+    margin: 2px 6px -2px 6px;
+  }
+  img {
+    margin: 0px 8px 2px 8px;
+  }
 }
 
 .footer-statement-div{
   margin-top: 20px;
   text-align: left;
+}
+
+@media only screen and (max-width: 770px){
+  .footer-12-div{
+    display:none
+  }
+  .footer-language-div {
+    margin-top: 60px;
+  }
 }

@@ -14,7 +14,7 @@ Developement Ribbon
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
   overflow: hidden;
-  position: fixed;
+  position: absolute;
   top: 30px;
   white-space: nowrap;
   width: 15em;
@@ -38,9 +38,9 @@ Developement Ribbon
 Navbar styles
 ========================================================================== */
 .jh-navbar {
-  background-color: #333;
-  padding: 0.2em 1em;
-  position: static;
+  background-color: #262626;
+  padding: 0px 10px;
+  height: 60px;
   .profile-image {
     margin: -10px 0px;
     height: 40px;
@@ -53,11 +53,29 @@ Navbar styles
     background-color: #353d47;
   }
   .dropdown-toggle::after {
-    margin-left: 0.15em;
+    margin: 0px;
+    border: 0px;
   }
   ul.navbar-nav {
+    padding: 0.5em;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     .nav-item {
-      margin-left: 1.5rem;
+      margin-right: 1.4rem;
+    }
+    .dropdown {
+      margin-right: 0px;
+      padding: 4px;
+      svg {
+        width: auto;
+        height: 16px;
+        //color: snow;
+      }
+    }
+    .header-label-text {
+      float: right;
+      margin-left: auto;
     }
   }
   a.nav-link {
@@ -71,8 +89,12 @@ Navbar styles
     font-size: 1.5em;
     padding: 10px;
     &:hover {
-      color: #fff;
+      color: snow;
     }
+  }
+  .navbar-collapse {
+    background-color: #262626;
+    border-radius: 5px;
   }
 }
 .navbar-version {
@@ -86,6 +108,8 @@ Navbar styles
     text-decoration: none;
   }
   .brand-icon {
+    height: 35px;
+    width: auto;
     display: inline-block;
     img {
       width: 30px;
@@ -111,24 +135,4 @@ Navbar styles
   position: absolute;
   top: 0px;
   z-index: 1031;
-}
-
-.header-label-text {
-  float: left;
-  li {
-    float: left;
-  }
-}
-
-.header-label-text-login {
-  float: right;
-  margin-left: auto;
-  li {
-    float: right;
-  }
-
-}
-
-.ml-auto {
-  width: 100%;
 }

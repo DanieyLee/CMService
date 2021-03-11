@@ -23,7 +23,7 @@
         "wallpaper": "壁紙",
         "systemImage": "システムイメージ",
         "keyBox": "キーボックス",
-        "phone": "Phone",
+        "phone": "電話",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
@@ -44,7 +44,7 @@
         "configuration": "設定",
         "logs": "ログ",
         "audits": "監査",
-        "apidocs": "API",
+        "apidocs": "インターフェース",
         "database": "データベース",
         "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
       },

@@ -29,6 +29,11 @@ Main page styles
     width: 72px;
     height: 72px;
   }
+  svg {
+    width: 72px !important;
+    height: 72px !important;
+    color: #8a6d35;
+  }
 }
 
 .div-width-auto {
@@ -39,9 +44,9 @@ Main page styles
   margin-top: 25px;
   white-space: nowrap;
   img {
-    width: 15px;
-    margin-bottom: 5px;
-    margin-right: 5px;
+    width: 24px;
+    margin-bottom: 3px;
+    margin-right: 3px;
     height: auto;
   }
 }
@@ -57,11 +62,10 @@ Main page styles
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  img {
-    width: 15px;
-    height: auto;
-    margin: 0px 5px 2px 0px;
-    filter: invert(60%);
+  svg {
+    width: 16px;
+    height: 16px;
+    margin: 0px 6px;
   }
   div {
     width: 30%;
@@ -76,12 +80,18 @@ Main page styles
 }
 
 .software-list-div-content-center {
+  svg {
+    width: 20px !important;
+    height: 20px !important;
+    margin: 4px 6px -1px 0px;
+    color: #FFDE25;
+  }
   a {
     font-weight: 400;
     margin-bottom: 0.25rem;
     letter-spacing: 0.5px;
     font-size: 1.23047rem;
-    width: 100%;
+    width: 90%;
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: left;
