@@ -69,7 +69,7 @@ export const Software = (props: ISoftwareProps) => {
 
   const { softwareList, match, loading, totalItems } = props;
   return (
-    <div className="software-home-top">
+    <div className="software-home-top home-box-background-color">
       <div className="software-home-top-height">
         {softwareList && softwareList.length > 0 ? (
           <div>

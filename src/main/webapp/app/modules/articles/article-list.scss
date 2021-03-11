@@ -21,16 +21,12 @@ Main page styles
 .article-list-div-content a{
   padding: 0px;
   text-align: left;
-  color: snow;
+  color: #ccc;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
   font-size: 0.75rem;
-}
-
-.article-home-top {
-  height: 520px;
 }
 
 .home-box-top-hr {
@@ -42,4 +38,26 @@ Main page styles
 
 .article-home-top-height {
   height: 460px;
+}
+
+.home-article-list-div-content {
+  height: 1.2rem;
+  padding: 0;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  img {
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+  }
+  * {
+    width: 100%;
+    float: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }

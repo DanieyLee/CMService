@@ -5,7 +5,7 @@
         "title": "Article Comments",
         "createLabel": "Create a new Article Comment",
         "createOrEditLabel": "Create or edit a Article Comment",
-        "notFound": "No Article Comments found"
+        "notFound": "No comment information at the moment!"
       },
       "created": "A new Article Comment is created with identifier {{ param }}",
       "updated": "A Article Comment is updated with identifier {{ param }}",

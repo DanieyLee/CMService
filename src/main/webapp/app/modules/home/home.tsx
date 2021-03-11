@@ -22,17 +22,19 @@ export const Home = (props: IHomeProp) => {
   return (
     <Row>
       <Col md="12">
-        <div className="home-top-01">
+        <Row className="home-top-row">
+          <Col md="4">
           <img src="content/images/yuoai.png" alt="Logo" />
-          <div className="home-top-02">
+          </Col>
+          <Col md="8">
             <h3>
               <Translate contentKey="home.title">Welcome</Translate>
             </h3>
             <p>
               <Translate contentKey="home.subtitle">This is your homepage</Translate>
             </p>
-          </div>
-        </div>
+          </Col>
+        </Row>
         {account && account.login ? (
           <div className="home-logged-message-div">
             <Alert color="success">
@@ -63,20 +65,18 @@ export const Home = (props: IHomeProp) => {
             <Translate contentKey="home.github">Github</Translate>
           </div>
         </div>
-        <div className="home-article-and-software">
-          <div className="home-as-box">
+        <Row className="home-article-and-software">
+          <Col md="6">
             <ErrorBoundaryRoute component={Articles} />
-          </div>
-          <div className="home-as-box">
+          </Col>
+          <Col md="6">
             <ErrorBoundaryRoute component={Softwares} />
-          </div>
-        </div>
+          </Col>
+        </Row>
         <div className="home-picture-top">
           <ErrorBoundaryRoute component={Wallpaper} />
         </div>
         <Frame />
-        {/*<br />*/}
-        {/*<hr className="home-box-top-hr"/>*/}
         <Service />
       </Col>
     </Row>

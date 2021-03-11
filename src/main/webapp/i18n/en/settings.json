@@ -1,13 +1,21 @@
 {
   "settings": {
-    "title": "User settings for [<strong>{{username}}</strong>]",
+    "title": "User settings for <strong>{{username}}</strong>",
     "form": {
       "firstname": "First Name",
       "firstname.placeholder": "Your first name",
       "lastname": "Last Name",
       "lastname.placeholder": "Your last name",
+      "email": "Email",
+      "email.placeholder": "Your email",
+      "image": "Portrait",
+      "sex": "Sex",
+      "age": "Age",
+      "age.placeholder": "Your age",
+      "passwordKey": "Secret key",
+      "passwordKey.placeholder": "Your secret key",
       "language": "Language",
-      "button": "Save"
+      "button": "Modify"
     },
     "messages": {
       "error": {
@@ -18,13 +26,29 @@
       "validate": {
         "firstname": {
           "required": "Your first name is required.",
-          "minlength": "Your first name is required to be at least 1 character",
-          "maxlength": "Your first name cannot be longer than 50 characters"
+          "minlength": "Your first name is required to be at least 1 character.",
+          "maxlength": "Your first name cannot be longer than 50 characters."
         },
         "lastname": {
           "required": "Your last name is required.",
           "minlength": "Your last name is required to be at least 1 character",
           "maxlength": "Your last name cannot be longer than 50 characters"
+        },
+        "email": {
+          "required": "Your email is required.",
+          "minlength": "Your email is required to be at least 5 character.",
+          "maxlength": "Your email cannot be longer than 254 characters."
+        },
+        "age": {
+          "required": "Your age is required.",
+          "invalid": "Your age format is wrong.",
+          "minlength": "Your age is required to be at least 1 character.",
+          "maxlength": "Your age cannot be longer than 3 characters."
+        },
+        "passwordKey": {
+          "required": "Your key is required.",
+          "minlength": "Your key is required to be at least 1 character.",
+          "maxlength": "Your key cannot be longer than 50 characters."
         }
       }
     }

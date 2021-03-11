@@ -39,6 +39,7 @@ public class Rewrite_ArticleServiceImpl implements Rewrite_ArticleService {
     @Transactional(readOnly = true)
     public Page<ArticleDTO> findAllState(Pageable pageable) {
         log.debug("Request to get all Articles");
+        pageable = PageRequest.of(pageable.getPageNumber(), pageable.getPageSize(),Sort.Direction.DESC,"updateTime");
         return articleRepository.findAllByState(pageable, true)
             .map(articleMapper::toDto);
     }

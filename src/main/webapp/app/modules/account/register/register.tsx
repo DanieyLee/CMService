@@ -25,10 +25,10 @@ export const RegisterPage = (props: IRegisterProps) => {
     []
   );
 
-  const countDown = name => {
+  const countDown = (name, time) => {
     const button = document.getElementById(name) as HTMLButtonElement;
     const text = button.innerHTML;
-    let num = 60;
+    let num = time;
     button.setAttribute("disabled","false");
     button.innerHTML = num.toString();
     const interval = setInterval(() => {
@@ -49,14 +49,14 @@ export const RegisterPage = (props: IRegisterProps) => {
       toast.error(translate('global.messages.validate.phone.required'));
     } else {
       props.phoneRegister(phone, values.code, values.firstPassword, props.currentLocale);
-      countDown("register-submit");
+      countDown("register-submit", 5);
       event.preventDefault();
     }
   };
 
   const phoneValidSubmit = (event, values) => {
     props.sendCode(values.phoneNumber);
-    countDown("send-submit");
+    countDown("send-submit", 60);
     event.preventDefault();
   };
 
@@ -65,30 +65,36 @@ export const RegisterPage = (props: IRegisterProps) => {
   return (
     <div>
       <Row className="justify-content-center register-from-top-div">
-        <Col md="8">
+        <Col md="10">
           <h1 id="register-title">
             <Translate contentKey="register.title">Registration</Translate>
           </h1>
           <AvForm id="send-form" onValidSubmit={phoneValidSubmit}>
-            <Button id="send-submit" className="register-from-text-button-phone" color="primary" type="submit">
-              <Translate contentKey="register.form.send">Send</Translate>
-            </Button>
-            <AvField
-              name="phoneNumber"
-              className="register-from-text-input-phone"
-              label={translate('global.form.phone.label')}
-              placeholder={translate('global.form.phone.placeholder')}
-              type="phoneNumber"
-              validate={{
-                required: { value: true, errorMessage: translate('global.messages.validate.phone.required') },
-                pattern: {
-                  value: '^((13[0-9])|(14[0,1,4-9])|(15[0-3,5-9])|(16[2,5,6,7])|(17[0-8])|(18[0-9])|(19[0-3,5-9]))\\d{8}$',
-                  errorMessage: translate('global.messages.validate.phone.invalid'),
-                },
-                minLength: { value: 8, errorMessage: translate('global.messages.validate.phone.minlength') },
-                maxLength: { value: 11, errorMessage: translate('global.messages.validate.phone.maxlength') },
-              }}
-            />
+            <Row>
+              <Col md="8">
+                <AvField
+                  name="phoneNumber"
+                  className="register-from-text-input-phone"
+                  label={translate('global.form.phone.label')}
+                  placeholder={translate('global.form.phone.placeholder')}
+                  type="phoneNumber"
+                  validate={{
+                    required: { value: true, errorMessage: translate('global.messages.validate.phone.required') },
+                    pattern: {
+                      value: '^((13[0-9])|(14[0,1,4-9])|(15[0-3,5-9])|(16[2,5,6,7])|(17[0-8])|(18[0-9])|(19[0-3,5-9]))\\d{8}$',
+                      errorMessage: translate('global.messages.validate.phone.invalid'),
+                    },
+                    minLength: { value: 8, errorMessage: translate('global.messages.validate.phone.minlength') },
+                    maxLength: { value: 11, errorMessage: translate('global.messages.validate.phone.maxlength') },
+                  }}
+                />
+              </Col>
+              <Col md="4">
+                <Button id="send-submit" className="register-from-text-button-phone" color="primary" type="submit">
+                  <Translate contentKey="register.form.send">Send</Translate>
+                </Button>
+              </Col>
+            </Row>
           </AvForm>
           <AvForm id="register-form" onValidSubmit={handleValidSubmit}>
             <AvField

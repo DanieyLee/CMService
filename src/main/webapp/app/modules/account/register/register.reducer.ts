@@ -55,9 +55,9 @@ export const handleRegister = (login, email, password, langKey = 'en') => ({
 });
 
 // Register
-export const phoneRegister = (login, firstName, password, langKey = 'en') => ({
+export const phoneRegister = (phone, code, password, langKey = 'en') => ({
   type: ACTION_TYPES.CREATE_ACCOUNT,
-  payload: axios.post('api/public/register', { login, firstName, password, langKey }),
+  payload: axios.post('api/public/register', { phone, code, password, langKey }),
   meta: {
     successMessage: translate('register.messages.success'),
   },

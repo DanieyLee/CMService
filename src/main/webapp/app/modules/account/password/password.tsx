@@ -1,3 +1,5 @@
+import './password.scss'
+
 import React, { useState, useEffect } from 'react';
 import { Translate, translate } from 'react-jhipster';
 import { connect } from 'react-redux';
@@ -33,8 +35,8 @@ export const PasswordPage = (props: IUserPasswordProps) => {
       <Row className="justify-content-center">
         <Col md="8">
           <h2 id="password-title">
-            <Translate contentKey="password.title" interpolate={{ username: props.account.login }}>
-              Password for {props.account.login}
+            <Translate contentKey="password.title" interpolate={{ username: props.account.firstName }}>
+              Password for {props.account.firstName}
             </Translate>
           </h2>
           <AvForm id="password-form" onValidSubmit={handleValidSubmit}>
@@ -84,7 +86,7 @@ export const PasswordPage = (props: IUserPasswordProps) => {
                 },
               }}
             />
-            <Button color="success" type="submit">
+            <Button className="register-from-text-button" color="success" type="submit">
               <Translate contentKey="password.form.button">Save</Translate>
             </Button>
           </AvForm>

@@ -81,17 +81,22 @@ export const Wallpaper = (props: IWallpaperProps) => {
                 <Translate contentKey="home.wallpaper.explain">Explain</Translate>
               </div>
             </div>
+
+
+
             <div className="home-wallpaper-content-text-div-map">
-              {wallpaperList.map((wallpaper, i) => (
-                <div key={`entity-${i}`}>
-                  <div className="home-wallpaper-name-content-div-img">
-                    <img src={`${wallpaper.imageUrl}`} alt={`${wallpaper.imageName}`} />
-                    <Button tag={Link} to={`/pictures/${wallpaper.id}`} color="link" size="sm">
-                      <div>{wallpaper.imageName}</div>
-                    </Button>
-                  </div>
-                </div>
-              ))}
+              <Row>
+                {wallpaperList.map((wallpaper, i) => (
+                  <Col md="6" key={`entity-${i}`}>
+                    <div className="home-wallpaper-name-content-div-img">
+                      <img src={`${wallpaper.imageUrl}`} alt={`${wallpaper.imageName}`} />
+                      <Button tag={Link} to={`/pictures/${wallpaper.id}`} color="link" size="sm">
+                        <div>{wallpaper.imageName}</div>
+                      </Button>
+                    </div>
+                  </Col>
+                ))}
+              </Row>
             </div>
           </div>
         ) : (

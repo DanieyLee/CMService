@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import cn.hupig.www.code.cmservice.service.SoftwareService;
+import cn.hupig.www.code.cmservice.service.Rewrite_SoftwareService;
 import cn.hupig.www.code.cmservice.service.dto.SoftwareDTO;
 import io.github.jhipster.web.util.PaginationUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -38,10 +38,10 @@ public class Rewrite_SoftwareResource {
     @Value("${jhipster.clientApp.name}")
     private String applicationName;
 
-    private final SoftwareService softwareService;
+    private final Rewrite_SoftwareService rewrite_SoftwareService;
 
-    public Rewrite_SoftwareResource(SoftwareService softwareService) {
-        this.softwareService = softwareService;
+    public Rewrite_SoftwareResource(Rewrite_SoftwareService rewrite_SoftwareService) {
+        this.rewrite_SoftwareService = rewrite_SoftwareService;
     }
 
     /**
@@ -54,7 +54,7 @@ public class Rewrite_SoftwareResource {
     @ApiOperation(value = "查询所有软件-无权限-带分页")
     public ResponseEntity<List<SoftwareDTO>> getAllSoftware(Pageable pageable) {
         log.debug("REST request to get a page of Software");
-        Page<SoftwareDTO> page = softwareService.findAll(pageable);
+        Page<SoftwareDTO> page = rewrite_SoftwareService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
@@ -69,7 +69,7 @@ public class Rewrite_SoftwareResource {
     @ApiOperation(value = "查询12个软件-无权限")
     public ResponseEntity<List<SoftwareDTO>> getSoftware() {
         log.debug("REST request to get a page of Software");
-        Page<SoftwareDTO> page = softwareService.findTop();
+        Page<SoftwareDTO> page = rewrite_SoftwareService.findTop();
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
@@ -84,7 +84,7 @@ public class Rewrite_SoftwareResource {
     @ApiOperation(value = "查询单个软件-无权限")
     public ResponseEntity<SoftwareDTO> getSoftware(@PathVariable Long id) {
         log.debug("REST request to get Software : {}", id);
-        Optional<SoftwareDTO> softwareDTO = softwareService.findOne(id);
+        Optional<SoftwareDTO> softwareDTO = rewrite_SoftwareService.findOne(id);
         return ResponseUtil.wrapOrNotFound(softwareDTO);
     }
 

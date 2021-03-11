@@ -70,7 +70,7 @@ export const Article = (props: IArticleProps) => {
 
   const { articleList, match, loading, totalItems } = props;
   return (
-    <div className="article-home-top">
+    <div className="article-home-top home-box-background-color">
       <div className="article-home-top-height">
         {articleList && articleList.length > 0 ? (
             <div>
@@ -88,7 +88,9 @@ export const Article = (props: IArticleProps) => {
                   </div>
                   <div className="article-list-div-content">
                     <Button tag={Link} to={`/articles/${article.id}`} color="link" size="sm">
-                      <span>{article.content}</span>
+                      <div className="home-article-list-div-content">
+                        <span dangerouslySetInnerHTML = {{ __html: article.content }} />
+                      </div>
                     </Button>
                   </div>
                 </div>

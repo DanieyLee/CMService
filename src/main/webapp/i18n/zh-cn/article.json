@@ -10,6 +10,10 @@
       "created": "文章 {{ param }} 创建成功",
       "updated": "文章 {{ param }} 更新成功",
       "deleted": "文章 {{ param }} 删除成功",
+      "modify": {
+        "title": "该内容由: {{ name }} 于 ",
+        "tail": " 修改"
+      },
       "delete": {
         "question": "你确定要删除文章 {{ id }} 吗？"
       },

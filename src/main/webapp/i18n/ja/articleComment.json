@@ -5,7 +5,7 @@
         "title": "ArticleComments",
         "createLabel": "Article Comment を追加",
         "createOrEditLabel": "Article Commentを追加または編集",
-        "notFound": "No Article Comments found"
+        "notFound": "しばらくコメントがありません!"
       },
       "created": "A new Article Comment is created with identifier {{ param }}",
       "updated": "A Article Comment is updated with identifier {{ param }}",

@@ -2,26 +2,26 @@
   "cmServiceApp": {
     "userLink": {
       "home": {
-        "title": "User Links",
-        "createLabel": "创建新 User Link",
-        "createOrEditLabel": "创建或编辑 User Link",
-        "notFound": "No User Links found"
+        "title": "用户附属表",
+        "createLabel": "创建新的用户链接",
+        "createOrEditLabel": "创建或编辑用户链接",
+        "notFound": "没有用户附属信息"
       },
-      "created": "User Link {{ param }} 创建成功",
-      "updated": "User Link {{ param }} 更新成功",
-      "deleted": "User Link {{ param }} 删除成功",
+      "created": "用户附属信息 {{ param }} 创建成功",
+      "updated": "用户附属信息 {{ param }} 更新成功",
+      "deleted": "用户附属信息 {{ param }} 删除成功",
       "delete": {
-        "question": "你确定要删除 User Link {{ id }} 吗？"
+        "question": "你确定要删除用户附属信息 {{ id }} 吗？"
       },
       "detail": {
-        "title": "User Link"
+        "title": "用户附属信息"
       },
-      "firstName": "First Name",
-      "sex": "Sex",
-      "age": "Age",
-      "theme": "Theme",
-      "passwordKey": "Password Key",
-      "user": "User"
+      "firstName": "昵称",
+      "sex": "性别",
+      "age": "年龄",
+      "theme": "主题",
+      "passwordKey": "密钥",
+      "user": "用户"
     }
   }
 }

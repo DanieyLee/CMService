@@ -99,6 +99,9 @@ export const Article = (props: IArticleProps) => {
                 <div key={`entity-${i}`}>
                   <div className="table-article-list-div-home">
                     <div className="table-article-div-left-top">
+                      <div className="table-article-div-right-top">
+                        {article.articleTypeType}
+                      </div>
                       <Button tag={Link} to={`${match.url}/${article.id}`} color="link" size="sm">
                         <span>{article.title}</span>
                       </Button>
@@ -108,9 +111,6 @@ export const Article = (props: IArticleProps) => {
                       <span>{article.views > 1000 ? article.views.toString().substring(0,article.views.toString().length-3) + "k" : article.views}</span>
                       <img src="content/images/heart.svg" alt="heart" />
                       <span>{article.likeNumber > 1000? article.likeNumber.toString().substring(0,article.likeNumber.toString().length-3) + "k" : article.likeNumber}</span>
-                    </div>
-                    <div className="table-article-div-right-top">
-                      {article.articleTypeType ? article.articleTypeType : ''}
                     </div>
                     <div className="content-separator-list">
                     <br />
@@ -122,7 +122,9 @@ export const Article = (props: IArticleProps) => {
                       </div>
                       <div className="table-article-div-left-down-down">
                         <Button tag={Link} to={`${match.url}/${article.id}`} color="link" size="sm">
-                          <span>{article.content}</span>
+                          <div className="table-article-div-left-down-down-content">
+                            <span dangerouslySetInnerHTML = {{ __html: article.content }} />
+                          </div>
                         </Button>
                       </div>
                     </div>

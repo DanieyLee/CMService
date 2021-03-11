@@ -1,10 +1,5 @@
 package cn.hupig.www.code.cmservice.service.impl;
 
-import java.time.Instant;
-import java.time.ZoneId;
-import java.time.ZoneOffset;
-import java.time.format.DateTimeFormatter;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -40,7 +35,7 @@ public class Rewrite_PhoneServiceImpl implements Rewrite_PhoneService {
     public void sendCode(String phoneNumber) {
         log.debug("Request to send Phone : {}", phoneNumber);
         if (judgePhone(phoneNumber)) {
-        	throw new PhoneAlreadyUsedException("code");
+        	throw new PhoneAlreadyUsedException(0);
         }
         Phone phone = new Phone();
         phone.setPhone(phoneNumber);
@@ -61,9 +56,8 @@ public class Rewrite_PhoneServiceImpl implements Rewrite_PhoneService {
     }
     
     private boolean judgePhone(String phone) {
-    	Instant time = Times.getInstant();
-    	Phone newPhone = phoneRepository.findFirstByPhoneAndEffectiveTimeAfter(phone, time);
-    	return newPhone != null;
+    	return phoneRepository.findFirstByPhoneAndEffectiveTimeAfter(
+    					phone, Times.getInstant()).get() != null;
     }
     
 }

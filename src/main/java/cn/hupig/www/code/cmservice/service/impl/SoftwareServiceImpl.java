@@ -50,16 +50,6 @@ public class SoftwareServiceImpl implements SoftwareService {
         return softwareRepository.findAll(pageable)
             .map(softwareMapper::toDto);
     }
-    
-    @Override
-    @Transactional(readOnly = true)
-    public Page<SoftwareDTO> findTop() {
-        log.debug("Request to get all Software");
-        Pageable pageable = PageRequest.of(0, 12,Sort.Direction.DESC,"updateTime");
-        return softwareRepository.findAll(pageable)
-            .map(softwareMapper::toDto);
-    }
-
 
     @Override
     @Transactional(readOnly = true)

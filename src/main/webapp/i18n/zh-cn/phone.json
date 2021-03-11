@@ -2,30 +2,30 @@
   "cmServiceApp": {
     "phone": {
       "home": {
-        "title": "Phones",
-        "createLabel": "创建新 Phone",
-        "createOrEditLabel": "创建或编辑 Phone",
-        "notFound": "No Phones found"
+        "title": "手机验证码",
+        "createLabel": "创建新手机验证码",
+        "createOrEditLabel": "创建或编辑手机验证码",
+        "notFound": "没有手机验证码"
       },
-      "created": "Phone {{ param }} 创建成功",
-      "updated": "Phone {{ param }} 更新成功",
-      "deleted": "Phone {{ param }} 删除成功",
+      "created": "手机验证码 {{ param }} 创建成功",
+      "updated": "手机验证码 {{ param }} 更新成功",
+      "deleted": "手机验证码 {{ param }} 删除成功",
       "delete": {
-        "question": "你确定要删除 Phone {{ id }} 吗？"
+        "question": "你确定要删除手机验证码 {{ id }} 吗？"
       },
       "detail": {
-        "title": "Phone"
+        "title": "手机"
       },
-      "phone": "Phone",
-      "code": "Code",
-      "effectiveTime": "Effective Time",
-      "sendTime": "Send Time",
-      "createUser": "Create User",
-      "creatTime": "Creat Time",
-      "updateUser": "Update User",
-      "updateTime": "Update Time",
-      "note": "Note",
-      "userLink": "User Link"
+      "phone": "手机",
+      "code": "验证码",
+      "effectiveTime": "生效时间段",
+      "sendTime": "发送时间",
+      "createUser": "创建用户",
+      "creatTime": "创建时间",
+      "updateUser": "修改用户",
+      "updateTime": "修改时间",
+      "note": "备注",
+      "userLink": "关联用户"
     }
   }
 }

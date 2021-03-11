@@ -129,6 +129,14 @@ export const getEntity: ICrudGetAction<IUserLink> = id => {
   };
 };
 
+export const getUserEntity: ICrudGetAction<IUserLink> = id => {
+  const requestUrl = `${apiUrl}/user-id/${id}`;
+  return {
+    type: ACTION_TYPES.FETCH_USERLINK,
+    payload: axios.get<IUserLink>(requestUrl),
+  };
+};
+
 export const createEntity: ICrudPutAction<IUserLink> = entity => async dispatch => {
   const result = await dispatch({
     type: ACTION_TYPES.CREATE_USERLINK,

@@ -29,12 +29,20 @@ const Footer = (props: IFooterProps) => {
     <div className="footer page-content">
       <Row>
         <Col md="12">
-          <div className="footer-12-div">
-            <Brand />
-            <Articles />
-            <Softwares />
-            <Explain />
-          </div>
+          <Row className="footer-12-div">
+            <Col md="3">
+              <Brand />
+            </Col>
+            <Col md="3">
+              <Articles />
+            </Col>
+            <Col md="3">
+              <Softwares />
+            </Col>
+            <Col md="3">
+              <Explain />
+            </Col>
+          </Row>
           <div className="footer-language-div">
             <img src="content/images/language.svg" alt="language" className="footer-image-div"/>
             <a color="secondary" onClick={localeCN}>
@@ -63,8 +71,8 @@ const Footer = (props: IFooterProps) => {
               <Translate contentKey="footer.down.cloud">Cloud</Translate>
             </div>
             <Translate contentKey="footer.down.icp">Icp</Translate>
-            {/*<img src="content/images/police.svg" alt="police" className="footer-icp-image"/>*/}
-            {/*<Translate contentKey="footer.down.copyright">Copyright</Translate>*/}
+            <img src="content/images/police.svg" alt="police" className="footer-icp-image"/>
+            <Translate contentKey="footer.down.copyright">Copyright</Translate>
           </div>
         </Col>
       </Row>

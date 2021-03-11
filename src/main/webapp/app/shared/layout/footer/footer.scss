@@ -51,16 +51,7 @@ $header-color-hover: darken($header-color, 20%);
 }
 
 .footer-div {
-  float: left;
-  width: 25%;
-  min-width: 150px;
-  margin-bottom: 20px;
-}
-.footer-title-div {
-  float: left;
-  width: 25%;
-  color: #fff;
-  min-width: 150px;
+  text-align: -webkit-center;
 }
 
 .footer-language-div {

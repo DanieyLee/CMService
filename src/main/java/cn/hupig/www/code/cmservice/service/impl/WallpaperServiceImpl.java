@@ -1,8 +1,8 @@
 package cn.hupig.www.code.cmservice.service.impl;
 
-import cn.hupig.www.code.cmservice.service.WallpaperService;
 import cn.hupig.www.code.cmservice.domain.Wallpaper;
 import cn.hupig.www.code.cmservice.repository.WallpaperRepository;
+import cn.hupig.www.code.cmservice.service.WallpaperService;
 import cn.hupig.www.code.cmservice.service.dto.WallpaperDTO;
 import cn.hupig.www.code.cmservice.service.mapper.WallpaperMapper;
 import org.slf4j.Logger;
@@ -47,15 +47,6 @@ public class WallpaperServiceImpl implements WallpaperService {
     @Transactional(readOnly = true)
     public Page<WallpaperDTO> findAll(Pageable pageable) {
         log.debug("Request to get all Wallpapers");
-        return wallpaperRepository.findAll(pageable)
-            .map(wallpaperMapper::toDto);
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public Page<WallpaperDTO> findTop() {
-        log.debug("Request to get all Wallpapers");
-        Pageable pageable = PageRequest.of(0, 4,Sort.Direction.DESC,"updateTime");
         return wallpaperRepository.findAll(pageable)
             .map(wallpaperMapper::toDto);
     }

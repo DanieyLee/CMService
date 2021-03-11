@@ -1,13 +1,21 @@
 {
   "settings": {
-    "title": "[<strong>{{username}}</strong>]の設定",
+    "title": "<strong>{{username}}</strong> の設定",
     "form": {
-      "firstname": "名",
-      "firstname.placeholder": "名",
+      "firstname": "ニックネーム",
+      "firstname.placeholder": "あなたのニックネーム",
       "lastname": "姓",
       "lastname.placeholder": "姓",
+      "email": "電子メール",
+      "email.placeholder": "あなたのメール",
+      "image": "顔写真",
+      "sex": "性別",
+      "age": "年齢",
+      "age.placeholder": "あなたの年齢",
+      "passwordKey": "鍵",
+      "passwordKey.placeholder": "パスワードボックスの暗号化鍵",
       "language": "言語",
-      "button": "保存する"
+      "button": "変更を保存"
     },
     "messages": {
       "error": {
@@ -17,14 +25,30 @@
       "success": "<strong>設定を保存しました!</strong>",
       "validate": {
         "firstname": {
-          "required": "名を入力してください",
-          "minlength": "名は1文字以上で入力してください",
-          "maxlength": "名は50文字以下で入力してください"
+          "required": "名を入力してください。",
+          "minlength": "名は1文字以上で入力してください。",
+          "maxlength": "名は50文字以下で入力してください。"
         },
         "lastname": {
-          "required": "姓を入力してください",
-          "minlength": "姓は1文字以上で入力してください",
-          "maxlength": "姓は50文字以下で入力してください"
+          "required": "姓を入力してください。",
+          "minlength": "姓は1文字以上で入力してください。",
+          "maxlength": "姓は50文字以下で入力してください。"
+        },
+        "email": {
+          "required": "電子メールを入力してください。",
+          "minlength": "電子メールは5文字以上で入力してください。",
+          "maxlength": "電子メールは254文字以下で入力してください。"
+        },
+        "age": {
+          "required": "あなたの年齢は必須項目です。",
+          "invalid": "あなたの年齢の書式は間違っています。",
+          "minlength": "あなたの年齢の長さには少なくとも1文字が必要です。",
+          "maxlength": "あなたの年齢は3文字を超えてはいけません。"
+        },
+        "passwordKey": {
+          "required": "あなたの鍵は必須項目です。",
+          "minlength": "あなたの鍵の長さは少なくとも1文字が必要です。",
+          "maxlength": "あなたの鍵の長さは50文字を超えてはいけません。"
         }
       }
     }

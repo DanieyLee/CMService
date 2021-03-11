@@ -14,7 +14,7 @@ export const BrandIcon = props => (
 );
 
 export const Brand = props => (
-  <div className="footer-title-div">
+  <div className="footer-div">
     <tbody>
       <tr>
         <div className="f-flex brand-logo">

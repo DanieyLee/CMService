@@ -1,0 +1,32 @@
+/* ==========================================================================
+Main page styles
+========================================================================== */
+
+.register-from-text-button {
+  width: 100px;
+  height: 35px;
+  padding: 5px;
+}
+
+#settings-title {
+  font-size: 1.8rem;
+  font-weight: 300;
+  margin: 10px auto;
+}
+
+.form-control {
+  font-weight: 500;
+}
+
+.settings-from-image-portrait {
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin-top: 20px;
+  padding: 10px;
+  img {
+    max-width: 250px;
+    max-height: 250px;
+    min-width: 180px;
+    min-height: 180px;
+  }
+}

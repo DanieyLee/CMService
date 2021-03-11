@@ -2,21 +2,18 @@
 Main page styles
 ========================================================================== */
 .register-from-top-div {
-  width: 80%;
   margin: 0 auto;
   text-align: left;
   .register-from-text-button {
     width: 100px;
     height: 35px;
     padding: 5px;
-  }
-  .register-from-text-input-phone {
-    width: 70%;
+    margin-top: 20px;
   }
   .register-from-text-button-phone {
-    width: 28%;
-    float: right;
-    margin-top: 2rem;
+    margin: 2rem 0px;
+    width: 100%;
+    min-width: 110px;
   }
   #register-title {
     font-size: 1.95rem;

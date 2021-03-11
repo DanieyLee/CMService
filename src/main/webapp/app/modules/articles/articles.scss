@@ -21,7 +21,7 @@ Main page styles
 .table-article-div-left-top {
   float: left;
   padding-left: 0.5rem;
-  width: 50%;
+  width: 40%;
   a {
     color: snow;
     font-size: 1rem;
@@ -39,10 +39,15 @@ Main page styles
 }
 
 .table-article-div-right-top {
-  float: right;
-  padding-right: 1rem;
+  float: left;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  border: 1px solid #ff4343;
+  padding: 0px 6px 1px 6px;
+  color: #ff4343;
+  margin-top: 8px;
   a {
-    color: #fff;
+    color: snow;
     font-size: 1rem;
     font-weight: 600;
   }
@@ -69,6 +74,27 @@ Main page styles
   float: left;
 }
 
+.table-article-div-left-down-down-content {
+  margin: 0;
+  height: 1.5rem;
+  padding: 0;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  img {
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+  }
+  * {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
 .table-article-div-left-down-down {
   a {
     max-width: 75%;
@@ -79,8 +105,7 @@ Main page styles
     font-size: 0.95rem;
     margin-left: 20px;
     color: snow;
-    opacity: 0.8;
-    padding-top: 2px;
+    margin-top: -4px;
   }
   a:hover {
     color: #66d9ef;

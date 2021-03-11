@@ -152,6 +152,7 @@
     "NotNull": "Field {{ fieldName }} cannot be empty!",
     "Size": "Field {{ fieldName }} does not meet min/max size requirements!",
     "userexists": "Login name already used!",
+    "userphoneexists": "Wrong mobile phone number!",
     "phoneexists": "Verification code error!",
     "phonecodeexists": "The verification code is valid within 24 hours, please do not send it repeatedly!",
     "emailexists": "Email is already in use!",

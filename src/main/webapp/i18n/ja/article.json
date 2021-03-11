@@ -10,6 +10,10 @@
       "created": "A new Article is created with identifier {{ param }}",
       "updated": "A Article is updated with identifier {{ param }}",
       "deleted": "A Article is deleted with identifier {{ param }}",
+      "modify": {
+        "title": "この内容は: {{ name }} を選択します ",
+        "tail": " 変更"
+      },
       "delete": {
         "question": "文章 {{ id }}を削除してもよろしいですか？"
       },

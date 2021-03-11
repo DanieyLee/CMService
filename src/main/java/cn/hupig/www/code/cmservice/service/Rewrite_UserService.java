@@ -2,6 +2,7 @@ package cn.hupig.www.code.cmservice.service;
 
 import java.util.HashSet;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 import org.slf4j.Logger;
@@ -20,7 +21,6 @@ import cn.hupig.www.code.cmservice.repository.PhoneRepository;
 import cn.hupig.www.code.cmservice.repository.UserLinkRepository;
 import cn.hupig.www.code.cmservice.repository.UserRepository;
 import cn.hupig.www.code.cmservice.security.AuthoritiesConstants;
-import cn.hupig.www.code.cmservice.service.dto.UserDTO;
 import cn.hupig.www.code.cmservice.service.utils.Times;
 import cn.hupig.www.code.cmservice.web.rest.errors.PhoneAlreadyUsedException;
 
@@ -54,26 +54,23 @@ public class Rewrite_UserService {
         this.cacheManager = cacheManager;
     }
 
-    public void registerUser(UserDTO userDTO, String password) {
-        userRepository.findOneByLogin(userDTO.getLogin().toLowerCase()).ifPresent(existingUser -> {
-            boolean removed = removeNonActivatedUser(existingUser);
-            if (!removed) {
-                throw new UsernameAlreadyUsedException();
-            }
-        });
-        if (!judgeCode(userDTO.getLogin(), userDTO.getFirstName())) {
+    public void registerUser(String phoneNumber, String code, String password, String langKey) {
+        if (userRepository.findOneByLogin(phoneNumber).isPresent()){
+        	throw new UsernameAlreadyUsedException();
+        }
+        if (!judgeCode(phoneNumber, code)) {
         	throw new PhoneAlreadyUsedException();
         }
         User newUser = new User();
         String encryptedPassword = passwordEncoder.encode(password);
-        newUser.setLogin(userDTO.getLogin());
+        newUser.setLogin(phoneNumber);
         // new user gets initially a generated password
         newUser.setPassword(encryptedPassword);
-        newUser.setFirstName(userDTO.getLogin());
+        newUser.setFirstName(phoneNumber);
         newUser.setLastName("");
-        newUser.setEmail(userDTO.getLogin() + "@local.com");
+        newUser.setEmail(phoneNumber + "@local.com");
         newUser.setImageUrl("");
-        newUser.setLangKey(userDTO.getLangKey());
+        newUser.setLangKey(langKey);
         // new user is active
         newUser.setActivated(true);
         Set<Authority> authorities = new HashSet<>();
@@ -84,31 +81,36 @@ public class Rewrite_UserService {
         log.debug("Created Information for User: {}", newUser);
         UserLink userLink = new UserLink();
         userLink.setUser(newUser);
-        userLink.setFirstName(userDTO.getLogin());
+        userLink.setFirstName(phoneNumber);
         userLink.setTheme("black");
         userLink.setAge(0L);
         userLink.setSex(true);
-        userLink.setPasswordKey(123456L);
+        userLink.setPasswordKey(666666L);
         userLink = userLinkRepository.save(userLink);
         log.debug("Created Information for UserLink: {}", userLink);
     }
     
-    private boolean judgeCode(String phone, String code) {
-    	Phone newPhone = phoneRepository.findOneByPhoneAndCode(phone, Integer.parseInt(code));
-    	if (newPhone == null) {
+    public void resetPassword(String phoneNumber, String code, String newPassword) {
+        if (!judgeCode(phoneNumber, code)) {
+        	throw new PhoneAlreadyUsedException();
+        }
+        Optional<User> user = userRepository.findOneByLogin(phoneNumber);
+        if (!user.isPresent()) {
+        	throw new PhoneAlreadyUsedException("phone");
+        } else {
+        	log.debug("Reset Information for Password: {}", user.get());
+        	user.get().setPassword(passwordEncoder.encode(newPassword));
+            userRepository.save(user.get());
+            this.clearUserCaches(user.get());
+        }
+    }
+    
+    private boolean judgeCode(String phoneNumber, String code) {
+    	Phone Phone = phoneRepository.findOneByPhoneAndCode(phoneNumber, Integer.parseInt(code)).get();
+    	if (Phone == null) {
     		return false;
     	}
-    	return Times.timeSlot(newPhone.getSendTime(), newPhone.getEffectiveTime());
-    }
-
-    private boolean removeNonActivatedUser(User existingUser) {
-        if (existingUser.getActivated()) {
-             return false;
-        }
-        userRepository.delete(existingUser);
-        userRepository.flush();
-        this.clearUserCaches(existingUser);
-        return true;
+    	return Times.timeSlot(Phone.getSendTime(), Phone.getEffectiveTime());
     }
 
     private void clearUserCaches(User user) {

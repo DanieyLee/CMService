@@ -50,6 +50,9 @@ Main page styles
 }
 
 .home-frame-div-img-java-liquibase img{
-  width: 371px;
-  height: 95px;
+  max-width: 371px;
+  max-height: 95px;
+  margin: 28px auto;
+  width: 100%;
+  height: 100%;
 }

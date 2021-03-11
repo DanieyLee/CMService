@@ -17,6 +17,8 @@ export const messages = {
 
 export const APP_DATE_FORMAT = 'DD/MM/YY HH:mm';
 export const APP_DATE_FORMAT_SIMPLE = 'MM-DD';
+export const APP_DATE_FORMAT_SIMPLE_ZH = 'YYYY-MM-DD';
+export const APP_DATE_FORMAT_SIMPLE_ZH_CN = 'YYYY-MM-DD HH:mm';
 export const APP_TIMESTAMP_FORMAT = 'DD/MM/YY HH:mm:ss';
 export const APP_LOCAL_DATE_FORMAT = 'DD/MM/YYYY';
 export const APP_LOCAL_DATE_FORMAT_ZH = 'YYYY/MM/DD';

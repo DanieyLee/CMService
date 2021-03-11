@@ -8,8 +8,12 @@ public class PhoneAlreadyUsedException extends BadRequestAlertException {
     	super(ErrorConstants.PHONE_ALREADY_USED_TYPE, "phone is already in use!", "userManagement", "phoneexists");
     }
     
-    public PhoneAlreadyUsedException(String code) {
+    public PhoneAlreadyUsedException(Integer code) {
     	super(ErrorConstants.PHONE_ALREADY_USED_TYPE, "phone is already in use!", "userManagement", "phonecodeexists");
+    }
+    
+    public PhoneAlreadyUsedException(String phone) {
+    	super(ErrorConstants.PHONE_ALREADY_USED_TYPE, "phone is already in use!", "userManagement", "userphoneexists");
     }
     
 }

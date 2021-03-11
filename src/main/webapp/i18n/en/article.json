@@ -10,6 +10,10 @@
       "created": "A new Article is created with identifier {{ param }}",
       "updated": "A Article is updated with identifier {{ param }}",
       "deleted": "A Article is deleted with identifier {{ param }}",
+      "modify": {
+        "title": "This content is provided by: {{ name }} to ",
+        "tail": " modify"
+      },
       "delete": {
         "question": "Are you sure you want to delete Article {{ id }}?"
       },

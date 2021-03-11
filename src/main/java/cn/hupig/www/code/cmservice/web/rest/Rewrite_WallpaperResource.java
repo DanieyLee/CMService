@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import cn.hupig.www.code.cmservice.service.WallpaperService;
+import cn.hupig.www.code.cmservice.service.Rewrite_WallpaperService;
 import cn.hupig.www.code.cmservice.service.dto.WallpaperDTO;
 import io.github.jhipster.web.util.PaginationUtil;
 import io.github.jhipster.web.util.ResponseUtil;
@@ -38,10 +38,10 @@ public class Rewrite_WallpaperResource {
     @Value("${jhipster.clientApp.name}")
     private String applicationName;
 
-    private final WallpaperService wallpaperService;
+    private final Rewrite_WallpaperService rewrite_WallpaperService;
 
-    public Rewrite_WallpaperResource(WallpaperService wallpaperService) {
-        this.wallpaperService = wallpaperService;
+    public Rewrite_WallpaperResource(Rewrite_WallpaperService rewrite_WallpaperService) {
+        this.rewrite_WallpaperService = rewrite_WallpaperService;
     }
 
     /**
@@ -54,7 +54,7 @@ public class Rewrite_WallpaperResource {
     @ApiOperation(value = "查询所有壁纸-无权限-带分页")
     public ResponseEntity<List<WallpaperDTO>> getAllWallpapers(Pageable pageable) {
         log.debug("REST request to get a page of Wallpapers");
-        Page<WallpaperDTO> page = wallpaperService.findAll(pageable);
+        Page<WallpaperDTO> page = rewrite_WallpaperService.findAll(pageable);
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
@@ -69,7 +69,7 @@ public class Rewrite_WallpaperResource {
     @ApiOperation(value = "查询4张壁纸-无权限-带分页")
     public ResponseEntity<List<WallpaperDTO>> getTopWallpapers() {
         log.debug("REST request to get a page of Wallpapers");
-        Page<WallpaperDTO> page = wallpaperService.findTop();
+        Page<WallpaperDTO> page = rewrite_WallpaperService.findTop();
         HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
         return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
@@ -84,7 +84,7 @@ public class Rewrite_WallpaperResource {
     @ApiOperation(value = "查询单张壁纸-无权限")
     public ResponseEntity<WallpaperDTO> getWallpaper(@PathVariable Long id) {
         log.debug("REST request to get Wallpaper : {}", id);
-        Optional<WallpaperDTO> wallpaperDTO = wallpaperService.findOne(id);
+        Optional<WallpaperDTO> wallpaperDTO = rewrite_WallpaperService.findOne(id);
         return ResponseUtil.wrapOrNotFound(wallpaperDTO);
     }
 }

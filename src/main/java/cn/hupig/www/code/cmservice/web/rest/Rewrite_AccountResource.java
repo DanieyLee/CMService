@@ -16,7 +16,9 @@ import cn.hupig.www.code.cmservice.service.Rewrite_UserService;
 import cn.hupig.www.code.cmservice.web.rest.errors.EmailAlreadyUsedException;
 import cn.hupig.www.code.cmservice.web.rest.errors.InvalidPasswordException;
 import cn.hupig.www.code.cmservice.web.rest.errors.LoginAlreadyUsedException;
-import cn.hupig.www.code.cmservice.web.rest.vm.ManagedUserVM;
+import cn.hupig.www.code.cmservice.web.rest.errors.PhoneAlreadyUsedException;
+import cn.hupig.www.code.cmservice.web.rest.vm.ManagedPhoneUserVM;
+import cn.hupig.www.code.cmservice.web.rest.vm.PhoneAndCodeAndPasswordVM;
 
 /**
  * REST controller for managing the current user's account.
@@ -24,12 +26,6 @@ import cn.hupig.www.code.cmservice.web.rest.vm.ManagedUserVM;
 @RestController
 @RequestMapping("/api")
 public class Rewrite_AccountResource {
-
-    private static class AccountResourceException extends RuntimeException {
-        private AccountResourceException(String message) {
-            super(message);
-        }
-    }
 
     private final Logger log = LoggerFactory.getLogger(Rewrite_AccountResource.class);
 
@@ -42,23 +38,67 @@ public class Rewrite_AccountResource {
     /**
      * {@code POST  /register} : register the user.
      *
-     * @param managedUserVM the managed user View Model.
+     * @param ManagedPhoneUserVM the managed user View Model.
      * @throws InvalidPasswordException {@code 400 (Bad Request)} if the password is incorrect.
      * @throws EmailAlreadyUsedException {@code 400 (Bad Request)} if the email is already used.
      * @throws LoginAlreadyUsedException {@code 400 (Bad Request)} if the login is already used.
      */
     @PostMapping("/public/register")
     @ResponseStatus(HttpStatus.CREATED)
-    public void registerAccount(@Valid @RequestBody ManagedUserVM managedUserVM) {
-        if (!checkPasswordLength(managedUserVM.getPassword())) {
+    public void registerAccount(@Valid @RequestBody ManagedPhoneUserVM managedPhoneUserVM) {
+    	log.debug("REST request to register Phone : {}", managedPhoneUserVM);
+        if (!checkPasswordLength(managedPhoneUserVM.getPassword())) {
             throw new InvalidPasswordException();
         }
-        rewrite_UserService.registerUser(managedUserVM, managedUserVM.getPassword());
+        if (!checkPhoneLength(managedPhoneUserVM.getPhone())) {
+            throw new PhoneAlreadyUsedException("phone");
+        }
+        if (!checkCodeLength(managedPhoneUserVM.getCode())) {
+            throw new PhoneAlreadyUsedException();
+        }
+        rewrite_UserService.registerUser(managedPhoneUserVM.getPhone(),
+							        		managedPhoneUserVM.getCode(),
+							        		managedPhoneUserVM.getPassword(),
+							        		managedPhoneUserVM.getLangKey());
+    }
+    
+    /**
+     * {@code POST   /public/account/reset-password} : Send an phone to reset the password of the user.
+     *
+     * @param phone the phone of the user.
+     */
+    @PostMapping(path = "/public/account/reset-password")
+    public void requestPasswordReset(@RequestBody PhoneAndCodeAndPasswordVM PhoneAndCodeAndPasswordVM) {
+    	log.debug("REST request to reset password : {}", PhoneAndCodeAndPasswordVM);
+        if (!checkPasswordLength(PhoneAndCodeAndPasswordVM.getNewPassword())) {
+            throw new InvalidPasswordException();
+        }
+        if (!checkPhoneLength(PhoneAndCodeAndPasswordVM.getPhone())) {
+            throw new PhoneAlreadyUsedException("phone");
+        }
+        if (!checkCodeLength(PhoneAndCodeAndPasswordVM.getCode())) {
+            throw new PhoneAlreadyUsedException();
+        }
+        rewrite_UserService.resetPassword(PhoneAndCodeAndPasswordVM.getPhone(), 
+        									PhoneAndCodeAndPasswordVM.getCode(),
+        									PhoneAndCodeAndPasswordVM.getNewPassword());
     }
 
     private static boolean checkPasswordLength(String password) {
         return !StringUtils.isEmpty(password) &&
-            password.length() >= ManagedUserVM.PASSWORD_MIN_LENGTH &&
-            password.length() <= ManagedUserVM.PASSWORD_MAX_LENGTH;
+            password.length() >= ManagedPhoneUserVM.PASSWORD_MIN_LENGTH &&
+            password.length() <= ManagedPhoneUserVM.PASSWORD_MAX_LENGTH;
+    }
+    
+    private static boolean checkPhoneLength(String phone) {
+        return !StringUtils.isEmpty(phone) &&
+    		phone.length() >= ManagedPhoneUserVM.PHONE_MIN_LENGTH &&
+			phone.length() <= ManagedPhoneUserVM.PHONE_MAX_LENGTH;
+    }
+    
+    private static boolean checkCodeLength(String code) {
+        return !StringUtils.isEmpty(code) &&
+    		code.length() >= ManagedPhoneUserVM.CODE_MIN_LENGTH &&
+			code.length() <= ManagedPhoneUserVM.CODE_MAX_LENGTH;
     }
 }
