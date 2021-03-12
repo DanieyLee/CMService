@@ -88,6 +88,7 @@ export const PasswordResetFinishPage = (props: IPasswordResetFinishProps) => {
                 />
               </Col>
               <Col md="4">
+                <label htmlFor="phoneNumber" className="">&nbsp;</label>
                 <Button id="send-submit" className="register-from-text-button-phone" color="primary" type="submit">
                   <Translate contentKey="register.form.send">Send</Translate>
                 </Button>
@@ -137,7 +138,6 @@ export const PasswordResetFinishPage = (props: IPasswordResetFinishProps) => {
             <Button id="reset-submit" className="register-from-text-button" color="success" type="submit">
               <Translate contentKey="reset.finish.form.button">Validate new password</Translate>
             </Button>
-            &nbsp;
             <Button className="register-from-text-button" tag={Link} to="/login" replace color="info">
               <Translate contentKey="entity.action.cancel">Cancel</Translate>
             </Button>

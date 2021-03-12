@@ -90,6 +90,7 @@ export const RegisterPage = (props: IRegisterProps) => {
                 />
               </Col>
               <Col md="4">
+                <label htmlFor="phoneNumber" className="">&nbsp;</label>
                 <Button id="send-submit" className="register-from-text-button-phone" color="primary" type="submit">
                   <Translate contentKey="register.form.send">Send</Translate>
                 </Button>
@@ -139,7 +140,6 @@ export const RegisterPage = (props: IRegisterProps) => {
             <Button id="register-submit" className="register-from-text-button" color="primary" type="submit">
               <Translate contentKey="register.form.button">Register</Translate>
             </Button>
-            &nbsp;
             <Button className="register-from-text-button" tag={Link} to="/" replace color="info">
               <Translate contentKey="entity.action.cancel">Cancel</Translate>
             </Button>

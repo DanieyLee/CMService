@@ -16,7 +16,7 @@ export const BrandIcon = props => (
 export const Brand = props => (
   <div className="footer-div">
     <tbody>
-      <tr>
+      <tr className="footer-title-logo">
         <div className="f-flex brand-logo">
           <BrandIcon />
           <span className="footer-title">

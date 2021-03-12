@@ -4,7 +4,6 @@ Main page styles
 #key-box-heading {
   font-weight: 300;
   font-size: 1.75rem;
-  margin-left: 0.5rem;
   margin-bottom: 0.5rem;
   a {
     height: 2rem;
@@ -15,7 +14,6 @@ Main page styles
 .key-box-heading-title-div {
   font-size: 0.875rem;
   line-height: 1.5;
-  margin-left: 0.5rem;
   margin-bottom: 10px;
   a {
     color: #f48fb1;
@@ -37,7 +35,7 @@ Main page styles
   float: left;
   border: 1px solid hsla(210,8%,51%,.09)!important;
   text-align: left;
-  margin: 1%;
+  margin: 1% 0px;
   background-color: #262626;
   border-radius: 5px;
   padding: 5px;
@@ -60,9 +58,9 @@ Main page styles
 }
 
 .table-responsive-filter {
-  width: 98%;
+  width: 100%;
   height: calc(1.5em + 0.75rem + 2px);
-  margin: 10px 1%;
+  margin: 10px 0px;
   input {
     width: 49%;
     float: left;

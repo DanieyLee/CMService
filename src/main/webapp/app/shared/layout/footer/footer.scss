@@ -4,7 +4,7 @@ $header-color-hover: darken($header-color, 20%);
 
 .footer {
   height: auto;
-  padding: 1rem 2rem 3rem 2rem;
+  padding: 1rem 0rem 3rem 0rem;
 }
 
 .footer-title {
@@ -42,10 +42,13 @@ $header-color-hover: darken($header-color, 20%);
 }
 
 .footer-language-div {
-  margin-top: 1rem;
+  margin: 60px 12px 40px 12px;
   font-size: 80%;
   color: rgba(255, 255, 255, 0.7);
   text-align: right;
+  a {
+    margin-right: 6px;
+  }
   svg {
     height: 22px !important;
     width: 22px !important;
@@ -73,7 +76,7 @@ $header-color-hover: darken($header-color, 20%);
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   text-align: center;
   line-height: 35px;
-  padding-top: 30px;
+  padding: 30px 10px 0px 10px;
   svg {
     width: 18px !important;
     height: 18px !important;
@@ -92,9 +95,45 @@ $header-color-hover: darken($header-color, 20%);
 
 @media only screen and (max-width: 770px){
   .footer-12-div{
-    display:none
+    .col-md-4 .footer-div {
+      .footer-title-logo {
+        width: 100%;
+      }
+      tr {
+        float: left;
+        .footer-brand-tr-div {
+          margin: 10px 20px 10px 0px;
+        }
+      }
+    }
+    .col-md-3 {
+      margin-top: 20px;
+      width: 50%;
+    }
+    .col-md-2 {
+      margin-top: 20px;
+    }
   }
-  .footer-language-div {
-    margin-top: 60px;
+  .app-container .view-container .card{
+    padding: 1rem 0rem 3rem 0rem;
+    .home-top-row {
+      width: 100%;
+      padding-top: 80px;
+    }
+    .wallpaper-top-title {
+      margin: 0 10px;
+    }
+    .article-home-div {
+      padding: 0 2rem;
+    }
+    .div-width-auto {
+      padding: 0 2rem;
+    }
+    .table-responsive-div-all-keybos {
+      padding: 0 2rem;
+      .table-responsive-div-all-keybos {
+        padding: 0px;
+      }
+    }
   }
 }

@@ -39,8 +39,11 @@ Navbar styles
 ========================================================================== */
 .jh-navbar {
   background-color: #262626;
-  padding: 0px 10px;
+  padding: 2px 10px;
   height: 60px;
+  .navbar-toggler {
+    margin: 8px 0px;
+  }
   .profile-image {
     margin: -10px 0px;
     height: 40px;
@@ -59,6 +62,8 @@ Navbar styles
   ul.navbar-nav {
     padding: 0.5em;
     width: 100%;
+    background-color: #262626;
+    border-radius: 5px;
     white-space: nowrap;
     text-overflow: ellipsis;
     .nav-item {
@@ -70,7 +75,6 @@ Navbar styles
       svg {
         width: auto;
         height: 16px;
-        //color: snow;
       }
     }
     .header-label-text {
@@ -91,10 +95,6 @@ Navbar styles
     &:hover {
       color: snow;
     }
-  }
-  .navbar-collapse {
-    background-color: #262626;
-    border-radius: 5px;
   }
 }
 .navbar-version {
@@ -135,4 +135,14 @@ Navbar styles
   position: absolute;
   top: 0px;
   z-index: 1031;
+}
+
+@media (max-width: 575px) {
+  .jh-navbar {
+    ul.navbar-nav {
+      width: 60%;
+      float: left;
+      border: 1px solid rgba(120, 130, 140, 0.09);
+    }
+  }
 }
