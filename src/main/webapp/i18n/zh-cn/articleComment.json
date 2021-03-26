@@ -23,7 +23,12 @@
       "updateTime": "Update Time",
       "note": "Note",
       "article": "Article",
-      "userLink": "User Link"
+      "userLink": "User Link",
+      "sendComment": "发表评论",
+      "explain": "要发表评论，您必须先",
+      "login": "登录",
+      "send": "发送",
+      "lengthError": "内容长度错误"
     }
   }
 }

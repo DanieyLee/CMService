@@ -15,7 +15,8 @@
       "passwordKey": "密钥",
       "passwordKey.placeholder": "密码盒子加密密钥",
       "language": "语言",
-      "button": "保存修改"
+      "button": "保存修改",
+      "revise.portrait": "点击修改头像"
     },
     "messages": {
       "error": {

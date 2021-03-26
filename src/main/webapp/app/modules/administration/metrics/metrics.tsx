@@ -53,7 +53,7 @@ export const MetricsPage = (props: IMetricsPageProps) => {
           </Translate>
         </Button>
       </p>
-      <hr />
+      <hr/>
 
       <Row>
         <Col sm="12">

@@ -1,16 +1,51 @@
-import './home-components.scss'
-
 import React from 'react';
+import { NavLink, Button } from 'reactstrap';
 import { Translate } from 'react-jhipster';
+import { Link } from 'react-router-dom';
 
-import { NavItem, NavLink, NavbarBrand } from 'reactstrap';
-import { NavLink as Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+export const Article = props => (
 
-import appConfig from 'app/config/constants';
+  <div className="content-home-article">
+    <div className="content-home-article-list">
+      {props.articleList && props.articleList.length > 0 ? (
+        <div>
+          <div className="content-home-article-list-title">
+            <p>
+              <Translate contentKey="home.article">Title</Translate>
+            </p>
+          </div>
+          {props.articleList.map((article, i) => (
+            <div key={`entity-${i}`}>
+              <div className="content-home-article-list-name">
+                <Button tag={Link} to={`/articles/${article.id}`} color="link" size="sm">
+                  <span>{article.title}</span>
+                </Button>
+              </div>
+              <div className="content-home-article-list-content">
+                <Button tag={Link} to={`/articles/${article.id}`} color="link" size="sm">
+                  <div dangerouslySetInnerHTML = {{ __html: article.content.length > 5000 ? article.content.substr(0,5000) : article.content }} />
+                </Button>
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        !props.loading && (
+          <div className="alert alert-warning">
+            <Translate contentKey="cmServiceApp.article.home.notFound">No Articles found</Translate>
+          </div>
+        )
+      )}
+    </div>
+    <hr/>
+    <NavLink tag={Link} to="/articles">
+      <Translate contentKey="home.more">More</Translate>
+    </NavLink>
+  </div>
+);
 
 export const Frame = props => (
-  <div className="home-frame-div">
+  <div className="content-home-frame">
     <h2>
       <Translate contentKey="home.frame.title">Title</Translate>
     </h2>
@@ -21,7 +56,7 @@ export const Frame = props => (
       <img src="content/images/react.svg" alt="Logo" />
       <Translate contentKey="home.frame.name">Name</Translate>
     </h3>
-    <div className="home-frame-div-img-web">
+    <div>
       <img src="content/images/react.svg" alt="Logo" />
       <img src="content/images/sass.svg" alt="Logo" />
       <img src="content/images/typescript.svg" alt="Logo" />
@@ -30,12 +65,12 @@ export const Frame = props => (
       <img src="content/images/spring-boot.svg" alt="Logo" />
       <Translate contentKey="home.frame.name2">Name</Translate>
     </h3>
-    <div className="home-frame-div-img-java">
+    <div>
       <img src="content/images/spring-boot.svg" alt="Logo" />
       <img src="content/images/spring.png" alt="Logo" />
-      <div className="home-frame-div-img-java-liquibase">
+      <p>
         <img src="content/images/liquibase.png" alt="Logo" />
-      </div>
+      </p>
       <img src="content/images/swagger.png" alt="Logo" />
       <img src="content/images/mysql.svg" alt="Logo" />
       <img src="content/images/hibernate.svg" alt="Logo" />
@@ -48,9 +83,3 @@ export const Frame = props => (
     </p>
   </div>
 );
-
-export const Service = props => (
-  <div>
-  </div>
-);
-

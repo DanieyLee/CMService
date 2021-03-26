@@ -15,7 +15,8 @@
       "passwordKey": "鍵",
       "passwordKey.placeholder": "パスワードボックスの暗号化鍵",
       "language": "言語",
-      "button": "変更を保存"
+      "button": "変更を保存",
+      "revise.portrait": "アイコンを変更"
     },
     "messages": {
       "error": {

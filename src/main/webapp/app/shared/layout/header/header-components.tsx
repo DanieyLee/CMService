@@ -8,18 +8,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import appConfig from 'app/config/constants';
 
 export const BrandIcon = props => (
-  <div {...props} className="brand-icon">
-    <img src="content/images/logo-jhipster.svg" alt="Logo" />
+  <div {...props} className="header-icon">
+    <img src="content/images/logo.svg" alt="Logo" />
   </div>
 );
 
 export const Brand = props => (
-  <NavbarBrand tag={Link} to="/" className="brand-logo">
+  <NavbarBrand tag={Link} to="/" className="header-logo">
     <BrandIcon />
-    <span className="brand-title">
-      <Translate contentKey="global.title">CMService</Translate>
+    <span className="header-title">
+      <Translate contentKey="global.title">Title</Translate>
     </span>
-    <span className="navbar-version">{appConfig.VERSION}</span>
+    <span className="header-version">{appConfig.VERSION}</span>
   </NavbarBrand>
 );
 
@@ -35,7 +35,7 @@ export const Home = props => (
 
 export const Articles = props => (
   <NavItem>
-    <NavLink tag={Link} to="/articles" className="d-flex align-items-center">
+    <NavLink tag={Link} to="/articles/0" className="d-flex align-items-center">
       <span>
         <Translate contentKey="global.menu.articles">Articles</Translate>
       </span>
@@ -45,7 +45,7 @@ export const Articles = props => (
 
 export const Softwares = props => (
   <NavItem>
-    <NavLink tag={Link} to="/softwares" className="d-flex align-items-center">
+    <NavLink tag={Link} to="/softwares/0" className="d-flex align-items-center">
       <span>
         <Translate contentKey="global.menu.softwares">Softwares</Translate>
       </span>
@@ -53,20 +53,23 @@ export const Softwares = props => (
   </NavItem>
 );
 
-export const Pictures = props => (
+export const Wallpapers = props => (
   <NavItem>
-    <NavLink tag={Link} to="/pictures" className="d-flex align-items-center">
+    <NavLink tag={Link} to="/wallpapers/0" className="d-flex align-items-center">
       <span>
-        <Translate contentKey="global.menu.pictures">Pictures</Translate>
+        <Translate contentKey="global.menu.wallpapers">Wallpapers</Translate>
       </span>
     </NavLink>
   </NavItem>
 );
 
-export const CodeBoxs = props => (
+export const KeyBoxs = props => (
   <NavItem className="dropdown">
-    <NavLink tag={Link} to="/code-boxs" className="d-flex align-items-center">
+    <NavLink tag={Link} to="/key-boxs" className="d-flex align-items-center">
       <FontAwesomeIcon icon={'box'} />
+      <span>
+        <Translate contentKey="global.menu.key-boxs">KeyBox</Translate>
+      </span>
     </NavLink>
   </NavItem>
 );

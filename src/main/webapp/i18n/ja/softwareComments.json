@@ -5,7 +5,7 @@
         "title": "SoftwareComments",
         "createLabel": "Software Comments を追加",
         "createOrEditLabel": "Software Commentsを追加または編集",
-        "notFound": "No Software Comments found"
+        "notFound": "しばらくコメントがありません!"
       },
       "created": "A new Software Comments is created with identifier {{ param }}",
       "updated": "A Software Comments is updated with identifier {{ param }}",
@@ -24,7 +24,12 @@
       "updateTime": "Update Time",
       "note": "Note",
       "software": "Software",
-      "userLink": "User Link"
+      "userLink": "User Link",
+      "sendComment": "コメント",
+      "explain": "コメントを出すには、まずあなたが必要です",
+      "login": "ログイン",
+      "send": "送信",
+      "lengthError": "内容長エラー"
     }
   }
 }

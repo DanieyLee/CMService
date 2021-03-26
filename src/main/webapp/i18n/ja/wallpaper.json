@@ -36,14 +36,16 @@
       "imageType": "Image Type",
       "visitorVolume": "Visitor Volume",
       "isDownload": "Is Download",
-      "like": "Like",
+      "like": "好き",
       "state": "State",
       "createUser": "Create User",
       "creatTime": "Creat Time",
       "updateUser": "Update User",
       "updateTime": "Update Time",
       "note": "Note",
-      "userLink": "User Link"
+      "userLink": "User Link",
+      "lastPage": "前のページ",
+      "nextPage": "次のページ"
     }
   }
 }

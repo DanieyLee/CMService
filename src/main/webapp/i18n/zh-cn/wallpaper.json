@@ -43,7 +43,9 @@
       "updateUser": "修改者",
       "updateTime": "修改时间",
       "note": "备注",
-      "userLink": "所属用户"
+      "userLink": "所属用户",
+      "lastPage": "上一页",
+      "nextPage": "下一页"
     }
   }
 }

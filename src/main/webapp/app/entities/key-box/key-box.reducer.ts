@@ -125,6 +125,14 @@ export const getEntity: ICrudGetAction<IKeyBox> = id => {
   };
 };
 
+export const showHideEntity: ICrudGetAction<IKeyBox> = id => {
+  const requestUrl = `api/key-boxes/show-hide/${id}`;
+  return {
+    type: ACTION_TYPES.FETCH_KEYBOX,
+    payload: axios.get<IKeyBox>(requestUrl),
+  };
+};
+
 export const createEntity: ICrudPutAction<IKeyBox> = entity => async dispatch => {
   const result = await dispatch({
     type: ACTION_TYPES.CREATE_KEYBOX,

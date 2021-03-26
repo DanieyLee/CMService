@@ -26,17 +26,13 @@ export const Logout = (props: ILogoutProps) => {
   });
 
   return (
-    <div className="logout-home">
-      <Row>
-        <Col md="12">
-          <h4>
-            <Translate contentKey="home.logout.text">text</Translate>
-            <NavLink tag={Link} to="/" className="f-flex">
-              <Translate contentKey="home.logout.go">go</Translate>
-            </NavLink>
-          </h4>
-        </Col>
-      </Row>
+    <div>
+      <h4>
+        <Translate contentKey="home.logout.text">text</Translate>
+        <NavLink tag={Link} to="/">
+          <Translate contentKey="home.logout.go">go</Translate>
+        </NavLink>
+      </h4>
     </div>
   );
 };

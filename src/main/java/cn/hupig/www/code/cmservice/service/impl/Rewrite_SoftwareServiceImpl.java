@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import cn.hupig.www.code.cmservice.domain.Software;
 import cn.hupig.www.code.cmservice.repository.SoftwareRepository;
 import cn.hupig.www.code.cmservice.service.Rewrite_SoftwareService;
+import cn.hupig.www.code.cmservice.service.dto.ArticleDTO;
 import cn.hupig.www.code.cmservice.service.dto.SoftwareDTO;
 import cn.hupig.www.code.cmservice.service.mapper.SoftwareMapper;
 
@@ -37,15 +38,17 @@ public class Rewrite_SoftwareServiceImpl implements Rewrite_SoftwareService {
 
     @Override
     @Transactional(readOnly = true)
-    public Page<SoftwareDTO> findAll(Pageable pageable) {
-        log.debug("Request to get all Software");
-        return softwareRepository.findAllByState(pageable, true)
-            .map(softwareMapper::toDto);
+    public Page<SoftwareDTO> findAllState(Long id, Pageable pageable) {
+        log.debug("Request to get all Software by type");
+		pageable = PageRequest.of(pageable.getPageNumber(), pageable.getPageSize(),Sort.Direction.DESC,"updateTime");
+		
+		return (id == 0 ? softwareRepository.findAllByState(pageable, true):
+			softwareRepository.findAllByStateAndSoftwareTypeId(pageable, true, id)).map(softwareMapper::toDto);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public Page<SoftwareDTO> findTop() {
+    public Page<SoftwareDTO> findTopState() {
         log.debug("Request to get all Software");
         Pageable pageable = PageRequest.of(0, 12,Sort.Direction.DESC,"updateTime");
         return softwareRepository.findAllByState(pageable, true)
@@ -53,11 +56,35 @@ public class Rewrite_SoftwareServiceImpl implements Rewrite_SoftwareService {
     }
     
     @Override
-    @Transactional(readOnly = true)
-    public Optional<SoftwareDTO> findOne(Long id) {
+    public Optional<SoftwareDTO> findOneState(Long id) {
         log.debug("Request to get Software : {}", id);
         return softwareRepository.findByIdAndState(id, true)
+        	.map(software -> {
+        		software.setBrowseNumber(software.getBrowseNumber() + 1);
+        		return softwareRepository.save(software);
+        	})
             .map(softwareMapper::toDto);
     }
-
+    
+    @Override
+	public Optional<SoftwareDTO> findOneLikeAndState(Long id) {
+        log.debug("Request to get software : {}", id);
+        return softwareRepository.findByIdAndState(id, true)
+        	.map(software -> {
+        		software.setScore(software.getScore() + 1);
+        		return softwareRepository.save(software);
+        	})
+            .map(softwareMapper::toDto);
+	}
+    
+    @Override
+	public Optional<SoftwareDTO> findOneDownloadAndState(Long id) {
+        log.debug("Request to get software : {}", id);
+        return softwareRepository.findByIdAndState(id, true)
+        	.map(software -> {
+        		software.setDownloadNumber(software.getDownloadNumber() + 1);
+        		return softwareRepository.save(software);
+        	})
+            .map(softwareMapper::toDto);
+	}
 }

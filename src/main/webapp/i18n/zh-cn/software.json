@@ -35,9 +35,9 @@
       "explain": "软件简介",
       "softwareICO": "软件图标",
       "score": "评分",
-      "size": "大小",
-      "version": "版本",
-      "applySystem": "适用系统",
+      "size": "大小:",
+      "version": "版本:",
+      "applySystem": "适用系统:",
       "show": "是否显示",
       "allow": "是否允许下载",
       "downloadUrl": "下载地址",
@@ -50,7 +50,8 @@
       "updateTime": "修改时间",
       "note": "备注",
       "softwareType": "软件类型",
-      "userLink": "所属用户"
+      "userLink": "所属用户",
+      "clickDownload" : "点击下载"
     }
   }
 }

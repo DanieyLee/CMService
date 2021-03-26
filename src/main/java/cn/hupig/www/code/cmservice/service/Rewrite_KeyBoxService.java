@@ -1,5 +1,7 @@
 package cn.hupig.www.code.cmservice.service;
 
+import java.util.Optional;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -18,4 +20,12 @@ public interface Rewrite_KeyBoxService {
      */
     Page<KeyBoxDTO> findMyAll(Pageable pageable, Long userLinkId);
 
+    /**
+     * ShowHide "id" KeyBox.
+     *
+     * @param id the id of the entity.
+     * @return the entity.
+     */
+    Optional<KeyBoxDTO> findOneShowHideAndState(Long id);
+    
 }

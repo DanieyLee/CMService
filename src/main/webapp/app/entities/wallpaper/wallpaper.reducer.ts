@@ -125,6 +125,14 @@ export const getTopPublicEntities: ICrudGetAllAction<IWallpaper> = () => {
   };
 };
 
+export const getNearEntity = (id, near) => {
+  const requestUrl = `api/public/wallpapers/near/${id}&${near}`;
+  return {
+    type: ACTION_TYPES.FETCH_WALLPAPER,
+    payload: axios.get<IWallpaper>(requestUrl),
+  };
+};
+
 export const getEntity: ICrudGetAction<IWallpaper> = id => {
   const requestUrl = `${apiUrl}/${id}`;
   return {
@@ -135,6 +143,14 @@ export const getEntity: ICrudGetAction<IWallpaper> = id => {
 
 export const getPublicEntity: ICrudGetAction<IWallpaper> = id => {
   const requestUrl = `api/public/wallpapers/${id}`;
+  return {
+    type: ACTION_TYPES.FETCH_WALLPAPER,
+    payload: axios.get<IWallpaper>(requestUrl),
+  };
+};
+
+export const likeEntity: ICrudGetAction<IWallpaper> = id => {
+  const requestUrl = `api/public/wallpapers/like/${id}`;
   return {
     type: ACTION_TYPES.FETCH_WALLPAPER,
     payload: axios.get<IWallpaper>(requestUrl),

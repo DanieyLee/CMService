@@ -20,4 +20,8 @@ public interface WallpaperRepository extends JpaRepository<Wallpaper, Long> {
 	
 	Optional<Wallpaper> findByIdAndState(Long id, Boolean state);
 	
+	Page<Wallpaper> findAllByIdLessThanAndState(Pageable pageable, Long id, Boolean state);
+	
+	Page<Wallpaper> findAllByIdGreaterThanAndState(Pageable pageable, Long id, Boolean state);
+	
 }

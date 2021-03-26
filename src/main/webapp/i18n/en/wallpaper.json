@@ -43,7 +43,9 @@
       "updateUser": "Update User",
       "updateTime": "Update Time",
       "note": "Note",
-      "userLink": "User Link"
+      "userLink": "User Link",
+      "lastPage": "Last Page",
+      "nextPage": "Next Page"
     }
   }
 }

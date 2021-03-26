@@ -1,5 +1,7 @@
 package cn.hupig.www.code.cmservice.web.rest;
 
+import java.util.Optional;
+
 import javax.validation.Valid;
 
 import org.apache.commons.lang3.StringUtils;
@@ -12,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import cn.hupig.www.code.cmservice.domain.User;
+import cn.hupig.www.code.cmservice.repository.UserRepository;
+import cn.hupig.www.code.cmservice.security.SecurityUtils;
 import cn.hupig.www.code.cmservice.service.Rewrite_UserService;
 import cn.hupig.www.code.cmservice.web.rest.errors.EmailAlreadyUsedException;
 import cn.hupig.www.code.cmservice.web.rest.errors.InvalidPasswordException;
@@ -19,22 +24,57 @@ import cn.hupig.www.code.cmservice.web.rest.errors.LoginAlreadyUsedException;
 import cn.hupig.www.code.cmservice.web.rest.errors.PhoneAlreadyUsedException;
 import cn.hupig.www.code.cmservice.web.rest.vm.ManagedPhoneUserVM;
 import cn.hupig.www.code.cmservice.web.rest.vm.PhoneAndCodeAndPasswordVM;
+import cn.hupig.www.code.cmservice.web.rest.vm.SettingsUserVM;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 /**
  * REST controller for managing the current user's account.
  */
 @RestController
 @RequestMapping("/api")
+@Api(tags = "004-账号管理")
 public class Rewrite_AccountResource {
 
+    private static class AccountResourceException extends RuntimeException {
+        private AccountResourceException(String message) {
+            super(message);
+        }
+    }
+    
     private final Logger log = LoggerFactory.getLogger(Rewrite_AccountResource.class);
 
+    private final UserRepository userRepository;
+    
     private final Rewrite_UserService rewrite_UserService;
 
-    public Rewrite_AccountResource(Rewrite_UserService rewrite_UserService) {
-        this.rewrite_UserService = rewrite_UserService;
+    public Rewrite_AccountResource(UserRepository userRepository, Rewrite_UserService rewrite_UserService) {
+    	this.userRepository = userRepository;
+    	this.rewrite_UserService = rewrite_UserService;
     }
 
+    /**
+     * {@code POST  /account} : update the current user information.
+     *
+     * @param userDTO the current user information.
+     * @throws EmailAlreadyUsedException {@code 400 (Bad Request)} if the email is already used.
+     * @throws RuntimeException {@code 500 (Internal Server Error)} if the user login wasn't found.
+     */
+    @PostMapping("/account/setting")
+    @ApiOperation(value = "修改用户信息")
+    public void saveAccount(@Valid @RequestBody SettingsUserVM settingsUserVM) {
+        String userLogin = SecurityUtils.getCurrentUserLogin().orElseThrow(() -> new AccountResourceException("Current user login not found"));
+        Optional<User> existingUser = userRepository.findOneByLogin(settingsUserVM.getLogin());
+        if (existingUser.isPresent() && (!existingUser.get().getLogin().equalsIgnoreCase(userLogin))) {
+            throw new EmailAlreadyUsedException();
+        }
+        Optional<User> user = userRepository.findOneByLogin(userLogin);
+        if (!user.isPresent()) {
+            throw new AccountResourceException("User could not be found");
+        }
+        rewrite_UserService.updateUser(SecurityUtils.getCurrentUserLogin().orElseThrow(), settingsUserVM);
+    }
+    
     /**
      * {@code POST  /register} : register the user.
      *
@@ -45,6 +85,7 @@ public class Rewrite_AccountResource {
      */
     @PostMapping("/public/register")
     @ResponseStatus(HttpStatus.CREATED)
+    @ApiOperation(value = "注册账户-根据手机号-验证码")
     public void registerAccount(@Valid @RequestBody ManagedPhoneUserVM managedPhoneUserVM) {
     	log.debug("REST request to register Phone : {}", managedPhoneUserVM);
         if (!checkPasswordLength(managedPhoneUserVM.getPassword())) {
@@ -68,6 +109,7 @@ public class Rewrite_AccountResource {
      * @param phone the phone of the user.
      */
     @PostMapping(path = "/public/account/reset-password")
+    @ApiOperation(value = "重置密码-不需要登录-根据验证码")
     public void requestPasswordReset(@RequestBody PhoneAndCodeAndPasswordVM PhoneAndCodeAndPasswordVM) {
     	log.debug("REST request to reset password : {}", PhoneAndCodeAndPasswordVM);
         if (!checkPasswordLength(PhoneAndCodeAndPasswordVM.getNewPassword())) {

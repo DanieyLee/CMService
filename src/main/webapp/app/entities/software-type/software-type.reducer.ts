@@ -121,6 +121,14 @@ export const getEntities: ICrudGetAllAction<ISoftwareType> = (page, size, sort) 
   };
 };
 
+export const getSoftwareTypeEntities: ICrudGetAllAction<ISoftwareType> = (page, size, sort) => {
+  const requestUrl = `api/public/software-types${sort ? `?page=${page}&size=${size}&sort=${sort}` : ''}`;
+  return {
+    type: ACTION_TYPES.FETCH_SOFTWARETYPE_LIST,
+    payload: axios.get<ISoftwareType>(`${requestUrl}${sort ? '&' : '?'}cacheBuster=${new Date().getTime()}`),
+  };
+};
+
 export const getEntity: ICrudGetAction<ISoftwareType> = id => {
   const requestUrl = `${apiUrl}/${id}`;
   return {

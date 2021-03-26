@@ -2,20 +2,21 @@
   "explain": {
     "title": {
       "about": "Yuoai - born for sharing",
-      "contact": "Contact Yuoai.com",
-      "help": "Privacy policy",
-      "copyright": "Copyright notice"
+      "link": "Contact Yuoai.com",
+      "hide": "Privacy policy",
+      "copy": "Copyright/Statement notice"
     },
     "subtitle": {
       "about": "we only share free, safe, no advertising, no speed limit boutique software, and all by the webmaster personally test, please rest assured to use. ",
-      "contact": "Software copyright and cooperation, please email once a week, thank you for your cooperation.",
-      "help": "Yuoai.com We attach great importance to the protection of users' privacy and personal information. When you use the website, we will not collect any of your personal information.\nHowever, when you use our password box service, we will ask for part of your personal information. The information is provided voluntarily or not, which does not affect the use of the password box."
+      "link": "Software copyright and cooperation, please email once a week, thank you for your cooperation.",
+      "hide": "Yuoai.com We attach great importance to the protection of users' privacy and personal information. When you use the website, we will not collect any of your personal information.However, when you use our password box service, we will ask for part of your personal information. The information is provided voluntarily or not, which does not affect the use of the password box."
     },
     "text": {
       "about": "In Yuoai.com, \nThere are not only excellent tutorials and free software,\nThere are also many scarce resources on the market.\nThese tutorials and tools,\nIt can help you study and study easily;\nThey're not just tools,\nMaybe you can also become a 'good friend, good brother' who grows up together with you.\nResources are good enough to be more efficient!\nYuoai.com For you!",
-      "help": "When using the password box, we will collect your following information:"
+      "hide": "When using the password box, we will collect your following information:"
     },
     "copy": "Copy",
+    "copy.success": "Copy succeeded！",
     "keybox": {
       "name": "Name",
       "sex": "Sex",

@@ -8,22 +8,23 @@ import PasswordReset from 'app/modules/account/password-reset/password-reset';
 import Logout from 'app/modules/login/logout';
 import Home from 'app/modules/home/home';
 import Articles from 'app/modules/articles/articles';
+import ArticlesDetail from 'app/modules/articles/article-detail';
 import Softwares from 'app/modules/softwares/softwares';
-import Pictures from 'app/modules/pictures/pictures';
-import CodeBoxs from 'app/modules/code-boxs/code-boxs';
+import SoftwaresDetail from 'app/modules/softwares/software-detail';
+import Wallpapers from 'app/modules/wallpapers/wallpapers';
+import WallpapersDetail from 'app/modules/wallpapers/wallpaper-detail';
+import KeyBoxs from 'app/modules/key-boxs/key-boxs';
+import KeyBoxsDetail from 'app/modules/key-boxs/key-box-detail';
+import KeyBoxsDeleteDialog from 'app/modules/key-boxs/key-box-delete-dialog';
 import About from 'app/modules/explain/explain-about';
-import Contact from 'app/modules/explain/explain-contact';
-import Help from 'app/modules/explain/explain-help';
-import Copyright from 'app/modules/explain/explain-copyright';
+import Link from 'app/modules/explain/explain-link';
+import Hide from 'app/modules/explain/explain-hide';
+import Copy from 'app/modules/explain/explain-copy';
 import Entities from 'app/entities';
 import PrivateRoute from 'app/shared/auth/private-route';
 import ErrorBoundaryRoute from 'app/shared/error/error-boundary-route';
 import PageNotFound from 'app/shared/error/page-not-found';
 import { AUTHORITIES } from 'app/config/constants';
-import ArticlesDetail from 'app/modules/articles/article-detail';
-import SoftwaresDetail from 'app/modules/softwares/software-detail';
-import WallpaperDetail from 'app/modules/pictures/wallpaper-detail';
-import CodeBoxsDetail from 'app/modules/code-boxs/key-box-detail';
 
 const Account = Loadable({
   loader: () => import(/* webpackChunkName: "account" */ 'app/modules/account'),
@@ -44,22 +45,23 @@ const Routes = () => (
       <ErrorBoundaryRoute path="/account/reset/request" component={PasswordReset} />
       <PrivateRoute path="/admin" component={Admin} hasAnyAuthorities={[AUTHORITIES.ADMIN]} />
       <PrivateRoute path="/account" component={Account} hasAnyAuthorities={[AUTHORITIES.ADMIN, AUTHORITIES.USER]} />
-      <ErrorBoundaryRoute path="/" exact component={Home} />
-      <ErrorBoundaryRoute path="/articles" exact component={Articles} />
-      <ErrorBoundaryRoute exact path={`/articles/:id`} component={ArticlesDetail} />
-      <ErrorBoundaryRoute path="/softwares" exact component={Softwares} />
-      <ErrorBoundaryRoute exact path={`/softwares/:id`} component={SoftwaresDetail} />
-      <ErrorBoundaryRoute path="/pictures" exact component={Pictures} />
-      <ErrorBoundaryRoute exact path={`/pictures/:id`} component={WallpaperDetail} />
-      <ErrorBoundaryRoute exact path={`/code-boxs/:id`} component={CodeBoxsDetail} />
-      <ErrorBoundaryRoute path="/about" exact component={About} />
-      <ErrorBoundaryRoute path="/contact" exact component={Contact} />
-      <ErrorBoundaryRoute path="/help" exact component={Help} />
-      <ErrorBoundaryRoute path="/copyright" exact component={Copyright} />
-      <PrivateRoute path="/code-boxs" exact component={CodeBoxs} hasAnyAuthorities={[AUTHORITIES.USER]} />
+      <ErrorBoundaryRoute exact path="/" component={Home} />
+      <ErrorBoundaryRoute exact path={`/articles/:type`} component={Articles} />
+      <ErrorBoundaryRoute exact path={`/articles/detail/:id`} component={ArticlesDetail} />
+      <ErrorBoundaryRoute exact path={`/softwares/:type`} component={Softwares} />
+      <ErrorBoundaryRoute exact path={`/softwares/detail/:id`} component={SoftwaresDetail} />
+      <ErrorBoundaryRoute exact path={`/wallpapers/:type`} component={Wallpapers} />
+      <ErrorBoundaryRoute exact path={`/wallpapers/detail/:id`} component={WallpapersDetail} />
+      <PrivateRoute exact path="/key-boxs" component={KeyBoxs} hasAnyAuthorities={[AUTHORITIES.USER]} />
+      <ErrorBoundaryRoute exact path={`/key-boxs/detail/:id`} component={KeyBoxsDetail} />
+      <ErrorBoundaryRoute exact path="/about" component={About} />
+      <ErrorBoundaryRoute exact path="/link" component={Link} />
+      <ErrorBoundaryRoute exact path="/hide" component={Hide} />
+      <ErrorBoundaryRoute exact path="/copy" component={Copy} />
       <PrivateRoute path="/" component={Entities} hasAnyAuthorities={[AUTHORITIES.USER]} />
       <ErrorBoundaryRoute component={PageNotFound} />
     </Switch>
+    <PrivateRoute exact path={`/key-boxs/:id/delete`} component={KeyBoxsDeleteDialog} hasAnyAuthorities={[AUTHORITIES.USER]} />
   </div>
 );
 

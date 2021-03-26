@@ -7,11 +7,13 @@ import java.util.concurrent.TimeUnit;
 public class Times {
 
 	/**
-	 * 获取当前时间的时间戳/UTF+8
+	 * 获取当前时间的时间戳/UTC时间
+	 * 使用Instant.now().atZone(ZoneId.systemDefault())
+	 * 可以获取当前时区的时间
 	 * @return Instant you need
 	 */
 	public static Instant getInstant() {
-		return Instant.now().plusMillis(TimeUnit.HOURS.toMillis(8));
+		return Instant.now();
 	}
 
 	/**
@@ -20,7 +22,7 @@ public class Times {
 	 * @return Instant you need
 	 */
 	public static Instant getHourInstant(Integer hour) {
-		return Instant.now().plusMillis(TimeUnit.HOURS.toMillis(hour + 8));
+		return Instant.now().plusMillis(TimeUnit.HOURS.toMillis(hour));
 	}
 
 	/**
@@ -34,5 +36,5 @@ public class Times {
 		Long startNumber = ChronoUnit.SECONDS.between(start , time);
 		return endNumber > 0 && startNumber > 0;
 	}
-
+	
 }

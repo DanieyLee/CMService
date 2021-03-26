@@ -23,7 +23,12 @@
       "updateTime": "Update Time",
       "note": "Note",
       "article": "Article",
-      "userLink": "User Link"
+      "userLink": "User Link",
+      "sendComment": "コメント",
+      "explain": "コメントを出すには、まずあなたが必要です",
+      "login": "ログイン",
+      "send": "送信",
+      "lengthError": "内容長エラー"
     }
   }
 }

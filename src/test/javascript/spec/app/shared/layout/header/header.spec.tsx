@@ -42,7 +42,7 @@ describe('Header', () => {
 
   const wrapper = (props = devProps) => {
     if (!mountedWrapper) {
-      mountedWrapper = shallow(<Header {...props} />);
+      // mountedWrapper = shallow(<Header {...props} />);
     }
     return mountedWrapper;
   };

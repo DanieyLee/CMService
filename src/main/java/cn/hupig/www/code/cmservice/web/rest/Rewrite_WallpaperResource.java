@@ -18,6 +18,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import cn.hupig.www.code.cmservice.service.Rewrite_WallpaperService;
 import cn.hupig.www.code.cmservice.service.dto.WallpaperDTO;
+import cn.hupig.www.code.cmservice.web.rest.errors.BadRequestAlertException;
 import io.github.jhipster.web.util.PaginationUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import io.swagger.annotations.Api;
@@ -85,6 +86,38 @@ public class Rewrite_WallpaperResource {
     public ResponseEntity<WallpaperDTO> getWallpaper(@PathVariable Long id) {
         log.debug("REST request to get Wallpaper : {}", id);
         Optional<WallpaperDTO> wallpaperDTO = rewrite_WallpaperService.findOne(id);
+        return ResponseUtil.wrapOrNotFound(wallpaperDTO);
+    }
+    
+    /**
+	 * {@code GET  /wallpapers/:id} : like wallpapers.
+	 *
+	 * @param id the id of the WallpaperDTO to retrieve.
+	 * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body
+	 *         the WallpaperDTO, or with status {@code 404 (Not Found)}.
+	 */
+    @GetMapping("/public/wallpapers/like/{id}")
+    @ApiOperation(value = "喜欢壁纸-无权限")
+    public ResponseEntity<WallpaperDTO> updateWallpaper(@PathVariable Long id) {
+        log.debug("REST request to update Wallpaper : {}", id);
+        if (id == null) {
+            throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
+        }
+        Optional<WallpaperDTO> wallpaperDTO = rewrite_WallpaperService.findOneLikeAndState(id);
+        return ResponseUtil.wrapOrNotFound(wallpaperDTO);
+    }
+    
+    /**
+     * {@code GET  /wallpapers} : Take out a piece of wallpaper.
+     *
+     * @param pageable the pagination information.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of wallpapers in body.
+     */
+	@GetMapping("/public/wallpapers/near/{id}&{near}")
+    @ApiOperation(value = "查询1张相近的壁纸-无权限")
+    public ResponseEntity<WallpaperDTO> getNearWallpaper(@PathVariable Long id,@PathVariable Boolean near) {
+        log.debug("REST request to get a Wallpaper");
+        Optional<WallpaperDTO> wallpaperDTO = rewrite_WallpaperService.findOneNearWallpaperAndState(id, near);
         return ResponseUtil.wrapOrNotFound(wallpaperDTO);
     }
 }

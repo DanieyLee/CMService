@@ -1,5 +1,7 @@
 package cn.hupig.www.code.cmservice.service.impl;
 
+import java.util.Optional;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
@@ -39,4 +41,14 @@ public class Rewrite_KeyBoxServiceImpl implements Rewrite_KeyBoxService {
             .map(keyBoxMapper::toDto);
     }
 
+	@Override
+	public Optional<KeyBoxDTO> findOneShowHideAndState(Long id) {
+	    log.debug("Request to get software : {}", id);
+	    return keyBoxRepository.findById(id)
+	    	.map(keyBox -> {
+	    		keyBox.setDisplay(!keyBox.isDisplay());
+	    		return keyBoxRepository.save(keyBox);
+	    	})
+	        .map(keyBoxMapper::toDto);
+	}
 }

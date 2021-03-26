@@ -134,6 +134,15 @@ export const createEntity: ICrudPutAction<IArticleComment> = entity => async dis
   return result;
 };
 
+export const replyArticle: ICrudPutAction<IArticleComment> = entity => async dispatch => {
+  const result = await dispatch({
+    type: ACTION_TYPES.CREATE_ARTICLECOMMENT,
+    payload: axios.post(`${apiUrl}/reply`, cleanEntity(entity)),
+  });
+  dispatch(getEntities());
+  return result;
+};
+
 export const updateEntity: ICrudPutAction<IArticleComment> = entity => async dispatch => {
   const result = await dispatch({
     type: ACTION_TYPES.UPDATE_ARTICLECOMMENT,

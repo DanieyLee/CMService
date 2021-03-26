@@ -14,12 +14,15 @@ import org.springframework.web.bind.annotation.RestController;
 import cn.hupig.www.code.cmservice.service.Rewrite_UserLinkService;
 import cn.hupig.www.code.cmservice.service.dto.UserLinkDTO;
 import io.github.jhipster.web.util.ResponseUtil;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 /**
  * REST controller for managing {@link cn.hupig.www.code.cmservice.domain.UserLink}.
  */
 @RestController
 @RequestMapping("/api")
+@Api(tags = "008-用户扩展信息管理")
 public class Rewrite_UserLinkResource {
 
     private final Logger log = LoggerFactory.getLogger(Rewrite_UserLinkResource.class);
@@ -42,6 +45,7 @@ public class Rewrite_UserLinkResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the userLinkDTO, or with status {@code 404 (Not Found)}.
      */
     @GetMapping("/user-links/user-id/{id}")
+    @ApiOperation(value = "取出用户关联信息-根据用户id")
     public ResponseEntity<UserLinkDTO> getUserLink(@PathVariable Long id) {
         log.debug("REST request to get UserLink : {}", id);
         Optional<UserLinkDTO> userLinkDTO = rewrite_UserLinkService.findByUser(id);

@@ -1,15 +1,11 @@
-import './header.scss';
-
 import React, { useState } from 'react';
-import { Translate, Storage } from 'react-jhipster';
-import { Navbar, Nav, NavbarToggler, NavbarBrand, Collapse } from 'reactstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Translate } from 'react-jhipster';
+import { Navbar, Nav, NavbarToggler, Collapse } from 'reactstrap';
 
-import { NavLink as Link } from 'react-router-dom';
 import LoadingBar from 'react-redux-loading-bar';
 
-import { Home, Articles, Softwares, Pictures, CodeBoxs, Brand } from './header-components';
-import { AdminMenu, EntitiesMenu, AccountMenu, LocaleMenu } from '../menus';
+import { Home, Articles, Softwares, Wallpapers, KeyBoxs, Brand } from './header-components';
+import { AdminMenu, EntitiesMenu, AccountMenu } from '../menus';
 
 export interface IHeaderProps {
   isAuthenticated: boolean;
@@ -19,16 +15,11 @@ export interface IHeaderProps {
   isSwaggerEnabled: boolean;
   currentLocale: string;
   onLocaleChange: Function;
+  accountImageUrl: string;
 }
 
 const Header = (props: IHeaderProps) => {
   const [menuOpen, setMenuOpen] = useState(false);
-
-  const handleLocaleChange = event => {
-    const langKey = event.target.value;
-    Storage.session.set('locale', langKey);
-    props.onLocaleChange(langKey);
-  };
 
   const renderDevRibbon = () =>
     props.isInProduction === false ? (
@@ -41,26 +32,24 @@ const Header = (props: IHeaderProps) => {
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
-  /* jhipster-needle-add-element-to-menu - JHipster will add new menu items here */
-
   return (
     <div id="app-header">
       {renderDevRibbon()}
       <LoadingBar className="loading-bar" />
-      <Navbar dark expand="sm" fixed="top" className="jh-navbar">
-        <NavbarToggler aria-label="Menu" onClick={toggleMenu} />
+      <Navbar dark expand="sm" fixed="top" className="header">
+        <NavbarToggler aria-label="Menu" onClick={toggleMenu} className="header-button"/>
         <Brand />
         <Collapse isOpen={menuOpen} navbar>
-          <Nav id="header-tabs" className="ml-auto" navbar>
+          <Nav id="header-tabs" className="ml-auto header-label" navbar>
             <Home />
             <Articles />
             <Softwares />
-            <Pictures />
-            <div className="header-label-text" />
-            {props.isAuthenticated && <CodeBoxs />}
+            <Wallpapers />
+            <div className="header-label-width" />
+            {props.isAuthenticated && <KeyBoxs />}
             {props.isAuthenticated && props.isAdmin && <EntitiesMenu />}
             {props.isAuthenticated && props.isAdmin && <AdminMenu showSwagger={props.isSwaggerEnabled} />}
-            <AccountMenu isAuthenticated={props.isAuthenticated} />
+            <AccountMenu isAuthenticated={props.isAuthenticated} accountImageUrl={props.accountImageUrl} />
           </Nav>
         </Collapse>
       </Navbar>

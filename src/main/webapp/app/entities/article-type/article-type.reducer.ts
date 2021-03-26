@@ -121,6 +121,14 @@ export const getEntities: ICrudGetAllAction<IArticleType> = (page, size, sort) =
   };
 };
 
+export const getArticleTypeEntities: ICrudGetAllAction<IArticleType> = (page, size, sort) => {
+  const requestUrl = `api/public/article-types${sort ? `?page=${page}&size=${size}&sort=${sort}` : ''}`;
+  return {
+    type: ACTION_TYPES.FETCH_ARTICLETYPE_LIST,
+    payload: axios.get<IArticleType>(`${requestUrl}${sort ? '&' : '?'}cacheBuster=${new Date().getTime()}`),
+  };
+};
+
 export const getEntity: ICrudGetAction<IArticleType> = id => {
   const requestUrl = `${apiUrl}/${id}`;
   return {

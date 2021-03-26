@@ -1,150 +1,79 @@
-import './article-detail.scss';
-
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Link, RouteComponentProps } from 'react-router-dom';
-import { Button, Row, Col, Table } from 'reactstrap';
+import { RouteComponentProps } from 'react-router-dom';
+import { AvForm } from 'availity-reactstrap-validation';
+import { Row, Col, Button } from 'reactstrap';
 import {
   Translate,
-  ICrudGetAction,
-  byteSize,
-  TextFormat,
-  getSortState,
-  JhiItemCount,
-  JhiPagination
+  TextFormat
 } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { IRootState } from 'app/shared/reducers';
-import { getPublicEntity } from 'app/entities/article/article.reducer';
-import { getPublicArticleEntities } from 'app/entities/article-comment/article-comment.reducer'
-import { IArticle } from 'app/shared/model/article.model';
-import { APP_DATE_FORMAT_SIMPLE_ZH_CN, APP_DATE_FORMAT_SIMPLE_ZH, APP_DATE_FORMAT } from 'app/config/constants';
-import { overridePaginationStateWithQueryParams } from 'app/shared/util/entity-utils';
-import { ITEMS_PER_PAGE } from 'app/shared/util/pagination.constants';
+import { getPublicEntity, likeEntity } from 'app/entities/article/article.reducer';
+import { APP_DATE_FORMAT_SIMPLE_ZH_CN, APP_DATE_FORMAT_SIMPLE_ZH } from 'app/config/constants';
+import ArticleComment from './article-comment';
+import ErrorBoundaryRoute from 'app/shared/error/error-boundary-route';
 
 export interface IArticleDetailProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
 export const ArticleDetail = (props: IArticleDetailProps) => {
-  const [paginationState, setPaginationState] = useState(
-    overridePaginationStateWithQueryParams(getSortState(props.location, ITEMS_PER_PAGE), props.location.search)
-  );
-
   useEffect(() => {
     props.getPublicEntity(props.match.params.id);
-    props.getPublicArticleEntities(props.match.params.id,paginationState.activePage - 1, paginationState.itemsPerPage, `${paginationState.sort},${paginationState.order}`);
   }, []);
 
-  const handlePagination = currentPage =>
-    setPaginationState({
-      ...paginationState,
-      activePage: currentPage,
-    });
+  const likeValidSubmit = (event) => {
+    props.likeEntity(props.match.params.id);
+    event.preventDefault();
+  };
 
-  const { articleEntity, articleCommentList, match, loading, totalItems } = props;
+  const { articleEntity } = props;
   return (
-    <Row>
-      <Col md="12">
-        <dl className="jh-entity-details">
-          <div className="jh-entity-details-title">
-            <span>{articleEntity.articleTypeType}</span>
-            {articleEntity.title}
-          </div>
-          <div className="jh-entity-details-title-date">
-            <TextFormat value={articleEntity.creatTime} type="date" format={APP_DATE_FORMAT_SIMPLE_ZH} />
-            <img src="content/images/author.svg" alt="author" />
-            {articleEntity.author}
-          </div>
-          <div className="jh-entity-details-content" dangerouslySetInnerHTML = {{ __html: articleEntity.content }} />
-          <hr className="jh-entity-details-content-hr" />
-          <div className="jh-entity-table-article-div">
-            <div className="jh-entity-table-article-div-left">
-              <Translate contentKey="cmServiceApp.article.modify.title" interpolate={{ name: articleEntity.updateUser,time:'' }}>
-                Are you sure you want to delete this Article?
-              </Translate>
-              <TextFormat value={articleEntity.updateTime} type="date" format={APP_DATE_FORMAT_SIMPLE_ZH_CN} />
-              <span className="d-none d-md-inline">
-                <Translate contentKey="cmServiceApp.article.modify.tail">name</Translate>
-              </span>
-            </div>
-            <div className="jh-entity-table-article-div-right">
-              <FontAwesomeIcon icon={'eye'} />
-              <span>{articleEntity.views > 1000 ? articleEntity.views.toString().substring(0,articleEntity.views.toString().length-3) + "k" : articleEntity.views}</span>
-              <FontAwesomeIcon icon={'heart'} />
-              <span>{articleEntity.likeNumber > 1000? articleEntity.likeNumber.toString().substring(0,articleEntity.likeNumber.toString().length-3) + "k" : articleEntity.likeNumber}</span>
-            </div>
-          </div>
-          <div dangerouslySetInnerHTML = {{ __html: articleEntity.note }} />
-          <hr className="jh-entity-details-content-hr" />
-
-
-
-          <div className="table-responsive">
-            {articleCommentList && articleCommentList.length > 0 ? (
-              <div>
-                {articleCommentList.map((articleComment, i) => (
-                  <div key={`entity-${i}`} className="jh-entity-content-comment-div">
-                    <div className="jh-entity-content-comment-div-user">
-                      {articleComment.createUser}
-                      {articleComment.creatTime ? <TextFormat type="date" value={articleComment.creatTime} format={APP_DATE_FORMAT_SIMPLE_ZH_CN} /> : null}
-                    </div>
-                    <div className="jh-entity-content-comment-div-content">
-                      {articleComment.content}
-                    </div>
-                    <hr className="jh-entity-details-content-hr" />
-                  </div>
-                ))}
-              </div>
-            ) : (
-              !loading && (
-                <Translate contentKey="cmServiceApp.articleComment.home.notFound">No Article Comments found</Translate>
-              )
-            )}
-          </div>
-          {props.totalItems ? (
-            <div className={articleCommentList && articleCommentList.length > 0 ? '' : 'd-none'}>
-              <Row className="justify-content-center">
-                <JhiItemCount page={paginationState.activePage} total={totalItems} itemsPerPage={paginationState.itemsPerPage} i18nEnabled />
-              </Row>
-              <Row className="justify-content-center">
-                <JhiPagination
-                  activePage={paginationState.activePage}
-                  onSelect={handlePagination}
-                  maxButtons={5}
-                  itemsPerPage={paginationState.itemsPerPage}
-                  totalItems={props.totalItems}
-                />
-              </Row>
-            </div>
-          ) : (
-            ''
-          )}
-
-        </dl>
-
-
-
-        <Button tag={Link} to="/articles" replace color="info">
-          <span className="d-none d-md-inline">
-            <Translate contentKey="entity.action.back">Back</Translate>
-          </span>
-        </Button>
-
-      </Col>
-    </Row>
+    <div className="content-article-item">
+      <h1>
+        <span>{articleEntity.articleTypeType}</span>
+        <p>{articleEntity.title}</p>
+      </h1>
+      <h2>
+        <TextFormat value={articleEntity.creatTime} type="date" format={APP_DATE_FORMAT_SIMPLE_ZH} />
+        <img src="content/images/author.svg" alt="author" />
+        <p>{articleEntity.author}</p>
+      </h2>
+      <div dangerouslySetInnerHTML = {{ __html: articleEntity.content }} />
+      <hr/>
+      <Row>
+        <Col md="9">
+          <Translate contentKey="cmServiceApp.article.modify.title" interpolate={{ name: articleEntity.updateUser,time:'' }} />
+          <TextFormat value={articleEntity.updateTime} type="date" format={APP_DATE_FORMAT_SIMPLE_ZH_CN} />
+          <Translate contentKey="cmServiceApp.article.modify.tail">tail</Translate>
+        </Col>
+        <Col md="3">
+          <FontAwesomeIcon icon={'eye'} />
+          <span>{articleEntity.views > 1000 ? articleEntity.views.toString().substring(0,articleEntity.views.toString().length-3) + "k" : articleEntity.views}</span>
+          <FontAwesomeIcon icon={'heart'} />
+          <span>{articleEntity.likeNumber > 1000? articleEntity.likeNumber.toString().substring(0,articleEntity.likeNumber.toString().length-3) + "k" : articleEntity.likeNumber}</span>
+        </Col>
+        <Col md="12" dangerouslySetInnerHTML = {{ __html: articleEntity.note }} />
+        <AvForm id="send-form" onValidSubmit={likeValidSubmit}>
+          <Button id="send-submit" color="primary" type="submit">
+            <img src="content/images/like.svg" alt="like" />
+            <Translate contentKey="cmServiceApp.wallpaper.like">Like</Translate>
+          </Button>
+        </AvForm>
+      </Row>
+      <hr/>
+      <ErrorBoundaryRoute path={`/articles/detail/:id`} component={ArticleComment} />
+    </div>
   );
 };
 
-const mapStateToProps = ({ article, articleComment }: IRootState) => ({
+const mapStateToProps = ({ article }: IRootState) => ({
   articleEntity: article.entity,
-  articleCommentList: articleComment.entities,
-  loading: articleComment.loading,
-  totalItems: articleComment.totalItems,
 });
 
 const mapDispatchToProps = {
   getPublicEntity,
-  getPublicArticleEntities
+  likeEntity,
 };
 
 type StateProps = ReturnType<typeof mapStateToProps>;

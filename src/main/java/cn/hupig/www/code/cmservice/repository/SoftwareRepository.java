@@ -18,6 +18,8 @@ public interface SoftwareRepository extends JpaRepository<Software, Long> {
 	
 	Page<Software> findAllByState(Pageable pageable, Boolean state);
 	
+	Page<Software> findAllByStateAndSoftwareTypeId(Pageable pageable, Boolean state, Long softwareTypeId);
+	
 	Optional<Software> findByIdAndState(Long id, Boolean state);
 	
 }

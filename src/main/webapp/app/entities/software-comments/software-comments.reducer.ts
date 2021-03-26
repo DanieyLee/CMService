@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { ICrudGetAction, ICrudGetAllAction, ICrudPutAction, ICrudDeleteAction } from 'react-jhipster';
 
 import { cleanEntity } from 'app/shared/util/entity-utils';
@@ -109,6 +109,14 @@ export const getEntities: ICrudGetAllAction<ISoftwareComments> = (page, size, so
   };
 };
 
+export const getPublicSoftwareEntities: (id, page, size, sort) => { payload: Promise<AxiosResponse>; type: string } = (id, page, size, sort) => {
+  const requestUrl = `api/public/software-comments/${id}${sort ? `?page=${page}&size=${size}&sort=${sort}` : ''}`;
+  return {
+    type: ACTION_TYPES.FETCH_SOFTWARECOMMENTS_LIST,
+    payload: axios.get<ISoftwareComments>(`${requestUrl}${sort ? '&' : '?'}cacheBuster=${new Date().getTime()}`),
+  };
+};
+
 export const getEntity: ICrudGetAction<ISoftwareComments> = id => {
   const requestUrl = `${apiUrl}/${id}`;
   return {
@@ -121,6 +129,15 @@ export const createEntity: ICrudPutAction<ISoftwareComments> = entity => async d
   const result = await dispatch({
     type: ACTION_TYPES.CREATE_SOFTWARECOMMENTS,
     payload: axios.post(apiUrl, cleanEntity(entity)),
+  });
+  dispatch(getEntities());
+  return result;
+};
+
+export const replySoftware: ICrudPutAction<ISoftwareComments> = entity => async dispatch => {
+  const result = await dispatch({
+    type: ACTION_TYPES.CREATE_SOFTWARECOMMENTS,
+    payload: axios.post(`${apiUrl}/reply`, cleanEntity(entity)),
   });
   dispatch(getEntities());
   return result;

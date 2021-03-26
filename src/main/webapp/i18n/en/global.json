@@ -7,8 +7,8 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "articles": "Article",
       "softwares": "Software",
-      "pictures": "Picture",
-      "code-boxs": "Code Box",
+      "wallpapers": "Wallpaper",
+      "key-boxs": "Key Box",
       "entities": {
         "main": "Entities",
         "userLink": "User Link",
@@ -149,13 +149,15 @@
     "internalServerError": "Internal server error",
     "server.not.reachable": "Server not reachable",
     "url.not.found": "Not found",
-    "NotNull": "Field {{ fieldName }} cannot be empty!",
-    "Size": "Field {{ fieldName }} does not meet min/max size requirements!",
+    "NotNull": "{{ fieldName }} cannot be empty!",
+    "Size": "{{ fieldName }} does not meet min/max size requirements!",
     "userexists": "Login name already used!",
     "userphoneexists": "Wrong mobile phone number!",
     "phoneexists": "Verification code error!",
+    "fileexists": "File upload error!",
     "phonecodeexists": "The verification code is valid within 24 hours, please do not send it repeatedly!",
     "emailexists": "Email is already in use!",
+    "imageexists": "No more wallpaper",
     "idexists": "A new {{ entityName }} cannot already have an ID",
     "idnull": "Invalid ID",
     "file": {
@@ -164,8 +166,7 @@
     }
   },
   "footer": {
-    "statement": "statement:",
-    "statement.one": "The articles, information, pictures, software, etc. published by youai.com come from the Internet. It does not mean that I agree with its views or confirm the authenticity of its content and use it for illegal purposes.",
+    "statement.one": "The articles, information, wallpaper, software, etc. published by youai.com come from the Internet. It does not mean that I agree with its views or confirm the authenticity of its content and use it for illegal purposes.",
     "statement.two": "We hope you can transfer more information and learn more content. If you have design, copyright and other issues, please contact us immediately lixin520gj@163.com , I will change or delete the relevant articles, guarantee your rights, thank you.",
     "down.cloud": "Yuoai.com Space & using Tencent cloud services",
     "down.icp": "Copyright © 2020 Yuoai.com | Yue ICP 2020135022号-1",
@@ -179,8 +180,8 @@
     "stars.software": "Stars Software",
     "explain": "Explain",
     "about": "About",
-    "contact": "Contact Me",
-    "help": "Privacy",
-    "copyright": "Copyright"
+    "link": "Contact Me",
+    "hide": "Privacy",
+    "copy": "Copyright"
   }
 }

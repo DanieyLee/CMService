@@ -16,12 +16,15 @@ import cn.hupig.www.code.cmservice.service.Rewrite_PhoneService;
 import cn.hupig.www.code.cmservice.web.rest.errors.BadRequestAlertException;
 import cn.hupig.www.code.cmservice.web.rest.utils.PhoneFormatCheckUtils;
 import io.github.jhipster.web.util.HeaderUtil;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 /**
  * REST controller for managing {@link cn.hupig.www.code.cmservice.domain.Phone}.
  */
 @RestController
 @RequestMapping("/api")
+@Api(tags = "007-手机信息管理")
 public class Rewrite_PhoneResource {
 
     private final Logger log = LoggerFactory.getLogger(Rewrite_PhoneResource.class);
@@ -45,6 +48,7 @@ public class Rewrite_PhoneResource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/public/send/code")
+    @ApiOperation(value = "发送手机验证码-24小时内只能发一条-24小时有效")
     public ResponseEntity<Void> sendCode(@RequestBody String phoneNumber) throws URISyntaxException {
         log.debug("REST request to save Phone : {}", phoneNumber);
         phoneNumber = phoneNumber.substring(phoneNumber.indexOf(":") + 2).substring(0, phoneNumber.length() - phoneNumber.indexOf(":") - 4);

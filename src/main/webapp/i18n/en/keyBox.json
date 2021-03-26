@@ -30,10 +30,10 @@
           "three": " Technology and custody services"
         }
       },
-      "userAccount": "User Account",
+      "userAccount": "Account",
       "password": "Password",
       "secondPassword": "Second Password",
-      "loginAddress": "Login Address",
+      "loginAddress": "Address",
       "explain": "Name",
       "display": "Display",
       "createUser": "Create User",

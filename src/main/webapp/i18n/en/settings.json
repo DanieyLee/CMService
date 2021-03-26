@@ -15,7 +15,8 @@
       "passwordKey": "Secret key",
       "passwordKey.placeholder": "Your secret key",
       "language": "Language",
-      "button": "Modify"
+      "button": "Modify",
+      "revise.portrait": "Change Avatar"
     },
     "messages": {
       "error": {

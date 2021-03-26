@@ -34,16 +34,16 @@ public class Rewrite_ArticleServiceImpl implements Rewrite_ArticleService {
         this.articleRepository = articleRepository;
         this.articleMapper = articleMapper;
     }
-
-    @Override
-    @Transactional(readOnly = true)
-    public Page<ArticleDTO> findAllState(Pageable pageable) {
-        log.debug("Request to get all Articles");
-        pageable = PageRequest.of(pageable.getPageNumber(), pageable.getPageSize(),Sort.Direction.DESC,"updateTime");
-        return articleRepository.findAllByState(pageable, true)
-            .map(articleMapper::toDto);
-    }
     
+	@Override
+	@Transactional(readOnly = true)
+	public Page<ArticleDTO> findAllState(Long id, Pageable pageable) {
+		log.debug("Request to get all Articles by type");
+		pageable = PageRequest.of(pageable.getPageNumber(), pageable.getPageSize(),Sort.Direction.DESC,"updateTime");
+		return (id == 0 ? articleRepository.findAllByState(pageable, true):
+			articleRepository.findAllByStateAndArticleTypeId(pageable, true, id)).map(articleMapper::toDto);
+	}
+	
     @Override
     @Transactional(readOnly = true)
     public Page<ArticleDTO> findTopState() {
@@ -54,11 +54,25 @@ public class Rewrite_ArticleServiceImpl implements Rewrite_ArticleService {
     }
 
     @Override
-    @Transactional(readOnly = true)
     public Optional<ArticleDTO> findOneState(Long id) {
         log.debug("Request to get Article : {}", id);
         return articleRepository.findByIdAndState(id, true)
+        	.map(article -> {
+        		article.setViews(article.getViews() + 1);
+        		return articleRepository.save(article);
+        	})
             .map(articleMapper::toDto);
     }
+
+	@Override
+	public Optional<ArticleDTO> findOneLikeAndState(Long id) {
+        log.debug("Request to get Article : {}", id);
+        return articleRepository.findByIdAndState(id, true)
+        	.map(article -> {
+        		article.setLikeNumber(article.getLikeNumber() + 1);
+        		return articleRepository.save(article);
+        	})
+            .map(articleMapper::toDto);
+	}
 
 }

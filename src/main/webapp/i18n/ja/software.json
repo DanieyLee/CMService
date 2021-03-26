@@ -35,9 +35,9 @@
       "explain": "Explain",
       "softwareICO": "Software ICO",
       "score": "Score",
-      "size": "Size",
-      "version": "Version",
-      "applySystem": "Apply System",
+      "size": "サイズ:",
+      "version": "バージョン:",
+      "applySystem": "適用システム:",
       "show": "Show",
       "allow": "Allow",
       "downloadUrl": "Download Url",
@@ -50,7 +50,8 @@
       "updateTime": "Update Time",
       "note": "Note",
       "softwareType": "Software Type",
-      "userLink": "User Link"
+      "userLink": "User Link",
+      "clickDownload" : "ダウンロード"
     }
   }
 }

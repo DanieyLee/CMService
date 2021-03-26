@@ -33,7 +33,7 @@
       "userAccount": "账号",
       "password": "密码",
       "secondPassword": "二级密码",
-      "loginAddress": "访问地址",
+      "loginAddress": "地址",
       "explain": "名称",
       "display": "是否显示",
       "createUser": "创建者",

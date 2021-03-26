@@ -13,13 +13,13 @@ import java.util.Optional;
 public interface Rewrite_ArticleService {
 
     /**
-     * Get all the articles.
+     * Get all the articles by type.
      *
      * @param pageable the pagination information.
      * @return the list of entities.
      */
-    Page<ArticleDTO> findAllState(Pageable pageable);
-
+    Page<ArticleDTO> findAllState(Long id, Pageable pageable);
+    
     /**
      * Get top10 the articles.
      *
@@ -28,7 +28,6 @@ public interface Rewrite_ArticleService {
      */
     Page<ArticleDTO> findTopState();
 
-    
     /**
      * Get the "id" article.
      *
@@ -36,5 +35,13 @@ public interface Rewrite_ArticleService {
      * @return the entity.
      */
     Optional<ArticleDTO> findOneState(Long id);
+    
+    /**
+     * like "id" article.
+     *
+     * @param id the id of the entity.
+     * @return the entity.
+     */
+    Optional<ArticleDTO> findOneLikeAndState(Long id);
 
 }

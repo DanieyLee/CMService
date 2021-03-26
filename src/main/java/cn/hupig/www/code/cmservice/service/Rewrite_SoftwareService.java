@@ -18,7 +18,7 @@ public interface Rewrite_SoftwareService {
      * @param pageable the pagination information.
      * @return the list of entities.
      */
-    Page<SoftwareDTO> findAll(Pageable pageable);
+    Page<SoftwareDTO> findAllState(Long id, Pageable pageable);
     
     /**
      * Get top the software.
@@ -26,7 +26,7 @@ public interface Rewrite_SoftwareService {
      * @param pageable the pagination information.
      * @return the list of entities.
      */
-    Page<SoftwareDTO> findTop();
+    Page<SoftwareDTO> findTopState();
     
     /**
      * Get the "id" software.
@@ -34,5 +34,22 @@ public interface Rewrite_SoftwareService {
      * @param id the id of the entity.
      * @return the entity.
      */
-    Optional<SoftwareDTO> findOne(Long id);
+    Optional<SoftwareDTO> findOneState(Long id);
+    
+    /**
+     * like "id" software.
+     *
+     * @param id the id of the entity.
+     * @return the entity.
+     */
+    Optional<SoftwareDTO> findOneLikeAndState(Long id);
+    
+    /**
+     * download "id" software.
+     *
+     * @param id the id of the entity.
+     * @return the entity.
+     */
+    Optional<SoftwareDTO> findOneDownloadAndState(Long id);
+    
 }

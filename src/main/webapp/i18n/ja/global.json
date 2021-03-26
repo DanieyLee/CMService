@@ -7,8 +7,8 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "articles": "分かち合う",
       "softwares": "ソフトウェア",
-      "pictures": "壁紙",
-      "code-boxs": "キーホルダー",
+      "wallpapers": "壁紙",
+      "key-boxs": "キーホルダー",
       "entities": {
         "main": "エンティティ",
         "userLink": "ユーザ拡張情報",
@@ -145,27 +145,28 @@
     }
   },
   "error": {
-    "internalServerError": "Internal server error",
-    "server.not.reachable": "Server not reachable",
-    "url.not.found": "Not found",
-    "NotNull": "Field {{fieldName}} cannot be empty!",
-    "Size": "Field {{fieldName}} does not meet min/max size requirements!",
+    "internalServerError": "サーバ内部エラー",
+    "server.not.reachable": "サーバが到達できない",
+    "url.not.found": "見出されない",
+    "NotNull": "{{ fieldName }} 空きできない!",
+    "Size": "{{ fieldName }} 長さ誤差!",
     "userexists": "ユーザ名は既に存在します!",
     "userphoneexists": "携帯番号が間違っています!",
     "phoneexists": "認証コードエラー!",
+    "fileexists": "ファイルアップロードエラー!",
     "phonecodeexists": "検証コードは24時間有効です。重複して送らないでください!",
-    "emailexists": "Email is already in use!",
-    "idexists": "A new {{entityName}} cannot already have an ID",
-    "idnull": "Invalid ID",
+    "emailexists": "Eメールは既に使用中です!",
+    "imageexists": "壁紙はもうありません",
+    "idexists": "新しい {{entityName}} は既にIDを持つことができません",
+    "idnull": "無効なID",
     "file": {
       "could.not.extract": "Could not extract file",
       "not.image": "File was expected to be an image but was found to be \"{{ fileType }}\""
     }
   },
   "footer": {
-    "statement": "免責声明：",
     "statement.one": "尤艾網が発表した文章、情報、画像、ソフトウェアなどはインターネットから由来しています。尤艾網が整理して発表したものです。その観点に賛成したり、内容の真実性を確認したり、違法用途に使うことを意味していません。",
-    "statement.two": "尤艾ネットはもっと多い情報を伝達することができることを望んで、もっと多い内容を学んで、もし設計、著作権などの問題があるならば、直ちに連絡して下さい。lixin 520 gj@163.comあなたの権利を保証します。ありがとうございます。",
+    "statement.two": "尤艾ネットはもっと多い情報を伝達することができることを望んで、もっと多い内容を学んで、もし設計、著作権などの問題があるならば、直ちに連絡して下さい。lixin520gj@163.comあなたの権利を保証します。ありがとうございます。",
     "down.cloud": "Yuoai.comスペース & 騰訊雲サービスの利用",
     "down.icp": "Copyright © 2020 Yuoai.com | 広東ICP準備 2020135022号-1",
     "down.copyright": "広東省の公共網が整備されている 44030502002265",
@@ -178,8 +179,8 @@
     "stars.software": "星標",
     "explain": "説明",
     "about": "について",
-    "contact": "連絡してください",
-    "help": "プライバシー",
-    "copyright": "著作権声明"
+    "link": "連絡してください",
+    "hide": "プライバシー",
+    "copy": "著作権声明"
   }
 }

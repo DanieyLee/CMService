@@ -18,5 +18,7 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
 	
 	Page<Article> findAllByState(Pageable pageable, Boolean state);
 	
+	Page<Article> findAllByStateAndArticleTypeId(Pageable pageable, Boolean state, Long articleTypeId);
+	
 	Optional<Article> findByIdAndState(Long id, Boolean state);
 }

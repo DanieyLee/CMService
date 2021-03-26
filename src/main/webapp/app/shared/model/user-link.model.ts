@@ -7,6 +7,8 @@ export interface IUserLink {
   passwordKey?: number;
   userLogin?: string;
   userId?: number;
+  imageContentType?: string;
+  image?: any;
 }
 
 export const defaultValue: Readonly<IUserLink> = {

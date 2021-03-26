@@ -51,11 +51,17 @@ import { faMoon } from '@fortawesome/free-solid-svg-icons/faMoon';
 import { faBug } from '@fortawesome/free-solid-svg-icons/faBug';
 import { faBomb } from '@fortawesome/free-solid-svg-icons/faBomb';
 import { faBoxOpen } from '@fortawesome/free-solid-svg-icons/faBoxOpen';
+import { faRegistered } from '@fortawesome/free-solid-svg-icons/faRegistered';
+import { faFingerprint } from '@fortawesome/free-solid-svg-icons/faFingerprint';
+import { faEyeSlash } from '@fortawesome/free-solid-svg-icons/faEyeSlash';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 
 export const loadIcons = () => {
   library.add(
+    faRegistered,
+    faEyeSlash,
+    faFingerprint,
     faBomb,
     faBoxOpen,
     faBug,

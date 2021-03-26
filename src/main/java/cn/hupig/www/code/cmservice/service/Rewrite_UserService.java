@@ -1,5 +1,7 @@
 package cn.hupig.www.code.cmservice.service;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Optional;
@@ -21,8 +23,11 @@ import cn.hupig.www.code.cmservice.repository.PhoneRepository;
 import cn.hupig.www.code.cmservice.repository.UserLinkRepository;
 import cn.hupig.www.code.cmservice.repository.UserRepository;
 import cn.hupig.www.code.cmservice.security.AuthoritiesConstants;
+import cn.hupig.www.code.cmservice.security.SecurityUtils;
+import cn.hupig.www.code.cmservice.service.utils.FileOperation;
 import cn.hupig.www.code.cmservice.service.utils.Times;
 import cn.hupig.www.code.cmservice.web.rest.errors.PhoneAlreadyUsedException;
+import cn.hupig.www.code.cmservice.web.rest.vm.SettingsUserVM;
 
 /**
  * Service class for managing users.
@@ -53,6 +58,43 @@ public class Rewrite_UserService {
         this.authorityRepository = authorityRepository;
         this.cacheManager = cacheManager;
     }
+    
+    public void updateUser(String login, SettingsUserVM settingsUserVM) {
+        if (!userRepository.findOneByLogin(login).isPresent()){
+        	throw new UsernameAlreadyUsedException();
+        }
+        System.out.println("----------------------------------------------------------------------------------");
+        System.out.println("传入的getLastName是(" + settingsUserVM.getLastName() + ")");
+        System.out.println("----------------------------------------------------------------------------------");
+        System.out.println("对比的结果是：" + settingsUserVM.getLastName() != null && settingsUserVM.getLastName() != "");
+        System.out.println("----------------------------------------------------------------------------------");
+        if (settingsUserVM.getLastName() != null && settingsUserVM.getLastName() != "") { //lastname就是文件名，文件名有，就是有上传文件，没有就是没有上传文件，
+        	String oldFile = settingsUserVM.getImageUrl();
+        settingsUserVM.setImageUrl(FileOperation.save( //不等于null，就是有，那就执行上传文件
+        				settingsUserVM.getImage(),
+        				settingsUserVM.getImageUrl(),
+        				settingsUserVM.getLastName()));
+        // 更新了头像之后，要删除原头像
+        FileOperation.deleteFile(oldFile);
+        }
+        SecurityUtils.getCurrentUserLogin()
+        .flatMap(userRepository::findOneByLogin)
+        .ifPresent(user -> {
+        	userLinkRepository.findOneByUserId(user.getId()).ifPresent(userLink -> {
+        		userLink.setFirstName(settingsUserVM.getFirstName());
+        		userLink.setSex(settingsUserVM.isSex());
+        		userLink.setAge(settingsUserVM.getAge());
+        		userLink.setPasswordKey(settingsUserVM.getPasswordKey());
+        	});
+            user.setFirstName(settingsUserVM.getFirstName());
+            user.setEmail(settingsUserVM.getEmail().toLowerCase());
+            user.setImageUrl(settingsUserVM.getLastName() != null &&
+            		settingsUserVM.getLastName() != ""?
+            		settingsUserVM.getImageUrl() : user.getImageUrl());
+            this.clearUserCaches(user);
+            log.debug("Changed Information for User: {}", user);
+        });
+    }
 
     public void registerUser(String phoneNumber, String code, String password, String langKey) {
         if (!judgeCode(phoneNumber, code)) {
@@ -69,7 +111,7 @@ public class Rewrite_UserService {
         newUser.setFirstName(phoneNumber);
         newUser.setLastName("");
         newUser.setEmail(phoneNumber + "@local.com");
-        newUser.setImageUrl("");
+        newUser.setImageUrl("content/images/author.svg"); // 默认头像
         newUser.setLangKey(langKey);
         // new user is active
         newUser.setActivated(true);
@@ -108,7 +150,7 @@ public class Rewrite_UserService {
     private boolean judgeCode(String phoneNumber, String code) {
     	Optional<Phone> Phone = phoneRepository.findOneByPhoneAndCode(phoneNumber, Integer.parseInt(code));
     	if (!Phone.isPresent()) {
-    		return false;
+    		return false; // 没有找到验证码，还没有发送，或者已经超时了
     	}
     	return Times.timeSlot(Phone.get().getSendTime(), Phone.get().getEffectiveTime());
     }

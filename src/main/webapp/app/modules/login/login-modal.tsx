@@ -21,7 +21,7 @@ class LoginModal extends React.Component<ILoginModalProps> {
     const { loginError, handleClose } = this.props;
 
     return (
-      <Modal isOpen={this.props.showModal} toggle={handleClose} backdrop="static" id="login-page" autoFocus={false}>
+      <Modal className="content-login" isOpen={this.props.showModal} toggle={handleClose} backdrop="static" id="login-page" autoFocus={false}>
         <AvForm onSubmit={this.handleSubmit}>
           <ModalHeader id="login-title" toggle={handleClose}>
             <Translate contentKey="login.title">Sign in</Translate>
@@ -38,19 +38,27 @@ class LoginModal extends React.Component<ILoginModalProps> {
                 ) : null}
               </Col>
               <Col md="12">
-                <Link className="form-login-link-text" to="/account/reset/request">
+                <Link to="/account/reset/request" className="content-login-link">
                   <Translate contentKey="login.password.forgot">Did you forget your password?</Translate>
                 </Link>
-                <Link className="form-login-link-text" to="/account/register">
+                <Link to="/account/register"  className="content-login-link">
                   <Translate contentKey="global.messages.info.register.link">Register a new account</Translate>
                 </Link>
                 <AvField
                   name="username"
-                  label={translate('global.form.username.label')}
-                  placeholder={translate('global.form.username.placeholder')}
+                  label={translate('global.form.phone.label')}
+                  placeholder={translate('global.form.phone.placeholder')}
                   required
-                  errorMessage="Username cannot be empty!"
                   autoFocus
+                  validate={{
+                    required: { value: true, errorMessage: translate('global.messages.validate.phone.required') },
+                    pattern: {
+                      value: '^((13[0-9])|(14[0,1,4-9])|(15[0-3,5-9])|(16[2,5,6,7])|(17[0-8])|(18[0-9])|(19[0-3,5-9]))\\d{8}$',
+                      errorMessage: translate('global.messages.validate.phone.invalid'),
+                    },
+                    minLength: { value: 8, errorMessage: translate('global.messages.validate.phone.minlength') },
+                    maxLength: { value: 11, errorMessage: translate('global.messages.validate.phone.maxlength') },
+                  }}
                 />
                 <AvField
                   name="password"
@@ -58,14 +66,20 @@ class LoginModal extends React.Component<ILoginModalProps> {
                   label={translate('login.form.password')}
                   placeholder={translate('login.form.password.placeholder')}
                   required
-                  errorMessage="Password cannot be empty!"
+                  validate={{
+                    required: { value: true, errorMessage: translate('global.messages.validate.newpassword.required') },
+                    minLength: { value: 4, errorMessage: translate('global.messages.validate.newpassword.minlength') },
+                    maxLength: { value: 50, errorMessage: translate('global.messages.validate.newpassword.maxlength') },
+                  }}
                 />
                 <AvGroup check inline>
-                  <Label className="form-check-label">
-                    <AvInput type="checkbox" name="rememberMe" /> <Translate contentKey="login.form.rememberme">Remember me</Translate>
+                  <Label>
+                    <AvInput type="checkbox" name="rememberMe" value={ true } />
+                    <div>
+                      <Translate contentKey="login.form.rememberme">Remember me</Translate>
+                    </div>
                   </Label>
                 </AvGroup>
-
               </Col>
             </Row>
           </ModalBody>

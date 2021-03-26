@@ -7,8 +7,8 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "articles": "分享",
       "softwares": "软件",
-      "pictures": "美图",
-      "code-boxs": "密码盒子",
+      "wallpapers": "美图",
+      "key-boxs": "密码盒子",
       "entities": {
         "main": "实体",
         "userLink": "用户扩展信息",
@@ -145,16 +145,18 @@
     }
   },
   "error": {
-    "internalServerError": "Internal server error",
+    "internalServerError": "内部服务器错误",
     "server.not.reachable": "服务器无法访问",
-    "url.not.found": "Not found",
-    "NotNull": "域 {{fieldName}} 不能为空!",
-    "Size": "域 {{fieldName}} 不满足最大/最小值限制!",
+    "url.not.found": "找不到你要的",
+    "NotNull": "{{ fieldName }} 不能为空!",
+    "Size": "{{ fieldName }} 长度错误!",
     "userexists": "该用户名已存在!",
     "userphoneexists": "手机号码错误!",
     "phoneexists": "验证码错误!",
+    "fileexists": "文件上传错误!",
     "phonecodeexists": "验证码24小时内有效，请勿重复发送!",
     "emailexists": "该邮箱已被使用!",
+    "imageexists": "没有更多壁纸了",
     "idexists": "新建的 {{entityName}} 不能包含ID",
     "idnull": "Invalid ID",
     "file": {
@@ -163,7 +165,6 @@
     }
   },
   "footer": {
-    "statement": "免责声明：",
     "statement.one": "尤艾网所发布的文章、信息、图片、软件等来源于互联网，由尤艾网所整理发表，并不意味着我赞同其观点或证实其内容的真实性以及用于违法用途。",
     "statement.two": "尤艾网希望能传递更多的信息，学习更多的内容，如有设计、版权等问题，请立即联系lixin520gj@163.com，我会更改或删除相关文章，保证您的权利，谢谢。",
     "down.cloud": "Yuoai.com 空间 & 使用腾讯云服务",
@@ -178,8 +179,8 @@
     "stars.software": "星标",
     "explain": "说明",
     "about": "关于",
-    "contact": "联系我",
-    "help": "隐私",
-    "copyright": "版权声明"
+    "link": "联系我",
+    "hide": "隐私",
+    "copy": "版权声明"
   }
 }

@@ -1,163 +1,118 @@
 import React from 'react';
 import { Translate } from 'react-jhipster';
 
-import { NavItem, NavLink, NavbarBrand } from 'reactstrap';
+import { NavLink } from 'reactstrap';
 import { NavLink as Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-import appConfig from 'app/config/constants';
-
-export const BrandIcon = props => (
-  <div {...props} className="brand-icon">
-    <img src="content/images/logo-jhipster.svg" alt="Logo" />
-  </div>
-);
 
 export const Brand = props => (
-  <div className="footer-div">
-    <tbody>
-      <tr className="footer-title-logo">
-        <div className="f-flex brand-logo">
-          <BrandIcon />
-          <span className="footer-title">
-            <Translate contentKey="global.title">CMService</Translate>
-          </span>
-        </div>
-      </tr>
-      <tr>
-        <div className="footer-brand-tr-div">
-          <img src="content/images/wechat.svg" alt="wechat" className="footer-image-brand" />
-          <span>：DanieyLee</span>
-        </div>
-      </tr>
-      <tr>
-        <div className="footer-brand-tr-div">
-          <img src="content/images/qq.svg" alt="qq" className="footer-image-brand" />
-          <span>：541091705</span>
-        </div>
-      </tr>
-      <tr>
-        <div className="footer-brand-tr-div">
-          <img src="content/images/email.svg" alt="email" className="footer-image-brand" />
-          <span>：lixin520gj@163.com</span>
-        </div>
-      </tr>
-    </tbody>
-  </div>
+  <tbody className="footer-function-title">
+    <tr>
+      <div className="footer-function-title-logo">
+        <img src="content/images/logo.svg" alt="Logo" />
+        <Translate contentKey="global.title">CMService</Translate>
+      </div>
+    </tr>
+    <tr>
+      <div className="footer-function-title-link">
+        <p>QQ - 541091705</p>
+        <p>lixin520gj@163.com</p>
+      </div>
+    </tr>
+    <tr>
+      <NavLink tag={Link} to="/link">
+        <img src="content/images/qq.svg" alt="qq"/>
+      </NavLink>
+      <NavLink tag={Link} to="/link">
+        <img src="content/images/wechat.svg" alt="wechat"/>
+      </NavLink>
+      <NavLink tag={Link} to="/link">
+        <img src="content/images/email.svg" alt="email"/>
+      </NavLink>
+    </tr>
+  </tbody>
 );
 
 export const Articles = props => (
-  <div className="footer-div">
-    <tbody>
-      <tr>
-        <div className="f-flex align-items-center">
-          <span className="footer-title-span">
-            <Translate contentKey="footer.share">Share</Translate>
-          </span>
-        </div>
-      </tr>
-      <tr>
-        <NavLink tag={Link} to="/articles" className="f-flex align-items-center">
-          <span>
-            <Translate contentKey="footer.hot.articles">Hot</Translate>
-          </span>
-        </NavLink>
-      </tr>
-      <tr>
-        <NavLink tag={Link} to="/articles" className="f-flex align-items-center">
-          <span>
-            <Translate contentKey="footer.new.articles">New</Translate>
-          </span>
-        </NavLink>
-      </tr>
-      <tr>
-        <NavLink tag={Link} to="/articles" className="f-flex align-items-center">
-          <span>...</span>
-        </NavLink>
-      </tr>
-    </tbody>
-  </div>
+  <tbody>
+    <tr>
+      <div>
+        <Translate contentKey="footer.share">Share</Translate>
+      </div>
+    </tr>
+    <tr>
+      <NavLink tag={Link} to="/articles/0">
+        <Translate contentKey="footer.hot.articles">Hot</Translate>
+      </NavLink>
+    </tr>
+    <tr>
+      <NavLink tag={Link} to="/articles/0">
+        <Translate contentKey="footer.new.articles">New</Translate>
+      </NavLink>
+    </tr>
+    <tr>
+      <NavLink tag={Link} to="/articles/0">
+        <span>...</span>
+      </NavLink>
+    </tr>
+  </tbody>
 );
 
 export const Softwares = props => (
-  <div className="footer-div">
-    <tbody>
-      <tr>
-        <div className="f-flex align-items-center">
-          <span className="footer-title-span">
-            <Translate contentKey="footer.software">Software</Translate>
-          </span>
-        </div>
-      </tr>
-      <tr>
-        <NavLink tag={Link} to="/softwares" className="f-flex align-items-center">
-          <span>
-            <Translate contentKey="footer.download.software">Download</Translate>
-          </span>
-        </NavLink>
-      </tr>
-      <tr>
-        <NavLink tag={Link} to="/softwares" className="f-flex align-items-center">
-          <span>
-            <Translate contentKey="footer.new.software">New</Translate>
-          </span>
-        </NavLink>
-      </tr>
-      <tr>
-        <NavLink tag={Link} to="/softwares" className="f-flex align-items-center">
-          <span>
-            <Translate contentKey="footer.stars.software">Stars</Translate>
-          </span>
-        </NavLink>
-      </tr>
-      <tr>
-        <NavLink tag={Link} to="/softwares" className="f-flex align-items-center">
-          <span>...</span>
-        </NavLink>
-      </tr>
-    </tbody>
-  </div>
+  <tbody>
+    <tr>
+      <div>
+        <Translate contentKey="footer.software">Software</Translate>
+      </div>
+    </tr>
+    <tr>
+      <NavLink tag={Link} to="/softwares/0">
+        <Translate contentKey="footer.download.software">Download</Translate>
+      </NavLink>
+    </tr>
+    <tr>
+      <NavLink tag={Link} to="/softwares/0">
+        <Translate contentKey="footer.new.software">New</Translate>
+      </NavLink>
+    </tr>
+    <tr>
+      <NavLink tag={Link} to="/softwares/0">
+        <Translate contentKey="footer.stars.software">Stars</Translate>
+      </NavLink>
+    </tr>
+    <tr>
+      <NavLink tag={Link} to="/softwares/0">
+        <span>...</span>
+      </NavLink>
+    </tr>
+  </tbody>
 );
 
 export const Explain = props => (
-  <div className="footer-div">
-    <tbody>
-      <tr>
-        <div className="f-flex align-items-center">
-          <span className="footer-title-span">
-            <Translate contentKey="footer.explain">Explain</Translate>
-          </span>
-        </div>
-      </tr>
-      <tr>
-        <NavLink tag={Link} to="/about" className="f-flex align-items-center">
-          <span>
-            <Translate contentKey="footer.about">About</Translate>
-          </span>
-        </NavLink>
-      </tr>
-      <tr>
-        <NavLink tag={Link} to="/contact" className="f-flex align-items-center">
-          <span>
-            <Translate contentKey="footer.contact">Contact</Translate>
-          </span>
-        </NavLink>
-      </tr>
-      <tr>
-        <NavLink tag={Link} to="/help" className="f-flex align-items-center">
-          <span>
-            <Translate contentKey="footer.help">Help</Translate>
-          </span>
-        </NavLink>
-      </tr>
-      <tr>
-        <NavLink tag={Link} to="/copyright" className="f-flex align-items-center">
-          <span>
-            <Translate contentKey="footer.copyright">Copyright</Translate>
-          </span>
-        </NavLink>
-      </tr>
-    </tbody>
-  </div>
+  <tbody>
+    <tr>
+      <div className="a">
+        <Translate contentKey="footer.explain">Explain</Translate>
+      </div>
+    </tr>
+    <tr>
+      <NavLink tag={Link} to="/about">
+        <Translate contentKey="footer.about">About</Translate>
+      </NavLink>
+    </tr>
+    <tr>
+      <NavLink tag={Link} to="/link">
+        <Translate contentKey="footer.link">Link</Translate>
+      </NavLink>
+    </tr>
+    <tr>
+      <NavLink tag={Link} to="/hide">
+        <Translate contentKey="footer.hide">Hide</Translate>
+      </NavLink>
+    </tr>
+    <tr>
+      <NavLink tag={Link} to="/copy">
+        <Translate contentKey="footer.copy">Copy</Translate>
+      </NavLink>
+    </tr>
+  </tbody>
 );
-

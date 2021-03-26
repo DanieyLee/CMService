@@ -23,7 +23,12 @@
       "updateTime": "Update Time",
       "note": "Note",
       "article": "Article",
-      "userLink": "User Link"
+      "userLink": "User Link",
+      "sendComment": "Send Comment",
+      "explain": "To comment, you must first",
+      "login": "Sign in",
+      "send": "Send",
+      "lengthError": "Length Error"
     }
   }
 }

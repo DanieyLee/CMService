@@ -36,4 +36,20 @@ public interface Rewrite_WallpaperService {
      */
     Optional<WallpaperDTO> findOne(Long id);
 
+    /**
+     * like "id" wallpaper.
+     *
+     * @param id the id of the entity.
+     * @return the entity.
+     */
+    Optional<WallpaperDTO> findOneLikeAndState(Long id);
+    
+    /**
+     * get "id" near wallpaper.
+     *
+     * @param id the id of the entity.
+     * @return the entity.
+     */
+    Optional<WallpaperDTO> findOneNearWallpaperAndState(Long id, Boolean near);
+    
 }

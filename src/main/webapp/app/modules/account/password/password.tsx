@@ -1,5 +1,3 @@
-import './password.scss'
-
 import React, { useState, useEffect } from 'react';
 import { Translate, translate } from 'react-jhipster';
 import { connect } from 'react-redux';
@@ -10,6 +8,7 @@ import { IRootState } from 'app/shared/reducers';
 import { getSession } from 'app/shared/reducers/authentication';
 import PasswordStrengthBar from 'app/shared/layout/password/password-strength-bar';
 import { savePassword, reset } from './password.reducer';
+import { Link } from 'react-router-dom';
 
 export interface IUserPasswordProps extends StateProps, DispatchProps {}
 
@@ -51,67 +50,54 @@ export const PasswordPage = (props: IUserPasswordProps) => {
   const updatePassword = event => setPassword(event.target.value);
 
   return (
-    <div>
-      <Row className="justify-content-center-password">
-        <Col md="12">
-          <h2 id="password-title">
-            <Translate contentKey="password.title" interpolate={{ username: props.account.firstName }}>
-              Password for {props.account.firstName}
-            </Translate>
-          </h2>
-          <AvForm id="password-form" onValidSubmit={handleValidSubmit}>
-            <AvField
-              name="currentPassword"
-              label={translate('global.form.currentpassword.label')}
-              placeholder={translate('global.form.currentpassword.placeholder')}
-              type="password"
-              validate={{
-                required: { value: true, errorMessage: translate('global.messages.validate.newpassword.required') },
-              }}
-            />
-            <AvField
-              name="newPassword"
-              label={translate('global.form.newpassword.label')}
-              placeholder={translate('global.form.newpassword.placeholder')}
-              type="password"
-              validate={{
-                required: { value: true, errorMessage: translate('global.messages.validate.newpassword.required') },
-                minLength: { value: 4, errorMessage: translate('global.messages.validate.newpassword.minlength') },
-                maxLength: { value: 50, errorMessage: translate('global.messages.validate.newpassword.maxlength') },
-              }}
-              onChange={updatePassword}
-            />
-            <PasswordStrengthBar password={password} />
-            <AvField
-              name="confirmPassword"
-              label={translate('global.form.confirmpassword.label')}
-              placeholder={translate('global.form.confirmpassword.placeholder')}
-              type="password"
-              validate={{
-                required: {
-                  value: true,
-                  errorMessage: translate('global.messages.validate.confirmpassword.required'),
-                },
-                minLength: {
-                  value: 4,
-                  errorMessage: translate('global.messages.validate.confirmpassword.minlength'),
-                },
-                maxLength: {
-                  value: 50,
-                  errorMessage: translate('global.messages.validate.confirmpassword.maxlength'),
-                },
-                match: {
-                  value: 'newPassword',
-                  errorMessage: translate('global.messages.error.dontmatch'),
-                },
-              }}
-            />
-            <Button id="login-re-password-submit" className="register-from-text-button" color="success" type="submit">
-              <Translate contentKey="password.form.button">Save</Translate>
-            </Button>
-          </AvForm>
-        </Col>
-      </Row>
+    <div className="context-account-password">
+      <h2 id="password-title">
+        <Translate contentKey="password.title" interpolate={{ username: props.account.firstName }}>
+          Password for {props.account.firstName}
+        </Translate>
+      </h2>
+      <AvForm id="password-form" onValidSubmit={handleValidSubmit}>
+        <AvField
+          name="currentPassword"
+          label={translate('global.form.currentpassword.label')}
+          placeholder={translate('global.form.currentpassword.placeholder')}
+          type="password"
+          validate={{
+            required: { value: true, errorMessage: translate('global.messages.validate.newpassword.required') },
+          }}
+        />
+        <AvField
+          name="newPassword"
+          label={translate('global.form.newpassword.label')}
+          placeholder={translate('global.form.newpassword.placeholder')}
+          type="password"
+          validate={{
+            required: { value: true, errorMessage: translate('global.messages.validate.newpassword.required') },
+            minLength: { value: 4, errorMessage: translate('global.messages.validate.newpassword.minlength') },
+            maxLength: { value: 50, errorMessage: translate('global.messages.validate.newpassword.maxlength') },
+          }}
+          onChange={updatePassword}
+        />
+        <PasswordStrengthBar password={password} />
+        <AvField
+          name="confirmPassword"
+          label={translate('global.form.confirmpassword.label')}
+          placeholder={translate('global.form.confirmpassword.placeholder')}
+          type="password"
+          validate={{
+            required: { value: true, errorMessage: translate('global.messages.validate.confirmpassword.required'), },
+            minLength: { value: 4, errorMessage: translate('global.messages.validate.confirmpassword.minlength'), },
+            maxLength: { value: 50, errorMessage: translate('global.messages.validate.confirmpassword.maxlength'), },
+            match: { value: 'newPassword', errorMessage: translate('global.messages.error.dontmatch'), },
+          }}
+        />
+        <Button id="login-re-password-submit" color="success" type="submit">
+          <Translate contentKey="password.form.button">Save</Translate>
+        </Button>
+        <Button tag={Link} to="/" replace color="info">
+          <Translate contentKey="entity.action.cancel">Cancel</Translate>
+        </Button>
+      </AvForm>
     </div>
   );
 };
