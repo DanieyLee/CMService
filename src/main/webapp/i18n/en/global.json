@@ -151,6 +151,7 @@
     "url.not.found": "Not found",
     "NotNull": "{{ fieldName }} cannot be empty!",
     "Size": "{{ fieldName }} does not meet min/max size requirements!",
+    "nofindexists": "Can't find the one you want to delete",
     "userexists": "Login name already used!",
     "userphoneexists": "Wrong mobile phone number!",
     "phoneexists": "Verification code error!",

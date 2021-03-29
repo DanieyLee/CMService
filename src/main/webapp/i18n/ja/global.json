@@ -150,6 +150,7 @@
     "url.not.found": "見出されない",
     "NotNull": "{{ fieldName }} 空きできない!",
     "Size": "{{ fieldName }} 長さ誤差!",
+    "nofindexists": "削除するものが見つからないです。",
     "userexists": "ユーザ名は既に存在します!",
     "userphoneexists": "携帯番号が間違っています!",
     "phoneexists": "認証コードエラー!",

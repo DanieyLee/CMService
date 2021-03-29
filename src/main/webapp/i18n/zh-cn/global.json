@@ -150,6 +150,7 @@
     "url.not.found": "找不到你要的",
     "NotNull": "{{ fieldName }} 不能为空!",
     "Size": "{{ fieldName }} 长度错误!",
+    "nofindexists": "找不到你要删除的",
     "userexists": "该用户名已存在!",
     "userphoneexists": "手机号码错误!",
     "phoneexists": "验证码错误!",
