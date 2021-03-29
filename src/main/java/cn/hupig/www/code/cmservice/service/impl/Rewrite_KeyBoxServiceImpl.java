@@ -14,6 +14,7 @@ import cn.hupig.www.code.cmservice.repository.KeyBoxRepository;
 import cn.hupig.www.code.cmservice.service.Rewrite_KeyBoxService;
 import cn.hupig.www.code.cmservice.service.dto.KeyBoxDTO;
 import cn.hupig.www.code.cmservice.service.mapper.KeyBoxMapper;
+import cn.hupig.www.code.cmservice.web.rest.errors.KeyBoxException;
 
 /**
  * Service Implementation for managing {@link KeyBox}.
@@ -50,5 +51,37 @@ public class Rewrite_KeyBoxServiceImpl implements Rewrite_KeyBoxService {
 	    		return keyBoxRepository.save(keyBox);
 	    	})
 	        .map(keyBoxMapper::toDto);
+	}
+	
+    @Override
+    public void delete(Long id, Long userLinkId) {
+    	log.debug("Request to delete KeyBox : {}", id);
+    	Optional<KeyBox> keyBox = keyBoxRepository.findByIdAndUserLinkId(id,userLinkId);
+    	if (keyBox.isPresent()) {
+    		keyBoxRepository.deleteById(id);    		
+    	} else {
+    		throw new KeyBoxException("keyBox");
+    	}
+    }
+
+	@Override
+	public KeyBoxDTO updateKeyBox(KeyBoxDTO keyBoxDTO, Long userLinkId) {
+		log.debug("Request to save KeyBox : {}", keyBoxDTO);
+		Optional<KeyBox> kb = keyBoxRepository.findByIdAndUserLinkId(keyBoxDTO.getId(), userLinkId);
+		if (!kb.isPresent() && keyBoxDTO.getUserLinkId() != userLinkId) {
+			throw new KeyBoxException("keyBox");
+    	}
+        KeyBox keyBox = keyBoxMapper.toEntity(keyBoxDTO);
+        keyBox = keyBoxRepository.save(keyBox);
+        return keyBoxMapper.toDto(keyBox);
+	}
+	
+	@Override
+	public KeyBoxDTO createKeyBox(KeyBoxDTO keyBoxDTO, Long userLinkId) {
+		log.debug("Request to save KeyBox : {}", keyBoxDTO);
+		keyBoxDTO.setUserLinkId(userLinkId);
+        KeyBox keyBox = keyBoxMapper.toEntity(keyBoxDTO);
+        keyBox = keyBoxRepository.save(keyBox);
+        return keyBoxMapper.toDto(keyBox);
 	}
 }

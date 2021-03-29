@@ -17,5 +17,8 @@ import cn.hupig.www.code.cmservice.service.dto.KeyBoxDTO;
 @SuppressWarnings("unused")
 @Repository
 public interface KeyBoxRepository extends JpaRepository<KeyBox, Long> {
+	
 	Page<KeyBox> findAllByUserLinkId(Pageable pageable, Long userLinkId);
+	
+	Optional<KeyBox> findByIdAndUserLinkId(Long id, Long userLinkId);
 }

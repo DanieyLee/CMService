@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { IKeyBox } from 'app/shared/model/key-box.model';
 import { IRootState } from 'app/shared/reducers';
-import { getEntity, deleteEntity } from 'app/entities/key-box/key-box.reducer';
+import { getEntity, deleteUserEntity } from 'app/entities/key-box/key-box.reducer';
 
 export interface IKeyBoxDeleteDialogProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
@@ -27,7 +27,7 @@ export const KeyBoxDeleteDialog = (props: IKeyBoxDeleteDialogProps) => {
   }, [props.updateSuccess]);
 
   const confirmDelete = () => {
-    props.deleteEntity(props.keyBoxEntity.id);
+    props.deleteUserEntity(props.keyBoxEntity.id);
   };
 
   const { keyBoxEntity } = props;
@@ -37,7 +37,7 @@ export const KeyBoxDeleteDialog = (props: IKeyBoxDeleteDialogProps) => {
         <Translate contentKey="entity.delete.title">Confirm delete operation</Translate>
       </ModalHeader>
       <ModalBody id="cmServiceApp.keyBox.delete.question">
-        <Translate contentKey="cmServiceApp.keyBox.delete.question" interpolate={{ id: keyBoxEntity.id }}>
+        <Translate contentKey="cmServiceApp.keyBox.delete.question" interpolate={{ id: keyBoxEntity.explain }}>
           Are you sure you want to delete this KeyBox?
         </Translate>
       </ModalBody>
@@ -62,7 +62,7 @@ const mapStateToProps = ({ keyBox }: IRootState) => ({
   updateSuccess: keyBox.updateSuccess,
 });
 
-const mapDispatchToProps = { getEntity, deleteEntity };
+const mapDispatchToProps = { getEntity, deleteUserEntity };
 
 type StateProps = ReturnType<typeof mapStateToProps>;
 type DispatchProps = typeof mapDispatchToProps;

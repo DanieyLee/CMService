@@ -63,19 +63,13 @@ public class Rewrite_UserService {
         if (!userRepository.findOneByLogin(login).isPresent()){
         	throw new UsernameAlreadyUsedException();
         }
-        System.out.println("----------------------------------------------------------------------------------");
-        System.out.println("传入的getLastName是(" + settingsUserVM.getLastName() + ")");
-        System.out.println("----------------------------------------------------------------------------------");
-        System.out.println("对比的结果是：" + settingsUserVM.getLastName() != null && settingsUserVM.getLastName() != "");
-        System.out.println("----------------------------------------------------------------------------------");
         if (settingsUserVM.getLastName() != null && settingsUserVM.getLastName() != "") { //lastname就是文件名，文件名有，就是有上传文件，没有就是没有上传文件，
         	String oldFile = settingsUserVM.getImageUrl();
-        settingsUserVM.setImageUrl(FileOperation.save( //不等于null，就是有，那就执行上传文件
+        	settingsUserVM.setImageUrl(FileOperation.save( //不等于null，如果有，那就执行上传文件
         				settingsUserVM.getImage(),
         				settingsUserVM.getImageUrl(),
         				settingsUserVM.getLastName()));
-        // 更新了头像之后，要删除原头像
-        FileOperation.deleteFile(oldFile);
+        	FileOperation.deleteFile(oldFile); // 更新了头像之后，要删除原头像
         }
         SecurityUtils.getCurrentUserLogin()
         .flatMap(userRepository::findOneByLogin)

@@ -112,9 +112,9 @@ export const KeyBox = (props: IKeyBoxProps) => {
                   {keyBox.updateTime ?
                   <TextFormat type="date" value={keyBox.updateTime} format={APP_LOCAL_DATE_FORMAT_ZH_CN} /> : null}
                 </div>
-                <Button className="content-key-box-item-num-name" tag={Link} to={`${match.url}/${keyBox.id}`} color="link" size="sm">
+                <div className="content-key-box-item-num-name">
                   <span>{keyBox.explain}</span>
-                </Button>
+                </div>
                 <div>
                   <Translate contentKey="cmServiceApp.keyBox.userAccount">UserAccount</Translate>{": "}
                   <span>{keyBox.userAccount}</span>
@@ -122,19 +122,20 @@ export const KeyBox = (props: IKeyBoxProps) => {
                 <div className="content-key-box-item-num-password">
                   <div>
                     <Translate contentKey="cmServiceApp.keyBox.password">Password</Translate>{": "}
-                    <span>{keyBox.display ? "******" : keyBox.password}</span>
+                    <span>{!keyBox.display ? "******" : keyBox.password}</span>
                   </div>
                   <div>
                     <Translate contentKey="cmServiceApp.keyBox.secondPassword">SecondPassword</Translate>{": "}
-                    <span>{keyBox.display ? "******" : keyBox.secondPassword}</span>
+                    <span>{!keyBox.display ? "******" : keyBox.secondPassword}</span>
                     <Button onClick={(event) => {showHidePassword(event,keyBox)}}>
-                      <FontAwesomeIcon icon = { keyBox.display ? "eye" : "eye-slash" } />
+                      <FontAwesomeIcon icon = { !keyBox.display ? "eye" : "eye-slash" } />
                     </Button>
                   </div>
                 </div>
                 <div className="content-key-box-item-num-address">
                   <Translate contentKey="cmServiceApp.keyBox.loginAddress">LoginAddress</Translate>{": "}
-                  <a href={"http://" + keyBox.loginAddress} >{keyBox.loginAddress}</a>
+                  {/* eslint-disable-next-line react/jsx-no-target-blank */}
+                  <a href={keyBox.loginAddress.startsWith("http") ? keyBox.loginAddress : "http://"+keyBox.loginAddress} target='_blank' rel='noopener noreferer'>{keyBox.loginAddress}</a>
                 </div>
                 <div className="content-key-box-item-num-note">
                   <Translate contentKey="cmServiceApp.keyBox.note">Note</Translate>{": "}
@@ -143,7 +144,7 @@ export const KeyBox = (props: IKeyBoxProps) => {
                 <div className="content-key-box-item-num-button">
                   <Button
                     tag={Link}
-                    to={`${match.url}/${keyBox.id}/edit?page=${paginationState.activePage}&sort=${paginationState.sort},${paginationState.order}`}
+                    to={`key-boxs/${keyBox.id}/edit?page=${paginationState.activePage}&sort=${paginationState.sort},${paginationState.order}`}
                     color="primary"
                     size="sm"
                   >
@@ -154,7 +155,7 @@ export const KeyBox = (props: IKeyBoxProps) => {
                   </Button>
                   <Button
                     tag={Link}
-                    to={`key-boxs/${keyBox.id}/delete?page=${paginationState.activePage}&sort=${paginationState.sort},${paginationState.order}`}
+                    to={`/key-boxs/${keyBox.id}/delete?page=${paginationState.activePage}&sort=${paginationState.sort},${paginationState.order}`}
                     color="danger"
                     size="sm"
                   >

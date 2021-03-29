@@ -5,11 +5,12 @@
         "title": "キーボックス",
         "createLabel": "キーを追加",
         "createOrEditLabel": "キーを追加または編集",
+        "editLabel": "パスワードの変更",
         "notFound": "キーボックスが見つかりません"
       },
-      "created": "新しいキーボックスが識別子 {{ param }}",
-      "updated": "キーボックスは識別子で更新されます {{ param }}",
-      "deleted": "キーボックスは識別子で削除されます {{ param }}",
+      "created": "新しいキーボックスが識別子",
+      "updated": "キーボックスは識別子で更新されます",
+      "deleted": "キーボックスは識別子で削除されます",
       "delete": {
         "question": "キーボックス {{ id }}を削除してもよろしいですか？"
       },

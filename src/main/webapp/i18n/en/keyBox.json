@@ -5,11 +5,12 @@
         "title": "Key Boxes",
         "createLabel": "Create a new Key Box",
         "createOrEditLabel": "Create or edit a Key Box",
+        "editLabel": "Change password information",
         "notFound": "No Key Boxes found"
       },
-      "created": "A new Key Box is created with identifier {{ param }}",
-      "updated": "A Key Box is updated with identifier {{ param }}",
-      "deleted": "A Key Box is deleted with identifier {{ param }}",
+      "created": "A new Key Box is created with identifier",
+      "updated": "A Key Box is updated with identifier",
+      "deleted": "A Key Box is deleted with identifier",
       "delete": {
         "question": "Are you sure you want to delete Key Box {{ id }}?"
       },

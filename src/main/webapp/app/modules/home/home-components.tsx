@@ -3,47 +3,6 @@ import { NavLink, Button } from 'reactstrap';
 import { Translate } from 'react-jhipster';
 import { Link } from 'react-router-dom';
 
-export const Article = props => (
-
-  <div className="content-home-article">
-    <div className="content-home-article-list">
-      {props.articleList && props.articleList.length > 0 ? (
-        <div>
-          <div className="content-home-article-list-title">
-            <p>
-              <Translate contentKey="home.article">Title</Translate>
-            </p>
-          </div>
-          {props.articleList.map((article, i) => (
-            <div key={`entity-${i}`}>
-              <div className="content-home-article-list-name">
-                <Button tag={Link} to={`/articles/${article.id}`} color="link" size="sm">
-                  <span>{article.title}</span>
-                </Button>
-              </div>
-              <div className="content-home-article-list-content">
-                <Button tag={Link} to={`/articles/${article.id}`} color="link" size="sm">
-                  <div dangerouslySetInnerHTML = {{ __html: article.content.length > 5000 ? article.content.substr(0,5000) : article.content }} />
-                </Button>
-              </div>
-            </div>
-          ))}
-        </div>
-      ) : (
-        !props.loading && (
-          <div className="alert alert-warning">
-            <Translate contentKey="cmServiceApp.article.home.notFound">No Articles found</Translate>
-          </div>
-        )
-      )}
-    </div>
-    <hr/>
-    <NavLink tag={Link} to="/articles">
-      <Translate contentKey="home.more">More</Translate>
-    </NavLink>
-  </div>
-);
-
 export const Frame = props => (
   <div className="content-home-frame">
     <h2>

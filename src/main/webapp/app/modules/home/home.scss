@@ -1687,6 +1687,38 @@ body {
         }
       }
     } // 内容区-密码盒子
+    .content-key-box-edit {
+      color: $color-dirty-white;
+      margin: 30px 0 80px 0;
+      padding: 20px;
+      .content-key-box-edit-title { // 壁纸-标题
+        color: $color-pure-white;
+        font-size: 1.75rem;
+        font-weight: 400;
+        margin-bottom: 30px;
+      }
+      #key-box-note {
+        min-height: 120px;
+      }
+      .btn {
+        width: 100px;
+        height: 35px;
+        padding: 5px;
+        margin-right: 20px;
+      }
+      @media only screen and (max-width: 767px){ // 软件回复窗-按钮缩小
+        .content-key-box-edit-label {
+          display: none;
+        }
+        .btn span{
+          display: block !important;
+        }
+        #key-box-note {
+          min-height: 200px;
+        }
+      }
+
+    } // 内容区-密码盒子详情
     .content-account-register {
       margin: 60px auto;
       width: 80%;

@@ -28,4 +28,26 @@ public interface Rewrite_KeyBoxService {
      */
     Optional<KeyBoxDTO> findOneShowHideAndState(Long id);
     
+    /**
+     * Delete the "id" keyBox.
+     *
+     * @param id the id of the entity.
+     */
+    void delete(Long id, Long userLinkId);
+    
+    /**
+     * update KeyBox.
+     *
+     * @param keyBoxDTO the entity to save.
+     * @return the persisted entity.
+     */
+    KeyBoxDTO updateKeyBox(KeyBoxDTO keyBoxDTO, Long userLinkId);
+    
+    /**
+     * update KeyBox.
+     *
+     * @param keyBoxDTO the entity to save.
+     * @return the persisted entity.
+     */
+    KeyBoxDTO createKeyBox(KeyBoxDTO keyBoxDTO, Long userLinkId);
 }

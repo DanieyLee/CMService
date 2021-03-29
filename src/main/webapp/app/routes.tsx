@@ -13,9 +13,7 @@ import Softwares from 'app/modules/softwares/softwares';
 import SoftwaresDetail from 'app/modules/softwares/software-detail';
 import Wallpapers from 'app/modules/wallpapers/wallpapers';
 import WallpapersDetail from 'app/modules/wallpapers/wallpaper-detail';
-import KeyBoxs from 'app/modules/key-boxs/key-boxs';
-import KeyBoxsDetail from 'app/modules/key-boxs/key-box-detail';
-import KeyBoxsDeleteDialog from 'app/modules/key-boxs/key-box-delete-dialog';
+import KeyBoxs from 'app/modules/key-boxs'
 import About from 'app/modules/explain/explain-about';
 import Link from 'app/modules/explain/explain-link';
 import Hide from 'app/modules/explain/explain-hide';
@@ -52,16 +50,14 @@ const Routes = () => (
       <ErrorBoundaryRoute exact path={`/softwares/detail/:id`} component={SoftwaresDetail} />
       <ErrorBoundaryRoute exact path={`/wallpapers/:type`} component={Wallpapers} />
       <ErrorBoundaryRoute exact path={`/wallpapers/detail/:id`} component={WallpapersDetail} />
-      <PrivateRoute exact path="/key-boxs" component={KeyBoxs} hasAnyAuthorities={[AUTHORITIES.USER]} />
-      <ErrorBoundaryRoute exact path={`/key-boxs/detail/:id`} component={KeyBoxsDetail} />
       <ErrorBoundaryRoute exact path="/about" component={About} />
       <ErrorBoundaryRoute exact path="/link" component={Link} />
       <ErrorBoundaryRoute exact path="/hide" component={Hide} />
       <ErrorBoundaryRoute exact path="/copy" component={Copy} />
+      <PrivateRoute path="/key-boxs" component={KeyBoxs} hasAnyAuthorities={[AUTHORITIES.USER]} />
       <PrivateRoute path="/" component={Entities} hasAnyAuthorities={[AUTHORITIES.USER]} />
       <ErrorBoundaryRoute component={PageNotFound} />
     </Switch>
-    <PrivateRoute exact path={`/key-boxs/:id/delete`} component={KeyBoxsDeleteDialog} hasAnyAuthorities={[AUTHORITIES.USER]} />
   </div>
 );
 
