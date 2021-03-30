@@ -44,7 +44,7 @@ export const UserManagementUpdate = (props: IUserManagementUpdateProps) => {
   const { user, loading, updating, roles } = props;
 
   return (
-    <div>
+    <div className="content-user-management-edit">
       <Row className="justify-content-center">
         <Col md="8">
           <h1>

@@ -17,7 +17,7 @@
         "title": "用户附属信息"
       },
       "firstName": "昵称",
-      "sex": "性别",
+      "sex": "性别(选中为男，不选则为女)",
       "age": "年龄",
       "theme": "主题",
       "passwordKey": "密钥",

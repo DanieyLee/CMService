@@ -2,7 +2,7 @@
   "cmServiceApp": {
     "userLink": {
       "home": {
-        "title": "UserLinks",
+        "title": "ユーザ付加情報",
         "createLabel": "User Link を追加",
         "createOrEditLabel": "User Linkを追加または編集",
         "notFound": "No User Links found"
@@ -16,12 +16,12 @@
       "detail": {
         "title": "User Link"
       },
-      "firstName": "First Name",
-      "sex": "Sex",
-      "age": "Age",
-      "theme": "Theme",
-      "passwordKey": "Password Key",
-      "user": "User"
+      "firstName": "ニックネーム",
+      "sex": "性別（男性に選択、女性に選択）",
+      "age": "年齢",
+      "theme": "テーマ",
+      "passwordKey": "鍵",
+      "user": "ユーザー"
     }
   }
 }

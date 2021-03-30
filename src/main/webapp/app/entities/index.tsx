@@ -20,7 +20,7 @@ import Phone from './phone';
 /* jhipster-needle-add-route-import - JHipster will add routes here */
 
 const Routes = ({ match }) => (
-  <div>
+  <div className="content-entities-all">
     <Switch>
       {/* prettier-ignore */}
       <ErrorBoundaryRoute path={`${match.url}user-link`} component={UserLink} />

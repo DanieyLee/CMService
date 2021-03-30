@@ -5,11 +5,12 @@ import { Button, Table, Row, Badge } from 'reactstrap';
 import { Translate, TextFormat, JhiPagination, JhiItemCount, getSortState } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { APP_DATE_FORMAT } from 'app/config/constants';
+import { APP_DATE_FORMAT_SIMPLE_ZH_CN } from 'app/config/constants';
 import { ITEMS_PER_PAGE } from 'app/shared/util/pagination.constants';
 import { overridePaginationStateWithQueryParams } from 'app/shared/util/entity-utils';
 import { getUsers, updateUser } from './user-management.reducer';
 import { IRootState } from 'app/shared/reducers';
+import { Page } from 'app/shared/layout/page/page';
 
 export interface IUserManagementProps extends StateProps, DispatchProps, RouteComponentProps<{}> {}
 
@@ -62,9 +63,9 @@ export const UserManagement = (props: IUserManagementProps) => {
 
   const { users, account, match, totalItems } = props;
   return (
-    <div>
+    <div className="content-user-management ">
       <h2 id="user-management-page-heading">
-        <Translate contentKey="userManagement.home.title">Users</Translate>
+        <Translate contentKey="global.menu.admin.userManagement">Users</Translate>
         <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity">
           <FontAwesomeIcon icon="plus" /> <Translate contentKey="userManagement.home.createLabel">Create a new user</Translate>
         </Link>
@@ -85,24 +86,20 @@ export const UserManagement = (props: IUserManagementProps) => {
               <FontAwesomeIcon icon="sort" />
             </th>
             <th />
-            <th className="hand" onClick={sort('langKey')}>
+            <th>
               <Translate contentKey="userManagement.langKey">Lang Key</Translate>
-              <FontAwesomeIcon icon="sort" />
             </th>
             <th>
               <Translate contentKey="userManagement.profiles">Profiles</Translate>
             </th>
-            <th className="hand" onClick={sort('createdDate')}>
+            <th>
               <Translate contentKey="userManagement.createdDate">Created Date</Translate>
-              <FontAwesomeIcon icon="sort" />
             </th>
-            <th className="hand" onClick={sort('lastModifiedBy')}>
+            <th>
               <Translate contentKey="userManagement.lastModifiedBy">Last Modified By</Translate>
-              <FontAwesomeIcon icon="sort" />
             </th>
-            <th id="modified-date-sort" className="hand" onClick={sort('lastModifiedDate')}>
+            <th>
               <Translate contentKey="userManagement.lastModifiedDate">Last Modified Date</Translate>
-              <FontAwesomeIcon icon="sort" />
             </th>
             <th />
           </tr>
@@ -110,11 +107,7 @@ export const UserManagement = (props: IUserManagementProps) => {
         <tbody>
           {users.map((user, i) => (
             <tr id={user.login} key={`user-${i}`}>
-              <td>
-                <Button tag={Link} to={`${match.url}/${user.login}`} color="link" size="sm">
-                  {user.id}
-                </Button>
-              </td>
+              <td>{user.id}</td>
               <td>{user.login}</td>
               <td>{user.email}</td>
               <td>
@@ -139,22 +132,16 @@ export const UserManagement = (props: IUserManagementProps) => {
                   : null}
               </td>
               <td>
-                {user.createdDate ? <TextFormat value={user.createdDate} type="date" format={APP_DATE_FORMAT} blankOnInvalid /> : null}
+                {user.createdDate ? <TextFormat value={user.createdDate} type="date" format={APP_DATE_FORMAT_SIMPLE_ZH_CN} blankOnInvalid /> : null}
               </td>
               <td>{user.lastModifiedBy}</td>
               <td>
                 {user.lastModifiedDate ? (
-                  <TextFormat value={user.lastModifiedDate} type="date" format={APP_DATE_FORMAT} blankOnInvalid />
+                  <TextFormat value={user.lastModifiedDate} type="date" format={APP_DATE_FORMAT_SIMPLE_ZH_CN} blankOnInvalid />
                 ) : null}
               </td>
               <td className="text-right">
                 <div className="btn-group flex-btn-group-container">
-                  <Button tag={Link} to={`${match.url}/${user.login}`} color="info" size="sm">
-                    <FontAwesomeIcon icon="eye" />{' '}
-                    <span className="d-none d-md-inline">
-                      <Translate contentKey="entity.action.view">View</Translate>
-                    </span>
-                  </Button>
                   <Button tag={Link} to={`${match.url}/${user.login}/edit`} color="primary" size="sm">
                     <FontAwesomeIcon icon="pencil-alt" />{' '}
                     <span className="d-none d-md-inline">
@@ -182,10 +169,7 @@ export const UserManagement = (props: IUserManagementProps) => {
       {props.totalItems ? (
         <div className={users && users.length > 0 ? '' : 'd-none'}>
           <Row className="justify-content-center">
-            <JhiItemCount page={pagination.activePage} total={totalItems} itemsPerPage={pagination.itemsPerPage} i18nEnabled />
-          </Row>
-          <Row className="justify-content-center">
-            <JhiPagination
+            <Page
               activePage={pagination.activePage}
               onSelect={handlePagination}
               maxButtons={5}

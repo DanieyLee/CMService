@@ -38,6 +38,13 @@
       "admin": {
         "main": "Admin",
         "userManagement": "User",
+        "userLinkManagement": "User-Link",
+        "articleManagement": "Article",
+        "softwareManagement": "Software",
+        "wallpaperManagement": "Wallpaper",
+        "smsRecord": "SMS",
+        "articleTypeManagement": "Article type",
+        "softwareTypeManagement": "Software type",
         "tracker": "User tracker",
         "metrics": "Metrics",
         "health": "Health",
@@ -62,7 +69,9 @@
       "confirmpassword.label": "New password confirmation",
       "confirmpassword.placeholder": "Confirm the new password",
       "phone.label": "Phone",
-      "phone.placeholder": "Your Phone"
+      "phone.placeholder": "Your Phone",
+      "email.label": "Email",
+      "email.placeholder": "Your Email"
     },
     "messages": {
       "info": {
@@ -101,6 +110,12 @@
           "invalid": "Incorrect format of captcha",
           "minlength": "The length of the verification code should be at least 6 characters",
           "maxlength": "The length of the verification code cannot exceed 6 characters"
+        },
+        "email": {
+          "required": "Your email is required.",
+          "invalid": "Your email is not in the correct format.",
+          "minlength": "Your email should be at least 5 characters long.",
+          "maxlength": "Your email cannot be longer than 50 characters."
         }
       }
     },

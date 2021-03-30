@@ -2,26 +2,26 @@
   "cmServiceApp": {
     "articleType": {
       "home": {
-        "title": "ArticleTypes",
-        "createLabel": "Article Type を追加",
-        "createOrEditLabel": "Article Typeを追加または編集",
-        "notFound": "No Article Types found"
+        "title": "文章の分類",
+        "createLabel": "新しい記事のカテゴリを作成します",
+        "createOrEditLabel": "記事のカテゴリを作成または編集",
+        "notFound": "記事のカテゴリが見つかりませんでした"
       },
-      "created": "A new Article Type is created with identifier {{ param }}",
-      "updated": "A Article Type is updated with identifier {{ param }}",
-      "deleted": "A Article Type is deleted with identifier {{ param }}",
+      "created": "文章の分類 {{ param }} 作成成功",
+      "updated": "文章の分類 {{ param }} 更新成功",
+      "deleted": "文章の分類 {{ param }} 削除に成功しました",
       "delete": {
-        "question": "Article Type {{ id }}を削除してもよろしいですか？"
+        "question": "本当に記事のカテゴリを削除します {{ id }} ですか?"
       },
       "detail": {
-        "title": "Article Type"
+        "title": "文章の分類"
       },
-      "type": "Type",
-      "createUser": "Create User",
-      "creatTime": "Creat Time",
-      "updateUser": "Update User",
-      "updateTime": "Update Time",
-      "note": "Note"
+      "type": "タイプ",
+      "createUser": "ユーザーを作成する",
+      "creatTime": "作成時間",
+      "updateUser": "最後にユーザーを修正",
+      "updateTime": "最終修正時間",
+      "note": "備考"
     }
   }
 }

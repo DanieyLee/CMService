@@ -25,6 +25,16 @@ body {
   .table {
     color: $color-dirty-white;
   } // 全部文字颜色
+  .form-control {
+    background-color: $color-light-black !important;
+    border: 1px solid $color-dark-grey;
+    color: $color-dirty-white;
+    &:focus {
+      background-color: $color-light-black;
+      border: 0;
+      color: $color-pure-white;
+    }
+  } // 全部输入框颜色
   .text-danger {
     color: $color-red !important;
   } // 错误标题颜色
@@ -224,6 +234,29 @@ body {
       }
     }
   } // 登录框
+  .content-modal-dialog-alert {
+    top: 60px;
+    .modal-content {
+      background-color: $color-light-black;
+      color: $color-dirty-white;
+      h5 {
+        color: $color-pure-white;
+      }
+      .close {
+        color: $color-pure-white;
+        opacity: 1;
+      }
+      .modal-header {
+        border-bottom: 1px solid $color-light-grey;
+      }
+      .modal-footer {
+        border-top: 1px solid $color-light-grey;
+        .btn span {
+          margin-left: 5px;
+        }
+      }
+    }
+  } // 弹窗效果
   .container-fluid {
     padding: 0 !important;
     .jh-card {
@@ -1604,6 +1637,9 @@ body {
         .form-control { // 内容区-搜索框
           margin-top: 20px;
           margin-bottom: 30px;
+          background-color: $color-light-black;
+          border: 1px solid $color-dark-grey;
+          color: $color-pure-white;
         }
         .content-key-box-item-num { // 内容区-单个项目
           background-color: $color-light-black;
@@ -1691,14 +1727,33 @@ body {
       color: $color-dirty-white;
       margin: 30px 0 80px 0;
       padding: 20px;
-      .content-key-box-edit-title { // 壁纸-标题
+      .content-key-box-edit-title { // 编辑密码盒子-标题
         color: $color-pure-white;
         font-size: 1.75rem;
         font-weight: 400;
         margin-bottom: 30px;
       }
-      #key-box-note {
+      .row .col-md-6 {
+        .form-control {
+          background-color: $color-light-black;
+          border: 1px solid $color-dark-grey;
+          color: $color-dirty-white;
+        }
+        #displayLabel {
+          .form-check-input {
+            width: 18px;
+            height: 18px;
+          }
+          span {
+            margin-left: 10px;
+          }
+        }
+      }
+      .form-group #key-box-note {
         min-height: 120px;
+        background-color: $color-light-black;
+        border: 1px solid $color-dark-grey;
+        color: $color-dirty-white;
       }
       .btn {
         width: 100px;
@@ -1845,7 +1900,6 @@ body {
         font-weight: 300;
         color: $color-pure-white;
       }
-
       .col-md-4 { // 个人设置-头像
         padding: 5px;
         position: relative;
@@ -1930,6 +1984,296 @@ body {
         }
       }
     } // 内容区-个人设置
+    .content-entities-all {
+      color: $color-dirty-white;
+      margin: 30px 0 80px 0;
+      padding: 20px;
+    } // 内容区-所有实体
+    .content-user-management {
+      color: $color-dirty-white;
+      margin: 30px 0 80px 0;
+      padding: 20px;
+      h2 {
+        color: $color-pure-white;
+        font-size: 1.75rem;
+        font-weight: 400;
+        margin-bottom: 40px;
+      }
+      thead th {
+        border-top: 1px solid $color-dark-grey;
+        border-bottom: 1px solid $color-dark-grey;
+        background-color: $color-light-black;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: $color-pure-white;
+        font-size: 1rem;
+        font-weight: 200;
+      }
+      tbody td {
+        border-top: 0;
+        border-bottom: 1px solid $color-light-grey;
+      }
+    } // 内容区-用户管理
+    .content-user-management-edit {
+      color: $color-dirty-white;
+      margin: 30px 0 80px 0;
+      padding: 20px;
+      h1 {
+        color: $color-pure-white;
+        font-size: 1.75rem;
+        font-weight: 400;
+        margin-bottom: 40px;
+      }
+    } // 内容区-用户信息编辑
+    .content-user-link-management {
+      color: $color-dirty-white;
+      margin: 30px 0 80px 0;
+      padding: 20px;
+      h2 {
+        color: $color-pure-white;
+        font-size: 1.75rem;
+        font-weight: 400;
+        margin-bottom: 40px;
+      }
+      thead th {
+        border-top: 1px solid $color-dark-grey;
+        border-bottom: 1px solid $color-dark-grey;
+        background-color: $color-light-black;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: $color-pure-white;
+        font-size: 1rem;
+        font-weight: 200;
+      }
+      tbody td {
+        border-top: 0;
+        border-bottom: 1px solid $color-light-grey;
+      }
+    } // 内容区-用户附加信息
+    .content-user-link-management-edit {
+      color: $color-dirty-white;
+      margin: 30px 0 80px 0;
+      padding: 20px;
+      h2 {
+        color: $color-pure-white;
+        font-size: 1.75rem;
+        font-weight: 400;
+        margin-bottom: 40px;
+      }
+    } // 内容区-用户附加信息编辑
+    .content-article-management {
+      color: $color-dirty-white;
+      margin: 30px 0 80px 0;
+      padding: 20px;
+      h2 {
+        color: $color-pure-white;
+        font-size: 1.75rem;
+        font-weight: 400;
+        margin-bottom: 40px;
+      }
+      thead th {
+        border-top: 1px solid $color-dark-grey;
+        border-bottom: 1px solid $color-dark-grey;
+        background-color: $color-light-black;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: $color-pure-white;
+        font-size: 1rem;
+        font-weight: 200;
+      }
+      tbody td {
+        border-top: 0;
+        border-bottom: 1px solid $color-light-grey;
+      }
+    } // 内容区-后台文章管理
+    .content-article-management-edit {
+      color: $color-dirty-white;
+      margin: 30px 0 80px 0;
+      padding: 20px;
+      h2 {
+        color: $color-pure-white;
+        font-size: 1.75rem;
+        font-weight: 400;
+        margin-bottom: 40px;
+      }
+    } // 内容区-后台单个文章编辑
+    .content-software-management {
+      color: $color-dirty-white;
+      margin: 30px 0 80px 0;
+      padding: 20px;
+      h2 {
+        color: $color-pure-white;
+        font-size: 1.75rem;
+        font-weight: 400;
+        margin-bottom: 40px;
+      }
+      thead th {
+        border-top: 1px solid $color-dark-grey;
+        border-bottom: 1px solid $color-dark-grey;
+        background-color: $color-light-black;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: $color-pure-white;
+        font-size: 1rem;
+        font-weight: 200;
+      }
+      tbody td {
+        border-top: 0;
+        border-bottom: 1px solid $color-light-grey;
+      }
+    } // 内容区-后台软件管理
+    .content-software-management-edit {
+      color: $color-dirty-white;
+      margin: 30px 0 80px 0;
+      padding: 20px;
+      h2 {
+        color: $color-pure-white;
+        font-size: 1.75rem;
+        font-weight: 400;
+        margin-bottom: 40px;
+      }
+    } // 内容区-后台单个软件编辑
+    .content-wallpaper-management {
+      color: $color-dirty-white;
+      margin: 30px 0 80px 0;
+      padding: 20px;
+      h2 {
+        color: $color-pure-white;
+        font-size: 1.75rem;
+        font-weight: 400;
+        margin-bottom: 40px;
+      }
+      thead th {
+        border-top: 1px solid $color-dark-grey;
+        border-bottom: 1px solid $color-dark-grey;
+        background-color: $color-light-black;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: $color-pure-white;
+        font-size: 1rem;
+        font-weight: 200;
+      }
+      tbody td {
+        border-top: 0;
+        border-bottom: 1px solid $color-light-grey;
+      }
+    } // 内容区-后台软件管理
+    .content-wallpaper-management-edit {
+      color: $color-dirty-white;
+      margin: 30px 0 80px 0;
+      padding: 20px;
+      h2 {
+        color: $color-pure-white;
+        font-size: 1.75rem;
+        font-weight: 400;
+        margin-bottom: 40px;
+      }
+    } // 内容区-后台单个壁纸编辑
+    .content-sms-management {
+      color: $color-dirty-white;
+      margin: 30px 0 80px 0;
+      padding: 20px;
+      h2 {
+        color: $color-pure-white;
+        font-size: 1.75rem;
+        font-weight: 400;
+        margin-bottom: 40px;
+      }
+      thead th {
+        border-top: 1px solid $color-dark-grey;
+        border-bottom: 1px solid $color-dark-grey;
+        background-color: $color-light-black;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: $color-pure-white;
+        font-size: 1rem;
+        font-weight: 200;
+      }
+      tbody td {
+        border-top: 0;
+        border-bottom: 1px solid $color-light-grey;
+      }
+    } // 内容区-短信记录
+    .content-article-type-management {
+      color: $color-dirty-white;
+      margin: 30px 0 80px 0;
+      padding: 20px;
+      h2 {
+        color: $color-pure-white;
+        font-size: 1.75rem;
+        font-weight: 400;
+        margin-bottom: 40px;
+      }
+      thead th {
+        border-top: 1px solid $color-dark-grey;
+        border-bottom: 1px solid $color-dark-grey;
+        background-color: $color-light-black;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: $color-pure-white;
+        font-size: 1rem;
+        font-weight: 200;
+      }
+      tbody td {
+        border-top: 0;
+        border-bottom: 1px solid $color-light-grey;
+      }
+    } // 内容区-文章分类管理
+    .content-article-type-management-edit {
+      color: $color-dirty-white;
+      margin: 30px 0 80px 0;
+      padding: 20px;
+      h2 {
+        color: $color-pure-white;
+        font-size: 1.75rem;
+        font-weight: 400;
+        margin-bottom: 40px;
+      }
+    } // 内容区-后台单个文章分类编辑
+    .content-software-type-management {
+      color: $color-dirty-white;
+      margin: 30px 0 80px 0;
+      padding: 20px;
+      h2 {
+        color: $color-pure-white;
+        font-size: 1.75rem;
+        font-weight: 400;
+        margin-bottom: 40px;
+      }
+      thead th {
+        border-top: 1px solid $color-dark-grey;
+        border-bottom: 1px solid $color-dark-grey;
+        background-color: $color-light-black;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: $color-pure-white;
+        font-size: 1rem;
+        font-weight: 200;
+      }
+      tbody td {
+        border-top: 0;
+        border-bottom: 1px solid $color-light-grey;
+      }
+    } // 内容区-软件分类管理
+    .content-software-type-management-edit {
+      color: $color-dirty-white;
+      margin: 30px 0 80px 0;
+      padding: 20px;
+      h2 {
+        color: $color-pure-white;
+        font-size: 1.75rem;
+        font-weight: 400;
+        margin-bottom: 40px;
+      }
+    } // 内容区-后台单个软件分类编辑
     .content-currency-page {
       margin-top: 30px;
       font-size: 1.2rem;
@@ -2028,6 +2372,9 @@ body {
           input{
             width: 100%;
             border-radius: 5px;
+            background-color: $color-light-black;
+            border: 1px solid $color-dark-grey;
+            color: $color-dirty-white;
           }
         }
         .col-md-4 {

@@ -2,26 +2,26 @@
   "cmServiceApp": {
     "articleType": {
       "home": {
-        "title": "Article Types",
-        "createLabel": "创建新 Article Type",
-        "createOrEditLabel": "创建或编辑 Article Type",
-        "notFound": "No Article Types found"
+        "title": "文章分类",
+        "createLabel": "创建新的文章分类",
+        "createOrEditLabel": "创建或编辑文章分类",
+        "notFound": "没有找到文章分类"
       },
-      "created": "Article Type {{ param }} 创建成功",
-      "updated": "Article Type {{ param }} 更新成功",
-      "deleted": "Article Type {{ param }} 删除成功",
+      "created": "文章分类 {{ param }} 创建成功",
+      "updated": "文章分类 {{ param }} 更新成功",
+      "deleted": "文章分类 {{ param }} 删除成功",
       "delete": {
-        "question": "你确定要删除 Article Type {{ id }} 吗？"
+        "question": "你确定要删除文章分类 {{ id }} 吗？"
       },
       "detail": {
-        "title": "Article Type"
+        "title": "文章分类"
       },
-      "type": "Type",
-      "createUser": "Create User",
-      "creatTime": "Creat Time",
-      "updateUser": "Update User",
-      "updateTime": "Update Time",
-      "note": "Note"
+      "type": "类型",
+      "createUser": "创建用户",
+      "creatTime": "创建时间",
+      "updateUser": "最后修改用户",
+      "updateTime": "最后修改时间",
+      "note": "备注"
     }
   }
 }

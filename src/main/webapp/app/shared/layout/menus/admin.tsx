@@ -8,6 +8,27 @@ const adminMenuItems = (
     <MenuItem icon="user" to="/admin/user-management">
       <Translate contentKey="global.menu.admin.userManagement">User management</Translate>
     </MenuItem>
+    <MenuItem icon="user-plus" to="/admin/user-link-management">
+      <Translate contentKey="global.menu.admin.userLinkManagement">User Link management</Translate>
+    </MenuItem>
+    <MenuItem icon="book" to="/admin/article-management">
+      <Translate contentKey="global.menu.admin.articleManagement">Article management</Translate>
+    </MenuItem>
+    <MenuItem icon="coins" to="/admin/software-management">
+      <Translate contentKey="global.menu.admin.softwareManagement">Software management</Translate>
+    </MenuItem>
+    <MenuItem icon="file-image" to="/admin/wallpaper-management">
+      <Translate contentKey="global.menu.admin.wallpaperManagement">Wallpaper management</Translate>
+    </MenuItem>
+    <MenuItem icon="sms" to="/admin/sms">
+      <Translate contentKey="global.menu.admin.smsRecord">SMS record</Translate>
+    </MenuItem>
+    <MenuItem icon="grip-vertical" to="/admin/article-type-management">
+      <Translate contentKey="global.menu.admin.articleTypeManagement">Article type management</Translate>
+    </MenuItem>
+    <MenuItem icon="grip-vertical" to="/admin/software-type-management">
+      <Translate contentKey="global.menu.admin.softwareTypeManagement">Software type management</Translate>
+    </MenuItem>
     <MenuItem icon="tachometer-alt" to="/admin/metrics">
       <Translate contentKey="global.menu.admin.metrics">Metrics</Translate>
     </MenuItem>

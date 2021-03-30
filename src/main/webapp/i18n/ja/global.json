@@ -38,6 +38,13 @@
       "admin": {
         "main": "管理",
         "userManagement": "ユーザー管理",
+        "userLinkManagement": "ユーザ付加情報",
+        "articleManagement": "文章",
+        "softwareManagement": "ソフトウェア",
+        "wallpaperManagement": "壁紙",
+        "smsRecord": "メッセージ",
+        "articleTypeManagement": "記事タイプ",
+        "softwareTypeManagement": "ソフトウェアタイプ",
         "tracker": "ユーザートラッカー",
         "metrics": "メトリクス",
         "health": "ヘルスステータス",
@@ -62,7 +69,9 @@
       "confirmpassword.label": "新しいパスワード(確認)",
       "confirmpassword.placeholder": "新しいパスワード(確認)",
       "phone.label": "携帯の番号",
-      "phone.placeholder": "あなたの携帯番号"
+      "phone.placeholder": "あなたの携帯番号",
+      "email.label": "電子メール",
+      "email.placeholder": "あなたのメール"
     },
     "messages": {
       "info": {
@@ -101,6 +110,12 @@
           "invalid": "認証コードフォーマットが不正です。",
           "minlength": "認証コードの長さは少なくとも6文字必要です。",
           "maxlength": "認証コードの長さは6文字を超えてはいけません。"
+        },
+        "email": {
+          "required": "あなたのメールは必須項目です.",
+          "invalid": "メールのフォーマットが正しくありません.",
+          "minlength": "メールの長さは少なくとも5文字が必要です.",
+          "maxlength": "あなたのメールの長さは50文字を超えてはいけません."
         }
       }
     },

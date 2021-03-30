@@ -14,6 +14,7 @@ import cn.hupig.www.code.cmservice.repository.KeyBoxRepository;
 import cn.hupig.www.code.cmservice.service.Rewrite_KeyBoxService;
 import cn.hupig.www.code.cmservice.service.dto.KeyBoxDTO;
 import cn.hupig.www.code.cmservice.service.mapper.KeyBoxMapper;
+import cn.hupig.www.code.cmservice.service.utils.Times;
 import cn.hupig.www.code.cmservice.web.rest.errors.KeyBoxException;
 
 /**
@@ -71,6 +72,7 @@ public class Rewrite_KeyBoxServiceImpl implements Rewrite_KeyBoxService {
 		if (!kb.isPresent() && keyBoxDTO.getUserLinkId() != userLinkId) {
 			throw new KeyBoxException("keyBox");
     	}
+		keyBoxDTO.setUpdateTime(Times.getInstant());
         KeyBox keyBox = keyBoxMapper.toEntity(keyBoxDTO);
         keyBox = keyBoxRepository.save(keyBox);
         return keyBoxMapper.toDto(keyBox);
@@ -80,6 +82,8 @@ public class Rewrite_KeyBoxServiceImpl implements Rewrite_KeyBoxService {
 	public KeyBoxDTO createKeyBox(KeyBoxDTO keyBoxDTO, Long userLinkId) {
 		log.debug("Request to save KeyBox : {}", keyBoxDTO);
 		keyBoxDTO.setUserLinkId(userLinkId);
+		keyBoxDTO.setCreatTime(Times.getInstant());
+		keyBoxDTO.setUpdateTime(Times.getInstant());
         KeyBox keyBox = keyBoxMapper.toEntity(keyBoxDTO);
         keyBox = keyBoxRepository.save(keyBox);
         return keyBoxMapper.toDto(keyBox);

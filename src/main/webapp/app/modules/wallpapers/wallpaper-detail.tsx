@@ -21,7 +21,7 @@ export const WallpaperDetail = (props: IWallpaperDetailProps) => {
   }, [props.wallpaperEntity.id]);
 
   const goBack = () => {
-    props.history.goBack();
+    props.history.push("/wallpapers/0");
   }
 
   const turnPage = (event, id, turn) => {

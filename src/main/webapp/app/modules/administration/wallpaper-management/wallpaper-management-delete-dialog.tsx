@@ -5,19 +5,18 @@ import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap';
 import { Translate, ICrudGetAction, ICrudDeleteAction } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { IKeyBox } from 'app/shared/model/key-box.model';
 import { IRootState } from 'app/shared/reducers';
-import { getEntity, deleteUserEntity } from 'app/entities/key-box/key-box.reducer';
+import { getEntity, deleteEntity } from 'app/entities/wallpaper/wallpaper.reducer';
 
-export interface IKeyBoxDeleteDialogProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
+export interface IWallpaperManagementDeleteDialogProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
-export const KeyBoxDeleteDialog = (props: IKeyBoxDeleteDialogProps) => {
+export const WallpaperManagementDeleteDialog = (props: IWallpaperManagementDeleteDialogProps) => {
   useEffect(() => {
     props.getEntity(props.match.params.id);
   }, []);
 
   const handleClose = () => {
-    props.history.push('/key-boxs' + props.location.search);
+    props.history.push('/admin/wallpaper-management' + props.location.search);
   };
 
   useEffect(() => {
@@ -27,27 +26,29 @@ export const KeyBoxDeleteDialog = (props: IKeyBoxDeleteDialogProps) => {
   }, [props.updateSuccess]);
 
   const confirmDelete = () => {
-    props.deleteUserEntity(props.keyBoxEntity.id);
+    props.deleteEntity(props.wallpaperEntity.id);
   };
 
-  const { keyBoxEntity } = props;
+  const { wallpaperEntity } = props;
   return (
     <Modal isOpen toggle={handleClose} className="content-modal-dialog-alert">
       <ModalHeader toggle={handleClose}>
         <Translate contentKey="entity.delete.title">Confirm delete operation</Translate>
       </ModalHeader>
-      <ModalBody id="cmServiceApp.keyBox.delete.question">
-        <Translate contentKey="cmServiceApp.keyBox.delete.question" interpolate={{ id: keyBoxEntity.explain }}>
-          Are you sure you want to delete this KeyBox?
+      <ModalBody id="cmServiceApp.wallpaper.delete.question">
+        <Translate contentKey="cmServiceApp.wallpaper.delete.question" interpolate={{ id: wallpaperEntity.id }}>
+          Are you sure you want to delete this Wallpaper?
         </Translate>
       </ModalBody>
       <ModalFooter>
         <Button color="secondary" onClick={handleClose}>
           <FontAwesomeIcon icon="ban" />
+          &nbsp;
           <Translate contentKey="entity.action.cancel">Cancel</Translate>
         </Button>
-        <Button id="jhi-confirm-delete-keyBox" color="danger" onClick={confirmDelete}>
+        <Button id="jhi-confirm-delete-wallpaper" color="danger" onClick={confirmDelete}>
           <FontAwesomeIcon icon="trash" />
+          &nbsp;
           <Translate contentKey="entity.action.delete">Delete</Translate>
         </Button>
       </ModalFooter>
@@ -55,14 +56,14 @@ export const KeyBoxDeleteDialog = (props: IKeyBoxDeleteDialogProps) => {
   );
 };
 
-const mapStateToProps = ({ keyBox }: IRootState) => ({
-  keyBoxEntity: keyBox.entity,
-  updateSuccess: keyBox.updateSuccess,
+const mapStateToProps = ({ wallpaper }: IRootState) => ({
+  wallpaperEntity: wallpaper.entity,
+  updateSuccess: wallpaper.updateSuccess,
 });
 
-const mapDispatchToProps = { getEntity, deleteUserEntity };
+const mapDispatchToProps = { getEntity, deleteEntity };
 
 type StateProps = ReturnType<typeof mapStateToProps>;
 type DispatchProps = typeof mapDispatchToProps;
 
-export default connect(mapStateToProps, mapDispatchToProps)(KeyBoxDeleteDialog);
+export default connect(mapStateToProps, mapDispatchToProps)(WallpaperManagementDeleteDialog);
