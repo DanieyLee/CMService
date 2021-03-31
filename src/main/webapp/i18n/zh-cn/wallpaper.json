@@ -3,7 +3,7 @@
     "wallpaper": {
       "home": {
         "title": "壁纸",
-        "createLabel": "创建新壁纸",
+        "createLabel": "上传新壁纸",
         "createOrEditLabel": "创建或编辑壁纸",
         "notFound": "没有找到壁纸"
       },

@@ -17,4 +17,12 @@ public interface Rewrite_UserLinkService {
      */
     Optional<UserLinkDTO> findByUser(Long id);
    
+    /**
+     * Save a userLink.
+     *
+     * @param userLinkDTO the entity to save.
+     * @return the persisted entity.
+     */
+    UserLinkDTO save(UserLinkDTO userLinkDTO);
+    
 }

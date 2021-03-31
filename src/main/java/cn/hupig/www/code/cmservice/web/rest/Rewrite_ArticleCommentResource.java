@@ -60,13 +60,14 @@ public class Rewrite_ArticleCommentResource {
      */
     @PostMapping("/article-comments/reply")
     @ApiOperation(value = "创建新的文章回复信息-文章id必传")
-    public ResponseEntity<ArticleCommentDTO> createArticleComment(@RequestBody ArticleCommentDTO articleCommentDTO) throws URISyntaxException {
+    public ResponseEntity<List<ArticleCommentDTO>> createArticleComment(@RequestBody ArticleCommentDTO articleCommentDTO) throws URISyntaxException {
         log.debug("REST request to save ArticleComment : {}", articleCommentDTO);
         if (articleCommentDTO.getId() != null) {
             throw new BadRequestAlertException("A new articleComment cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        Optional<ArticleCommentDTO> result = rewrite_ArticleCommentService.createArticleComment(articleCommentDTO);
-        return ResponseUtil.wrapOrNotFound(result);
+        Page<ArticleCommentDTO> page = rewrite_ArticleCommentService.createArticleComment(articleCommentDTO);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
     /**

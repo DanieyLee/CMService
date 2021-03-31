@@ -94,9 +94,6 @@ export const ArticleManagement = (props: IArticleManagementProps) => {
                 <th className="hand" onClick={sort('author')}>
                   <Translate contentKey="cmServiceApp.article.author">Author</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
-                <th className="hand" onClick={sort('content')}>
-                  <Translate contentKey="cmServiceApp.article.content">Content</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
                 <th className="hand" onClick={sort('views')}>
                   <Translate contentKey="cmServiceApp.article.views">Views</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
@@ -106,26 +103,8 @@ export const ArticleManagement = (props: IArticleManagementProps) => {
                 <th className="hand" onClick={sort('state')}>
                   <Translate contentKey="cmServiceApp.article.state">State</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
-                <th className="hand" onClick={sort('createUser')}>
-                  <Translate contentKey="cmServiceApp.article.createUser">Create User</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
-                <th className="hand" onClick={sort('creatTime')}>
-                  <Translate contentKey="cmServiceApp.article.creatTime">Creat Time</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
-                <th className="hand" onClick={sort('updateUser')}>
-                  <Translate contentKey="cmServiceApp.article.updateUser">Update User</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
-                <th className="hand" onClick={sort('updateTime')}>
-                  <Translate contentKey="cmServiceApp.article.updateTime">Update Time</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
-                <th className="hand" onClick={sort('note')}>
-                  <Translate contentKey="cmServiceApp.article.note">Note</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
                 <th>
                   <Translate contentKey="cmServiceApp.article.articleType">Article Type</Translate>
-                </th>
-                <th>
-                  <Translate contentKey="cmServiceApp.article.userLink">User Link</Translate>
                 </th>
                 <th />
               </tr>
@@ -134,19 +113,12 @@ export const ArticleManagement = (props: IArticleManagementProps) => {
               {articleList.map((article, i) => (
                 <tr key={`entity-${i}`}>
                   <td>{article.id}</td>
-                  <td>{article.title.length > 10 ? article.title.substr(0,10) : article.title}</td>
+                  <td>{article.title}</td>
                   <td>{article.author}</td>
-                  <td>{article.content.length > 10 ? article.content.substr(0,10) : article.content}</td>
                   <td>{article.views}</td>
                   <td>{article.likeNumber}</td>
                   <td>{article.state ? 'true' : 'false'}</td>
-                  <td>{article.createUser}</td>
-                  <td>{article.creatTime ? <TextFormat type="date" value={article.creatTime} format={APP_DATE_FORMAT_SIMPLE_ZH_CN} /> : null}</td>
-                  <td>{article.updateUser}</td>
-                  <td>{article.updateTime ? <TextFormat type="date" value={article.updateTime} format={APP_DATE_FORMAT_SIMPLE_ZH_CN} /> : null}</td>
-                  <td>{article.note ? article.note.length > 10 ? article.note.substr(0,10) : article.note : null }</td>
                   {article.articleTypeType ? <td>{article.articleTypeType}</td> : ''}
-                  {article.userLinkFirstName ? <td>{article.userLinkFirstName}</td> : ''}
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button

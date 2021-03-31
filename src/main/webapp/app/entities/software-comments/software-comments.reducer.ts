@@ -5,6 +5,7 @@ import { cleanEntity } from 'app/shared/util/entity-utils';
 import { REQUEST, SUCCESS, FAILURE } from 'app/shared/reducers/action-type.util';
 
 import { ISoftwareComments, defaultValue } from 'app/shared/model/software-comments.model';
+import { IArticleComment } from 'app/shared/model/article-comment.model';
 
 export const ACTION_TYPES = {
   FETCH_SOFTWARECOMMENTS_LIST: 'softwareComments/FETCH_SOFTWARECOMMENTS_LIST',
@@ -134,13 +135,12 @@ export const createEntity: ICrudPutAction<ISoftwareComments> = entity => async d
   return result;
 };
 
-export const replySoftware: ICrudPutAction<ISoftwareComments> = entity => async dispatch => {
-  const result = await dispatch({
-    type: ACTION_TYPES.CREATE_SOFTWARECOMMENTS,
-    payload: axios.post(`${apiUrl}/reply`, cleanEntity(entity)),
-  });
-  dispatch(getEntities());
-  return result;
+export const replySoftware: ICrudPutAction<ISoftwareComments> = entity => {
+  const requestUrl = `${apiUrl}/reply`;
+  return {
+    type: ACTION_TYPES.FETCH_SOFTWARECOMMENTS_LIST,
+    payload: axios.post<ISoftwareComments>(requestUrl, cleanEntity(entity)),
+  };
 };
 
 export const updateEntity: ICrudPutAction<ISoftwareComments> = entity => async dispatch => {

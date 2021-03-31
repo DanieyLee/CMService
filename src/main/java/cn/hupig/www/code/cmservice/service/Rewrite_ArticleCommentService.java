@@ -26,6 +26,6 @@ public interface Rewrite_ArticleCommentService {
      * @param articleCommentDTO the entity to create.
      * @return the persisted entity.
      */
-    Optional<ArticleCommentDTO> createArticleComment(ArticleCommentDTO articleCommentDTO);
+    Page<ArticleCommentDTO> createArticleComment(ArticleCommentDTO articleCommentDTO);
     
 }

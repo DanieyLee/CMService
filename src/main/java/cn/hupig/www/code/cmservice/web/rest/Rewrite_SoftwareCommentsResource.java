@@ -57,13 +57,14 @@ public class Rewrite_SoftwareCommentsResource {
      */
     @PostMapping("/software-comments/reply")
     @ApiOperation(value = "创建新的软件回复信息-软件id必传")
-    public ResponseEntity<SoftwareCommentsDTO> createSoftwareComments(@RequestBody SoftwareCommentsDTO softwareCommentsDTO) throws URISyntaxException {
+    public ResponseEntity<List<SoftwareCommentsDTO>> createSoftwareComments(@RequestBody SoftwareCommentsDTO softwareCommentsDTO) throws URISyntaxException {
         log.debug("REST request to save SoftwareComments : {}", softwareCommentsDTO);
         if (softwareCommentsDTO.getId() != null) {
             throw new BadRequestAlertException("A new softwareComments cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        Optional<SoftwareCommentsDTO> result = rewrite_SoftwareCommentsService.createSoftwareComment(softwareCommentsDTO);
-        return ResponseUtil.wrapOrNotFound(result);
+        Page<SoftwareCommentsDTO> page = rewrite_SoftwareCommentsService.createSoftwareComment(softwareCommentsDTO);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
     /**

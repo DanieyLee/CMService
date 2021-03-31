@@ -27,6 +27,6 @@ public interface Rewrite_SoftwareCommentsService {
      * @param id the id of the entity.
      * @return the entity.
      */
-    Optional<SoftwareCommentsDTO> createSoftwareComment(SoftwareCommentsDTO softwareCommentsDTO);
+    Page<SoftwareCommentsDTO> createSoftwareComment(SoftwareCommentsDTO softwareCommentsDTO);
 
 }

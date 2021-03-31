@@ -19,8 +19,6 @@ export const ArticleComment = (props: IArticleCommentProps) => {
     overridePaginationStateWithQueryParams(getSortState(props.location, ITEMS_PER_PAGE), props.location.search)
   );
 
-  const { articleCommentEntity, articleCommentList, loading, account, updating } = props;
-
   const getAllEntities = () => {
     props.getPublicArticleEntities(props.match.params.id,paginationState.activePage - 1, paginationState.itemsPerPage, `${paginationState.sort},${paginationState.order}`);
   };
@@ -32,16 +30,6 @@ export const ArticleComment = (props: IArticleCommentProps) => {
       props.history.push(`${props.location.pathname}${endURL}`);
     }
   };
-
-  const handleClose = () => {
-    props.getPublicArticleEntities(props.match.params.id,paginationState.activePage - 1, paginationState.itemsPerPage, `${paginationState.sort},${paginationState.order}`);
-    props.history.push(`/articles/detail/${props.match.params.id}?page=${paginationState.activePage}&sort=${paginationState.sort},${paginationState.order}`);
-    props.reset();
-  };
-
-  useEffect(() => {
-    props.reset();
-  }, []);
 
   useEffect(() => {
     sortEntities();
@@ -62,17 +50,13 @@ export const ArticleComment = (props: IArticleCommentProps) => {
     }
   }, [props.location.search]);
 
-  useEffect(() => {
-    if (props.updateSuccess) {
-      handleClose();
-    }
-  }, [props.updateSuccess]);
-
   const handlePagination = currentPage =>
     setPaginationState({
       ...paginationState,
       activePage: currentPage,
     });
+
+  const { articleCommentEntity, articleCommentList, loading, account, updating } = props;
 
   const saveEntity = (event, errors, values) => {
     values.createUser = account.id;

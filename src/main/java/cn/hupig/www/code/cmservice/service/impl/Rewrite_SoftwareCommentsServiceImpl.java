@@ -62,7 +62,7 @@ public class Rewrite_SoftwareCommentsServiceImpl implements Rewrite_SoftwareComm
 	}
 
 	@Override
-	public Optional<SoftwareCommentsDTO> createSoftwareComment(SoftwareCommentsDTO softwareCommentsDTO) {
+	public Page<SoftwareCommentsDTO> createSoftwareComment(SoftwareCommentsDTO softwareCommentsDTO) {
 		log.debug("Request to save SoftwareComment : {}", softwareCommentsDTO);
         Optional<UserLinkDTO> userLinkDTO = userLinkRepository.findOneByUserId(
         		Long.parseLong(softwareCommentsDTO.getCreateUser())
@@ -78,8 +78,9 @@ public class Rewrite_SoftwareCommentsServiceImpl implements Rewrite_SoftwareComm
         softwareCommentsDTO.setUpdateTime(Times.getInstant());
         SoftwareComments softwareComments = softwareCommentsMapper.toEntity(softwareCommentsDTO);
         softwareComments = softwareCommentsRepository.save(softwareComments);
-        return softwareCommentsRepository.findById(softwareComments.getId())
-                .map(softwareCommentsMapper::toDto);
+        Pageable pageable = PageRequest.of(0, 20,Sort.Direction.DESC,"updateTime");
+		 return softwareCommentsRepository.findAllBySoftwareId(pageable, softwareCommentsDTO.getSoftwareId())
+				 .map(softwareCommentsMapper::toDto);
 	}
 
  

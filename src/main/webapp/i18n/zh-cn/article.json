@@ -3,8 +3,8 @@
     "article": {
       "home": {
         "title": "文章",
-        "createLabel": "创建新文章",
-        "createOrEditLabel": "创建或编辑文章",
+        "createLabel": "发布新文章",
+        "createOrEditLabel": "发布或修改文章",
         "notFound": "没有找到文章"
       },
       "created": "文章 {{ param }} 创建成功",

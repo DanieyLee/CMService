@@ -157,6 +157,14 @@ export const createEntity: ICrudPutAction<IUserLink> = entity => async dispatch 
   return result;
 };
 
+export const updateUserEntity: ICrudPutAction<IUserLink> = entity => async dispatch => {
+  const result = await dispatch({
+    type: ACTION_TYPES.UPDATE_USERLINK,
+    payload: axios.put(`${apiUrl}/update`, cleanEntity(entity)),
+  });
+  return result;
+};
+
 export const updateEntity: ICrudPutAction<IUserLink> = entity => async dispatch => {
   const result = await dispatch({
     type: ACTION_TYPES.UPDATE_USERLINK,

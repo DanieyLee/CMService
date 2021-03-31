@@ -98,26 +98,11 @@ export const WallpaperManagement = (props: IWallpaperManagementProps) => {
                 <th className="hand" onClick={sort('visitorVolume')}>
                   <Translate contentKey="cmServiceApp.wallpaper.visitorVolume">Visitor Volume</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
-                <th className="hand" onClick={sort('isDownload')}>
-                  <Translate contentKey="cmServiceApp.wallpaper.isDownload">Is Download</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
                 <th className="hand" onClick={sort('like')}>
                   <Translate contentKey="cmServiceApp.wallpaper.like">Like</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={sort('state')}>
                   <Translate contentKey="cmServiceApp.wallpaper.state">State</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
-                <th className="hand" onClick={sort('createUser')}>
-                  <Translate contentKey="cmServiceApp.wallpaper.createUser">Create User</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
-                <th className="hand" onClick={sort('creatTime')}>
-                  <Translate contentKey="cmServiceApp.wallpaper.creatTime">Creat Time</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
-                <th className="hand" onClick={sort('updateUser')}>
-                  <Translate contentKey="cmServiceApp.wallpaper.updateUser">Update User</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
-                <th className="hand" onClick={sort('updateTime')}>
-                  <Translate contentKey="cmServiceApp.wallpaper.updateTime">Update Time</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={sort('note')}>
                   <Translate contentKey="cmServiceApp.wallpaper.note">Note</Translate> <FontAwesomeIcon icon="sort" />
@@ -136,13 +121,8 @@ export const WallpaperManagement = (props: IWallpaperManagementProps) => {
                     <Translate contentKey={`cmServiceApp.ImageType.${wallpaper.imageType}`} />
                   </td>
                   <td>{wallpaper.visitorVolume}</td>
-                  <td>{wallpaper.isDownload ? 'true' : 'false'}</td>
                   <td>{wallpaper.like}</td>
                   <td>{wallpaper.state ? 'true' : 'false'}</td>
-                  <td>{wallpaper.createUser}</td>
-                  <td>{wallpaper.creatTime ? <TextFormat type="date" value={wallpaper.creatTime} format={APP_DATE_FORMAT_SIMPLE_ZH_CN} /> : null}</td>
-                  <td>{wallpaper.updateUser}</td>
-                  <td>{wallpaper.updateTime ? <TextFormat type="date" value={wallpaper.updateTime} format={APP_DATE_FORMAT_SIMPLE_ZH_CN} /> : null}</td>
                   <td>{wallpaper.note ? wallpaper.note.length > 10 ? wallpaper.note.substr(0,10) : wallpaper.note : ""}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">

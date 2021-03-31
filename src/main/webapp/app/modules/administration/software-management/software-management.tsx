@@ -97,23 +97,8 @@ export const SoftwareManagement = (props: ISoftwareManagementProps) => {
                 <th className="hand" onClick={sort('name')}>
                   <Translate contentKey="cmServiceApp.software.name">Name</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
-                <th className="hand" onClick={sort('explain')}>
-                  <Translate contentKey="cmServiceApp.software.explain">Explain</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
-                <th className="hand" onClick={sort('softwareICO')}>
-                  <Translate contentKey="cmServiceApp.software.softwareICO">Software ICO</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
-                <th className="hand" onClick={sort('score')}>
-                  <Translate contentKey="cmServiceApp.software.score">Score</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
                 <th className="hand" onClick={sort('size')}>
                   <Translate contentKey="cmServiceApp.software.size">Size</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
-                <th className="hand" onClick={sort('version')}>
-                  <Translate contentKey="cmServiceApp.software.version">Version</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
-                <th className="hand" onClick={sort('applySystem')}>
-                  <Translate contentKey="cmServiceApp.software.applySystem">Apply System</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={sort('show')}>
                   <Translate contentKey="cmServiceApp.software.show">Show</Translate> <FontAwesomeIcon icon="sort" />
@@ -121,38 +106,11 @@ export const SoftwareManagement = (props: ISoftwareManagementProps) => {
                 <th className="hand" onClick={sort('allow')}>
                   <Translate contentKey="cmServiceApp.software.allow">Allow</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
-                <th className="hand" onClick={sort('downloadUrl')}>
-                  <Translate contentKey="cmServiceApp.software.downloadUrl">Download Url</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
-                <th className="hand" onClick={sort('downloadNumber')}>
-                  <Translate contentKey="cmServiceApp.software.downloadNumber">Download Number</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
-                <th className="hand" onClick={sort('browseNumber')}>
-                  <Translate contentKey="cmServiceApp.software.browseNumber">Browse Number</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
                 <th className="hand" onClick={sort('state')}>
                   <Translate contentKey="cmServiceApp.software.state">State</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
-                <th className="hand" onClick={sort('createUser')}>
-                  <Translate contentKey="cmServiceApp.software.createUser">Create User</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
-                <th className="hand" onClick={sort('creatTime')}>
-                  <Translate contentKey="cmServiceApp.software.creatTime">Creat Time</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
-                <th className="hand" onClick={sort('updateUser')}>
-                  <Translate contentKey="cmServiceApp.software.updateUser">Update User</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
-                <th className="hand" onClick={sort('updateTime')}>
-                  <Translate contentKey="cmServiceApp.software.updateTime">Update Time</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
-                <th className="hand" onClick={sort('note')}>
-                  <Translate contentKey="cmServiceApp.software.note">Note</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
                 <th>
                   <Translate contentKey="cmServiceApp.software.softwareType">Software Type</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
-                <th>
-                  <Translate contentKey="cmServiceApp.software.userLink">User Link</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th />
               </tr>
@@ -163,44 +121,11 @@ export const SoftwareManagement = (props: ISoftwareManagementProps) => {
                   <td>{software.id}</td>
                   <td>{software.stars ? 'true' : 'false'}</td>
                   <td>{software.name}</td>
-                  <td>{software.explain}</td>
-                  <td>
-                    {software.softwareICO ? (
-                      <div>
-                        {software.softwareICOContentType ? (
-                          <a onClick={openFile(software.softwareICOContentType, software.softwareICO)}>
-                            <img
-                              src={`data:${software.softwareICOContentType};base64,${software.softwareICO}`}
-                              style={{ maxHeight: '30px' }}
-                            />
-                            &nbsp;
-                          </a>
-                        ) : null}
-                        <span>
-                          {software.softwareICOContentType}, {byteSize(software.softwareICO)}
-                        </span>
-                      </div>
-                    ) : null}
-                  </td>
-                  <td>{software.score}</td>
                   <td>{software.size}</td>
-                  <td>{software.version}</td>
-                  <td>
-                    <Translate contentKey={`cmServiceApp.SystemType.${software.applySystem}`} />
-                  </td>
                   <td>{software.show ? 'true' : 'false'}</td>
                   <td>{software.allow ? 'true' : 'false'}</td>
-                  <td>{software.downloadUrl}</td>
-                  <td>{software.downloadNumber}</td>
-                  <td>{software.browseNumber}</td>
                   <td>{software.state ? 'true' : 'false'}</td>
-                  <td>{software.createUser}</td>
-                  <td>{software.creatTime ? <TextFormat type="date" value={software.creatTime} format={APP_DATE_FORMAT_SIMPLE_ZH_CN} /> : null}</td>
-                  <td>{software.updateUser}</td>
-                  <td>{software.updateTime ? <TextFormat type="date" value={software.updateTime} format={APP_DATE_FORMAT_SIMPLE_ZH_CN} /> : null}</td>
-                  <td>{software.note}</td>
                   {software.softwareTypeType ? <td>{software.softwareTypeType}</td> : ''}
-                  {software.userLinkFirstName ? <td>{software.userLinkFirstName}</td> : ''}
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button

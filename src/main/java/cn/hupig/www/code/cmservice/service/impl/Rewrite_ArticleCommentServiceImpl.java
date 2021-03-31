@@ -61,7 +61,7 @@ public class Rewrite_ArticleCommentServiceImpl implements Rewrite_ArticleComment
     }
 
 	@Override
-	public Optional<ArticleCommentDTO> createArticleComment(ArticleCommentDTO articleCommentDTO) {
+	public Page<ArticleCommentDTO> createArticleComment(ArticleCommentDTO articleCommentDTO) {
         log.debug("Request to save ArticleComment : {}", articleCommentDTO);
         Optional<UserLinkDTO> userLinkDTO = userLinkRepository.findOneByUserId(
         		Long.parseLong(articleCommentDTO.getCreateUser())
@@ -76,8 +76,9 @@ public class Rewrite_ArticleCommentServiceImpl implements Rewrite_ArticleComment
         articleCommentDTO.setUpdateTime(Times.getInstant());
         ArticleComment articleComment = articleCommentMapper.toEntity(articleCommentDTO);
         articleComment = articleCommentRepository.save(articleComment);
-        return articleCommentRepository.findById(articleComment.getId())
-                .map(articleCommentMapper::toDto);
+        Pageable pageable = PageRequest.of(0, 20,Sort.Direction.DESC,"updateTime");
+        return articleCommentRepository.findAllByArticleId(pageable,articleCommentDTO.getArticleId())
+        		.map(articleCommentMapper::toDto);
 	}
 
 }

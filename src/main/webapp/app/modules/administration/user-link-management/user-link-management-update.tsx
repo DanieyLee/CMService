@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IRootState } from 'app/shared/reducers';
 
 import { getUsers } from 'app/modules/administration/user-management/user-management.reducer';
-import { getEntity, updateEntity, createEntity, reset } from 'app/entities/user-link/user-link.reducer';
+import { getEntity, updateUserEntity, createEntity, reset } from 'app/entities/user-link/user-link.reducer';
 
 export interface IUserLinkManagementUpdateProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
@@ -46,7 +46,7 @@ export const UserLinkManagementUpdate = (props: IUserLinkManagementUpdateProps) 
       if (isNew) {
         props.createEntity(entity);
       } else {
-        props.updateEntity(entity);
+        props.updateUserEntity(entity);
       }
     }
   };
@@ -124,16 +124,7 @@ export const UserLinkManagementUpdate = (props: IUserLinkManagementUpdateProps) 
                 <Label for="user-link-user">
                   <Translate contentKey="cmServiceApp.userLink.user">User</Translate>
                 </Label>
-                <AvInput id="user-link-user" type="select" className="form-control" name="userId">
-                  <option value="" key="0" />
-                  {users
-                    ? users.map(otherEntity => (
-                        <option value={otherEntity.id} key={otherEntity.id}>
-                          {otherEntity.login}
-                        </option>
-                      ))
-                    : null}
-                </AvInput>
+                <AvInput id="user-link-user" type="text" className="form-control" name="userLogin" required readOnly />
               </AvGroup>
               <Button tag={Link} id="cancel-save" to="/admin/user-link-management" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
@@ -167,7 +158,7 @@ const mapStateToProps = (storeState: IRootState) => ({
 const mapDispatchToProps = {
   getUsers,
   getEntity,
-  updateEntity,
+  updateUserEntity,
   createEntity,
   reset,
 };

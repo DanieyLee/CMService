@@ -3,8 +3,8 @@
     "software": {
       "home": {
         "title": "软件",
-        "createLabel": "创建新软件",
-        "createOrEditLabel": "创建或编辑软件",
+        "createLabel": "发布新软件",
+        "createOrEditLabel": "发布或修改软件",
         "notFound": "没有找到软件"
       },
       "created": "软件 {{ param }} 创建成功",
