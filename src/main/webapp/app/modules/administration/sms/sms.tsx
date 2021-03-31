@@ -6,7 +6,7 @@ import { Translate, TextFormat, getSortState } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { IRootState } from 'app/shared/reducers';
-import { getEntities } from 'app/entities/phone/phone.reducer';
+import { getUserEntities } from 'app/entities/phone/phone.reducer';
 import { APP_DATE_FORMAT_SIMPLE_ZH_CN } from 'app/config/constants';
 import { ITEMS_PER_PAGE } from 'app/shared/util/pagination.constants';
 import { overridePaginationStateWithQueryParams } from 'app/shared/util/entity-utils';
@@ -20,7 +20,7 @@ export const Sms = (props: ISmsProps) => {
   );
 
   const getAllEntities = () => {
-    props.getEntities(paginationState.activePage - 1, paginationState.itemsPerPage, `${paginationState.sort},${paginationState.order}`);
+    props.getUserEntities(paginationState.activePage - 1, paginationState.itemsPerPage, `${paginationState.sort},${paginationState.order}`);
   };
 
   const sortEntities = () => {
@@ -138,7 +138,7 @@ const mapStateToProps = ({ phone }: IRootState) => ({
 });
 
 const mapDispatchToProps = {
-  getEntities,
+  getUserEntities,
 };
 
 type StateProps = ReturnType<typeof mapStateToProps>;

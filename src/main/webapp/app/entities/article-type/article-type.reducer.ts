@@ -145,6 +145,22 @@ export const createEntity: ICrudPutAction<IArticleType> = entity => async dispat
   return result;
 };
 
+export const createUserEntity: ICrudPutAction<IArticleType> = entity => async dispatch => {
+  const result = await dispatch({
+    type: ACTION_TYPES.CREATE_ARTICLETYPE,
+    payload: axios.post(`${apiUrl}/create`, cleanEntity(entity)),
+  });
+  return result;
+};
+
+export const updateUserEntity: ICrudPutAction<IArticleType> = entity => async dispatch => {
+  const result = await dispatch({
+    type: ACTION_TYPES.UPDATE_ARTICLETYPE,
+    payload: axios.put(`${apiUrl}/update`, cleanEntity(entity)),
+  });
+  return result;
+};
+
 export const updateEntity: ICrudPutAction<IArticleType> = entity => async dispatch => {
   const result = await dispatch({
     type: ACTION_TYPES.UPDATE_ARTICLETYPE,

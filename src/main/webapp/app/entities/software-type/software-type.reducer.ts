@@ -145,6 +145,22 @@ export const createEntity: ICrudPutAction<ISoftwareType> = entity => async dispa
   return result;
 };
 
+export const createUserEntity: ICrudPutAction<ISoftwareType> = entity => async dispatch => {
+  const result = await dispatch({
+    type: ACTION_TYPES.CREATE_SOFTWARETYPE,
+    payload: axios.post(`${apiUrl}/create`, cleanEntity(entity)),
+  });
+  return result;
+};
+
+export const updateUserEntity: ICrudPutAction<ISoftwareType> = entity => async dispatch => {
+  const result = await dispatch({
+    type: ACTION_TYPES.UPDATE_SOFTWARETYPE,
+    payload: axios.put(`${apiUrl}/update`, cleanEntity(entity)),
+  });
+  return result;
+};
+
 export const updateEntity: ICrudPutAction<ISoftwareType> = entity => async dispatch => {
   const result = await dispatch({
     type: ACTION_TYPES.UPDATE_SOFTWARETYPE,

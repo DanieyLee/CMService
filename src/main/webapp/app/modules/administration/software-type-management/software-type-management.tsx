@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { IRootState } from 'app/shared/reducers';
 import { getEntities, reset } from 'app/entities/software-type/software-type.reducer';
-import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
+import { APP_DATE_FORMAT_SIMPLE_ZH_CN } from 'app/config/constants';
 import { ITEMS_PER_PAGE } from 'app/shared/util/pagination.constants';
 import { overridePaginationStateWithQueryParams } from 'app/shared/util/entity-utils';
 
@@ -129,11 +129,11 @@ export const SoftwareTypeManagement = (props: ISoftwareTypeManagementProps) => {
                     <td>{softwareType.type}</td>
                     <td>{softwareType.createUser}</td>
                     <td>
-                      {softwareType.creatTime ? <TextFormat type="date" value={softwareType.creatTime} format={APP_DATE_FORMAT} /> : null}
+                      {softwareType.creatTime ? <TextFormat type="date" value={softwareType.creatTime} format={APP_DATE_FORMAT_SIMPLE_ZH_CN} /> : null}
                     </td>
                     <td>{softwareType.updateUser}</td>
                     <td>
-                      {softwareType.updateTime ? <TextFormat type="date" value={softwareType.updateTime} format={APP_DATE_FORMAT} /> : null}
+                      {softwareType.updateTime ? <TextFormat type="date" value={softwareType.updateTime} format={APP_DATE_FORMAT_SIMPLE_ZH_CN} /> : null}
                     </td>
                     <td>{softwareType.note}</td>
                     <td className="text-right">

@@ -109,6 +109,14 @@ export const getEntities: ICrudGetAllAction<IPhone> = (page, size, sort) => {
   };
 };
 
+export const getUserEntities: ICrudGetAllAction<IPhone> = (page, size, sort) => {
+  const requestUrl = `${apiUrl}/all${sort ? `?page=${page}&size=${size}&sort=${sort}` : ''}`;
+  return {
+    type: ACTION_TYPES.FETCH_PHONE_LIST,
+    payload: axios.get<IPhone>(`${requestUrl}${sort ? '&' : '?'}cacheBuster=${new Date().getTime()}`),
+  };
+};
+
 export const getEntity: ICrudGetAction<IPhone> = id => {
   const requestUrl = `${apiUrl}/${id}`;
   return {
