@@ -2,20 +2,30 @@ package cn.hupig.www.code.cmservice.web.rest;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import cn.hupig.www.code.cmservice.security.AuthoritiesConstants;
 import cn.hupig.www.code.cmservice.service.Rewrite_PhoneService;
+import cn.hupig.www.code.cmservice.service.dto.PhoneDTO;
 import cn.hupig.www.code.cmservice.web.rest.errors.BadRequestAlertException;
 import cn.hupig.www.code.cmservice.web.rest.utils.PhoneFormatCheckUtils;
 import io.github.jhipster.web.util.HeaderUtil;
+import io.github.jhipster.web.util.PaginationUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
@@ -57,6 +67,22 @@ public class Rewrite_PhoneResource {
         }
         rewrite_PhoneService.sendCode(phoneNumber);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, phoneNumber)).build();
+    }
+    
+    /**
+     * {@code GET  /phones} : get all the phones.
+     *
+     * @param pageable the pagination information.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of phones in body.
+     */
+    @GetMapping("/phones/all")
+    @ApiOperation(value = "获取所有短信验证码，管理员专用")
+    @PreAuthorize("hasAuthority(\"" + AuthoritiesConstants.ADMIN + "\")")
+    public ResponseEntity<List<PhoneDTO>> getAllPhones(Pageable pageable) {
+        log.debug("REST request to get a page of Phones");
+        Page<PhoneDTO> page = rewrite_PhoneService.findAll(pageable);
+        HttpHeaders headers = PaginationUtil.generatePaginationHttpHeaders(ServletUriComponentsBuilder.fromCurrentRequest(), page);
+        return ResponseEntity.ok().headers(headers).body(page.getContent());
     }
 
 }

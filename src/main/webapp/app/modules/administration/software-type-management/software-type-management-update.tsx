@@ -7,7 +7,7 @@ import { Translate, translate, ICrudGetAction, ICrudGetAllAction, ICrudPutAction
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IRootState } from 'app/shared/reducers';
 
-import { getEntity, updateEntity, createEntity, reset } from 'app/entities/software-type/software-type.reducer';
+import { getEntity, updateUserEntity, createUserEntity, reset } from 'app/entities/software-type/software-type.reducer';
 import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
 
 export interface ISoftwareTypeManagementUpdateProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
@@ -44,9 +44,9 @@ export const SoftwareTypeManagementUpdate = (props: ISoftwareTypeManagementUpdat
       };
 
       if (isNew) {
-        props.createEntity(entity);
+        props.createUserEntity(entity);
       } else {
-        props.updateEntity(entity);
+        props.updateUserEntity(entity);
       }
     }
   };
@@ -88,41 +88,16 @@ export const SoftwareTypeManagementUpdate = (props: ISoftwareTypeManagementUpdat
                 />
               </AvGroup>
               <AvGroup>
-                <Label id="createUserLabel" for="software-type-createUser">
-                  <Translate contentKey="cmServiceApp.softwareType.createUser">Create User</Translate>
-                </Label>
-                <AvField id="software-type-createUser" type="text" name="createUser" />
+                <AvField id="software-type-createUser" type="hidden" name="createUser" />
               </AvGroup>
               <AvGroup>
-                <Label id="creatTimeLabel" for="software-type-creatTime">
-                  <Translate contentKey="cmServiceApp.softwareType.creatTime">Creat Time</Translate>
-                </Label>
                 <AvInput
                   id="software-type-creatTime"
-                  type="datetime-local"
+                  type="hidden"
                   className="form-control"
                   name="creatTime"
                   placeholder={'YYYY-MM-DD HH:mm'}
                   value={isNew ? displayDefaultDateTime() : convertDateTimeFromServer(props.softwareTypeEntity.creatTime)}
-                />
-              </AvGroup>
-              <AvGroup>
-                <Label id="updateUserLabel" for="software-type-updateUser">
-                  <Translate contentKey="cmServiceApp.softwareType.updateUser">Update User</Translate>
-                </Label>
-                <AvField id="software-type-updateUser" type="text" name="updateUser" />
-              </AvGroup>
-              <AvGroup>
-                <Label id="updateTimeLabel" for="software-type-updateTime">
-                  <Translate contentKey="cmServiceApp.softwareType.updateTime">Update Time</Translate>
-                </Label>
-                <AvInput
-                  id="software-type-updateTime"
-                  type="datetime-local"
-                  className="form-control"
-                  name="updateTime"
-                  placeholder={'YYYY-MM-DD HH:mm'}
-                  value={isNew ? displayDefaultDateTime() : convertDateTimeFromServer(props.softwareTypeEntity.updateTime)}
                 />
               </AvGroup>
               <AvGroup>
@@ -161,8 +136,8 @@ const mapStateToProps = (storeState: IRootState) => ({
 
 const mapDispatchToProps = {
   getEntity,
-  updateEntity,
-  createEntity,
+  updateUserEntity,
+  createUserEntity,
   reset,
 };
 
