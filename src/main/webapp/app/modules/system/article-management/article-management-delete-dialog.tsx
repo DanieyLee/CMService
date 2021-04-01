@@ -2,21 +2,21 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router-dom';
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap';
-import { Translate, ICrudGetAction, ICrudDeleteAction } from 'react-jhipster';
+import { Translate } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { IRootState } from 'app/shared/reducers';
-import { getEntity, deleteEntity } from 'app/entities/software/software.reducer';
+import { getEntity, deleteEntity } from 'app/entities/article/article.reducer';
 
-export interface ISoftwareManagementDeleteDialogProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
+export interface IArticleManagementDeleteDialogProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
-export const SoftwareManagementDeleteDialog = (props: ISoftwareManagementDeleteDialogProps) => {
+export const ArticleManagementDeleteDialog = (props: IArticleManagementDeleteDialogProps) => {
   useEffect(() => {
     props.getEntity(props.match.params.id);
   }, []);
 
   const handleClose = () => {
-    props.history.push('/admin/software-management' + props.location.search);
+    props.history.push('/system/article-management' + props.location.search);
   };
 
   useEffect(() => {
@@ -26,18 +26,18 @@ export const SoftwareManagementDeleteDialog = (props: ISoftwareManagementDeleteD
   }, [props.updateSuccess]);
 
   const confirmDelete = () => {
-    props.deleteEntity(props.softwareEntity.id);
+    props.deleteEntity(props.articleEntity.id);
   };
 
-  const { softwareEntity } = props;
+  const { articleEntity } = props;
   return (
     <Modal isOpen toggle={handleClose} className="content-modal-dialog-alert">
       <ModalHeader toggle={handleClose}>
         <Translate contentKey="entity.delete.title">Confirm delete operation</Translate>
       </ModalHeader>
-      <ModalBody id="cmServiceApp.software.delete.question">
-        <Translate contentKey="cmServiceApp.software.delete.question" interpolate={{ id: softwareEntity.id }}>
-          Are you sure you want to delete this Software?
+      <ModalBody id="cmServiceApp.article.delete.question">
+        <Translate contentKey="cmServiceApp.article.delete.question" interpolate={{ id: articleEntity.id }}>
+          Are you sure you want to delete this Article?
         </Translate>
       </ModalBody>
       <ModalFooter>
@@ -46,7 +46,7 @@ export const SoftwareManagementDeleteDialog = (props: ISoftwareManagementDeleteD
           &nbsp;
           <Translate contentKey="entity.action.cancel">Cancel</Translate>
         </Button>
-        <Button id="jhi-confirm-delete-software" color="danger" onClick={confirmDelete}>
+        <Button id="jhi-confirm-delete-article" color="danger" onClick={confirmDelete}>
           <FontAwesomeIcon icon="trash" />
           &nbsp;
           <Translate contentKey="entity.action.delete">Delete</Translate>
@@ -56,9 +56,9 @@ export const SoftwareManagementDeleteDialog = (props: ISoftwareManagementDeleteD
   );
 };
 
-const mapStateToProps = ({ software }: IRootState) => ({
-  softwareEntity: software.entity,
-  updateSuccess: software.updateSuccess,
+const mapStateToProps = ({ article }: IRootState) => ({
+  articleEntity: article.entity,
+  updateSuccess: article.updateSuccess,
 });
 
 const mapDispatchToProps = { getEntity, deleteEntity };
@@ -66,4 +66,4 @@ const mapDispatchToProps = { getEntity, deleteEntity };
 type StateProps = ReturnType<typeof mapStateToProps>;
 type DispatchProps = typeof mapDispatchToProps;
 
-export default connect(mapStateToProps, mapDispatchToProps)(SoftwareManagementDeleteDialog);
+export default connect(mapStateToProps, mapDispatchToProps)(ArticleManagementDeleteDialog);

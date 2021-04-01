@@ -33,6 +33,11 @@ const Admin = Loadable({
   loading: () => <div>loading ...</div>,
 });
 
+const System = Loadable({
+  loader: () => import(/* webpackChunkName: "administration" */ 'app/modules/system'),
+  loading: () => <div>loading ...</div>,
+});
+
 const Routes = () => (
   <div className="view-routes">
     <Switch>
@@ -41,6 +46,7 @@ const Routes = () => (
       <ErrorBoundaryRoute path="/account/register" component={Register} />
       <ErrorBoundaryRoute path="/account/reset/request" component={PasswordReset} />
       <PrivateRoute path="/admin" component={Admin} hasAnyAuthorities={[AUTHORITIES.ADMIN]} />
+      <PrivateRoute path="/system" component={System} hasAnyAuthorities={[AUTHORITIES.ADMIN]} />
       <PrivateRoute path="/account" component={Account} hasAnyAuthorities={[AUTHORITIES.ADMIN, AUTHORITIES.USER]} />
       <ErrorBoundaryRoute exact path="/" component={Home} />
       <ErrorBoundaryRoute exact path={`/articles/:type`} component={Articles} />

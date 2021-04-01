@@ -7,7 +7,7 @@ import { Translate, translate } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IRootState } from 'app/shared/reducers';
 
-import { getUsers } from 'app/modules/administration/user-management/user-management.reducer';
+import { getUsers } from 'app/modules/system/user-management/user-management.reducer';
 import { getEntity, updateUserEntity, createEntity, reset } from 'app/entities/user-link/user-link.reducer';
 
 export interface IUserLinkManagementUpdateProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
@@ -19,7 +19,7 @@ export const UserLinkManagementUpdate = (props: IUserLinkManagementUpdateProps) 
   const { userLinkEntity, users, loading, updating } = props;
 
   const handleClose = () => {
-    props.history.push('/admin/user-link-management');
+    props.history.push('/system/user-link-management');
   };
 
   useEffect(() => {
@@ -126,7 +126,7 @@ export const UserLinkManagementUpdate = (props: IUserLinkManagementUpdateProps) 
                 </Label>
                 <AvInput id="user-link-user" type="text" className="form-control" name="userLogin" required readOnly />
               </AvGroup>
-              <Button tag={Link} id="cancel-save" to="/admin/user-link-management" replace color="info">
+              <Button tag={Link} id="cancel-save" to="/system/user-link-management" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;
                 <span className="d-none d-md-inline">

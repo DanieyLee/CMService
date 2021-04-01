@@ -16,7 +16,7 @@ export const SoftwareTypeManagementDeleteDialog = (props: ISoftwareTypeManagemen
   }, []);
 
   const handleClose = () => {
-    props.history.push('/admin/software-type-management');
+    props.history.push('/system/software-type-management');
   };
 
   useEffect(() => {

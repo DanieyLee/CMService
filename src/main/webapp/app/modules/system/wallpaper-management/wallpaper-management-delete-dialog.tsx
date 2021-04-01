@@ -5,19 +5,18 @@ import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'reactstrap';
 import { Translate, ICrudGetAction, ICrudDeleteAction } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { IArticleType } from 'app/shared/model/article-type.model';
 import { IRootState } from 'app/shared/reducers';
-import { getEntity, deleteEntity } from 'app/entities/article-type/article-type.reducer';
+import { getEntity, deleteEntity } from 'app/entities/wallpaper/wallpaper.reducer';
 
-export interface IArticleTypeManagementDeleteDialogProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
+export interface IWallpaperManagementDeleteDialogProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
-export const ArticleTypeManagementDeleteDialog = (props: IArticleTypeManagementDeleteDialogProps) => {
+export const WallpaperManagementDeleteDialog = (props: IWallpaperManagementDeleteDialogProps) => {
   useEffect(() => {
     props.getEntity(props.match.params.id);
   }, []);
 
   const handleClose = () => {
-    props.history.push('/admin/article-type-management');
+    props.history.push('/system/wallpaper-management' + props.location.search);
   };
 
   useEffect(() => {
@@ -27,18 +26,18 @@ export const ArticleTypeManagementDeleteDialog = (props: IArticleTypeManagementD
   }, [props.updateSuccess]);
 
   const confirmDelete = () => {
-    props.deleteEntity(props.articleTypeEntity.id);
+    props.deleteEntity(props.wallpaperEntity.id);
   };
 
-  const { articleTypeEntity } = props;
+  const { wallpaperEntity } = props;
   return (
     <Modal isOpen toggle={handleClose} className="content-modal-dialog-alert">
       <ModalHeader toggle={handleClose}>
         <Translate contentKey="entity.delete.title">Confirm delete operation</Translate>
       </ModalHeader>
-      <ModalBody id="cmServiceApp.articleType.delete.question">
-        <Translate contentKey="cmServiceApp.articleType.delete.question" interpolate={{ id: articleTypeEntity.id }}>
-          Are you sure you want to delete this ArticleType?
+      <ModalBody id="cmServiceApp.wallpaper.delete.question">
+        <Translate contentKey="cmServiceApp.wallpaper.delete.question" interpolate={{ id: wallpaperEntity.id }}>
+          Are you sure you want to delete this Wallpaper?
         </Translate>
       </ModalBody>
       <ModalFooter>
@@ -47,7 +46,7 @@ export const ArticleTypeManagementDeleteDialog = (props: IArticleTypeManagementD
           &nbsp;
           <Translate contentKey="entity.action.cancel">Cancel</Translate>
         </Button>
-        <Button id="jhi-confirm-delete-articleType" color="danger" onClick={confirmDelete}>
+        <Button id="jhi-confirm-delete-wallpaper" color="danger" onClick={confirmDelete}>
           <FontAwesomeIcon icon="trash" />
           &nbsp;
           <Translate contentKey="entity.action.delete">Delete</Translate>
@@ -57,9 +56,9 @@ export const ArticleTypeManagementDeleteDialog = (props: IArticleTypeManagementD
   );
 };
 
-const mapStateToProps = ({ articleType }: IRootState) => ({
-  articleTypeEntity: articleType.entity,
-  updateSuccess: articleType.updateSuccess,
+const mapStateToProps = ({ wallpaper }: IRootState) => ({
+  wallpaperEntity: wallpaper.entity,
+  updateSuccess: wallpaper.updateSuccess,
 });
 
 const mapDispatchToProps = { getEntity, deleteEntity };
@@ -67,4 +66,4 @@ const mapDispatchToProps = { getEntity, deleteEntity };
 type StateProps = ReturnType<typeof mapStateToProps>;
 type DispatchProps = typeof mapDispatchToProps;
 
-export default connect(mapStateToProps, mapDispatchToProps)(ArticleTypeManagementDeleteDialog);
+export default connect(mapStateToProps, mapDispatchToProps)(WallpaperManagementDeleteDialog);

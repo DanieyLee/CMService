@@ -24,7 +24,7 @@ export const SoftwareManagementUpdate = (props: ISoftwareManagementUpdateProps) 
   const { softwareICO, softwareICOContentType } = softwareEntity;
 
   const handleClose = () => {
-    props.history.push('/admin/software-management' + props.location.search);
+    props.history.push('/system/software-management' + props.location.search);
   };
 
   useEffect(() => {
@@ -296,7 +296,7 @@ export const SoftwareManagementUpdate = (props: ISoftwareManagementUpdateProps) 
                     : null}
                 </AvInput>
               </AvGroup>
-              <Button tag={Link} id="cancel-save" to="/admin/software-management" replace color="info">
+              <Button tag={Link} id="cancel-save" to="/system/software-management" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;
                 <span className="d-none d-md-inline">

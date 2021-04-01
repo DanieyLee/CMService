@@ -37,6 +37,7 @@
       },
       "admin": {
         "main": "管理",
+        "system": "系统",
         "userManagement": "用户管理",
         "userLinkManagement": "用户附加信息",
         "articleManagement": "文章管理",

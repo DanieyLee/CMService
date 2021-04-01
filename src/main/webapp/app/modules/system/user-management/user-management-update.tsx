@@ -28,7 +28,7 @@ export const UserManagementUpdate = (props: IUserManagementUpdateProps) => {
   }, []);
 
   const handleClose = () => {
-    props.history.push('/admin/user-management');
+    props.history.push('/system/user-management');
   };
 
   const saveUser = (event, values) => {
@@ -165,7 +165,7 @@ export const UserManagementUpdate = (props: IUserManagementUpdateProps) => {
                   ))}
                 </AvInput>
               </AvGroup>
-              <Button tag={Link} to="/admin/user-management" replace color="info">
+              <Button tag={Link} to="/system/user-management" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;
                 <span className="d-none d-md-inline">

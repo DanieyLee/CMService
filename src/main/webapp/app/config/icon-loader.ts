@@ -58,11 +58,13 @@ import { faGripVertical } from '@fortawesome/free-solid-svg-icons/faGripVertical
 import { faTasks } from '@fortawesome/free-solid-svg-icons/faTasks';
 import { faThList } from '@fortawesome/free-solid-svg-icons/faThList';
 import { faThLarge } from '@fortawesome/free-solid-svg-icons/faThLarge';
+import { faTh } from '@fortawesome/free-solid-svg-icons/faTh';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 
 export const loadIcons = () => {
   library.add(
+    faTh,
     faGripVertical,
     faSms,
     faFileImage,

@@ -24,7 +24,7 @@ export const ArticleManagementUpdate = (props: IArticleManagementUpdateProps) =>
   const { content } = articleEntity;
 
   const handleClose = () => {
-    props.history.push('/admin/article-management' + props.location.search);
+    props.history.push('/system/article-management' + props.location.search);
   };
 
   useEffect(() => {
@@ -210,7 +210,7 @@ export const ArticleManagementUpdate = (props: IArticleManagementUpdateProps) =>
                     : null}
                 </AvInput>
               </AvGroup>
-              <Button tag={Link} id="cancel-save" to="/admin/article-management" replace color="info">
+              <Button tag={Link} id="cancel-save" to="/system/article-management" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;
                 <span className="d-none d-md-inline">

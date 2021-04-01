@@ -2172,6 +2172,17 @@ body {
         font-size: 1.75rem;
         font-weight: 400;
         margin-bottom: 40px;
+        padding: 0 10px;
+      }
+      .row {
+        width: 100%;
+        margin: 0;
+        .av-valid {
+          width: 100%;
+        }
+        .col-md-4 {
+          padding: 0 10px;
+        }
       }
     } // 内容区-后台单个壁纸编辑
     .content-sms-management {

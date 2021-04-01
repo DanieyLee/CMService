@@ -7,18 +7,18 @@ import { Translate, translate, ICrudGetAction, ICrudGetAllAction, ICrudPutAction
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IRootState } from 'app/shared/reducers';
 
-import { getEntity, updateUserEntity, createUserEntity, reset } from 'app/entities/software-type/software-type.reducer';
+import { getEntity, updateUserEntity, createUserEntity, reset } from 'app/entities/article-type/article-type.reducer';
 import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
 
-export interface ISoftwareTypeManagementUpdateProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
+export interface IArticleTypeManagementUpdateProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
-export const SoftwareTypeManagementUpdate = (props: ISoftwareTypeManagementUpdateProps) => {
+export const ArticleTypeManagementUpdate = (props: IArticleTypeManagementUpdateProps) => {
   const [isNew, setIsNew] = useState(!props.match.params || !props.match.params.id);
 
-  const { softwareTypeEntity, loading, updating } = props;
+  const { articleTypeEntity, loading, updating } = props;
 
   const handleClose = () => {
-    props.history.push('/admin/software-type-management');
+    props.history.push('/system/article-type-management');
   };
 
   useEffect(() => {
@@ -39,7 +39,7 @@ export const SoftwareTypeManagementUpdate = (props: ISoftwareTypeManagementUpdat
 
     if (errors.length === 0) {
       const entity = {
-        ...softwareTypeEntity,
+        ...articleTypeEntity,
         ...values,
       };
 
@@ -52,11 +52,11 @@ export const SoftwareTypeManagementUpdate = (props: ISoftwareTypeManagementUpdat
   };
 
   return (
-    <div className="content-software-type-management-edit">
+    <div className="content-article-type-management-edit">
       <Row className="justify-content-center">
         <Col md="8">
-          <h2 id="cmServiceApp.softwareType.home.createOrEditLabel">
-            <Translate contentKey="cmServiceApp.softwareType.home.createOrEditLabel">Create or edit a SoftwareType</Translate>
+          <h2 id="cmServiceApp.articleType.home.createOrEditLabel">
+            <Translate contentKey="cmServiceApp.articleType.home.createOrEditLabel">Create or edit a ArticleType</Translate>
           </h2>
         </Col>
       </Row>
@@ -65,21 +65,21 @@ export const SoftwareTypeManagementUpdate = (props: ISoftwareTypeManagementUpdat
           {loading ? (
             <p>Loading...</p>
           ) : (
-            <AvForm model={isNew ? {} : softwareTypeEntity} onSubmit={saveEntity}>
+            <AvForm model={isNew ? {} : articleTypeEntity} onSubmit={saveEntity}>
               {!isNew ? (
                 <AvGroup>
-                  <Label for="software-type-id">
+                  <Label for="article-type-id">
                     <Translate contentKey="global.field.id">ID</Translate>
                   </Label>
-                  <AvInput id="software-type-id" type="text" className="form-control" name="id" required readOnly />
+                  <AvInput id="article-type-id" type="text" className="form-control" name="id" required readOnly />
                 </AvGroup>
               ) : null}
               <AvGroup>
-                <Label id="typeLabel" for="software-type-type">
-                  <Translate contentKey="cmServiceApp.softwareType.type">Type</Translate>
+                <Label id="typeLabel" for="article-type-type">
+                  <Translate contentKey="cmServiceApp.articleType.type">Type</Translate>
                 </Label>
                 <AvField
-                  id="software-type-type"
+                  id="article-type-type"
                   type="text"
                   name="type"
                   validate={{
@@ -88,25 +88,25 @@ export const SoftwareTypeManagementUpdate = (props: ISoftwareTypeManagementUpdat
                 />
               </AvGroup>
               <AvGroup>
-                <AvField id="software-type-createUser" type="hidden" name="createUser" />
+                <AvField id="article-type-createUser" type="hidden" name="createUser" />
               </AvGroup>
               <AvGroup>
                 <AvInput
-                  id="software-type-creatTime"
+                  id="article-type-creatTime"
                   type="hidden"
                   className="form-control"
                   name="creatTime"
                   placeholder={'YYYY-MM-DD HH:mm'}
-                  value={isNew ? displayDefaultDateTime() : convertDateTimeFromServer(props.softwareTypeEntity.creatTime)}
+                  value={isNew ? displayDefaultDateTime() : convertDateTimeFromServer(props.articleTypeEntity.creatTime)}
                 />
               </AvGroup>
               <AvGroup>
-                <Label id="noteLabel" for="software-type-note">
-                  <Translate contentKey="cmServiceApp.softwareType.note">Note</Translate>
+                <Label id="noteLabel" for="article-type-note">
+                  <Translate contentKey="cmServiceApp.articleType.note">Note</Translate>
                 </Label>
-                <AvField id="software-type-note" type="text" name="note" />
+                <AvField id="article-type-note" type="text" name="note" />
               </AvGroup>
-              <Button tag={Link} id="cancel-save" to="/admin/software-type-management" replace color="info">
+              <Button tag={Link} id="cancel-save" to="/system/article-type-management" replace color="info">
                 <FontAwesomeIcon icon="arrow-left" />
                 &nbsp;
                 <span className="d-none d-md-inline">
@@ -128,10 +128,10 @@ export const SoftwareTypeManagementUpdate = (props: ISoftwareTypeManagementUpdat
 };
 
 const mapStateToProps = (storeState: IRootState) => ({
-  softwareTypeEntity: storeState.softwareType.entity,
-  loading: storeState.softwareType.loading,
-  updating: storeState.softwareType.updating,
-  updateSuccess: storeState.softwareType.updateSuccess,
+  articleTypeEntity: storeState.articleType.entity,
+  loading: storeState.articleType.loading,
+  updating: storeState.articleType.updating,
+  updateSuccess: storeState.articleType.updateSuccess,
 });
 
 const mapDispatchToProps = {
@@ -144,4 +144,4 @@ const mapDispatchToProps = {
 type StateProps = ReturnType<typeof mapStateToProps>;
 type DispatchProps = typeof mapDispatchToProps;
 
-export default connect(mapStateToProps, mapDispatchToProps)(SoftwareTypeManagementUpdate);
+export default connect(mapStateToProps, mapDispatchToProps)(ArticleTypeManagementUpdate);

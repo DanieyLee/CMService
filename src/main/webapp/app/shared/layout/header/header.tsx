@@ -5,7 +5,7 @@ import { Navbar, Nav, NavbarToggler, Collapse } from 'reactstrap';
 import LoadingBar from 'react-redux-loading-bar';
 
 import { Home, Articles, Softwares, Wallpapers, KeyBoxs, Brand } from './header-components';
-import { AdminMenu, EntitiesMenu, AccountMenu } from '../menus';
+import { AdminMenu, EntitiesMenu, AccountMenu, SystemMenu } from '../menus';
 
 export interface IHeaderProps {
   isAuthenticated: boolean;
@@ -49,6 +49,7 @@ const Header = (props: IHeaderProps) => {
             {props.isAuthenticated && <KeyBoxs />}
             {props.isAuthenticated && props.isAdmin && <EntitiesMenu />}
             {props.isAuthenticated && props.isAdmin && <AdminMenu showSwagger={props.isSwaggerEnabled} />}
+            {props.isAuthenticated && props.isAdmin && <SystemMenu />}
             <AccountMenu isAuthenticated={props.isAuthenticated} accountImageUrl={props.accountImageUrl} />
           </Nav>
         </Collapse>
