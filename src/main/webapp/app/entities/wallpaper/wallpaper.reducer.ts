@@ -12,6 +12,8 @@ export const ACTION_TYPES = {
   CREATE_WALLPAPER: 'wallpaper/CREATE_WALLPAPER',
   UPDATE_WALLPAPER: 'wallpaper/UPDATE_WALLPAPER',
   DELETE_WALLPAPER: 'wallpaper/DELETE_WALLPAPER',
+  SET_BLOB: 'wallpaper/SET_BLOB',
+  SET_BLOB_ALL: 'wallpaper/SET_BLOB_ALL',
   RESET: 'wallpaper/RESET',
 };
 
@@ -88,6 +90,30 @@ export default (state: WallpaperState = initialState, action): WallpaperState =>
         updateSuccess: true,
         entity: {},
       };
+    case ACTION_TYPES.SET_BLOB: {
+      const { name, data, contentType } = action.payload;
+      return {
+        ...state,
+        entity: {
+          ...state.entity,
+          [name]: data,
+          [name + 'ContentType']: contentType,
+        },
+      };
+    }
+    case ACTION_TYPES.SET_BLOB_ALL: {
+      const { name, imgName, imgSwitch, data, contentType } = action.payload;
+      return {
+        ...state,
+        entity: {
+          ...state.entity,
+          [name]: data,
+          ['imgName']: imgName,
+          ['imgSwitch']: imgSwitch,
+          [name + 'ContentType']: contentType,
+        },
+      };
+    }
     case ACTION_TYPES.RESET:
       return {
         ...initialState,
@@ -157,6 +183,15 @@ export const likeEntity: ICrudGetAction<IWallpaper> = id => {
   };
 };
 
+export const createUserEntity: ICrudPutAction<IWallpaper> = entity => async dispatch => {
+  const result = await dispatch({
+    type: ACTION_TYPES.CREATE_WALLPAPER,
+    payload: axios.post(`${apiUrl}/create`, cleanEntity(entity)),
+  });
+  dispatch(getEntities());
+  return result;
+};
+
 export const createEntity: ICrudPutAction<IWallpaper> = entity => async dispatch => {
   const result = await dispatch({
     type: ACTION_TYPES.CREATE_WALLPAPER,
@@ -166,11 +201,29 @@ export const createEntity: ICrudPutAction<IWallpaper> = entity => async dispatch
   return result;
 };
 
+export const updateUserEntity: ICrudPutAction<IWallpaper> = entity => async dispatch => {
+  const result = await dispatch({
+    type: ACTION_TYPES.UPDATE_WALLPAPER,
+    payload: axios.put(`${apiUrl}/update`, cleanEntity(entity)),
+  });
+  return result;
+};
+
 export const updateEntity: ICrudPutAction<IWallpaper> = entity => async dispatch => {
   const result = await dispatch({
     type: ACTION_TYPES.UPDATE_WALLPAPER,
     payload: axios.put(apiUrl, cleanEntity(entity)),
   });
+  return result;
+};
+
+export const deleteUserEntity: ICrudDeleteAction<IWallpaper> = id => async dispatch => {
+  const requestUrl = `${apiUrl}/delete/${id}`;
+  const result = await dispatch({
+    type: ACTION_TYPES.DELETE_WALLPAPER,
+    payload: axios.delete(requestUrl),
+  });
+  dispatch(getEntities());
   return result;
 };
 
@@ -183,6 +236,25 @@ export const deleteEntity: ICrudDeleteAction<IWallpaper> = id => async dispatch 
   dispatch(getEntities());
   return result;
 };
+
+export const setBlob = (name, data, contentType?) => ({
+  type: ACTION_TYPES.SET_BLOB,
+  payload: {
+    name,
+    data,
+    contentType,
+  },
+});
+export const setBlobAll = (name, imgName, imgSwitch, data, contentType?) => ({
+  type: ACTION_TYPES.SET_BLOB_ALL,
+  payload: {
+    name,
+    imgName,
+    imgSwitch,
+    data,
+    contentType,
+  },
+});
 
 export const reset = () => ({
   type: ACTION_TYPES.RESET,

@@ -1,7 +1,8 @@
 package cn.hupig.www.code.cmservice.web.rest.vm;
 
-import cn.hupig.www.code.cmservice.service.dto.UserDTO;
 import javax.validation.constraints.Size;
+
+import cn.hupig.www.code.cmservice.service.dto.UserDTO;
 
 /**
  * View Model extending the UserDTO, which is meant to be used in the user management UI.

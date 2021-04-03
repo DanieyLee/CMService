@@ -8,6 +8,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,8 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import cn.hupig.www.code.cmservice.domain.User;
 import cn.hupig.www.code.cmservice.repository.UserRepository;
-import cn.hupig.www.code.cmservice.security.SecurityUtils;
+import cn.hupig.www.code.cmservice.security.AuthoritiesConstants;
 import cn.hupig.www.code.cmservice.service.Rewrite_UserService;
+import cn.hupig.www.code.cmservice.service.UserService;
+import cn.hupig.www.code.cmservice.web.rest.errors.AccountResourceException;
 import cn.hupig.www.code.cmservice.web.rest.errors.EmailAlreadyUsedException;
 import cn.hupig.www.code.cmservice.web.rest.errors.InvalidPasswordException;
 import cn.hupig.www.code.cmservice.web.rest.errors.LoginAlreadyUsedException;
@@ -35,21 +38,18 @@ import io.swagger.annotations.ApiOperation;
 @RequestMapping("/api")
 @Api(tags = "004-账号管理")
 public class Rewrite_AccountResource {
-
-    private static class AccountResourceException extends RuntimeException {
-        private AccountResourceException(String message) {
-            super(message);
-        }
-    }
     
     private final Logger log = LoggerFactory.getLogger(Rewrite_AccountResource.class);
 
     private final UserRepository userRepository;
     
+    private final UserService userService;
+    
     private final Rewrite_UserService rewrite_UserService;
 
-    public Rewrite_AccountResource(UserRepository userRepository, Rewrite_UserService rewrite_UserService) {
+    public Rewrite_AccountResource(UserRepository userRepository, UserService userService, Rewrite_UserService rewrite_UserService) {
     	this.userRepository = userRepository;
+    	this.userService = userService;
     	this.rewrite_UserService = rewrite_UserService;
     }
 
@@ -62,17 +62,15 @@ public class Rewrite_AccountResource {
      */
     @PostMapping("/account/setting")
     @ApiOperation(value = "修改用户信息")
+    @PreAuthorize("hasAuthority(\"" + AuthoritiesConstants.USER + "\")")
     public void saveAccount(@Valid @RequestBody SettingsUserVM settingsUserVM) {
-        String userLogin = SecurityUtils.getCurrentUserLogin().orElseThrow(() -> new AccountResourceException("Current user login not found"));
-        Optional<User> existingUser = userRepository.findOneByLogin(settingsUserVM.getLogin());
-        if (existingUser.isPresent() && (!existingUser.get().getLogin().equalsIgnoreCase(userLogin))) {
-            throw new EmailAlreadyUsedException();
-        }
-        Optional<User> user = userRepository.findOneByLogin(userLogin);
-        if (!user.isPresent()) {
-            throw new AccountResourceException("User could not be found");
-        }
-        rewrite_UserService.updateUser(SecurityUtils.getCurrentUserLogin().orElseThrow(), settingsUserVM);
+    	log.debug("REST request to revise User : {}", settingsUserVM);
+    	Optional<User> user = userService.getUserWithAuthorities(); // 当前登录的用户
+    	Optional<User> enterUser = userRepository.findOneByLogin(settingsUserVM.getLogin()); // 取出传入的用户信息
+    	if (!enterUser.isPresent() || !user.get().getLogin().equals(enterUser.get().getLogin())) { // 传入的用户没有-或者-登录的不是传入的用户
+    		throw new AccountResourceException("User could not be found");
+    	}
+        rewrite_UserService.updateUser(settingsUserVM);
     }
     
     /**

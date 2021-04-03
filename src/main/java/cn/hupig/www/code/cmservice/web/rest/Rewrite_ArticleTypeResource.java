@@ -13,6 +13,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import cn.hupig.www.code.cmservice.security.AuthoritiesConstants;
 import cn.hupig.www.code.cmservice.service.ArticleTypeService;
 import cn.hupig.www.code.cmservice.service.UserService;
 import cn.hupig.www.code.cmservice.service.dto.ArticleTypeDTO;
@@ -79,6 +81,7 @@ public class Rewrite_ArticleTypeResource {
      */
     @PostMapping("/article-types/create")
     @ApiOperation(value = "创建文章类型-自动获取时间")
+    @PreAuthorize("hasAuthority(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<ArticleTypeDTO> createArticleType(@Valid @RequestBody ArticleTypeDTO articleTypeDTO) throws URISyntaxException {
         log.debug("REST request to save ArticleType : {}", articleTypeDTO);
         if (articleTypeDTO.getId() != null) {
@@ -106,6 +109,7 @@ public class Rewrite_ArticleTypeResource {
      */
     @PutMapping("/article-types/update")
     @ApiOperation(value = "修改文章类型-自动获取时间")
+    @PreAuthorize("hasAuthority(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<ArticleTypeDTO> updateArticleType(@Valid @RequestBody ArticleTypeDTO articleTypeDTO) throws URISyntaxException {
         log.debug("REST request to update ArticleType : {}", articleTypeDTO);
         if (articleTypeDTO.getId() == null) {

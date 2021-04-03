@@ -13,6 +13,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import cn.hupig.www.code.cmservice.security.AuthoritiesConstants;
 import cn.hupig.www.code.cmservice.service.SoftwareTypeService;
 import cn.hupig.www.code.cmservice.service.UserService;
 import cn.hupig.www.code.cmservice.service.dto.SoftwareTypeDTO;
@@ -79,6 +81,7 @@ public class Rewrite_SoftwareTypeResource {
      */
     @PostMapping("/software-types/create")
     @ApiOperation(value = "创建软件类型-自动获取时间")
+    @PreAuthorize("hasAuthority(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<SoftwareTypeDTO> createSoftwareType(@Valid @RequestBody SoftwareTypeDTO softwareTypeDTO) throws URISyntaxException {
         log.debug("REST request to save SoftwareType : {}", softwareTypeDTO);
         if (softwareTypeDTO.getId() != null) {
@@ -106,6 +109,7 @@ public class Rewrite_SoftwareTypeResource {
      */
     @PutMapping("/software-types/update")
     @ApiOperation(value = "修改软件类型-自动获取时间")
+    @PreAuthorize("hasAuthority(\"" + AuthoritiesConstants.ADMIN + "\")")
     public ResponseEntity<SoftwareTypeDTO> updateSoftwareType(@Valid @RequestBody SoftwareTypeDTO softwareTypeDTO) throws URISyntaxException {
         log.debug("REST request to update SoftwareType : {}", softwareTypeDTO);
         if (softwareTypeDTO.getId() == null) {

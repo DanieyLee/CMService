@@ -1,12 +1,8 @@
 package cn.hupig.www.code.cmservice.web.rest.vm;
 
-import cn.hupig.www.code.cmservice.service.dto.UserDTO;
-
-import java.util.Arrays;
-
-import javax.persistence.Column;
 import javax.persistence.Lob;
-import javax.validation.constraints.Size;
+
+import cn.hupig.www.code.cmservice.service.dto.UserDTO;
 
 /**
  * View Model extending the UserDTO, which is meant to be used in the user management UI.
@@ -23,6 +19,10 @@ public class SettingsUserVM extends UserDTO {
     
     @Lob
     private byte[] image;
+    
+    private boolean imgSwitch;
+    
+    private String imgName;
     
     public SettingsUserVM() {
         // Empty constructor needed for Jackson.
@@ -83,11 +83,39 @@ public class SettingsUserVM extends UserDTO {
 	public void setImage(byte[] image) {
 		this.image = image;
 	}
+	
+	/**
+	 * @return the imgSwitch
+	 */
+	public boolean isImgSwitch() {
+		return imgSwitch;
+	}
+
+	/**
+	 * @param imgSwitch the imgSwitch to set
+	 */
+	public void setImgSwitch(boolean imgSwitch) {
+		this.imgSwitch = imgSwitch;
+	}
+
+	/**
+	 * @return the imgName
+	 */
+	public String getImgName() {
+		return imgName;
+	}
+
+	/**
+	 * @param imgName the imgName to set
+	 */
+	public void setImgName(String imgName) {
+		this.imgName = imgName;
+	}
 
 	@Override
 	public String toString() {
 		return "SettingsUserVM [passwordKey=" + passwordKey + ", age=" + age + ", sex=" + sex + ", image="
-				+ Arrays.toString(image) +
+				+ image.length + ", imgSwitch=" + imgSwitch + ", imgName=" + imgName +
 				", UserDTO {" + super.toString() + "} ]";
 	}
 

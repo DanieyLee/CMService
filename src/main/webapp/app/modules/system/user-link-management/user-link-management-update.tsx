@@ -127,16 +127,11 @@ export const UserLinkManagementUpdate = (props: IUserLinkManagementUpdateProps) 
                 <AvInput id="user-link-user" type="text" className="form-control" name="userLogin" required readOnly />
               </AvGroup>
               <Button tag={Link} id="cancel-save" to="/system/user-link-management" replace color="info">
-                <FontAwesomeIcon icon="arrow-left" />
-                &nbsp;
                 <span className="d-none d-md-inline">
                   <Translate contentKey="entity.action.back">Back</Translate>
                 </span>
               </Button>
-              &nbsp;
               <Button color="primary" id="save-entity" type="submit" disabled={updating}>
-                <FontAwesomeIcon icon="save" />
-                &nbsp;
                 <Translate contentKey="entity.action.save">Save</Translate>
               </Button>
             </AvForm>

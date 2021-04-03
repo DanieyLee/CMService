@@ -11,12 +11,20 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import cn.hupig.www.code.cmservice.domain.User;
+import cn.hupig.www.code.cmservice.domain.UserLink;
 import cn.hupig.www.code.cmservice.domain.Wallpaper;
+import cn.hupig.www.code.cmservice.repository.UserLinkRepository;
 import cn.hupig.www.code.cmservice.repository.WallpaperRepository;
 import cn.hupig.www.code.cmservice.service.Rewrite_WallpaperService;
+import cn.hupig.www.code.cmservice.service.UserService;
 import cn.hupig.www.code.cmservice.service.dto.WallpaperDTO;
 import cn.hupig.www.code.cmservice.service.mapper.WallpaperMapper;
+import cn.hupig.www.code.cmservice.service.utils.FileOperation;
+import cn.hupig.www.code.cmservice.service.utils.Times;
+import cn.hupig.www.code.cmservice.web.rest.errors.FileOperationException;
 import cn.hupig.www.code.cmservice.web.rest.errors.FindWallpaperException;
+import cn.hupig.www.code.cmservice.web.rest.vm.ImageAndWallpaperVM;
 
 /**
  * Service Implementation for managing {@link Wallpaper}.
@@ -27,13 +35,23 @@ public class Rewrite_WallpaperServiceImpl implements Rewrite_WallpaperService {
 
     private final Logger log = LoggerFactory.getLogger(Rewrite_WallpaperServiceImpl.class);
 
+    private final UserService userService;
+    
     private final WallpaperRepository wallpaperRepository;
+    
+    private final UserLinkRepository userLinkRepository;
 
     private final WallpaperMapper wallpaperMapper;
 
-    public Rewrite_WallpaperServiceImpl(WallpaperRepository wallpaperRepository, WallpaperMapper wallpaperMapper) {
+    public Rewrite_WallpaperServiceImpl(
+    		WallpaperRepository wallpaperRepository,
+    		UserLinkRepository userLinkRepository,
+    		WallpaperMapper wallpaperMapper,
+    		UserService userService) {
         this.wallpaperRepository = wallpaperRepository;
+        this.userLinkRepository = userLinkRepository;
         this.wallpaperMapper = wallpaperMapper;
+        this.userService = userService;
     }
 
     @Override
@@ -94,4 +112,50 @@ public class Rewrite_WallpaperServiceImpl implements Rewrite_WallpaperService {
         }
         return Optional.of(wallpaperDTO.getContent().get(0));
     }
+
+	@Override
+	public WallpaperDTO UpdateWallpaper(WallpaperDTO wallpaperDTO) {
+        log.debug("Request to save Wallpaper : {}", wallpaperDTO);
+        Wallpaper wallpaper = wallpaperMapper.toEntity(wallpaperDTO);
+        wallpaper = wallpaperRepository.save(wallpaper);
+        return wallpaperMapper.toDto(wallpaper);
+	}
+
+	@Override
+	public void deleteWallpaper(Long id) {
+        log.debug("Request to delete Wallpaper : {}", id);
+        Optional<Wallpaper> wallpaper = wallpaperRepository.findById(id);
+        if (wallpaper.isPresent()) {
+        	FileOperation.deleteFile(wallpaper.get().getImageUrl()); // 删除头像文件 
+        	wallpaper = null;
+        }
+        wallpaperRepository.deleteById(id);
+	}
+
+	@Override
+	public WallpaperDTO createWallpaper(ImageAndWallpaperVM imageAndWallpaperVM) {
+        log.debug("Request to save Wallpaper : {}", imageAndWallpaperVM);
+        if (!imageAndWallpaperVM.isImgSwitch()) { // ImgSwitch 开关没有打开，直接报错
+        	throw new FileOperationException();
+        }
+        imageAndWallpaperVM.setImageUrl(FileOperation.save( // 上传文件,获取文件名,设置文件地址
+        		imageAndWallpaperVM.getImage(),
+        		imageAndWallpaperVM.getImgName()));
+        userService.getUserWithAuthorities().ifPresent(user -> {
+        	imageAndWallpaperVM.setCreateUser(user.getFirstName());
+        	imageAndWallpaperVM.setCreatTime(Times.getInstant());
+        	imageAndWallpaperVM.setUpdateUser(user.getFirstName());
+            imageAndWallpaperVM.setUpdateTime(Times.getInstant());
+        	userLinkRepository.findOneByUserId(user.getId()).ifPresent(userLink -> {
+        		imageAndWallpaperVM.setUserLinkId(userLink.getId());
+        		imageAndWallpaperVM.setUserLinkFirstName(userLink.getFirstName());
+        	});
+        });
+        imageAndWallpaperVM.setVisitorVolume(0);
+        imageAndWallpaperVM.setLike(0L);
+        imageAndWallpaperVM.setIsDownload(true);
+        Wallpaper wallpaper = wallpaperMapper.toEntity(imageAndWallpaperVM);
+        wallpaper = wallpaperRepository.save(wallpaper);
+        return wallpaperMapper.toDto(wallpaper);
+	}
 }

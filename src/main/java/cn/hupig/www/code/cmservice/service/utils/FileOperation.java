@@ -43,7 +43,7 @@ public class FileOperation {
 	 * @param binary
 	 * @param address
 	 */
-	public static String save(byte[] binary, String address, String name) {
+	public static String save(byte[] binary, String name) {
 		try {
 			name = fileName(name);
 			FileOutputStream file = new FileOutputStream(new File(fileAddress + name));

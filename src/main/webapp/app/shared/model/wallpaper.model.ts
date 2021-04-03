@@ -18,9 +18,14 @@ export interface IWallpaper {
   note?: string;
   userLinkFirstName?: string;
   userLinkId?: number;
+  imageContentType?: string;
+  image?: any;
+  imgSwitch?: boolean;
+  imgName?: string;
 }
 
 export const defaultValue: Readonly<IWallpaper> = {
   isDownload: false,
   state: false,
+  imgSwitch: false,
 };

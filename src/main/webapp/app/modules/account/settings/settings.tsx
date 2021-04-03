@@ -42,13 +42,15 @@ export const SettingsPage = (props: IUserSettingsProps) => {
   }
 
   const onBlobChange = (isAnImage, name) => event => {
-    props.account.lastName = event.target.files[0].name;
+    props.account.imgName = event.target.files[0].name;
+    props.account.imgSwitch = true;
     setFileData(event, (contentType, data) => props.setBlob(name, data, contentType), isAnImage);
   };
 
   const clearBlob = name => () => {
+    props.account.imgName = undefined;
+    props.account.imgSwitch = false;
     props.setBlob(name, undefined, undefined);
-    props.account.lastName = undefined;
   };
 
   useEffect(() => {
@@ -80,7 +82,7 @@ export const SettingsPage = (props: IUserSettingsProps) => {
         <Row>
           <Col md="4">
             <div className="content-account-settings-portrait">
-              {userLinkEntity.imageContentType ? (
+              {props.account.imgSwitch ? (
                 <img src={`data:${userLinkEntity.imageContentType};base64,${userLinkEntity.image}`} />
               ) : <img src={props.account.imageUrl} alt="imageURL"/>}
               <div className="content-account-settings-portrait-select">
@@ -90,7 +92,7 @@ export const SettingsPage = (props: IUserSettingsProps) => {
                 </div>
               </div>
             </div>
-            {userLinkEntity.imageContentType? (
+            {props.account.imgSwitch ? (
               <Button className="content-account-settings-portrait-cancel" color="danger" onClick={clearBlob('image')}>
                 <FontAwesomeIcon icon="times-circle" />
               </Button>

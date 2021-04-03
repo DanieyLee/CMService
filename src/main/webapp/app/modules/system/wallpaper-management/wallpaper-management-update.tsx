@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Link, RouteComponentProps } from 'react-router-dom';
 import { Button, Row, Col, Label } from 'reactstrap';
-import { AvFeedback, AvForm, AvGroup, AvInput, AvField } from 'availity-reactstrap-validation';
-import { Translate, translate, ICrudGetAction, ICrudGetAllAction, ICrudPutAction } from 'react-jhipster';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { AvForm, AvGroup, AvInput, AvField } from 'availity-reactstrap-validation';
+import { setFileData, Translate, translate } from 'react-jhipster';
 import { IRootState } from 'app/shared/reducers';
 
 import { getEntities as getUserLinks } from 'app/entities/user-link/user-link.reducer';
-import { getEntity, updateEntity, createEntity, reset } from 'app/entities/wallpaper/wallpaper.reducer';
-import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
+import { getEntity, updateUserEntity, createUserEntity, setBlobAll, reset } from 'app/entities/wallpaper/wallpaper.reducer';
+import { convertDateTimeToServer } from 'app/shared/util/date-utils';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export interface IWallpaperManagementUpdateProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
@@ -29,7 +29,6 @@ export const WallpaperManagementUpdate = (props: IWallpaperManagementUpdateProps
     } else {
       props.getEntity(props.match.params.id);
     }
-
     props.getUserLinks();
   }, []);
 
@@ -40,21 +39,29 @@ export const WallpaperManagementUpdate = (props: IWallpaperManagementUpdateProps
   }, [props.updateSuccess]);
 
   const saveEntity = (event, errors, values) => {
-    values.creatTime = convertDateTimeToServer(values.creatTime);
-    values.updateTime = convertDateTimeToServer(values.updateTime);
-
     if (errors.length === 0) {
       const entity = {
         ...wallpaperEntity,
         ...values,
       };
-
       if (isNew) {
-        props.createEntity(entity);
+        props.createUserEntity(entity);
+        event.persist();
       } else {
-        props.updateEntity(entity);
+        props.updateUserEntity(entity);
       }
     }
+  };
+
+  const onBlobChange = (isAnImage, name) => event => {
+    if (event && event.target.files && event.target.files[0]) {
+      const imgName = event.target.files[0].name;
+      setFileData(event, (contentType, data) => props.setBlobAll(name, imgName, true, data, contentType), isAnImage);
+    }
+  };
+
+  const clearBlob = name => () => {
+    props.setBlobAll(name, undefined, false, undefined, undefined);
   };
 
   return (
@@ -70,40 +77,53 @@ export const WallpaperManagementUpdate = (props: IWallpaperManagementUpdateProps
         <AvForm model={isNew ? {} : wallpaperEntity} onSubmit={saveEntity}>
           <Row>
             {!isNew ? (
-              <Col md="4">
+              <Col md="1">
                 <AvGroup>
                   <Label for="wallpaper-id">
                     <Translate contentKey="global.field.id">ID</Translate>
+                    :{wallpaperEntity.id}
                   </Label>
-                  <AvInput id="wallpaper-id" type="text" className="form-control" name="id" required readOnly />
+                  <AvInput id="wallpaper-id" type="hidden" name="id" required readOnly />
                 </AvGroup>
               </Col>
             ) : null}
-            <Col md="4">
-              <AvGroup>
-                <Label id="visitorVolumeLabel" for="wallpaper-visitorVolume">
-                  <Translate contentKey="cmServiceApp.wallpaper.visitorVolume">Visitor Volume</Translate>
+            <Col md="11">
+              <AvGroup check>
+                <Label id="stateLabel">
+                  <AvInput id="wallpaper-state" type="checkbox" className="form-check-input" name="state" />
+                  <Translate contentKey="cmServiceApp.wallpaper.state">State</Translate>
                 </Label>
-                <AvField id="wallpaper-visitorVolume" type="string" className="form-control" name="visitorVolume" />
               </AvGroup>
             </Col>
-            <Col md="4">
+            {!isNew ? (
+              <Col md="2">
+                <AvGroup>
+                  <Label id="visitorVolumeLabel" for="wallpaper-visitorVolume">
+                    <Translate contentKey="cmServiceApp.wallpaper.visitorVolume">Visitor Volume</Translate>
+                  </Label>
+                  <AvField id="wallpaper-visitorVolume" type="string" className="form-control" name="visitorVolume" />
+                </AvGroup>
+              </Col>
+            ) : null}
+            {!isNew ? (
+              <Col md="2">
+                <AvGroup>
+                  <Label id="likeLabel" for="wallpaper-like">
+                    <Translate contentKey="cmServiceApp.wallpaper.like">Like</Translate>
+                  </Label>
+                  <AvField id="wallpaper-like" type="string" className="form-control" name="like" />
+                </AvGroup>
+              </Col>
+            ) : null}
+            <Col md="3">
               <AvGroup>
-                <Label id="likeLabel" for="wallpaper-like">
-                  <Translate contentKey="cmServiceApp.wallpaper.like">Like</Translate>
+                <Label id="imagePixelLabel" for="wallpaper-imagePixel">
+                  <Translate contentKey="cmServiceApp.wallpaper.imagePixel">Image Pixel</Translate>
                 </Label>
-                <AvField id="wallpaper-like" type="string" className="form-control" name="like" />
+                <AvField id="wallpaper-imagePixel" type="text" name="imagePixel" />
               </AvGroup>
             </Col>
-            <Col md="4">
-              <AvGroup>
-                <Label id="imageNameLabel" for="wallpaper-imageName">
-                  <Translate contentKey="cmServiceApp.wallpaper.imageName">Image Name</Translate>
-                </Label>
-                <AvField id="wallpaper-imageName" type="text" name="imageName" />
-              </AvGroup>
-            </Col>
-            <Col md="4">
+            <Col md="2">
               <AvGroup>
                 <Label id="imageTypeLabel" for="wallpaper-imageType">
                   <Translate contentKey="cmServiceApp.wallpaper.imageType">Image Type</Translate>
@@ -129,15 +149,15 @@ export const WallpaperManagementUpdate = (props: IWallpaperManagementUpdateProps
                 </AvInput>
               </AvGroup>
             </Col>
-            <Col md="4">
+            <Col md="6">
               <AvGroup>
-                <Label id="imagePixelLabel" for="wallpaper-imagePixel">
-                  <Translate contentKey="cmServiceApp.wallpaper.imagePixel">Image Pixel</Translate>
+                <Label id="imageNameLabel" for="wallpaper-imageName">
+                  <Translate contentKey="cmServiceApp.wallpaper.imageName">Image Name</Translate>
                 </Label>
-                <AvField id="wallpaper-imagePixel" type="text" name="imagePixel" />
+                <AvField id="wallpaper-imageName" type="text" name="imageName" />
               </AvGroup>
             </Col>
-            <Col md="11">
+            <Col md="12">
               <AvGroup>
                 <Label id="noteLabel" for="wallpaper-note">
                   <Translate contentKey="cmServiceApp.wallpaper.note">Note</Translate>
@@ -145,67 +165,42 @@ export const WallpaperManagementUpdate = (props: IWallpaperManagementUpdateProps
                 <AvField id="wallpaper-note" type="text" name="note" />
               </AvGroup>
             </Col>
-
-
-
-
-            <Col md="1">
-              <AvGroup check>
-                <Label id="stateLabel">
-                  <AvInput id="wallpaper-state" type="checkbox" className="form-check-input" name="state" />
-                  <Translate contentKey="cmServiceApp.wallpaper.state">State</Translate>
-                </Label>
-              </AvGroup>
+            <Col md="12">
+              <div className="content-account-settings-portrait">
+                {props.wallpaperEntity.imgSwitch ? (
+                  <img src={`data:${wallpaperEntity.imageContentType};base64,${wallpaperEntity.image}`} />
+                ) : isNew ? <img></img> : <img src={`${wallpaperEntity.imageUrl}`} alt={`${wallpaperEntity.imageName}`} />}
+                <div className="content-account-settings-portrait-select">
+                  <div>
+                    {isNew ? <input id="file" type="file" onChange={onBlobChange(true, 'image')} accept="image/*" /> : null}
+                  </div>
+                </div>
+              </div>
+              {props.wallpaperEntity.imgSwitch ? (
+                <Button className="content-account-settings-portrait-cancel" color="danger" onClick={clearBlob('image')}>
+                  <FontAwesomeIcon icon="times-circle" />
+                </Button>
+              ):null}
+              <AvField type="hidden" name="image" value={wallpaperEntity.image} />
+              <AvField type="hidden" name="img-name" value={wallpaperEntity.imgName} />
+              <AvField type="hidden" name="img-switch" value={wallpaperEntity.imgSwitch} />
             </Col>
-
-            <AvGroup>
-              <AvInput id="wallpaper-userLink" type="hidden" className="form-control" name="userLinkId">
-                <option value="" key="0" />
-                {userLinks
-                  ? userLinks.map(otherEntity => (
-                    <option value={otherEntity.id} key={otherEntity.id}>
-                      {otherEntity.firstName}
-                    </option>
-                  ))
-                  : null}
-              </AvInput>
-            </AvGroup>
-            <AvGroup>
-              <AvField
-                id="wallpaper-imageUrl"
-                type="hidden"
-                name="imageUrl"
-                validate={{
-                  required: { value: true, errorMessage: translate('entity.validation.required') },
-                }}
-              />
-            </AvGroup>
             <AvGroup>
               <AvField id="wallpaper-createUser" type="hidden" name="createUser" />
+              <AvField id="wallpaper-creatTime" type="hidden" name="creatTime" />
+              <AvField id="wallpaper-imageUrl" type="hidden" name="imageUrl" />
+              <AvField id="wallpaper-userLink" type="hidden" name="userLinkId" />
             </AvGroup>
-            <AvGroup>
-              <AvInput
-                id="wallpaper-creatTime"
-                type="hidden"
-                className="form-control"
-                name="creatTime"
-                placeholder={'YYYY-MM-DD HH:mm'}
-                value={isNew ? displayDefaultDateTime() : convertDateTimeFromServer(props.wallpaperEntity.creatTime)}
-              />
-            </AvGroup>
-            <Button tag={Link} id="cancel-save" to="/system/wallpaper-management" replace color="info">
-              <FontAwesomeIcon icon="arrow-left" />
-              &nbsp;
-              <span className="d-none d-md-inline">
-                <Translate contentKey="entity.action.back">Back</Translate>
-              </span>
-            </Button>
-            &nbsp;
-            <Button color="primary" id="save-entity" type="submit" disabled={updating}>
-              <FontAwesomeIcon icon="save" />
-              &nbsp;
-              <Translate contentKey="entity.action.save">Save</Translate>
-            </Button>
+            <Col md="12">
+              <Button tag={Link} id="cancel-save" to="/system/wallpaper-management" replace color="info">
+                <span className="d-none d-md-inline">
+                  <Translate contentKey="entity.action.back">Back</Translate>
+                </span>
+              </Button>
+              <Button color="primary" id="save-entity" type="submit" disabled={updating}>
+                <Translate contentKey="entity.action.save">Save</Translate>
+              </Button>
+            </Col>
           </Row>
         </AvForm>
       )}
@@ -224,8 +219,9 @@ const mapStateToProps = (storeState: IRootState) => ({
 const mapDispatchToProps = {
   getUserLinks,
   getEntity,
-  updateEntity,
-  createEntity,
+  setBlobAll,
+  updateUserEntity,
+  createUserEntity,
   reset,
 };
 

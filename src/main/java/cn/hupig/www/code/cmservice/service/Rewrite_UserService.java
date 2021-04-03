@@ -59,20 +59,15 @@ public class Rewrite_UserService {
         this.cacheManager = cacheManager;
     }
     
-    public void updateUser(String login, SettingsUserVM settingsUserVM) {
-        if (!userRepository.findOneByLogin(login).isPresent()){
-        	throw new UsernameAlreadyUsedException();
-        }
-        if (settingsUserVM.getLastName() != null && settingsUserVM.getLastName() != "") { //lastname就是文件名，文件名有，就是有上传文件，没有就是没有上传文件，
+    public void updateUser(SettingsUserVM settingsUserVM) {
+        if (settingsUserVM.isImgSwitch()) { // ImgSwitch 开关打开就是上传文件
         	String oldFile = settingsUserVM.getImageUrl();
-        	settingsUserVM.setImageUrl(FileOperation.save( //不等于null，如果有，那就执行上传文件
+        	settingsUserVM.setImageUrl(FileOperation.save( // 上传文件
         				settingsUserVM.getImage(),
-        				settingsUserVM.getImageUrl(),
-        				settingsUserVM.getLastName()));
+        				settingsUserVM.getImgName()));
         	FileOperation.deleteFile(oldFile); // 更新了头像之后，要删除原头像
         }
-        SecurityUtils.getCurrentUserLogin()
-        .flatMap(userRepository::findOneByLogin)
+        userRepository.findOneByLogin(settingsUserVM.getLogin())
         .ifPresent(user -> {
         	userLinkRepository.findOneByUserId(user.getId()).ifPresent(userLink -> {
         		userLink.setFirstName(settingsUserVM.getFirstName());
@@ -82,8 +77,7 @@ public class Rewrite_UserService {
         	});
             user.setFirstName(settingsUserVM.getFirstName());
             user.setEmail(settingsUserVM.getEmail().toLowerCase());
-            user.setImageUrl(settingsUserVM.getLastName() != null &&
-            		settingsUserVM.getLastName() != ""?
+            user.setImageUrl(settingsUserVM.isImgSwitch() ?
             		settingsUserVM.getImageUrl() : user.getImageUrl());
             this.clearUserCaches(user);
             log.debug("Changed Information for User: {}", user);

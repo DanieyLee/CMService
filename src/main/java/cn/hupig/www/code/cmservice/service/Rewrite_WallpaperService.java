@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import cn.hupig.www.code.cmservice.service.dto.WallpaperDTO;
+import cn.hupig.www.code.cmservice.web.rest.vm.ImageAndWallpaperVM;
 
 /**
  * Service Interface for managing {@link cn.hupig.www.code.cmservice.domain.Wallpaper}.
@@ -52,4 +53,26 @@ public interface Rewrite_WallpaperService {
      */
     Optional<WallpaperDTO> findOneNearWallpaperAndState(Long id, Boolean near);
     
+    /**
+     * Update a wallpaper.
+     *
+     * @param wallpaperDTO the entity to save.
+     * @return the persisted entity.
+     */
+    WallpaperDTO UpdateWallpaper(WallpaperDTO wallpaperDTO);
+    
+    /**
+     * Delete the "id" wallpaper.
+     *
+     * @param id the id of the entity.
+     */
+    void deleteWallpaper(Long id);
+    
+    /**
+     * create a wallpaper.
+     *
+     * @param wallpaperDTO the entity to save.
+     * @return the persisted entity.
+     */
+    WallpaperDTO createWallpaper(ImageAndWallpaperVM imageAndWallpaperVM);
 }

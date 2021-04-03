@@ -1,7 +1,5 @@
 package cn.hupig.www.code.cmservice.web.rest.vm;
 
-import javax.validation.constraints.Size;
-
 /**
  * View Model object for storing the user's key and password.
  */

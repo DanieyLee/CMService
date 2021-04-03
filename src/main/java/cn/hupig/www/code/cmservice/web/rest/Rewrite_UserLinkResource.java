@@ -55,6 +55,7 @@ public class Rewrite_UserLinkResource {
      */
     @GetMapping("/user-links/user-id/{id}")
     @ApiOperation(value = "取出用户关联信息-根据用户id")
+    @PreAuthorize("hasAuthority(\"" + AuthoritiesConstants.USER + "\")")
     public ResponseEntity<UserLinkDTO> getUserLink(@PathVariable Long id) {
         log.debug("REST request to get UserLink : {}", id);
         Optional<UserLinkDTO> userLinkDTO = rewrite_UserLinkService.findByUser(id);

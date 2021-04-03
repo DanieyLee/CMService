@@ -6,7 +6,7 @@ import { Translate, ICrudGetAction, ICrudDeleteAction } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { IRootState } from 'app/shared/reducers';
-import { getEntity, deleteEntity } from 'app/entities/wallpaper/wallpaper.reducer';
+import { getEntity, deleteUserEntity } from 'app/entities/wallpaper/wallpaper.reducer';
 
 export interface IWallpaperManagementDeleteDialogProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
@@ -26,7 +26,7 @@ export const WallpaperManagementDeleteDialog = (props: IWallpaperManagementDelet
   }, [props.updateSuccess]);
 
   const confirmDelete = () => {
-    props.deleteEntity(props.wallpaperEntity.id);
+    props.deleteUserEntity(props.wallpaperEntity.id);
   };
 
   const { wallpaperEntity } = props;
@@ -61,7 +61,7 @@ const mapStateToProps = ({ wallpaper }: IRootState) => ({
   updateSuccess: wallpaper.updateSuccess,
 });
 
-const mapDispatchToProps = { getEntity, deleteEntity };
+const mapDispatchToProps = { getEntity, deleteUserEntity };
 
 type StateProps = ReturnType<typeof mapStateToProps>;
 type DispatchProps = typeof mapDispatchToProps;

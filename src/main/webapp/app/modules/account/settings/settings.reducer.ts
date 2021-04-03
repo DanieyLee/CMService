@@ -77,11 +77,9 @@ export const saveAccountSettingsImage: (account: any) => void = account => async
       successMessage: translate('settings.messages.success'),
     },
   });
-
   if (Storage.session.get(`locale`)) {
     Storage.session.remove(`locale`);
   }
-
   await dispatch(getSession());
 };
 

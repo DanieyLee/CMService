@@ -2025,6 +2025,17 @@ body {
         font-weight: 400;
         margin-bottom: 40px;
       }
+      .btn {
+        width: 100px;
+        height: 35px;
+        padding: 5px;
+        margin-right: 20px;
+      }
+      @media only screen and (max-width: 767px){ // 软件回复窗-按钮缩小
+        .btn span{
+          display: block !important;
+        }
+      }
     } // 内容区-用户信息编辑
     .content-user-link-management {
       color: $color-dirty-white;
@@ -2061,6 +2072,17 @@ body {
         font-size: 1.75rem;
         font-weight: 400;
         margin-bottom: 40px;
+      }
+      .btn {
+        width: 100px;
+        height: 35px;
+        padding: 5px;
+        margin-right: 20px;
+      }
+      @media only screen and (max-width: 767px){ // 软件回复窗-按钮缩小
+        .btn span{
+          display: block !important;
+        }
       }
     } // 内容区-用户附加信息编辑
     .content-article-management {
@@ -2177,11 +2199,44 @@ body {
       .row {
         width: 100%;
         margin: 0;
+        .form-check {
+          padding: 0;
+          float: left;
+          .form-check-input {
+            width: 18px;
+            height: 18px;
+            margin: 3px 0 0 0;
+          }
+          span {
+            margin-left: 22px;
+          }
+        }
         .av-valid {
           width: 100%;
         }
         .col-md-4 {
           padding: 0 10px;
+        }
+        .col-md-1 .form-group{
+          margin-bottom: 0;
+        }
+        .col-md-12 {
+          img {
+            width: 100%;
+            margin: 0 0 20px 0;
+            border-radius: 5px;
+          }
+          .btn {
+            width: 100px;
+            height: 35px;
+            padding: 5px;
+            margin-right: 20px;
+          }
+          @media only screen and (max-width: 767px){ // 软件回复窗-按钮缩小
+            .btn span{
+              display: block !important;
+            }
+          }
         }
       }
     } // 内容区-后台单个壁纸编辑
@@ -2247,6 +2302,17 @@ body {
         font-weight: 400;
         margin-bottom: 40px;
       }
+      .btn {
+        width: 100px;
+        height: 35px;
+        padding: 5px;
+        margin-right: 20px;
+      }
+      @media only screen and (max-width: 767px){ // 软件回复窗-按钮缩小
+        .btn span{
+          display: block !important;
+        }
+      }
     } // 内容区-后台单个文章分类编辑
     .content-software-type-management {
       color: $color-dirty-white;
@@ -2283,6 +2349,17 @@ body {
         font-size: 1.75rem;
         font-weight: 400;
         margin-bottom: 40px;
+      }
+      .btn {
+        width: 100px;
+        height: 35px;
+        padding: 5px;
+        margin-right: 20px;
+      }
+      @media only screen and (max-width: 767px){ // 软件回复窗-按钮缩小
+        .btn span{
+          display: block !important;
+        }
       }
     } // 内容区-后台单个软件分类编辑
     .content-currency-page {
