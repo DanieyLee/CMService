@@ -26,9 +26,11 @@ public class FileOperation {
 	 * 删除文件，传入文件名+地址（本机文件存放地址）
 	 * @param address
 	 */
-	public static void deleteFile(String address) {
+	public static void deleteFile(String address, String type) {
 		if (address.contains("author.svg")) return;
 		address = address.substring(address.lastIndexOf("/") + 1);
+		address = type.equals("image")? "image/" + address : address;
+		address = type.equals("user")? "user/" + address : address;
 		File file = new File(fileAddress + address);
 		if (file.exists() && file.isFile()) {//文件存在且是个文件
 			file.delete();
@@ -43,13 +45,17 @@ public class FileOperation {
 	 * @param binary
 	 * @param address
 	 */
-	public static String save(byte[] binary, String name) {
+	public static String save(byte[] binary, String name, String type) {
 		try {
-			name = fileName(name);
-			FileOutputStream file = new FileOutputStream(new File(fileAddress + name));
-			file.write(binary, 0, binary.length);
-			file.flush();
-			file.close();
+			name = fileName(name, type);
+			File file = new File(fileAddress + name);
+			if (!file.getParentFile().exists()) {
+				file.getParentFile().mkdirs();
+			}
+			FileOutputStream fileOutputStream = new FileOutputStream(file);
+			fileOutputStream.write(binary, 0, binary.length);
+			fileOutputStream.flush();
+			fileOutputStream.close();
 			return saveAddress + name;
 		} catch (Exception e) {
 			throw new FileOperationException();
@@ -62,12 +68,14 @@ public class FileOperation {
 	 * @param args
 	 * @throws IOException
 	 */
-	public static String fileName(String fileName) {
+	public static String fileName(String fileName, String type) {
 		fileName = fileName.substring(fileName.lastIndexOf("."),fileName.length());
 		String name = String.valueOf(Instant.now().toEpochMilli());
 		for (int i = 0; i < 4; i++) {
 			name += String.valueOf((char) (((int) (Math.random() * 26)) + 65));
 		}
+		name = type.equals("image")? "image/" + name : name;
+		name = type.equals("user")? "user/" + name : name;
 		return name + fileName.substring(fileName.lastIndexOf("."),fileName.length());
 	}
 

@@ -64,8 +64,8 @@ public class Rewrite_UserService {
         	String oldFile = settingsUserVM.getImageUrl();
         	settingsUserVM.setImageUrl(FileOperation.save( // 上传文件
         				settingsUserVM.getImage(),
-        				settingsUserVM.getImgName()));
-        	FileOperation.deleteFile(oldFile); // 更新了头像之后，要删除原头像
+        				settingsUserVM.getImgName(), "user"));
+        	FileOperation.deleteFile(oldFile, "user"); // 更新了头像之后，要删除原头像
         }
         userRepository.findOneByLogin(settingsUserVM.getLogin())
         .ifPresent(user -> {

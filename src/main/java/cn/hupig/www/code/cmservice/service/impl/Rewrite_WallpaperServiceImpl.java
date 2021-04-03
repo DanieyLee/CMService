@@ -126,7 +126,7 @@ public class Rewrite_WallpaperServiceImpl implements Rewrite_WallpaperService {
         log.debug("Request to delete Wallpaper : {}", id);
         Optional<Wallpaper> wallpaper = wallpaperRepository.findById(id);
         if (wallpaper.isPresent()) {
-        	FileOperation.deleteFile(wallpaper.get().getImageUrl()); // 删除头像文件 
+        	FileOperation.deleteFile(wallpaper.get().getImageUrl(), "image"); // 删除文件 
         	wallpaper = null;
         }
         wallpaperRepository.deleteById(id);
@@ -140,7 +140,7 @@ public class Rewrite_WallpaperServiceImpl implements Rewrite_WallpaperService {
         }
         imageAndWallpaperVM.setImageUrl(FileOperation.save( // 上传文件,获取文件名,设置文件地址
         		imageAndWallpaperVM.getImage(),
-        		imageAndWallpaperVM.getImgName()));
+        		imageAndWallpaperVM.getImgName(), "image"));
         userService.getUserWithAuthorities().ifPresent(user -> {
         	imageAndWallpaperVM.setCreateUser(user.getFirstName());
         	imageAndWallpaperVM.setCreatTime(Times.getInstant());
