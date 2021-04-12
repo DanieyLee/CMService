@@ -122,7 +122,12 @@ export const getEntities: ICrudGetAllAction<ISoftware> = (page, size, sort) => {
   };
 };
 
-export const getPublicTypeEntities: (id, page, size, sort) => { payload: Promise<AxiosResponse>; type: string } = (id, page, size, sort) => {
+export const getPublicTypeEntities: (id, page, size, sort) => { payload: Promise<AxiosResponse>; type: string } = (
+  id,
+  page,
+  size,
+  sort
+) => {
   const requestUrl = `api/public/software/type/${id}${sort ? `?page=${page}&size=${size}&sort=${sort}` : ''}`;
   return {
     type: ACTION_TYPES.FETCH_SOFTWARE_LIST,
@@ -176,6 +181,23 @@ export const createEntity: ICrudPutAction<ISoftware> = entity => async dispatch 
     payload: axios.post(apiUrl, cleanEntity(entity)),
   });
   dispatch(getEntities());
+  return result;
+};
+
+export const createUserEntity: ICrudPutAction<ISoftware> = entity => async dispatch => {
+  const result = await dispatch({
+    type: ACTION_TYPES.CREATE_SOFTWARE,
+    payload: axios.post(`${apiUrl}/create`, cleanEntity(entity)),
+  });
+  dispatch(getEntities());
+  return result;
+};
+
+export const updateUserEntity: ICrudPutAction<ISoftware> = entity => async dispatch => {
+  const result = await dispatch({
+    type: ACTION_TYPES.UPDATE_SOFTWARE,
+    payload: axios.put(`${apiUrl}/update`, cleanEntity(entity)),
+  });
   return result;
 };
 
