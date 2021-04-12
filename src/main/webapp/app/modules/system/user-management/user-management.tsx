@@ -81,14 +81,7 @@ export const UserManagement = (props: IUserManagementProps) => {
               <Translate contentKey="userManagement.login">Login</Translate>
               <FontAwesomeIcon icon="sort" />
             </th>
-            <th className="hand" onClick={sort('email')}>
-              <Translate contentKey="userManagement.email">Email</Translate>
-              <FontAwesomeIcon icon="sort" />
-            </th>
             <th />
-            <th>
-              <Translate contentKey="userManagement.langKey">Lang Key</Translate>
-            </th>
             <th>
               <Translate contentKey="userManagement.profiles">Profiles</Translate>
             </th>
@@ -109,7 +102,6 @@ export const UserManagement = (props: IUserManagementProps) => {
             <tr id={user.login} key={`user-${i}`}>
               <td>{user.id}</td>
               <td>{user.login}</td>
-              <td>{user.email}</td>
               <td>
                 {user.activated ? (
                   <Button color="success" onClick={toggleActive(user)}>
@@ -121,7 +113,6 @@ export const UserManagement = (props: IUserManagementProps) => {
                   </Button>
                 )}
               </td>
-              <td>{user.langKey}</td>
               <td>
                 {user.authorities
                   ? user.authorities.map((authority, j) => (

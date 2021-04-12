@@ -11,8 +11,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import cn.hupig.www.code.cmservice.domain.User;
-import cn.hupig.www.code.cmservice.domain.UserLink;
 import cn.hupig.www.code.cmservice.domain.Wallpaper;
 import cn.hupig.www.code.cmservice.repository.UserLinkRepository;
 import cn.hupig.www.code.cmservice.repository.WallpaperRepository;
@@ -58,7 +56,7 @@ public class Rewrite_WallpaperServiceImpl implements Rewrite_WallpaperService {
     @Transactional(readOnly = true)
     public Page<WallpaperDTO> findAll(Pageable pageable) {
         log.debug("Request to get all Wallpapers");
-        return wallpaperRepository.findAllByState(pageable, true)
+        return wallpaperRepository.findAllByStateTrue(pageable)
             .map(wallpaperMapper::toDto);
     }
 
@@ -67,14 +65,14 @@ public class Rewrite_WallpaperServiceImpl implements Rewrite_WallpaperService {
     public Page<WallpaperDTO> findTop() {
         log.debug("Request to get all Wallpapers");
         Pageable pageable = PageRequest.of(0, 4,Sort.Direction.DESC,"updateTime");
-        return wallpaperRepository.findAllByState(pageable, true)
+        return wallpaperRepository.findAllByStateTrue(pageable)
             .map(wallpaperMapper::toDto);
     }
 
     @Override
     public Optional<WallpaperDTO> findOne(Long id) {
         log.debug("Request to get Wallpaper : {}", id);
-        return wallpaperRepository.findByIdAndState(id, true)
+        return wallpaperRepository.findByIdAndStateTrue(id)
         		.map(wallpaper -> {
         			wallpaper.setVisitorVolume(wallpaper.getVisitorVolume() + 1);
         			return wallpaperRepository.save(wallpaper);
@@ -85,7 +83,7 @@ public class Rewrite_WallpaperServiceImpl implements Rewrite_WallpaperService {
     @Override
 	public Optional<WallpaperDTO> findOneLikeAndState(Long id) {
         log.debug("Request to get Wallpaper : {}", id);
-        return wallpaperRepository.findByIdAndState(id, true)
+        return wallpaperRepository.findByIdAndStateTrue(id)
         	.map(wallpaper -> {
         		wallpaper.setLike(wallpaper.getLike() + 1);
         		return wallpaperRepository.save(wallpaper);
@@ -104,8 +102,8 @@ public class Rewrite_WallpaperServiceImpl implements Rewrite_WallpaperService {
     public Optional<WallpaperDTO> findOneNearWallpaperAndState(Long id, Boolean near) {
     	log.debug("Request to get all Wallpapers");
         Pageable pageable = PageRequest.of(0, 1, near ? Sort.Direction.DESC : Sort.Direction.ASC,"id");
-        Page<WallpaperDTO> wallpaperDTO = (near ? wallpaperRepository.findAllByIdLessThanAndState(pageable, id, true)
-        		: wallpaperRepository.findAllByIdGreaterThanAndState(pageable, id, true))
+        Page<WallpaperDTO> wallpaperDTO = (near ? wallpaperRepository.findAllByIdLessThanAndStateTrue(pageable, id)
+        		: wallpaperRepository.findAllByIdGreaterThanAndStateTrue(pageable, id))
         		.map(wallpaperMapper::toDto);
         if (wallpaperDTO.getContent().isEmpty()) {
         	throw new FindWallpaperException();
@@ -148,7 +146,6 @@ public class Rewrite_WallpaperServiceImpl implements Rewrite_WallpaperService {
             imageAndWallpaperVM.setUpdateTime(Times.getInstant());
         	userLinkRepository.findOneByUserId(user.getId()).ifPresent(userLink -> {
         		imageAndWallpaperVM.setUserLinkId(userLink.getId());
-        		imageAndWallpaperVM.setUserLinkFirstName(userLink.getFirstName());
         	});
         });
         imageAndWallpaperVM.setVisitorVolume(0);

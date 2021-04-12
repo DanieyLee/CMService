@@ -21,7 +21,7 @@
         "content": {
           "one": "请勿用于",
           "two": "所有内容均来源于",
-          "three": "，由尤艾网所整理发表，",
+          "three": "，由YuoAI网所整理发表，",
           "four": "着我赞同其观点或证实其内容的真实性。"
         },
         "sign": {
@@ -39,7 +39,7 @@
       "version": "版本:",
       "applySystem": "适用系统:",
       "show": "是否显示",
-      "allow": "是否允许下载",
+      "allow": "允许下载",
       "downloadUrl": "下载地址",
       "downloadNumber": "下载次数",
       "browseNumber": "浏览次数",

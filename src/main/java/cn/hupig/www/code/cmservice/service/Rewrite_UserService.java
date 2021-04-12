@@ -1,7 +1,5 @@
 package cn.hupig.www.code.cmservice.service;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Optional;
@@ -23,7 +21,6 @@ import cn.hupig.www.code.cmservice.repository.PhoneRepository;
 import cn.hupig.www.code.cmservice.repository.UserLinkRepository;
 import cn.hupig.www.code.cmservice.repository.UserRepository;
 import cn.hupig.www.code.cmservice.security.AuthoritiesConstants;
-import cn.hupig.www.code.cmservice.security.SecurityUtils;
 import cn.hupig.www.code.cmservice.service.utils.FileOperation;
 import cn.hupig.www.code.cmservice.service.utils.Times;
 import cn.hupig.www.code.cmservice.web.rest.errors.PhoneAlreadyUsedException;

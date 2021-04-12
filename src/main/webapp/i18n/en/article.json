@@ -46,7 +46,8 @@
       "updateTime": "Update Time",
       "note": "Note",
       "articleType": "Article Type",
-      "userLink": "User Link"
+      "userLink": "User Link",
+      "warning": "Server resources are limited, please use the drawing bed and other external links to insert pictures."
     }
   }
 }

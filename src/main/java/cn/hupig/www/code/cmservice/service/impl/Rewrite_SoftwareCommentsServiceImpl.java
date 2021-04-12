@@ -11,7 +11,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import cn.hupig.www.code.cmservice.domain.ArticleComment;
 import cn.hupig.www.code.cmservice.domain.SoftwareComments;
 import cn.hupig.www.code.cmservice.repository.SoftwareCommentsRepository;
 import cn.hupig.www.code.cmservice.repository.UserLinkRepository;

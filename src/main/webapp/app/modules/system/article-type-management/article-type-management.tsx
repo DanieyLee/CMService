@@ -78,7 +78,7 @@ export const ArticleTypeManagement = (props: IArticleTypeManagementProps) => {
   return (
     <div className="content-article-type-management">
       <h2 id="article-type-heading">
-        <Translate contentKey="cmServiceApp.articleType.home.title">Article Types</Translate>
+        <Translate contentKey="global.menu.admin.articleTypeManagement">Article type management</Translate>
         <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
           <FontAwesomeIcon icon="plus" />
           &nbsp;

@@ -84,7 +84,9 @@ export const SoftwareDetail = (props: ISoftwareDetailProps) => {
             <FontAwesomeIcon icon={'heart'} />
             <span>{softwareEntity.score > 1000? softwareEntity.score.toString().substring(0,softwareEntity.score.toString().length-3) + "k" : softwareEntity.score}</span>
           </Col>
-          <Col md="12" dangerouslySetInnerHTML = {{ __html: softwareEntity.note }} />
+          <Col md="12">
+            <div>{softwareEntity.note}</div>
+          </Col>
           <AvForm id="send-form" onValidSubmit={likeValidSubmit}>
             <Button id="send-submit" color="primary" type="submit">
               <img src="content/images/like.svg" alt="like" />

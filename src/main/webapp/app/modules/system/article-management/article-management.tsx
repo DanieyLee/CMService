@@ -73,7 +73,7 @@ export const ArticleManagement = (props: IArticleManagementProps) => {
   return (
     <div className="content-article-management">
       <h2 id="article-heading">
-        <Translate contentKey="cmServiceApp.article.home.title">Articles</Translate>
+        <Translate contentKey="global.menu.admin.articleManagement">Article management</Translate>
         <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
           <FontAwesomeIcon icon="plus" />
           &nbsp;
@@ -94,6 +94,9 @@ export const ArticleManagement = (props: IArticleManagementProps) => {
                 <th className="hand" onClick={sort('author')}>
                   <Translate contentKey="cmServiceApp.article.author">Author</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
+                <th className="hand" onClick={sort('content')}>
+                  <Translate contentKey="cmServiceApp.article.content">Content</Translate> <FontAwesomeIcon icon="sort" />
+                </th>
                 <th className="hand" onClick={sort('views')}>
                   <Translate contentKey="cmServiceApp.article.views">Views</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
@@ -113,8 +116,9 @@ export const ArticleManagement = (props: IArticleManagementProps) => {
               {articleList.map((article, i) => (
                 <tr key={`entity-${i}`}>
                   <td>{article.id}</td>
-                  <td>{article.title}</td>
+                  <td>{article.title.length > 10 ? article.title.substr(0,10) : article.title}</td>
                   <td>{article.author}</td>
+                  <td>{article.content.length > 10 ? article.content.substr(0,10) : article.content}</td>
                   <td>{article.views}</td>
                   <td>{article.likeNumber}</td>
                   <td>{article.state ? 'true' : 'false'}</td>

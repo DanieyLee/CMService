@@ -34,19 +34,20 @@
           "three": "意味ではない"
         }
       },
-      "title": "Title",
-      "author": "Author",
-      "content": "Content",
-      "views": "Views",
-      "likeNumber": "Like Number",
-      "state": "State",
-      "createUser": "Create User",
-      "creatTime": "Creat Time",
-      "updateUser": "Update User",
-      "updateTime": "Update Time",
-      "note": "Note",
-      "articleType": "Article Type",
-      "userLink": "User Link"
+      "title": "タイトル",
+      "author": "著者",
+      "content": "内容",
+      "views": "見解",
+      "likeNumber": "ライクナンバー",
+      "state": "状態",
+      "createUser": "ユーザーの作成",
+      "creatTime": "クリート時間",
+      "updateUser": "更新ユーザー",
+      "updateTime": "更新時間",
+      "note": "ノート",
+      "articleType": "記事タイプ",
+      "userLink": "User Link",
+      "warning": "サーバーのリソースが限られていますので、画像を挿入するために図ベッドなどの外部チェーンを使ってください"
     }
   }
 }

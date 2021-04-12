@@ -2,7 +2,6 @@ package cn.hupig.www.code.cmservice.web.rest;
 
 import java.net.URISyntaxException;
 import java.util.List;
-import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,7 +22,6 @@ import cn.hupig.www.code.cmservice.service.Rewrite_SoftwareCommentsService;
 import cn.hupig.www.code.cmservice.service.dto.SoftwareCommentsDTO;
 import cn.hupig.www.code.cmservice.web.rest.errors.BadRequestAlertException;
 import io.github.jhipster.web.util.PaginationUtil;
-import io.github.jhipster.web.util.ResponseUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 

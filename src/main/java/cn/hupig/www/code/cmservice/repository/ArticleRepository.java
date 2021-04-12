@@ -16,9 +16,9 @@ import java.util.Optional;
 @Repository
 public interface ArticleRepository extends JpaRepository<Article, Long> {
 	
-	Page<Article> findAllByState(Pageable pageable, Boolean state);
+	Page<Article> findAllByStateTrue(Pageable pageable);
 	
-	Page<Article> findAllByStateAndArticleTypeId(Pageable pageable, Boolean state, Long articleTypeId);
+	Page<Article> findAllByStateTrueAndArticleTypeId(Pageable pageable, Long articleTypeId);
 	
-	Optional<Article> findByIdAndState(Long id, Boolean state);
+	Optional<Article> findByIdAndStateTrue(Long id);
 }

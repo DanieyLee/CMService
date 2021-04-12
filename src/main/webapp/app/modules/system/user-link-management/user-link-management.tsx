@@ -77,7 +77,7 @@ export const UserLinkManagement = (props: IUserLinkManagementProps) => {
   return (
     <div className="content-user-link-management">
       <h2 id="user-link-heading">
-        <Translate contentKey="cmServiceApp.userLink.home.title">User Links</Translate>
+        <Translate contentKey="global.menu.admin.userLinkManagement">User Link management</Translate>
       </h2>
       <div className="table-responsive">
         <InfiniteScroll
@@ -99,7 +99,7 @@ export const UserLinkManagement = (props: IUserLinkManagementProps) => {
                     <Translate contentKey="cmServiceApp.userLink.firstName">First Name</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('sex')}>
-                    <Translate contentKey="cmServiceApp.userLink.sex">Sex</Translate> <FontAwesomeIcon icon="sort" />
+                    <Translate contentKey="settings.form.sex">Sex</Translate> <FontAwesomeIcon icon="sort" />
                   </th>
                   <th className="hand" onClick={sort('age')}>
                     <Translate contentKey="cmServiceApp.userLink.age">Age</Translate> <FontAwesomeIcon icon="sort" />
@@ -121,7 +121,7 @@ export const UserLinkManagement = (props: IUserLinkManagementProps) => {
                   <tr key={`entity-${i}`}>
                     <td>{userLink.id}</td>
                     <td>{userLink.firstName}</td>
-                    <td>{userLink.sex ? 'true' : 'false'}</td>
+                    <td>{userLink.sex ? '男(man)' : '女(woman)'}</td>
                     <td>{userLink.age}</td>
                     <td>{userLink.theme}</td>
                     <td>{userLink.passwordKey}</td>

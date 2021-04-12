@@ -40,7 +40,7 @@ export const ConfigurationPage = (props: IConfigurationPageProps) => {
   const env = configuration && configuration.env ? configuration.env : {};
 
   return (
-    <div>
+    <div className="content-admin-configuration">
       <h2 id="configuration-page-heading">
         <Translate contentKey="configuration.title">Configuration</Translate>
       </h2>

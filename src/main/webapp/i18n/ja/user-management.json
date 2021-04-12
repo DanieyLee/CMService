@@ -2,8 +2,8 @@
   "userManagement": {
     "home": {
       "title": "Users",
-      "createLabel": "Create a new user",
-      "createOrEditLabel": "Create or edit a user"
+      "createLabel": "新規ユーザーの作成",
+      "createOrEditLabel": "ユーザーの作成または編集"
     },
     "created": "A new user is created with identifier {{ param }}",
     "updated": "A user is updated with identifier {{ param }}",
@@ -14,17 +14,17 @@
     "detail": {
       "title": "User"
     },
-    "login": "Login",
+    "login": "ログイン",
     "firstName": "First name",
     "lastName": "Last name",
     "email": "Email",
     "activated": "アクティブ",
     "deactivated": "効力を失う",
-    "profiles": "Profiles",
-    "langKey": "Language",
+    "profiles": "プロファイル",
+    "langKey": "言語",
     "createdBy": "Created by",
-    "createdDate": "Created date",
-    "lastModifiedBy": "Modified by",
-    "lastModifiedDate": "Modified date"
+    "createdDate": "作成日付",
+    "lastModifiedBy": "修正",
+    "lastModifiedDate": "変更日付"
   }
 }

@@ -30,17 +30,17 @@ export const ArticleDetail = (props: IArticleDetailProps) => {
   const { articleEntity } = props;
   return (
     <div className="content-article-item">
-      <h1>
+      <h1 className="content-article-item-h1">
         <span>{articleEntity.articleTypeType}</span>
         <p>{articleEntity.title}</p>
       </h1>
-      <h2>
+      <h2 className="content-article-item-h2">
         <TextFormat value={articleEntity.creatTime} type="date" format={APP_DATE_FORMAT_SIMPLE_ZH} />
         <img src="content/images/author.svg" alt="author" />
         <p>{articleEntity.author}</p>
       </h2>
       <div dangerouslySetInnerHTML = {{ __html: articleEntity.content }} />
-      <hr/>
+      <hr className="content-article-item-hr"/>
       <Row>
         <Col md="9">
           <Translate contentKey="cmServiceApp.article.modify.title" interpolate={{ name: articleEntity.updateUser,time:'' }} />
@@ -53,7 +53,9 @@ export const ArticleDetail = (props: IArticleDetailProps) => {
           <FontAwesomeIcon icon={'heart'} />
           <span>{articleEntity.likeNumber > 1000? articleEntity.likeNumber.toString().substring(0,articleEntity.likeNumber.toString().length-3) + "k" : articleEntity.likeNumber}</span>
         </Col>
-        <Col md="12" dangerouslySetInnerHTML = {{ __html: articleEntity.note }} />
+        <Col md="12" >
+          <div>{articleEntity.note}</div>
+        </Col>
         <AvForm id="send-form" onValidSubmit={likeValidSubmit}>
           <Button id="send-submit" color="primary" type="submit">
             <img src="content/images/like.svg" alt="like" />
@@ -61,7 +63,7 @@ export const ArticleDetail = (props: IArticleDetailProps) => {
           </Button>
         </AvForm>
       </Row>
-      <hr/>
+      <hr className="content-article-item-hr"/>
       <ErrorBoundaryRoute path={`/articles/detail/:id`} component={ArticleComment} />
     </div>
   );

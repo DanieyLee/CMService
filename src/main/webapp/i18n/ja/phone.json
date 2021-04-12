@@ -2,10 +2,10 @@
   "cmServiceApp": {
     "phone": {
       "home": {
-        "title": "Phones",
-        "createLabel": "Phone を追加",
-        "createOrEditLabel": "Phoneを追加または編集",
-        "notFound": "No Phones found"
+        "title": "携帯の認証コード",
+        "createLabel": "携帯の番号 を追加",
+        "createOrEditLabel": "携帯の番号 を追加または編集",
+        "notFound": "認証コードが見つかりませんでした。"
       },
       "created": "A new Phone is created with identifier {{ param }}",
       "updated": "A Phone is updated with identifier {{ param }}",
@@ -14,12 +14,12 @@
         "question": "Phone {{ id }}を削除してもよろしいですか？"
       },
       "detail": {
-        "title": "Phone"
+        "title": "携帯の番号"
       },
-      "phone": "Phone",
-      "code": "Code",
-      "effectiveTime": "Effective Time",
-      "sendTime": "Send Time",
+      "phone": "携帯の番号",
+      "code": "認証コード",
+      "effectiveTime": "有効時間",
+      "sendTime": "時間を送る",
       "createUser": "Create User",
       "creatTime": "Creat Time",
       "updateUser": "Update User",

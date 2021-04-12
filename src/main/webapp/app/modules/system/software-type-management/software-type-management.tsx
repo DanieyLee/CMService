@@ -78,7 +78,7 @@ export const SoftwareTypeManagement = (props: ISoftwareTypeManagementProps) => {
   return (
     <div className="content-software-type-management">
       <h2 id="software-type-heading">
-        <Translate contentKey="cmServiceApp.softwareType.home.title">Software Types</Translate>
+        <Translate contentKey="global.menu.admin.softwareTypeManagement">Software type management</Translate>
         <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
           <FontAwesomeIcon icon="plus" />
           &nbsp;

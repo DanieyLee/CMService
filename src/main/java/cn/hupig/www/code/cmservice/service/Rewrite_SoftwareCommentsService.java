@@ -1,11 +1,9 @@
 package cn.hupig.www.code.cmservice.service;
 
-import cn.hupig.www.code.cmservice.service.dto.SoftwareCommentsDTO;
-
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import java.util.Optional;
+import cn.hupig.www.code.cmservice.service.dto.SoftwareCommentsDTO;
 
 /**
  * Service Interface for managing {@link cn.hupig.www.code.cmservice.domain.SoftwareComments}.

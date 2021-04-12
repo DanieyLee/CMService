@@ -170,6 +170,23 @@ export const createEntity: ICrudPutAction<IArticle> = entity => async dispatch =
   return result;
 };
 
+export const createUserEntity: ICrudPutAction<IArticle> = entity => async dispatch => {
+  const result = await dispatch({
+    type: ACTION_TYPES.CREATE_ARTICLE,
+    payload: axios.post(`${apiUrl}/create`, cleanEntity(entity)),
+  });
+  dispatch(getEntities());
+  return result;
+};
+
+export const updateUserEntity: ICrudPutAction<IArticle> = entity => async dispatch => {
+  const result = await dispatch({
+    type: ACTION_TYPES.UPDATE_ARTICLE,
+    payload: axios.put(`${apiUrl}/update`, cleanEntity(entity)),
+  });
+  return result;
+};
+
 export const updateEntity: ICrudPutAction<IArticle> = entity => async dispatch => {
   const result = await dispatch({
     type: ACTION_TYPES.UPDATE_ARTICLE,
@@ -185,6 +202,14 @@ export const deleteEntity: ICrudDeleteAction<IArticle> = id => async dispatch =>
     payload: axios.delete(requestUrl),
   });
   dispatch(getEntities());
+  return result;
+};
+
+export const updateArticleFile: ICrudDeleteAction<IArticle> = File => async dispatch => {
+  const result = await dispatch({
+    type: ACTION_TYPES.CREATE_ARTICLE,
+    payload: axios.post(`api/article-enclosures/create`, File),
+  });
   return result;
 };
 

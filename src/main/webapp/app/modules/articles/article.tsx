@@ -63,6 +63,10 @@ export const Article = (props: IArticleProps) => {
     props.getPublicTypeEntities(id, paginationState.activePage - 1, paginationState.itemsPerPage,
       `${paginationState.sort},${paginationState.order}`);
 
+  const clearLabel = str => {
+    return str.replace(/<[^>]+>/g,"");
+  }
+
   const { articleList, articleTypeList, loading } = props;
   return (
     <div className="content-article">
@@ -102,7 +106,7 @@ export const Article = (props: IArticleProps) => {
               <Row key={`entity-${i}`}>
                 <Col md="9">
                   <h6>
-                    {article.articleTypeType}
+                    {article.articleTypeType == null ? "无" : article.articleTypeType}
                   </h6>
                   <Button tag={Link} to={`/articles/detail/${article.id}`} color="link" size="sm">
                     <span>{article.title}</span>
@@ -121,7 +125,7 @@ export const Article = (props: IArticleProps) => {
                   </Col>
                   <Col md="11">
                     <Button tag={Link} to={`/articles/detail/${article.id}`} color="link" size="sm">
-                      <div dangerouslySetInnerHTML = {{ __html: article.content }} />
+                      <div dangerouslySetInnerHTML = {{ __html: clearLabel(article.content) }} />
                     </Button>
                   </Col>
                 </Row>

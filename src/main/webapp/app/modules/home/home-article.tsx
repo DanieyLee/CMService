@@ -51,6 +51,10 @@ export const Article = (props: IArticleProps) => {
     }
   }, [props.location.search]);
 
+  const clearLabel = str => {
+    return str.replace(/<[^>]+>/g,"");
+  }
+
   const { articleList, loading } = props;
   return (
     <div className="content-home-article">
@@ -71,7 +75,7 @@ export const Article = (props: IArticleProps) => {
                   </div>
                   <div className="content-home-article-list-content">
                     <Button tag={Link} to={`/articles/detail/${article.id}`} color="link" size="sm">
-                      <div dangerouslySetInnerHTML = {{ __html: article.content.length > 5000 ? article.content.substr(0,5000) : article.content }} />
+                      <div dangerouslySetInnerHTML = {{ __html: clearLabel(article.content)}} />
                     </Button>
                   </div>
                 </div>

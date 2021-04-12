@@ -45,7 +45,9 @@ export const WallpaperManagementUpdate = (props: IWallpaperManagementUpdateProps
         ...values,
       };
       if (isNew) {
-        props.createUserEntity(entity);
+        if (entity.imgSwitch) {
+          props.createUserEntity(entity);
+        }
         event.persist();
       } else {
         props.updateUserEntity(entity);
@@ -66,8 +68,8 @@ export const WallpaperManagementUpdate = (props: IWallpaperManagementUpdateProps
 
   return (
     <div className="content-wallpaper-management-edit">
-      <div className="justify-content-center">
-        <h2 id="cmServiceApp.wallpaper.home.createOrEditLabel">
+      <div className="content-wallpaper-management-edit-title">
+        <h2>
           <Translate contentKey="cmServiceApp.wallpaper.home.createOrEditLabel">Create or edit a Wallpaper</Translate>
         </h2>
       </div>
@@ -120,7 +122,14 @@ export const WallpaperManagementUpdate = (props: IWallpaperManagementUpdateProps
                 <Label id="imagePixelLabel" for="wallpaper-imagePixel">
                   <Translate contentKey="cmServiceApp.wallpaper.imagePixel">Image Pixel</Translate>
                 </Label>
-                <AvField id="wallpaper-imagePixel" type="text" name="imagePixel" />
+                <AvField
+                  id="wallpaper-imagePixel"
+                  type="text"
+                  name="imagePixel"
+                  validate={{
+                    required: { value: true, errorMessage: translate('entity.validation.required') },
+                  }}
+                />
               </AvGroup>
             </Col>
             <Col md="2">
@@ -154,7 +163,14 @@ export const WallpaperManagementUpdate = (props: IWallpaperManagementUpdateProps
                 <Label id="imageNameLabel" for="wallpaper-imageName">
                   <Translate contentKey="cmServiceApp.wallpaper.imageName">Image Name</Translate>
                 </Label>
-                <AvField id="wallpaper-imageName" type="text" name="imageName" />
+                <AvField
+                  id="wallpaper-imageName"
+                  type="text"
+                  name="imageName"
+                  validate={{
+                    required: { value: true, errorMessage: translate('entity.validation.required') },
+                  }}
+                />
               </AvGroup>
             </Col>
             <Col md="12">
@@ -166,21 +182,19 @@ export const WallpaperManagementUpdate = (props: IWallpaperManagementUpdateProps
               </AvGroup>
             </Col>
             <Col md="12">
-              <div className="content-account-settings-portrait">
+              <div className="content-wallpaper-management-edit-img">
+                {isNew ? <input id="file" type="file" onChange={onBlobChange(true, 'image')} accept="image/*" /> : null}
+                {props.wallpaperEntity.imgSwitch ? (
+                  <Button color="danger" onClick={clearBlob('image')}>
+                    <FontAwesomeIcon icon="times-circle" />
+                  </Button>
+                ):null}
                 {props.wallpaperEntity.imgSwitch ? (
                   <img src={`data:${wallpaperEntity.imageContentType};base64,${wallpaperEntity.image}`} />
-                ) : isNew ? <img></img> : <img src={`${wallpaperEntity.imageUrl}`} alt={`${wallpaperEntity.imageName}`} />}
-                <div className="content-account-settings-portrait-select">
-                  <div>
-                    {isNew ? <input id="file" type="file" onChange={onBlobChange(true, 'image')} accept="image/*" /> : null}
-                  </div>
-                </div>
+                  ) : isNew ? <img></img> :
+                  <img src={`${wallpaperEntity.imageUrl}`} alt={`${wallpaperEntity.imageName}`} />}
               </div>
-              {props.wallpaperEntity.imgSwitch ? (
-                <Button className="content-account-settings-portrait-cancel" color="danger" onClick={clearBlob('image')}>
-                  <FontAwesomeIcon icon="times-circle" />
-                </Button>
-              ):null}
+
               <AvField type="hidden" name="image" value={wallpaperEntity.image} />
               <AvField type="hidden" name="img-name" value={wallpaperEntity.imgName} />
               <AvField type="hidden" name="img-switch" value={wallpaperEntity.imgSwitch} />

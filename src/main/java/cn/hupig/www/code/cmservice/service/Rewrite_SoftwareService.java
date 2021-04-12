@@ -52,4 +52,20 @@ public interface Rewrite_SoftwareService {
      */
     Optional<SoftwareDTO> findOneDownloadAndState(Long id);
     
+    /**
+     * Save a software.
+     *
+     * @param softwareDTO the entity to save.
+     * @return the persisted entity.
+     */
+    SoftwareDTO createSoftware(SoftwareDTO softwareDTO);
+
+    /**
+     * Save a software.
+     *
+     * @param softwareDTO the entity to save.
+     * @return the persisted entity.
+     */
+    SoftwareDTO updateSoftware(SoftwareDTO softwareDTO);
+
 }

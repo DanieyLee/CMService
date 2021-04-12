@@ -68,7 +68,7 @@ export const WallpaperManagement = (props: IWallpaperManagementProps) => {
   return (
     <div className="content-wallpaper-management">
       <h2 id="wallpaper-heading">
-        <Translate contentKey="cmServiceApp.wallpaper.home.title">Wallpapers</Translate>
+        <Translate contentKey="global.menu.admin.wallpaperManagement">Wallpaper management</Translate>
         <Link to={`${match.url}/new`} className="btn btn-primary float-right jh-create-entity" id="jh-create-entity">
           <FontAwesomeIcon icon="plus" />
           &nbsp;

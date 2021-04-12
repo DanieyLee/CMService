@@ -16,12 +16,12 @@ import cn.hupig.www.code.cmservice.domain.Wallpaper;
 @Repository
 public interface WallpaperRepository extends JpaRepository<Wallpaper, Long> {
 	
-	Page<Wallpaper> findAllByState(Pageable pageable, Boolean state);
+	Page<Wallpaper> findAllByStateTrue(Pageable pageable);
 	
-	Optional<Wallpaper> findByIdAndState(Long id, Boolean state);
+	Optional<Wallpaper> findByIdAndStateTrue(Long id);
 	
-	Page<Wallpaper> findAllByIdLessThanAndState(Pageable pageable, Long id, Boolean state);
+	Page<Wallpaper> findAllByIdLessThanAndStateTrue(Pageable pageable, Long id);
 	
-	Page<Wallpaper> findAllByIdGreaterThanAndState(Pageable pageable, Long id, Boolean state);
+	Page<Wallpaper> findAllByIdGreaterThanAndStateTrue(Pageable pageable, Long id);
 	
 }

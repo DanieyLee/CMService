@@ -3,12 +3,7 @@ package cn.hupig.www.code.cmservice.service.utils;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.time.Instant;
-import java.util.Base64;
-
-import org.springframework.beans.factory.annotation.Value;
 
 import cn.hupig.www.code.cmservice.web.rest.errors.FileOperationException;
 
@@ -75,6 +70,7 @@ public class FileOperation {
 			name += String.valueOf((char) (((int) (Math.random() * 26)) + 65));
 		}
 		name = type.equals("image")? "image/" + name : name;
+		name = type.equals("article")? "article/" + name : name;
 		name = type.equals("user")? "user/" + name : name;
 		return name + fileName.substring(fileName.lastIndexOf("."),fileName.length());
 	}
