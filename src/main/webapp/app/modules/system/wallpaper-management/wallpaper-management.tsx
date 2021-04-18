@@ -6,7 +6,7 @@ import { Translate, ICrudGetAllAction, TextFormat, getSortState, IPaginationBase
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { IRootState } from 'app/shared/reducers';
-import { getEntities } from 'app/entities/wallpaper/wallpaper.reducer';
+import { getEntities, updateUserEntity } from 'app/entities/wallpaper/wallpaper.reducer';
 import { APP_DATE_FORMAT_SIMPLE_ZH_CN } from 'app/config/constants';
 import { ITEMS_PER_PAGE } from 'app/shared/util/pagination.constants';
 import { overridePaginationStateWithQueryParams } from 'app/shared/util/entity-utils';
@@ -50,6 +50,12 @@ export const WallpaperManagement = (props: IWallpaperManagementProps) => {
     }
   }, [props.location.search]);
 
+  useEffect(() => {
+    if (props.updateSuccess) {
+      getAllEntities();
+    }
+  }, [props.updateSuccess]);
+
   const sort = p => () => {
     setPaginationState({
       ...paginationState,
@@ -62,6 +68,12 @@ export const WallpaperManagement = (props: IWallpaperManagementProps) => {
     setPaginationState({
       ...paginationState,
       activePage: currentPage,
+    });
+
+  const toggleState = wallpaper => () =>
+    props.updateUserEntity({
+      ...wallpaper,
+      state: !wallpaper.state,
     });
 
   const { wallpaperList, match, loading, totalItems } = props;
@@ -122,7 +134,17 @@ export const WallpaperManagement = (props: IWallpaperManagementProps) => {
                   </td>
                   <td>{wallpaper.visitorVolume}</td>
                   <td>{wallpaper.like}</td>
-                  <td>{wallpaper.state ? 'true' : 'false'}</td>
+                  <td>
+                    {wallpaper.state ? (
+                      <Button color="success" onClick={toggleState(wallpaper)}>
+                        <Translate contentKey="cmServiceApp.wallpaper.getState.true">True</Translate>
+                      </Button>
+                    ) : (
+                      <Button color="danger" onClick={toggleState(wallpaper)}>
+                        <Translate contentKey="cmServiceApp.wallpaper.getState.false">False</Translate>
+                      </Button>
+                    )}
+                  </td>
                   <td>{wallpaper.note ? wallpaper.note.length > 10 ? wallpaper.note.substr(0,10) : wallpaper.note : ""}</td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
@@ -185,10 +207,12 @@ const mapStateToProps = ({ wallpaper }: IRootState) => ({
   wallpaperList: wallpaper.entities,
   loading: wallpaper.loading,
   totalItems: wallpaper.totalItems,
+  updateSuccess: wallpaper.updateSuccess,
 });
 
 const mapDispatchToProps = {
   getEntities,
+  updateUserEntity,
 };
 
 type StateProps = ReturnType<typeof mapStateToProps>;

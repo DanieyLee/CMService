@@ -45,7 +45,11 @@
       "note": "备注",
       "userLink": "所属用户",
       "lastPage": "上一页",
-      "nextPage": "下一页"
+      "nextPage": "下一页",
+      "getState": {
+        "true": "已上架",
+        "false": "下架中"
+      }
     }
   }
 }

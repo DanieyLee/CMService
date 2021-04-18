@@ -18,6 +18,7 @@ export const SoftwareManagementUpdate = (props: ISoftwareManagementUpdateProps) 
   const [softwareTypeId, setSoftwareTypeId] = useState('0');
   const [userLinkId, setUserLinkId] = useState('0');
   const [isNew, setIsNew] = useState(!props.match.params || !props.match.params.id);
+  const [image, setImage] = useState(null);
 
   const { softwareEntity, softwareTypes, userLinks, loading, updating } = props;
 
@@ -33,16 +34,45 @@ export const SoftwareManagementUpdate = (props: ISoftwareManagementUpdateProps) 
     } else {
       props.getEntity(props.match.params.id);
     }
-
     props.getSoftwareTypes();
     props.getUserLinks();
   }, []);
 
+  useEffect(() => {
+    setImage(props.softwareEntity.softwareICO);
+  }, [props.softwareEntity.softwareICO])
+
+  const compress = file => { // 压缩
+    const img = document.createElement('img');
+    const cvs = document.createElement('canvas');
+    const setSize = 64; // 压缩的大小
+    const reader = new FileReader();
+    reader.readAsDataURL(file);     //  转成 base64 编码
+    reader.onload = function (e) {
+      const naturalBase64 = e.target.result.toString();    //  获取 base64 编码，这是原图的
+      img.src = naturalBase64;
+      img.onload = function () {
+        cvs.width = setSize;
+        cvs.height = setSize;
+        const size = img.naturalWidth > img.naturalHeight ? img.naturalHeight : img.naturalWidth; // 裁剪的尺寸
+        const drawX = img.naturalWidth > img.naturalHeight ? (img.naturalWidth - size) / 2  : 0;
+        const drawY = img.naturalHeight > img.naturalWidth ? (img.naturalHeight - size) / 2 : 0;
+        const ctx = cvs.getContext('2d');
+        ctx.drawImage(img,drawX,drawY,size, size, 0, 0, setSize,setSize);    //  画在 canvas 上
+        const base64 = cvs.toDataURL(); // 压缩后新图的 base64
+        setImage(base64.substr(base64.indexOf(",") + 1)); // 压缩后的下镖加1
+      }
+    }
+  }
+
   const onBlobChange = (isAnImage, name) => event => {
+    const file = event.target.files[0];
+    compress(file);
     setFileData(event, (contentType, data) => props.setBlob(name, data, contentType), isAnImage);
   };
 
   const clearBlob = name => () => {
+    setImage(null);
     props.setBlob(name, undefined, undefined);
   };
 
@@ -204,14 +234,14 @@ export const SoftwareManagementUpdate = (props: ISoftwareManagementUpdateProps) 
                   {softwareICO ? (
                     <div>
                       {softwareICOContentType ? (
-                        <img src={`data:${softwareICOContentType};base64,${softwareICO}`} style={{ maxHeight: '100px' }} />
+                        <img src={`data:${softwareICOContentType};base64,${image}`} style={{ maxHeight: '100px' }} />
                       ) : null}
                       <Button color="danger" onClick={clearBlob('softwareICO')}>
                         <FontAwesomeIcon icon="times-circle" />
                       </Button>
                     </div>
                   ) : null}
-                  <AvInput type="hidden" name="softwareICO" value={softwareICO} />
+                  <AvInput type="hidden" name="softwareICO" value={image} />
                 </AvGroup>
               </AvGroup>
             </Col>

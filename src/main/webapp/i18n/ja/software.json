@@ -51,7 +51,23 @@
       "note": "ノート",
       "softwareType": "ソフトウェアタイプ",
       "userLink": "ユーザーリンク",
-      "clickDownload" : "ダウンロード"
+      "clickDownload" : "ダウンロード",
+      "getStars": {
+        "true": "星",
+        "false": "なし"
+      },
+      "getShow": {
+        "true": "ショー",
+        "false": "非表示"
+      },
+      "getAllow": {
+        "true": "許可する",
+        "false": "許可しない"
+      },
+      "getState": {
+        "true": "上",
+        "false": "下"
+      }
     }
   }
 }

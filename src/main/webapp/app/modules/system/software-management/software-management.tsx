@@ -14,7 +14,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { IRootState } from 'app/shared/reducers';
-import { getEntities } from 'app/entities/software/software.reducer';
+import { getEntities, updateUserEntity } from 'app/entities/software/software.reducer';
 import { APP_DATE_FORMAT_SIMPLE_ZH_CN } from 'app/config/constants';
 import { ITEMS_PER_PAGE } from 'app/shared/util/pagination.constants';
 import { overridePaginationStateWithQueryParams } from 'app/shared/util/entity-utils';
@@ -58,6 +58,12 @@ export const SoftwareManagement = (props: ISoftwareManagementProps) => {
     }
   }, [props.location.search]);
 
+  useEffect(() => {
+    if (props.updateSuccess) {
+      getAllEntities();
+    }
+  }, [props.updateSuccess]);
+
   const sort = p => () => {
     setPaginationState({
       ...paginationState,
@@ -70,6 +76,12 @@ export const SoftwareManagement = (props: ISoftwareManagementProps) => {
     setPaginationState({
       ...paginationState,
       activePage: currentPage,
+    });
+
+  const toggle = (wallpaper, name, boolean) => () =>
+    props.updateUserEntity({
+      ...wallpaper,
+      [name]: !boolean,
     });
 
   const { softwareList, match, loading, totalItems } = props;
@@ -91,14 +103,14 @@ export const SoftwareManagement = (props: ISoftwareManagementProps) => {
                 <th className="hand" onClick={sort('id')}>
                   <Translate contentKey="global.field.id">ID</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
-                <th className="hand" onClick={sort('stars')}>
-                  <Translate contentKey="cmServiceApp.software.stars">Stars</Translate> <FontAwesomeIcon icon="sort" />
-                </th>
                 <th className="hand" onClick={sort('name')}>
                   <Translate contentKey="cmServiceApp.software.name">Name</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={sort('size')}>
                   <Translate contentKey="cmServiceApp.software.size">Size</Translate> <FontAwesomeIcon icon="sort" />
+                </th>
+                <th className="hand" onClick={sort('stars')}>
+                  <Translate contentKey="cmServiceApp.software.stars">Stars</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
                 <th className="hand" onClick={sort('show')}>
                   <Translate contentKey="cmServiceApp.software.show">Show</Translate> <FontAwesomeIcon icon="sort" />
@@ -119,12 +131,52 @@ export const SoftwareManagement = (props: ISoftwareManagementProps) => {
               {softwareList.map((software, i) => (
                 <tr key={`entity-${i}`}>
                   <td>{software.id}</td>
-                  <td>{software.stars ? 'true' : 'false'}</td>
                   <td>{software.name}</td>
                   <td>{software.size}</td>
-                  <td>{software.show ? 'true' : 'false'}</td>
-                  <td>{software.allow ? 'true' : 'false'}</td>
-                  <td>{software.state ? 'true' : 'false'}</td>
+                  <td>
+                    {software.stars ? (
+                      <Button color="success" onClick={toggle(software, "stars", software.stars)}>
+                        <Translate contentKey="cmServiceApp.software.getStars.true">True</Translate>
+                      </Button>
+                    ) : (
+                      <Button color="danger" onClick={toggle(software, "stars", software.stars)}>
+                        <Translate contentKey="cmServiceApp.software.getStars.false">False</Translate>
+                      </Button>
+                    )}
+                  </td>
+                  <td>
+                    {software.show ? (
+                      <Button color="success" onClick={toggle(software, "show", software.show)}>
+                        <Translate contentKey="cmServiceApp.software.getShow.true">True</Translate>
+                      </Button>
+                    ) : (
+                      <Button color="danger" onClick={toggle(software, "show", software.show)}>
+                        <Translate contentKey="cmServiceApp.software.getShow.false">False</Translate>
+                      </Button>
+                    )}
+                  </td>
+                  <td>
+                    {software.allow ? (
+                      <Button color="success" onClick={toggle(software, "allow", software.allow)}>
+                        <Translate contentKey="cmServiceApp.software.getAllow.true">True</Translate>
+                      </Button>
+                    ) : (
+                      <Button color="danger" onClick={toggle(software, "allow", software.allow)}>
+                        <Translate contentKey="cmServiceApp.software.getAllow.false">False</Translate>
+                      </Button>
+                    )}
+                  </td>
+                  <td>
+                    {software.state ? (
+                      <Button color="success" onClick={toggle(software, "state", software.state)}>
+                        <Translate contentKey="cmServiceApp.software.getState.true">True</Translate>
+                      </Button>
+                    ) : (
+                      <Button color="danger" onClick={toggle(software, "state", software.state)}>
+                        <Translate contentKey="cmServiceApp.software.getState.false">False</Translate>
+                      </Button>
+                    )}
+                  </td>
                   {software.softwareTypeType ? <td>{software.softwareTypeType}</td> : ''}
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
@@ -187,10 +239,12 @@ const mapStateToProps = ({ software }: IRootState) => ({
   softwareList: software.entities,
   loading: software.loading,
   totalItems: software.totalItems,
+  updateSuccess: software.updateSuccess,
 });
 
 const mapDispatchToProps = {
   getEntities,
+  updateUserEntity,
 };
 
 type StateProps = ReturnType<typeof mapStateToProps>;

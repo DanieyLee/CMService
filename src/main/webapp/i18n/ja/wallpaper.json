@@ -45,7 +45,11 @@
       "note": "備考",
       "userLink": "所属ユーザー",
       "lastPage": "前のページ",
-      "nextPage": "次のページ"
+      "nextPage": "次のページ",
+      "getState": {
+        "true": "上",
+        "false": "下"
+      }
     }
   }
 }

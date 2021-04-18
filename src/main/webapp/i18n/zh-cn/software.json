@@ -51,7 +51,23 @@
       "note": "备注",
       "softwareType": "软件类型",
       "userLink": "所属用户",
-      "clickDownload" : "点击下载"
+      "clickDownload" : "点击下载",
+      "getStars": {
+        "true": "加星",
+        "false": "默认"
+      },
+      "getShow": {
+        "true": "显示",
+        "false": "隐藏"
+      },
+      "getAllow": {
+        "true": "允许",
+        "false": "禁止"
+      },
+      "getState": {
+        "true": "已上架",
+        "false": "下架中"
+      }
     }
   }
 }

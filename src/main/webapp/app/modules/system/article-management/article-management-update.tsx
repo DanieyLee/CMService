@@ -113,7 +113,10 @@ export const ArticleManagementUpdate = (props: IArticleManagementUpdateProps) =>
                 <Label for="article-articleType">
                   <Translate contentKey="cmServiceApp.article.articleType">Article Type</Translate>
                 </Label>
-                <AvInput id="article-articleType" type="select" className="form-control" name="articleTypeId">
+                <AvInput id="article-articleType" type="select" className="form-control" name="articleTypeId"
+                         validate={{
+                           required: { value: true, errorMessage: translate('entity.validation.required') },
+                         }}>
                   <option value="" key="0" />
                   {articleTypes
                     ? articleTypes.map(otherEntity => (

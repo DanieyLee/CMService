@@ -45,7 +45,11 @@
       "note": "Note",
       "userLink": "User Link",
       "lastPage": "Last Page",
-      "nextPage": "Next Page"
+      "nextPage": "Next Page",
+      "getState": {
+        "true": "Upper",
+        "false": "Lower"
+      }
     }
   }
 }

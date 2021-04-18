@@ -11,7 +11,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { IRootState } from 'app/shared/reducers';
-import { getEntities } from 'app/entities/article/article.reducer';
+import { getEntities, updateUserEntity } from 'app/entities/article/article.reducer';
 import { APP_DATE_FORMAT_SIMPLE_ZH_CN } from 'app/config/constants';
 import { ITEMS_PER_PAGE } from 'app/shared/util/pagination.constants';
 import { overridePaginationStateWithQueryParams } from 'app/shared/util/entity-utils';
@@ -55,6 +55,12 @@ export const ArticleManagement = (props: IArticleManagementProps) => {
     }
   }, [props.location.search]);
 
+  useEffect(() => {
+    if (props.updateSuccess) {
+      getAllEntities();
+    }
+  }, [props.updateSuccess]);
+
   const sort = p => () => {
     setPaginationState({
       ...paginationState,
@@ -67,6 +73,12 @@ export const ArticleManagement = (props: IArticleManagementProps) => {
     setPaginationState({
       ...paginationState,
       activePage: currentPage,
+    });
+
+  const toggleState = article => () =>
+    props.updateUserEntity({
+      ...article,
+      state: !article.state,
     });
 
   const { articleList, match, loading, totalItems } = props;
@@ -121,7 +133,17 @@ export const ArticleManagement = (props: IArticleManagementProps) => {
                   <td>{article.content.length > 10 ? article.content.substr(0,10) : article.content}</td>
                   <td>{article.views}</td>
                   <td>{article.likeNumber}</td>
-                  <td>{article.state ? 'true' : 'false'}</td>
+                  <td>
+                    {article.state ? (
+                      <Button color="success" onClick={toggleState(article)}>
+                        <Translate contentKey="cmServiceApp.article.getState.true">True</Translate>
+                      </Button>
+                    ) : (
+                      <Button color="danger" onClick={toggleState(article)}>
+                        <Translate contentKey="cmServiceApp.article.getState.false">False</Translate>
+                      </Button>
+                    )}
+                  </td>
                   {article.articleTypeType ? <td>{article.articleTypeType}</td> : ''}
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
@@ -184,10 +206,12 @@ const mapStateToProps = ({ article }: IRootState) => ({
   articleList: article.entities,
   loading: article.loading,
   totalItems: article.totalItems,
+  updateSuccess: article.updateSuccess,
 });
 
 const mapDispatchToProps = {
   getEntities,
+  updateUserEntity,
 };
 
 type StateProps = ReturnType<typeof mapStateToProps>;
