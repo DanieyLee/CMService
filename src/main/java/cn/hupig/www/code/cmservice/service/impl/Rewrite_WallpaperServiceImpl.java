@@ -57,7 +57,11 @@ public class Rewrite_WallpaperServiceImpl implements Rewrite_WallpaperService {
     public Page<WallpaperDTO> findAll(Pageable pageable) {
         log.debug("Request to get all Wallpapers");
         return wallpaperRepository.findAllByStateTrue(pageable)
-            .map(wallpaperMapper::toDto);
+        		.map(wallpaperMapper::toDto)
+        		.map(wallpaperDTO -> {
+        			wallpaperDTO.setImageUrl(FileOperation.getCacheAddress(wallpaperDTO.getImageUrl()));
+        			return wallpaperDTO;
+        		});
     }
 
     @Override
@@ -66,9 +70,13 @@ public class Rewrite_WallpaperServiceImpl implements Rewrite_WallpaperService {
         log.debug("Request to get all Wallpapers");
         Pageable pageable = PageRequest.of(0, 4,Sort.Direction.DESC,"updateTime");
         return wallpaperRepository.findAllByStateTrue(pageable)
-            .map(wallpaperMapper::toDto);
+        		.map(wallpaperMapper::toDto)
+        		.map(wallpaperDTO -> {
+        			wallpaperDTO.setImageUrl(FileOperation.getCacheAddress(wallpaperDTO.getImageUrl()));
+        			return wallpaperDTO;
+        		});
     }
-
+    
     @Override
     public Optional<WallpaperDTO> findOne(Long id) {
         log.debug("Request to get Wallpaper : {}", id);

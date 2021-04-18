@@ -1,11 +1,16 @@
 package cn.hupig.www.code.cmservice.service.utils;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.Instant;
 
+import javax.imageio.ImageIO;
+
 import cn.hupig.www.code.cmservice.web.rest.errors.FileOperationException;
+import net.coobird.thumbnailator.Thumbnails;
 
 public class FileOperation {
 
@@ -16,7 +21,7 @@ public class FileOperation {
 	 */
 	private static String fileAddress = "C:/Users/lixin/Desktop/CMService/target/classes/static/content/images/";
 	private static String saveAddress = "content/images/";
-	
+
 	/**
 	 * 删除文件，传入文件名+地址（本机文件存放地址）
 	 * @param address
@@ -27,11 +32,15 @@ public class FileOperation {
 		address = type.equals("image")? "image/" + address : address;
 		address = type.equals("user")? "user/" + address : address;
 		File file = new File(fileAddress + address);
-		if (file.exists() && file.isFile()) {//文件存在且是个文件
+		if (file.exists() && file.isFile()) {// 文件存在且是个文件
 			file.delete();
+			if (type.equals("image")) { // 删除缓存文件
+				File thumbnailFile = new File(fileAddress + "thumbnail/" + address.substring(address.lastIndexOf("/") + 1));
+				thumbnailFile.delete();
+			}
 		}
 	}
-	
+
 	/**
 	 * 保存文件 传入文件的二进制binary,和文件的储存地址(包含文件路径、文件名)。
 	 * binary是文件的二进制
@@ -51,6 +60,9 @@ public class FileOperation {
 			fileOutputStream.write(binary, 0, binary.length);
 			fileOutputStream.flush();
 			fileOutputStream.close();
+			if (type.equals("image")) {
+				thumbnail(name);
+			}
 			return saveAddress + name;
 		} catch (Exception e) {
 			throw new FileOperationException();
@@ -58,8 +70,35 @@ public class FileOperation {
 	}
 
 	/**
+	 * 生成缩略图
+	 */
+	private static void thumbnail(String name) {
+		name = name.substring(name.lastIndexOf("/") + 1);
+		try {
+			File iniFile = new File(fileAddress + "image/" + name);
+			File rarFile = new File(fileAddress + "thumbnail/" + name);
+			if (!rarFile.getParentFile().exists()) {
+				rarFile.getParentFile().mkdirs();
+			}
+			BufferedImage bufferedImage = ImageIO.read(new FileInputStream(iniFile));
+			Integer girth = bufferedImage.getWidth() + bufferedImage.getHeight();
+			Double rarRatio = girth > 10000 ? 0.1 : 
+				girth > 8000 ? 0.2 :
+				girth > 6000 ? 0.3 : 
+				girth > 4000 ? 0.4 : 
+				girth > 2000 ? 0.5 : 0.8; // 计算压缩比
+			Thumbnails.of(iniFile)
+			.scale(rarRatio)
+			.outputQuality(0.5f)
+		    .toFile(rarFile);
+		} catch (Exception e) {
+			throw new FileOperationException();
+		}
+	}
+
+	/**
 	 * 生成文件名，随机文件名，根据时间
-	 * 
+	 *
 	 * @param args
 	 * @throws IOException
 	 */
@@ -73,6 +112,11 @@ public class FileOperation {
 		name = type.equals("article")? "article/" + name : name;
 		name = type.equals("user")? "user/" + name : name;
 		return name + fileName.substring(fileName.lastIndexOf("."),fileName.length());
+	}
+	
+	public static String getCacheAddress(String address) {
+		return saveAddress + "thumbnail/" +
+				address.substring(address.lastIndexOf("/") + 1);
 	}
 
 }
