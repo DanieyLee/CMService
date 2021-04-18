@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Col, Row } from 'reactstrap';
 import { connect } from 'react-redux';
 import { Translate, translate, openFile, setFileData, byteSize } from 'react-jhipster';
@@ -15,6 +15,8 @@ import { Link } from 'react-router-dom';
 export interface IUserSettingsProps extends StateProps, DispatchProps {}
 
 export const SettingsPage = (props: IUserSettingsProps) => {
+  const [image, setImage] = useState(null);
+
   useEffect(() => {
     props.getSession();
     props.getUserEntity(props.account.id);
@@ -41,15 +43,41 @@ export const SettingsPage = (props: IUserSettingsProps) => {
     }, 1000);
   }
 
+  const compress = file => { // 压缩
+    const img = document.createElement('img');
+    const cvs = document.createElement('canvas');
+    const setSize = 320; // 压缩的大小
+    const reader = new FileReader();
+    reader.readAsDataURL(file);     //  转成 base64 编码
+    reader.onload = function (e) {
+      const naturalBase64 = e.target.result.toString();    //  获取 base64 编码，这是原图的
+      img.src = naturalBase64;
+      img.onload = function () {
+        cvs.width = setSize;
+        cvs.height = setSize;
+        const size = img.naturalWidth > img.naturalHeight ? img.naturalHeight : img.naturalWidth; // 裁剪的尺寸
+        const drawX = img.naturalWidth > img.naturalHeight ? (img.naturalWidth - size) / 2  : 0;
+        const drawY = img.naturalHeight > img.naturalWidth ? (img.naturalHeight - size) / 2 : 0;
+        const ctx = cvs.getContext('2d');
+        ctx.drawImage(img,drawX,drawY,size, size, 0, 0, setSize,setSize);    //  画在 canvas 上
+        const base64 = cvs.toDataURL(); // 压缩后新图的 base64
+        setImage(base64.substr(base64.indexOf(",") + 1)); // 压缩后的下镖加1
+      }
+    }
+  }
+
   const onBlobChange = (isAnImage, name) => event => {
-    props.account.imgName = event.target.files[0].name;
+    const file = event.target.files[0];
+    props.account.imgName = file.name;
     props.account.imgSwitch = true;
+    compress(file);
     setFileData(event, (contentType, data) => props.setBlob(name, data, contentType), isAnImage);
   };
 
   const clearBlob = name => () => {
     props.account.imgName = undefined;
     props.account.imgSwitch = false;
+    setImage(null);
     props.setBlob(name, undefined, undefined);
   };
 
@@ -60,7 +88,7 @@ export const SettingsPage = (props: IUserSettingsProps) => {
   }, [props.updateSuccess]);
 
   const handleValidSubmit = (event, values) => {
-    countDown("settings-form-submit", 60);
+    countDown("settings-form-submit", 30);
     const account = {
       ...props.account,
       ...values,
@@ -83,7 +111,7 @@ export const SettingsPage = (props: IUserSettingsProps) => {
           <Col md="4">
             <div className="content-account-settings-portrait">
               {props.account.imgSwitch ? (
-                <img src={`data:${userLinkEntity.imageContentType};base64,${userLinkEntity.image}`} />
+                <img src={`data:${userLinkEntity.imageContentType};base64,${image}`} />
               ) : <img src={props.account.imageUrl} alt="imageURL"/>}
               <div className="content-account-settings-portrait-select">
                 <div>
@@ -97,7 +125,7 @@ export const SettingsPage = (props: IUserSettingsProps) => {
                 <FontAwesomeIcon icon="times-circle" />
               </Button>
             ):null}
-            <AvField type="hidden" name="image" value={userLinkEntity.image} />
+            <AvField type="hidden" name="image" value={image} />
           </Col>
           <Col md="8">
             <AvField

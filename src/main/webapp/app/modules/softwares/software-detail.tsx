@@ -42,15 +42,15 @@ export const SoftwareDetail = (props: ISoftwareDetailProps) => {
           <Row className="content-software-details-system">
             <Col md="4">
               <Translate contentKey="cmServiceApp.software.applySystem">Apply System</Translate>
-              {softwareEntity.applySystem}
+              ：{softwareEntity.applySystem}
             </Col>
             <Col md="4">
               <Translate contentKey="cmServiceApp.software.version">Version</Translate>
-              {softwareEntity.version}
+              ：{softwareEntity.version}
             </Col>
             <Col md="4">
               <Translate contentKey="cmServiceApp.software.size">Size</Translate>
-              {softwareEntity.size}
+              ：{softwareEntity.size}
             </Col>
           </Row>
           <Col md="12" className="content-software-details-download">

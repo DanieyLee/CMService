@@ -140,8 +140,13 @@ body {
           right: 0;
           top: 0;
           overflow: hidden;
+          text-align: center;
           img {
-            width: 100%;
+            position: absolute;
+            left: -50%;
+            right: -50%;
+            height: 100%;
+            margin: 0 auto;
           }
         }
         .nav-item .align-items-center {
@@ -1913,8 +1918,13 @@ body {
           border-radius: 50%;
           position: relative;
           overflow: hidden;
+          text-align: center;
           img {
-            width: 100%;
+            position: absolute;
+            left: -50%;
+            right: -50%;
+            height: 100%;
+            margin: 0 auto;
           }
           .content-account-settings-portrait-select { // 主体-按钮区
             position: absolute;
@@ -2246,6 +2256,18 @@ body {
       }
       .row {
         margin: 0;
+        .form-check {
+          padding: 0;
+          float: left;
+          .form-check-input {
+            width: 18px;
+            height: 18px;
+            margin: 3px 0 0 0;
+          }
+          span {
+            margin-left: 26px;
+          }
+        }
         .col-md-1 {
           padding: 0 10px;
         }
