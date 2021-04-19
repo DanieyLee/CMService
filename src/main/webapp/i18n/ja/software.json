@@ -61,8 +61,8 @@
         "false": "非表示"
       },
       "getAllow": {
-        "true": "許可する",
-        "false": "許可しない"
+        "true": "許可",
+        "false": "禁止"
       },
       "getState": {
         "true": "上",

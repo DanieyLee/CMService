@@ -14,7 +14,7 @@
         "question": "你确定要删除 Article Enclosure {{ id }} 吗？"
       },
       "detail": {
-        "title": "Article Enclosure"
+        "title": "文章附件库"
       },
       "enclosureURL": "Enclosure URL",
       "enclosureType": "Enclosure Type",
@@ -23,7 +23,9 @@
       "updateUser": "Update User",
       "updateTime": "Update Time",
       "note": "Note",
-      "article": "Article"
+      "article": "Article",
+      "upload": "上传附件",
+      "close": "关闭"
     }
   }
 }

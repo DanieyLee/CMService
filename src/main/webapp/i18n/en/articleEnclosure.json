@@ -14,7 +14,7 @@
         "question": "Are you sure you want to delete Article Enclosure {{ id }}?"
       },
       "detail": {
-        "title": "Article Enclosure"
+        "title": "Article Enclosure Library"
       },
       "enclosureURL": "Enclosure URL",
       "enclosureType": "Enclosure Type",
@@ -23,7 +23,9 @@
       "updateUser": "Update User",
       "updateTime": "Update Time",
       "note": "Note",
-      "article": "Article"
+      "article": "Article",
+      "upload": "Upload",
+      "close": "Close"
     }
   }
 }

@@ -14,7 +14,7 @@
         "question": "Article Enclosure {{ id }}を削除してもよろしいですか？"
       },
       "detail": {
-        "title": "Article Enclosure"
+        "title": "記事の添付ファイル"
       },
       "enclosureURL": "Enclosure URL",
       "enclosureType": "Enclosure Type",
@@ -23,7 +23,9 @@
       "updateUser": "Update User",
       "updateTime": "Update Time",
       "note": "Note",
-      "article": "Article"
+      "article": "Article",
+      "upload": "追加",
+      "close": "閉じる"
     }
   }
 }

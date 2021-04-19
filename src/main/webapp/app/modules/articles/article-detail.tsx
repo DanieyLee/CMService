@@ -18,11 +18,27 @@ import ErrorBoundaryRoute from 'app/shared/error/error-boundary-route';
 export interface IArticleDetailProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
 export const ArticleDetail = (props: IArticleDetailProps) => {
+
   useEffect(() => {
     props.getPublicEntity(props.match.params.id);
   }, []);
 
+  const countDown = (name, time) => {
+    const button = document.getElementById(name) as HTMLButtonElement;
+    let num = time;
+    button.setAttribute("disabled","true");
+    const interval = setInterval(() => {
+      if (num > 1){
+        num--;
+      } else {
+        button.removeAttribute("disabled");
+        clearInterval(interval);
+      }
+    }, 1000);
+  }
+
   const likeValidSubmit = (event) => {
+    countDown("send-submit",10);
     props.likeEntity(props.match.params.id);
     event.preventDefault();
   };

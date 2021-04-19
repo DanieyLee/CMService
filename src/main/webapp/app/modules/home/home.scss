@@ -2053,6 +2053,21 @@ body {
       tbody td {
         border-top: 0;
         border-bottom: 1px solid $color-light-grey;
+        .btn {
+          width: 80px;
+          height: 30px;
+          padding: 3px 8px;
+        }
+        @media only screen and (max-width: 767px){
+          .btn {
+            svg {
+              display: none;
+            }
+            span {
+              display: block !important;
+            }
+          }
+        }
       }
     } // 内容区-用户管理
     .content-user-management-edit {
@@ -2101,6 +2116,21 @@ body {
       tbody td {
         border-top: 0;
         border-bottom: 1px solid $color-light-grey;
+        .btn {
+          width: 80px;
+          height: 30px;
+          padding: 3px 8px;
+        }
+        @media only screen and (max-width: 767px){
+          .btn {
+            svg {
+              display: none;
+            }
+            span {
+              display: block !important;
+            }
+          }
+        }
       }
     } // 内容区-用户附加信息
     .content-user-link-management-edit {
@@ -2149,6 +2179,21 @@ body {
       tbody td {
         border-top: 0;
         border-bottom: 1px solid $color-light-grey;
+        .btn {
+          width: 80px;
+          height: 30px;
+          padding: 3px 8px;
+        }
+        @media only screen and (max-width: 767px){
+          .btn {
+            svg {
+              display: none;
+            }
+            span {
+              display: block !important;
+            }
+          }
+        }
       }
     } // 内容区-后台文章管理
     .content-article-management-edit {
@@ -2177,12 +2222,6 @@ body {
             margin-left: 26px;
           }
         }
-        .btn {
-          width: 100px;
-          height: 35px;
-          padding: 5px;
-          margin-right: 20px;
-        }
         .col-md-1 {
           padding: 0 10px;
           .form-group{
@@ -2204,6 +2243,18 @@ body {
             background-color: $color-light-black;
             border-radius: 5px;
             margin: 0;
+          }
+          .btn {
+            width: 100px;
+            height: 35px;
+            padding: 5px;
+            margin-right: 20px;
+            margin-bottom: 12px;
+            margin-top: -5px;
+          }
+          .content-article-management-edit-enclosure {
+            width: auto;
+            padding: 5px 15px;
           }
         }
         .content-article-management-edit-warning {
@@ -2241,6 +2292,21 @@ body {
       tbody td {
         border-top: 0;
         border-bottom: 1px solid $color-light-grey;
+        .btn {
+          width: 80px;
+          height: 30px;
+          padding: 3px 8px;
+        }
+        @media only screen and (max-width: 767px){
+          .btn {
+            svg {
+              display: none;
+            }
+            span {
+              display: block !important;
+            }
+          }
+        }
       }
     } // 内容区-后台软件管理
     .content-software-management-edit {
@@ -2351,6 +2417,21 @@ body {
       tbody td {
         border-top: 0;
         border-bottom: 1px solid $color-light-grey;
+        .btn {
+          width: 80px;
+          height: 30px;
+          padding: 3px 8px;
+        }
+        @media only screen and (max-width: 767px){
+          .btn {
+            svg {
+              display: none;
+            }
+            span {
+              display: block !important;
+            }
+          }
+        }
       }
     } // 内容区-后台软件管理
     .content-wallpaper-management-edit {
@@ -2476,6 +2557,21 @@ body {
       tbody td {
         border-top: 0;
         border-bottom: 1px solid $color-light-grey;
+        .btn {
+          width: 80px;
+          height: 30px;
+          padding: 3px 8px;
+        }
+        @media only screen and (max-width: 767px){
+          .btn {
+            svg {
+              display: none;
+            }
+            span {
+              display: block !important;
+            }
+          }
+        }
       }
     } // 内容区-文章分类管理
     .content-article-type-management-edit {
@@ -2524,6 +2620,21 @@ body {
       tbody td {
         border-top: 0;
         border-bottom: 1px solid $color-light-grey;
+        .btn {
+          width: 80px;
+          height: 30px;
+          padding: 3px 8px;
+        }
+        @media only screen and (max-width: 767px){
+          .btn {
+            svg {
+              display: none;
+            }
+            span {
+              display: block !important;
+            }
+          }
+        }
       }
     } // 内容区-软件分类管理
     .content-software-type-management-edit {
@@ -2877,4 +2988,97 @@ body {
       }
     } // 尾部
   } // 内容区
+  .alert-article-enclosure {
+    max-width: none;
+    margin: 1.75rem;
+    .modal-content {
+      background-color: $color-dark-black;
+      border: 1px solid $color-dark-grey;
+      h5 {
+        color: $color-pure-white;
+      }
+      .close {
+        color: $color-pure-white;
+        opacity: 1;
+      }
+      .modal-header { // 文章附件库-头部
+        border-bottom: 1px solid $color-light-grey;
+      }
+      .modal-footer { // 文章附件库-尾部
+        border-top: 1px solid $color-light-grey;
+        .btn {
+          width: 100px;
+          height: 35px;
+          padding: 3px 8px;
+        }
+      }
+    }
+    .alert-article-enclosure-media {
+      width: 100%;
+      margin: 20px auto;
+      columns: 5;
+      column-gap: 20px;
+      img {
+        width: 100%;
+      }
+      video {
+        width: 100%;
+      }
+      audio {
+        width: 100%;
+      }
+      .alert-article-enclosure-media-num {
+        width: 100%;
+        break-inside: avoid;
+        margin-bottom: 20px;
+        border: 1px solid $color-dark-grey;
+        border-radius: 5px;
+        background-color: $color-light-black;
+        input {
+          width: 100%;
+          background-color: $color-light-grey;
+          border: 0;
+          height: 1px;
+          color: transparent;
+          padding: 0;
+        }
+        p {
+          line-height: 1.4rem;
+          color: $color-dirty-white;
+          word-wrap: break-word;
+          padding: 0 10px;
+          margin-bottom: 5px;
+        }
+        .btn {
+          width: 90px;
+          height: 35px;
+          padding: 3px 8px;
+          margin: 10px;
+        }
+        .btn:last-child {
+          float: right;
+        }
+      }
+    }
+    @media only screen and (max-width: 1600px){
+      .alert-article-enclosure-media{
+        columns: 4;
+      }
+    }
+    @media only screen and (max-width: 1200px){
+      .alert-article-enclosure-media{
+        columns: 3;
+      }
+    }
+    @media only screen and (max-width: 888px){
+      .alert-article-enclosure-media{
+        columns: 2;
+      }
+    }
+    @media only screen and (max-width: 575px){
+      .alert-article-enclosure-media{
+        columns: 1;
+      }
+    }
+  } // 弹窗-文章附件库
 }

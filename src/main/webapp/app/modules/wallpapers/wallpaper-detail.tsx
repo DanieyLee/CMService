@@ -28,7 +28,22 @@ export const WallpaperDetail = (props: IWallpaperDetailProps) => {
     props.getNearEntity(id, turn);
   }
 
+  const countDown = (name, time) => {
+    const button = document.getElementById(name) as HTMLButtonElement;
+    let num = time;
+    button.setAttribute("disabled","true");
+    const interval = setInterval(() => {
+      if (num > 1){
+        num--;
+      } else {
+        button.removeAttribute("disabled");
+        clearInterval(interval);
+      }
+    }, 1000);
+  }
+
   const likeValidSubmit = (event) => {
+    countDown("send-submit",3);
     props.likeEntity(props.wallpaperEntity.id);
     event.preventDefault();
   };

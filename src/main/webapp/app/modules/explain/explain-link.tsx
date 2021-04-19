@@ -15,6 +15,7 @@ export const ExplainLink = (props: IExplainProp) => {
     (document.getElementById("email") as HTMLInputElement).select();
     document.execCommand("Copy");
     toast.success(translate('explain.copy.success'));
+    window.getSelection().empty()
   }
 
   return (

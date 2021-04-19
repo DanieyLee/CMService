@@ -12,6 +12,7 @@ import 'braft-editor/dist/index.css'
 import { getEntities as getArticleTypes } from 'app/entities/article-type/article-type.reducer';
 import { getEntities as getUserLinks } from 'app/entities/user-link/user-link.reducer';
 import { getEntity, updateUserEntity, createUserEntity, updateArticleFile, setBlob, reset } from 'app/entities/article/article.reducer';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export interface IArticleManagementUpdateProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
@@ -22,7 +23,7 @@ export const ArticleManagementUpdate = (props: IArticleManagementUpdateProps) =>
   const [editorState, setEditorState] = useState(BraftEditor.createEditorState(null));
   const [warning, setWarning] = useState(true);
 
-  const { articleEntity, articleTypes, userLinks, loading, updating } = props;
+  const { articleEntity, articleTypes, userLinks, loading, updating, match } = props;
 
   const handleClose = () => {
     props.history.push('/system/article-management' + props.location.search);
@@ -178,6 +179,13 @@ export const ArticleManagementUpdate = (props: IArticleManagementUpdateProps) =>
                   }}
                 />
               </AvGroup>
+            </Col>
+            <Col md="12">
+              <Button className="content-article-management-edit-enclosure" tag={Link} to={`${match.url}/enclosure`} color="success" size="sm">
+                  <span className="d-none d-md-inline">
+                    <Translate contentKey="cmServiceApp.articleEnclosure.detail.title">Title</Translate>
+                  </span>
+              </Button>
             </Col>
             <Col md="12">
               <BraftEditor

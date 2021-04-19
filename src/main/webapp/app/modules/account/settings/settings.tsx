@@ -29,7 +29,7 @@ export const SettingsPage = (props: IUserSettingsProps) => {
     const button = document.getElementById(name) as HTMLButtonElement;
     const text = button.innerHTML;
     let num = time;
-    button.setAttribute("disabled","false");
+    button.setAttribute("disabled","true");
     button.innerHTML = num.toString();
     const interval = setInterval(() => {
       if (num > 1){

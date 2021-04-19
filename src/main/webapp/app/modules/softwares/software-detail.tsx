@@ -19,12 +19,28 @@ export const SoftwareDetail = (props: ISoftwareDetailProps) => {
     props.getPublicEntity(props.match.params.id);
   }, []);
 
+  const countDown = (name, time) => {
+    const button = document.getElementById(name) as HTMLButtonElement;
+    let num = time;
+    button.setAttribute("disabled","true");
+    const interval = setInterval(() => {
+      if (num > 1){
+        num--;
+      } else {
+        button.removeAttribute("disabled");
+        clearInterval(interval);
+      }
+    }, 1000);
+  }
+
   const downloadFile = (event) => {
+    countDown("software-download",10);
     props.downloadEntity(props.match.params.id);
     event.preventDefault();
   }
 
   const likeValidSubmit = (event) => {
+    countDown("send-submit",10);
     props.likeEntity(props.match.params.id);
     event.preventDefault();
   };
@@ -54,10 +70,12 @@ export const SoftwareDetail = (props: ISoftwareDetailProps) => {
             </Col>
           </Row>
           <Col md="12" className="content-software-details-download">
-            <Button className={softwareEntity.allow ? "" : "content-software-details-title-no-allow"} onClick={downloadFile} >
-              <Translate contentKey="cmServiceApp.software.clickDownload">Click Download</Translate>
-            </Button>
-            <span>({softwareEntity.downloadNumber})</span>
+            <AvForm id="send-form" onValidSubmit={downloadFile}>
+              <Button id="software-download" className={softwareEntity.allow ? "" : "content-software-details-title-no-allow"} type="submit">
+                <Translate contentKey="cmServiceApp.software.clickDownload">Click Download</Translate>
+              </Button>
+              <span>({softwareEntity.downloadNumber})</span>
+            </AvForm>
           </Col>
         </Col>
         <Col md="4" className="content-software-details-ico">
