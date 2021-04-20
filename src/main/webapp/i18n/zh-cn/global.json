@@ -1,14 +1,14 @@
 {
   "global": {
-    "title": "尤艾",
+    "title": "YuoAI",
     "browsehappy": "您目前使用<strong>过于老旧</strong>的浏览器, 建议您<a href=\"http://browsehappy.com/?locale=en\">升级浏览器</a>让您有更佳的上网体验.",
     "menu": {
       "home": "首页",
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "articles": "分享",
-      "softwares": "文件下载",
-      "pictures": "美图",
-      "code-boxs": "密码盒子",
+      "softwares": "软件",
+      "wallpapers": "美图",
+      "key-boxs": "密码盒子",
       "entities": {
         "main": "实体",
         "userLink": "用户扩展信息",
@@ -23,6 +23,7 @@
         "wallpaper": "壁纸",
         "systemImage": "系统图片",
         "keyBox": "钥匙盒子",
+        "phone": "手机验证码",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
@@ -31,19 +32,27 @@
         "password": "修改密码",
         "sessions": "会话",
         "login": "登录",
-        "logout": "退出",
+        "logout": "退出登录",
         "register": "注册"
       },
       "admin": {
         "main": "管理",
+        "system": "系统",
         "userManagement": "用户管理",
+        "userLinkManagement": "用户附加信息",
+        "articleManagement": "文章管理",
+        "softwareManagement": "软件管理",
+        "wallpaperManagement": "壁纸管理",
+        "smsRecord": "短信历史记录",
+        "articleTypeManagement": "文章类型管理",
+        "softwareTypeManagement": "软件类型管理",
         "tracker": "追踪使用者",
         "metrics": "资源监控",
         "health": "服务状态",
         "configuration": "配置",
         "logs": "日志",
         "audits": "审核",
-        "apidocs": "API",
+        "apidocs": "接口测试",
         "database": "数据库",
         "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
       },
@@ -52,12 +61,16 @@
     "form": {
       "username.label": "账号",
       "username.placeholder": "您的账号",
+      "code.label": "验证码",
+      "code.placeholder": "收到的验证码",
       "currentpassword.label": "当前密码",
       "currentpassword.placeholder": "您的当前密码",
       "newpassword.label": "新密码",
       "newpassword.placeholder": "您的新密码",
       "confirmpassword.label": "新密码确认",
       "confirmpassword.placeholder": "确认您的新密码",
+      "phone.label": "手机号码",
+      "phone.placeholder": "您的手机号码",
       "email.label": "电子邮件",
       "email.placeholder": "您的电子邮件"
     },
@@ -69,7 +82,7 @@
         },
         "register": {
           "noaccount": "如果你还没有账号，点击",
-          "link": "注册账户"
+          "link": "注册"
         }
       },
       "error": {
@@ -86,6 +99,18 @@
           "required": "您的确认密码是必填项.",
           "minlength": "您的确认密码长度至少要有4个字符",
           "maxlength": "您的确认密码长度不能超过50个字符"
+        },
+        "phone": {
+          "required": "您的手机号码是必填项.",
+          "invalid": "您的手机号码格式不正确.",
+          "minlength": "您的手机号码长度至少要有8个字符",
+          "maxlength": "您的手机号码长度不能超过11个字符"
+        },
+        "code": {
+          "required": "验证码是必填项.",
+          "invalid": "验证码格式不正确.",
+          "minlength": "验证码长度至少要有6个字符",
+          "maxlength": "验证码长度不能超过6个字符"
         },
         "email": {
           "required": "您的电子邮件是必填项.",
@@ -136,13 +161,19 @@
     }
   },
   "error": {
-    "internalServerError": "Internal server error",
+    "internalServerError": "内部服务器错误",
     "server.not.reachable": "服务器无法访问",
-    "url.not.found": "Not found",
-    "NotNull": "域 {{fieldName}} 不能为空!",
-    "Size": "域 {{fieldName}} 不满足最大/最小值限制!",
+    "url.not.found": "找不到你要的",
+    "NotNull": "{{ fieldName }} 不能为空!",
+    "Size": "{{ fieldName }} 长度错误!",
+    "nofindexists": "找不到你要删除的",
     "userexists": "该用户名已存在!",
+    "userphoneexists": "手机号码错误!",
+    "phoneexists": "验证码错误!",
+    "fileexists": "文件上传错误!",
+    "phonecodeexists": "验证码24小时内有效，请勿重复发送!",
     "emailexists": "该邮箱已被使用!",
+    "imageexists": "没有更多壁纸了",
     "idexists": "新建的 {{entityName}} 不能包含ID",
     "idnull": "Invalid ID",
     "file": {
@@ -151,12 +182,11 @@
     }
   },
   "footer": {
-    "statement": "免责声明：",
-    "statement.one": "尤艾网所发布的文章、信息、图片、软件等来源于互联网，由尤艾网所整理发表，并不意味着我赞同其观点或证实其内容的真实性以及用于违法用途。",
-    "statement.two": "尤艾网希望能传递更多的信息，学习更多的内容，如有设计、版权等问题，请立即联系lixin520gj@163.com，我会更改或删除相关文章，保证您的权利，谢谢。",
+    "statement.one": "YuoAI网所发布的文章、信息、图片、软件等来源于互联网，由YuoAI网所整理发表，并不意味着我赞同其观点或证实其内容的真实性以及用于违法用途。",
+    "statement.two": "YuoAI网希望能传递更多的信息，学习更多的内容，如有设计、版权等问题，请立即联系lixin520gj@163.com，我会更改或删除相关文章，保证您的权利，谢谢。",
     "down.cloud": "Yuoai.com 空间 & 使用腾讯云服务",
     "down.icp": "Copyright © 2020 Yuoai.com | 粤ICP备 2020135022号-1",
-    "down.copyright": "粤公网安备 44030502002265号",
+    "down.copyright": "粤公网安备 ??????????????号",
     "share": "分享",
     "hot.articles": "热推排行榜",
     "new.articles": "最近发布",
@@ -166,8 +196,8 @@
     "stars.software": "星标",
     "explain": "说明",
     "about": "关于",
-    "contact": "联系我",
-    "help": "帮助",
-    "copyright": "版权声明"
+    "link": "联系我",
+    "hide": "隐私",
+    "copy": "版权声明"
   }
 }

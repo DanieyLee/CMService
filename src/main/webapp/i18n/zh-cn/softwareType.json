@@ -2,26 +2,26 @@
   "cmServiceApp": {
     "softwareType": {
       "home": {
-        "title": "Software Types",
-        "createLabel": "创建新 Software Type",
-        "createOrEditLabel": "创建或编辑 Software Type",
-        "notFound": "No Software Types found"
+        "title": "软件分类",
+        "createLabel": "创建新的软件分类",
+        "createOrEditLabel": "创建或编辑软件分类",
+        "notFound": "没有找到软件分类"
       },
-      "created": "Software Type {{ param }} 创建成功",
-      "updated": "Software Type {{ param }} 更新成功",
-      "deleted": "Software Type {{ param }} 删除成功",
+      "created": "软件分类 {{ param }} 创建成功",
+      "updated": "软件分类 {{ param }} 更新成功",
+      "deleted": "软件分类 {{ param }} 删除成功",
       "delete": {
-        "question": "你确定要删除 Software Type {{ id }} 吗？"
+        "question": "你确定要删除软件分类 {{ id }} 吗？"
       },
       "detail": {
-        "title": "Software Type"
+        "title": "软件分类"
       },
-      "type": "Type",
-      "createUser": "Create User",
-      "creatTime": "Creat Time",
-      "updateUser": "Update User",
-      "updateTime": "Update Time",
-      "note": "Note"
+      "type": "类型",
+      "createUser": "创建者",
+      "creatTime": "创建时间",
+      "updateUser": "最后修改者",
+      "updateTime": "最后修改时间",
+      "note": "备注"
     }
   }
 }

@@ -1,113 +1,87 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Link, RouteComponentProps } from 'react-router-dom';
-import { Button, Row, Col } from 'reactstrap';
-import { Translate, ICrudGetAction, byteSize, TextFormat } from 'react-jhipster';
+import { RouteComponentProps } from 'react-router-dom';
+import { AvForm } from 'availity-reactstrap-validation';
+import { Row, Col, Button } from 'reactstrap';
+import {
+  Translate,
+  TextFormat
+} from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { IRootState } from 'app/shared/reducers';
-import { getPublicEntity } from 'app/entities/article/article.reducer';
-import { IArticle } from 'app/shared/model/article.model';
-import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
+import { getPublicEntity, likeEntity } from 'app/entities/article/article.reducer';
+import { APP_DATE_FORMAT_SIMPLE_ZH_CN, APP_DATE_FORMAT_SIMPLE_ZH } from 'app/config/constants';
+import ArticleComment from './article-comment';
+import ErrorBoundaryRoute from 'app/shared/error/error-boundary-route';
 
 export interface IArticleDetailProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
 export const ArticleDetail = (props: IArticleDetailProps) => {
+
   useEffect(() => {
     props.getPublicEntity(props.match.params.id);
   }, []);
 
+  const countDown = (name, time) => {
+    const button = document.getElementById(name) as HTMLButtonElement;
+    let num = time;
+    button.setAttribute("disabled","true");
+    const interval = setInterval(() => {
+      if (num > 1){
+        num--;
+      } else {
+        button.removeAttribute("disabled");
+        clearInterval(interval);
+      }
+    }, 1000);
+  }
+
+  const likeValidSubmit = (event) => {
+    countDown("send-submit",10);
+    props.likeEntity(props.match.params.id);
+    event.preventDefault();
+  };
+
   const { articleEntity } = props;
   return (
-    <Row>
-      <Col md="8">
-        <h2>
-          <Translate contentKey="cmServiceApp.article.detail.title">Article</Translate> [<b>{articleEntity.id}</b>]
-        </h2>
-        <dl className="jh-entity-details">
-          <dt>
-            <span id="title">
-              <Translate contentKey="cmServiceApp.article.title">Title</Translate>
-            </span>
-          </dt>
-          <dd>{articleEntity.title}</dd>
-          <dt>
-            <span id="author">
-              <Translate contentKey="cmServiceApp.article.author">Author</Translate>
-            </span>
-          </dt>
-          <dd>{articleEntity.author}</dd>
-          <dt>
-            <span id="content">
-              <Translate contentKey="cmServiceApp.article.content">Content</Translate>
-            </span>
-          </dt>
-          <dd>{articleEntity.content}</dd>
-          <dt>
-            <span id="views">
-              <Translate contentKey="cmServiceApp.article.views">Views</Translate>
-            </span>
-          </dt>
-          <dd>{articleEntity.views}</dd>
-          <dt>
-            <span id="likeNumber">
-              <Translate contentKey="cmServiceApp.article.likeNumber">Like Number</Translate>
-            </span>
-          </dt>
-          <dd>{articleEntity.likeNumber}</dd>
-          <dt>
-            <span id="state">
-              <Translate contentKey="cmServiceApp.article.state">State</Translate>
-            </span>
-          </dt>
-          <dd>{articleEntity.state ? 'true' : 'false'}</dd>
-          <dt>
-            <span id="createUser">
-              <Translate contentKey="cmServiceApp.article.createUser">Create User</Translate>
-            </span>
-          </dt>
-          <dd>{articleEntity.createUser}</dd>
-          <dt>
-            <span id="creatTime">
-              <Translate contentKey="cmServiceApp.article.creatTime">Creat Time</Translate>
-            </span>
-          </dt>
-          <dd>{articleEntity.creatTime ? <TextFormat value={articleEntity.creatTime} type="date" format={APP_DATE_FORMAT} /> : null}</dd>
-          <dt>
-            <span id="updateUser">
-              <Translate contentKey="cmServiceApp.article.updateUser">Update User</Translate>
-            </span>
-          </dt>
-          <dd>{articleEntity.updateUser}</dd>
-          <dt>
-            <span id="updateTime">
-              <Translate contentKey="cmServiceApp.article.updateTime">Update Time</Translate>
-            </span>
-          </dt>
-          <dd>{articleEntity.updateTime ? <TextFormat value={articleEntity.updateTime} type="date" format={APP_DATE_FORMAT} /> : null}</dd>
-          <dt>
-            <span id="note">
-              <Translate contentKey="cmServiceApp.article.note">Note</Translate>
-            </span>
-          </dt>
-          <dd>{articleEntity.note}</dd>
-          <dt>
-            <Translate contentKey="cmServiceApp.article.articleType">Article Type</Translate>
-          </dt>
-          <dd>{articleEntity.articleTypeType ? articleEntity.articleTypeType : ''}</dd>
-          <dt>
-            <Translate contentKey="cmServiceApp.article.userLink">User Link</Translate>
-          </dt>
-          <dd>{articleEntity.userLinkFirstName ? articleEntity.userLinkFirstName : ''}</dd>
-        </dl>
-        <Button tag={Link} to="/articles" replace color="info">
-          <FontAwesomeIcon icon="arrow-left" />{' '}
-          <span className="d-none d-md-inline">
-            <Translate contentKey="entity.action.back">Back</Translate>
-          </span>
-        </Button>
-      </Col>
-    </Row>
+    <div className="content-article-item">
+      <h1 className="content-article-item-h1">
+        <span>{articleEntity.articleTypeType}</span>
+        <p>{articleEntity.title}</p>
+      </h1>
+      <h2 className="content-article-item-h2">
+        <TextFormat value={articleEntity.creatTime} type="date" format={APP_DATE_FORMAT_SIMPLE_ZH} />
+        <img src="content/images/author.svg" alt="author" />
+        <p>{articleEntity.author}</p>
+      </h2>
+      <div dangerouslySetInnerHTML = {{ __html: articleEntity.content }} />
+      <hr className="content-article-item-hr"/>
+      <Row>
+        <Col md="9">
+          <Translate contentKey="cmServiceApp.article.modify.title" interpolate={{ name: articleEntity.updateUser,time:'' }} />
+          <TextFormat value={articleEntity.updateTime} type="date" format={APP_DATE_FORMAT_SIMPLE_ZH_CN} />
+          <Translate contentKey="cmServiceApp.article.modify.tail">tail</Translate>
+        </Col>
+        <Col md="3">
+          <FontAwesomeIcon icon={'eye'} />
+          <span>{articleEntity.views > 1000 ? articleEntity.views.toString().substring(0,articleEntity.views.toString().length-3) + "k" : articleEntity.views}</span>
+          <FontAwesomeIcon icon={'heart'} />
+          <span>{articleEntity.likeNumber > 1000? articleEntity.likeNumber.toString().substring(0,articleEntity.likeNumber.toString().length-3) + "k" : articleEntity.likeNumber}</span>
+        </Col>
+        <Col md="12" >
+          <div>{articleEntity.note}</div>
+        </Col>
+        <AvForm id="send-form" onValidSubmit={likeValidSubmit}>
+          <Button id="send-submit" color="primary" type="submit">
+            <img src="content/images/like.svg" alt="like" />
+            <Translate contentKey="cmServiceApp.wallpaper.like">Like</Translate>
+          </Button>
+        </AvForm>
+      </Row>
+      <hr className="content-article-item-hr"/>
+      <ErrorBoundaryRoute path={`/articles/detail/:id`} component={ArticleComment} />
+    </div>
   );
 };
 
@@ -115,7 +89,10 @@ const mapStateToProps = ({ article }: IRootState) => ({
   articleEntity: article.entity,
 });
 
-const mapDispatchToProps = { getPublicEntity };
+const mapDispatchToProps = {
+  getPublicEntity,
+  likeEntity,
+};
 
 type StateProps = ReturnType<typeof mapStateToProps>;
 type DispatchProps = typeof mapDispatchToProps;

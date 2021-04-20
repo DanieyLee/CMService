@@ -1,0 +1,31 @@
+{
+  "cmServiceApp": {
+    "articleEnclosure": {
+      "home": {
+        "title": "articleEnclosures",
+        "createLabel": "Article Enclosure を追加",
+        "createOrEditLabel": "Article Enclosureを追加または編集",
+        "notFound": "No Article Enclosures found"
+      },
+      "created": "A new Article Enclosure is created with identifier {{ param }}",
+      "updated": "A Article Enclosure is updated with identifier {{ param }}",
+      "deleted": "A Article Enclosure is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Article Enclosure {{ id }}を削除してもよろしいですか？"
+      },
+      "detail": {
+        "title": "記事の添付ファイル"
+      },
+      "enclosureURL": "Enclosure URL",
+      "enclosureType": "Enclosure Type",
+      "createUser": "Create User",
+      "creatTime": "Creat Time",
+      "updateUser": "Update User",
+      "updateTime": "Update Time",
+      "note": "Note",
+      "article": "Article",
+      "upload": "追加",
+      "close": "閉じる"
+    }
+  }
+}

@@ -14,7 +14,5 @@ import org.springframework.stereotype.Repository;
 @SuppressWarnings("unused")
 @Repository
 public interface UserLinkRepository extends JpaRepository<UserLink, Long> {
-	
 	Optional<UserLink> findOneByUserId(Long userId);
-	
 }

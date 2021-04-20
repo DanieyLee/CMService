@@ -28,7 +28,6 @@ public interface WallpaperService {
      */
     Page<WallpaperDTO> findAll(Pageable pageable);
 
-
     /**
      * Get the "id" wallpaper.
      *

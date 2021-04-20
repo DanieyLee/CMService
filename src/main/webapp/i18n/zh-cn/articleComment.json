@@ -5,7 +5,7 @@
         "title": "Article Comments",
         "createLabel": "创建新 Article Comment",
         "createOrEditLabel": "创建或编辑 Article Comment",
-        "notFound": "No Article Comments found"
+        "notFound": "暂时没有评论信息！"
       },
       "created": "Article Comment {{ param }} 创建成功",
       "updated": "Article Comment {{ param }} 更新成功",
@@ -23,7 +23,12 @@
       "updateTime": "Update Time",
       "note": "Note",
       "article": "Article",
-      "userLink": "User Link"
+      "userLink": "User Link",
+      "sendComment": "发表评论",
+      "explain": "要发表评论，您必须先",
+      "login": "登录",
+      "send": "发送",
+      "lengthError": "内容长度错误"
     }
   }
 }

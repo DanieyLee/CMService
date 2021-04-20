@@ -125,12 +125,37 @@ export const getEntity: ICrudGetAction<IKeyBox> = id => {
   };
 };
 
+export const showHideEntity: ICrudGetAction<IKeyBox> = id => {
+  const requestUrl = `api/key-boxes/show-hide/${id}`;
+  return {
+    type: ACTION_TYPES.FETCH_KEYBOX,
+    payload: axios.get<IKeyBox>(requestUrl),
+  };
+};
+
 export const createEntity: ICrudPutAction<IKeyBox> = entity => async dispatch => {
   const result = await dispatch({
     type: ACTION_TYPES.CREATE_KEYBOX,
     payload: axios.post(apiUrl, cleanEntity(entity)),
   });
   dispatch(getEntities());
+  return result;
+};
+
+export const createUserEntity: ICrudPutAction<IKeyBox> = entity => async dispatch => {
+  const result = await dispatch({
+    type: ACTION_TYPES.CREATE_KEYBOX,
+    payload: axios.post(`${apiUrl}/create`, cleanEntity(entity)),
+  });
+  dispatch(getEntities());
+  return result;
+};
+
+export const updateUserEntity: ICrudPutAction<IKeyBox> = entity => async dispatch => {
+  const result = await dispatch({
+    type: ACTION_TYPES.UPDATE_KEYBOX,
+    payload: axios.put(`${apiUrl}/update`, cleanEntity(entity)),
+  });
   return result;
 };
 
@@ -144,6 +169,16 @@ export const updateEntity: ICrudPutAction<IKeyBox> = entity => async dispatch =>
 
 export const deleteEntity: ICrudDeleteAction<IKeyBox> = id => async dispatch => {
   const requestUrl = `${apiUrl}/${id}`;
+  const result = await dispatch({
+    type: ACTION_TYPES.DELETE_KEYBOX,
+    payload: axios.delete(requestUrl),
+  });
+  dispatch(getEntities());
+  return result;
+};
+
+export const deleteUserEntity: ICrudDeleteAction<IKeyBox> = id => async dispatch => {
+  const requestUrl = `${apiUrl}/delete/${id}`;
   const result = await dispatch({
     type: ACTION_TYPES.DELETE_KEYBOX,
     payload: axios.delete(requestUrl),

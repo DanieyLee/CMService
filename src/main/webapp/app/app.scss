@@ -2,12 +2,8 @@
 // Import Bootstrap source files from node_modules
 @import 'node_modules/bootstrap/scss/bootstrap';
 body {
-  background: #212121;
+  background: #fafafa;
   margin: 0;
-}
-
-.table {
-  color: #fff;
 }
 
 a {
@@ -32,9 +28,9 @@ a {
     height: calc(100% - 40px);
     overflow-y: auto;
     overflow-x: hidden;
-    padding: 0;
+    padding: 1rem;
     .card {
-      padding: 1rem 2rem 3rem 2rem;
+      padding: 1rem;
     }
     .view-routes {
       height: 100%;
@@ -43,13 +39,6 @@ a {
       }
     }
   }
-}
-
-.jh-card {
-  background-color: #212121;
-  color: #ffffff;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 0;
 }
 
 .fullscreen {

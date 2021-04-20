@@ -19,6 +19,7 @@ export const ACTION_TYPES = {
   CREATE_USERLINK: 'userLink/CREATE_USERLINK',
   UPDATE_USERLINK: 'userLink/UPDATE_USERLINK',
   DELETE_USERLINK: 'userLink/DELETE_USERLINK',
+  SET_BLOB: 'userLink/SET_BLOB',
   RESET: 'userLink/RESET',
 };
 
@@ -100,6 +101,17 @@ export default (state: UserLinkState = initialState, action): UserLinkState => {
         updateSuccess: true,
         entity: {},
       };
+    case ACTION_TYPES.SET_BLOB: {
+      const { name, data, contentType } = action.payload;
+      return {
+        ...state,
+        entity: {
+          ...state.entity,
+          [name]: data,
+          [name + 'ContentType']: contentType,
+        },
+      };
+    }
     case ACTION_TYPES.RESET:
       return {
         ...initialState,
@@ -129,10 +141,26 @@ export const getEntity: ICrudGetAction<IUserLink> = id => {
   };
 };
 
+export const getUserEntity: ICrudGetAction<IUserLink> = id => {
+  const requestUrl = `${apiUrl}/user-id/${id}`;
+  return {
+    type: ACTION_TYPES.FETCH_USERLINK,
+    payload: axios.get<IUserLink>(requestUrl),
+  };
+};
+
 export const createEntity: ICrudPutAction<IUserLink> = entity => async dispatch => {
   const result = await dispatch({
     type: ACTION_TYPES.CREATE_USERLINK,
     payload: axios.post(apiUrl, cleanEntity(entity)),
+  });
+  return result;
+};
+
+export const updateUserEntity: ICrudPutAction<IUserLink> = entity => async dispatch => {
+  const result = await dispatch({
+    type: ACTION_TYPES.UPDATE_USERLINK,
+    payload: axios.put(`${apiUrl}/update`, cleanEntity(entity)),
   });
   return result;
 };
@@ -153,6 +181,15 @@ export const deleteEntity: ICrudDeleteAction<IUserLink> = id => async dispatch =
   });
   return result;
 };
+
+export const setBlob = (name, data, contentType?) => ({
+  type: ACTION_TYPES.SET_BLOB,
+  payload: {
+    name,
+    data,
+    contentType,
+  },
+});
 
 export const reset = () => ({
   type: ACTION_TYPES.RESET,

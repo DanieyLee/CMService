@@ -10,6 +10,10 @@
       "created": "A new Article is created with identifier {{ param }}",
       "updated": "A Article is updated with identifier {{ param }}",
       "deleted": "A Article is deleted with identifier {{ param }}",
+      "modify": {
+        "title": "This content is provided by: {{ name }} to ",
+        "tail": " modify"
+      },
       "delete": {
         "question": "Are you sure you want to delete Article {{ id }}?"
       },
@@ -42,7 +46,12 @@
       "updateTime": "Update Time",
       "note": "Note",
       "articleType": "Article Type",
-      "userLink": "User Link"
+      "userLink": "User Link",
+      "warning": "Server resources are limited, please use the drawing bed and other external links to insert pictures.",
+      "getState": {
+        "true": "Upper",
+        "false": "Lower"
+      }
     }
   }
 }

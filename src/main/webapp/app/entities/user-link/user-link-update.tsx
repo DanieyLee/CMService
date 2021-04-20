@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IRootState } from 'app/shared/reducers';
 
 import { IUser } from 'app/shared/model/user.model';
-import { getUsers } from 'app/modules/administration/user-management/user-management.reducer';
+import { getUsers } from 'app/modules/system/user-management/user-management.reducer';
 import { getEntity, updateEntity, createEntity, reset } from './user-link.reducer';
 import { IUserLink } from 'app/shared/model/user-link.model';
 import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';

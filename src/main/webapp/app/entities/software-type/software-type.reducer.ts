@@ -121,6 +121,14 @@ export const getEntities: ICrudGetAllAction<ISoftwareType> = (page, size, sort) 
   };
 };
 
+export const getSoftwareTypeEntities: ICrudGetAllAction<ISoftwareType> = (page, size, sort) => {
+  const requestUrl = `api/public/software-types${sort ? `?page=${page}&size=${size}&sort=${sort}` : ''}`;
+  return {
+    type: ACTION_TYPES.FETCH_SOFTWARETYPE_LIST,
+    payload: axios.get<ISoftwareType>(`${requestUrl}${sort ? '&' : '?'}cacheBuster=${new Date().getTime()}`),
+  };
+};
+
 export const getEntity: ICrudGetAction<ISoftwareType> = id => {
   const requestUrl = `${apiUrl}/${id}`;
   return {
@@ -133,6 +141,22 @@ export const createEntity: ICrudPutAction<ISoftwareType> = entity => async dispa
   const result = await dispatch({
     type: ACTION_TYPES.CREATE_SOFTWARETYPE,
     payload: axios.post(apiUrl, cleanEntity(entity)),
+  });
+  return result;
+};
+
+export const createUserEntity: ICrudPutAction<ISoftwareType> = entity => async dispatch => {
+  const result = await dispatch({
+    type: ACTION_TYPES.CREATE_SOFTWARETYPE,
+    payload: axios.post(`${apiUrl}/create`, cleanEntity(entity)),
+  });
+  return result;
+};
+
+export const updateUserEntity: ICrudPutAction<ISoftwareType> = entity => async dispatch => {
+  const result = await dispatch({
+    type: ACTION_TYPES.UPDATE_SOFTWARETYPE,
+    payload: axios.put(`${apiUrl}/update`, cleanEntity(entity)),
   });
   return result;
 };

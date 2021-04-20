@@ -3,7 +3,7 @@
     "wallpaper": {
       "home": {
         "title": "壁纸",
-        "createLabel": "创建新壁纸",
+        "createLabel": "上传新壁纸",
         "createOrEditLabel": "创建或编辑壁纸",
         "notFound": "没有找到壁纸"
       },
@@ -21,7 +21,7 @@
         "content": {
           "one": "请勿用于",
           "two": "所有内容均来源于",
-          "three": "，由尤艾网所整理发表，",
+          "three": "，由YuoAI网所整理发表，",
           "four": "着我赞同其观点或证实其内容的真实性。"
         },
         "sign": {
@@ -43,7 +43,13 @@
       "updateUser": "修改者",
       "updateTime": "修改时间",
       "note": "备注",
-      "userLink": "所属用户"
+      "userLink": "所属用户",
+      "lastPage": "上一页",
+      "nextPage": "下一页",
+      "getState": {
+        "true": "已上架",
+        "false": "下架中"
+      }
     }
   }
 }

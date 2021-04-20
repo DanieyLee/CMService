@@ -3,8 +3,8 @@
     "software": {
       "home": {
         "title": "软件",
-        "createLabel": "创建新软件",
-        "createOrEditLabel": "创建或编辑软件",
+        "createLabel": "发布新软件",
+        "createOrEditLabel": "发布或修改软件",
         "notFound": "没有找到软件"
       },
       "created": "软件 {{ param }} 创建成功",
@@ -21,7 +21,7 @@
         "content": {
           "one": "请勿用于",
           "two": "所有内容均来源于",
-          "three": "，由尤艾网所整理发表，",
+          "three": "，由YuoAI网所整理发表，",
           "four": "着我赞同其观点或证实其内容的真实性。"
         },
         "sign": {
@@ -39,7 +39,7 @@
       "version": "版本",
       "applySystem": "适用系统",
       "show": "是否显示",
-      "allow": "是否允许下载",
+      "allow": "允许下载",
       "downloadUrl": "下载地址",
       "downloadNumber": "下载次数",
       "browseNumber": "浏览次数",
@@ -50,7 +50,24 @@
       "updateTime": "修改时间",
       "note": "备注",
       "softwareType": "软件类型",
-      "userLink": "所属用户"
+      "userLink": "所属用户",
+      "clickDownload" : "点击下载",
+      "getStars": {
+        "true": "加星",
+        "false": "默认"
+      },
+      "getShow": {
+        "true": "显示",
+        "false": "隐藏"
+      },
+      "getAllow": {
+        "true": "允许",
+        "false": "禁止"
+      },
+      "getState": {
+        "true": "已上架",
+        "false": "下架中"
+      }
     }
   }
 }

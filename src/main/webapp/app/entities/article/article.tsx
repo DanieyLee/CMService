@@ -144,7 +144,7 @@ export const Article = (props: IArticleProps) => {
                   </td>
                   <td>{article.title}</td>
                   <td>{article.author}</td>
-                  <td>{article.content}</td>
+                  <td>{article.content.length > 10 ? article.content.substr(0,10) : article.content}</td>
                   <td>{article.views}</td>
                   <td>{article.likeNumber}</td>
                   <td>{article.state ? 'true' : 'false'}</td>
@@ -152,7 +152,7 @@ export const Article = (props: IArticleProps) => {
                   <td>{article.creatTime ? <TextFormat type="date" value={article.creatTime} format={APP_DATE_FORMAT} /> : null}</td>
                   <td>{article.updateUser}</td>
                   <td>{article.updateTime ? <TextFormat type="date" value={article.updateTime} format={APP_DATE_FORMAT} /> : null}</td>
-                  <td>{article.note}</td>
+                  <td>{article.note ? article.note.length > 10 ? article.note.substr(0,10) : article.note : null}</td>
                   <td>
                     {article.articleTypeType ? <Link to={`article-type/${article.articleTypeId}`}>{article.articleTypeType}</Link> : ''}
                   </td>

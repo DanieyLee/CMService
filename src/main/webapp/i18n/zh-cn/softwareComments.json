@@ -5,7 +5,7 @@
         "title": "Software Comments",
         "createLabel": "创建新 Software Comments",
         "createOrEditLabel": "创建或编辑 Software Comments",
-        "notFound": "No Software Comments found"
+        "notFound": "暂时没有评论信息！"
       },
       "created": "Software Comments {{ param }} 创建成功",
       "updated": "Software Comments {{ param }} 更新成功",
@@ -24,7 +24,12 @@
       "updateTime": "Update Time",
       "note": "Note",
       "software": "Software",
-      "userLink": "User Link"
+      "userLink": "User Link",
+      "sendComment": "发表评论",
+      "explain": "要发表评论，您必须先",
+      "login": "登录",
+      "send": "发送",
+      "lengthError": "内容长度错误"
     }
   }
 }

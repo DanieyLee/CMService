@@ -1,10 +1,11 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { ICrudGetAction, ICrudGetAllAction, ICrudPutAction, ICrudDeleteAction } from 'react-jhipster';
 
 import { cleanEntity } from 'app/shared/util/entity-utils';
 import { REQUEST, SUCCESS, FAILURE } from 'app/shared/reducers/action-type.util';
 
 import { ISoftware, defaultValue } from 'app/shared/model/software.model';
+import { IArticle } from 'app/shared/model/article.model';
 
 export const ACTION_TYPES = {
   FETCH_SOFTWARE_LIST: 'software/FETCH_SOFTWARE_LIST',
@@ -121,11 +122,24 @@ export const getEntities: ICrudGetAllAction<ISoftware> = (page, size, sort) => {
   };
 };
 
-export const getPublicEntities: ICrudGetAllAction<ISoftware> = (page, size, sort) => {
-  const requestUrl = `api/public/software${sort ? `?page=${page}&size=${size}&sort=${sort}` : ''}`;
+export const getPublicTypeEntities: (id, page, size, sort) => { payload: Promise<AxiosResponse>; type: string } = (
+  id,
+  page,
+  size,
+  sort
+) => {
+  const requestUrl = `api/public/software/type/${id}${sort ? `?page=${page}&size=${size}&sort=${sort}` : ''}`;
   return {
     type: ACTION_TYPES.FETCH_SOFTWARE_LIST,
     payload: axios.get<ISoftware>(`${requestUrl}${sort ? '&' : '?'}cacheBuster=${new Date().getTime()}`),
+  };
+};
+
+export const getTopPublicEntities: ICrudGetAllAction<ISoftware> = () => {
+  const requestUrl = `api/public/software/top`;
+  return {
+    type: ACTION_TYPES.FETCH_SOFTWARE_LIST,
+    payload: axios.get<ISoftware>(requestUrl),
   };
 };
 
@@ -145,12 +159,45 @@ export const getPublicEntity: ICrudGetAction<ISoftware> = id => {
   };
 };
 
+export const likeEntity: ICrudGetAction<ISoftware> = id => {
+  const requestUrl = `api/public/software/like/${id}`;
+  return {
+    type: ACTION_TYPES.FETCH_SOFTWARE,
+    payload: axios.get<ISoftware>(requestUrl),
+  };
+};
+
+export const downloadEntity: ICrudGetAction<ISoftware> = id => {
+  const requestUrl = `api/public/software/download/${id}`;
+  return {
+    type: ACTION_TYPES.FETCH_SOFTWARE,
+    payload: axios.get<ISoftware>(requestUrl),
+  };
+};
+
 export const createEntity: ICrudPutAction<ISoftware> = entity => async dispatch => {
   const result = await dispatch({
     type: ACTION_TYPES.CREATE_SOFTWARE,
     payload: axios.post(apiUrl, cleanEntity(entity)),
   });
   dispatch(getEntities());
+  return result;
+};
+
+export const createUserEntity: ICrudPutAction<ISoftware> = entity => async dispatch => {
+  const result = await dispatch({
+    type: ACTION_TYPES.CREATE_SOFTWARE,
+    payload: axios.post(`${apiUrl}/create`, cleanEntity(entity)),
+  });
+  dispatch(getEntities());
+  return result;
+};
+
+export const updateUserEntity: ICrudPutAction<ISoftware> = entity => async dispatch => {
+  const result = await dispatch({
+    type: ACTION_TYPES.UPDATE_SOFTWARE,
+    payload: axios.put(`${apiUrl}/update`, cleanEntity(entity)),
+  });
   return result;
 };
 

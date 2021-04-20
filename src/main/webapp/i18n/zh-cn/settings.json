@@ -1,13 +1,22 @@
 {
   "settings": {
-    "title": "[<strong>{{username}}</strong>] 的用户设置",
+    "title": "<strong>{{username}}</strong> 的用户设置",
     "form": {
-      "firstname": "名字",
-      "firstname.placeholder": "您的名字",
+      "firstname": "昵称",
+      "firstname.placeholder": "你的昵称",
       "lastname": "姓氏",
       "lastname.placeholder": "您的姓氏",
+      "email": "邮箱",
+      "email.placeholder": "你的邮箱",
+      "image": "头像",
+      "sex": "性别",
+      "age": "年龄",
+      "age.placeholder": "你的年龄",
+      "passwordKey": "密钥",
+      "passwordKey.placeholder": "密码盒子加密密钥",
       "language": "语言",
-      "button": "保存"
+      "button": "保存修改",
+      "revise.portrait": "点击修改头像"
     },
     "messages": {
       "error": {
@@ -17,14 +26,30 @@
       "success": "<strong>设置保存成功!</strong>",
       "validate": {
         "firstname": {
-          "required": "您的名字是必填项.",
-          "minlength": "您的名字长度至少要有1个字符",
-          "maxlength": "您的名字长度不能超过50个字符"
+          "required": "你的昵称是必填项.",
+          "minlength": "你的昵称长度至少要有1个字符",
+          "maxlength": "你的昵称长度不能超过50个字符"
         },
         "lastname": {
-          "required": "您的姓氏是必填项.",
-          "minlength": "您的姓氏长度至少要有1个字符",
-          "maxlength": "您的姓氏长度不能超过50个字符"
+          "required": "你的姓氏是必填项.",
+          "minlength": "你的姓氏长度至少要有1个字符",
+          "maxlength": "你的姓氏长度不能超过50个字符"
+        },
+        "email": {
+          "required": "你的邮箱是必填项.",
+          "minlength": "你的邮箱长度至少要有5个字符",
+          "maxlength": "你的邮箱长度不能超过254个字符"
+        },
+        "age": {
+          "required": "你的年龄是必填项.",
+          "invalid": "你的年龄格式错误",
+          "minlength": "你的年龄长度至少要有1个字符",
+          "maxlength": "你的年龄长度不能超过3个字符"
+        },
+        "passwordKey": {
+          "required": "你的密钥是必填项.",
+          "minlength": "你的密钥长度至少要有1个字符",
+          "maxlength": "你的密钥长度不能超过50个字符"
         }
       }
     }

@@ -94,7 +94,7 @@ export const AuditsPage = (props: IAuditsPageProps) => {
   const { audits, totalItems } = props;
 
   return (
-    <div>
+    <div className="content-admin-audits">
       <h2 id="audits-page-heading">Audits</h2>
       <span>
         <Translate contentKey="audits.filter.from">from</Translate>

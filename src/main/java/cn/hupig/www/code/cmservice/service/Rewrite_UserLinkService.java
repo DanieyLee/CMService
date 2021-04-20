@@ -1,11 +1,8 @@
 package cn.hupig.www.code.cmservice.service;
 
-import cn.hupig.www.code.cmservice.service.dto.UserLinkDTO;
-
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-
 import java.util.Optional;
+
+import cn.hupig.www.code.cmservice.service.dto.UserLinkDTO;
 
 /**
  * Service Interface for managing {@link cn.hupig.www.code.cmservice.domain.UserLink}.
@@ -20,4 +17,12 @@ public interface Rewrite_UserLinkService {
      */
     Optional<UserLinkDTO> findByUser(Long id);
    
+    /**
+     * Save a userLink.
+     *
+     * @param userLinkDTO the entity to save.
+     * @return the persisted entity.
+     */
+    UserLinkDTO save(UserLinkDTO userLinkDTO);
+    
 }

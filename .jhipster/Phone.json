@@ -1,0 +1,60 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [
+    {
+      "relationshipName": "userLink",
+      "otherEntityName": "userLink",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "firstName",
+      "otherEntityRelationshipName": "phone"
+    }
+  ],
+  "fields": [
+    {
+      "fieldName": "phone",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "code",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "effectiveTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "sendTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "createUser",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "creatTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "updateUser",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "updateTime",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "note",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20210226154607",
+  "dto": "mapstruct",
+  "searchEngine": false,
+  "service": "serviceImpl",
+  "entityTableName": "phone",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": false,
+  "pagination": "pagination"
+}

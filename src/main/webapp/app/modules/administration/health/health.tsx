@@ -37,7 +37,7 @@ export const HealthPage = (props: IHealthPageProps) => {
   const data = (health || {}).components || {};
 
   return (
-    <div>
+    <div className="content-admin-health">
       <h2 id="health-page-heading">Health Checks</h2>
       <p>
         <Button onClick={getSystemHealth} color={isFetching ? 'btn btn-danger' : 'btn btn-primary'} disabled={isFetching}>

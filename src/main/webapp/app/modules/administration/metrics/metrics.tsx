@@ -38,7 +38,7 @@ export const MetricsPage = (props: IMetricsPageProps) => {
   const { metrics, threadDump, isFetching } = props;
 
   return (
-    <div>
+    <div className="content-admin-metrics">
       <h2 id="metrics-page-heading">
         <Translate component="span" contentKey="metrics.title">
           Application Metrics
@@ -53,7 +53,7 @@ export const MetricsPage = (props: IMetricsPageProps) => {
           </Translate>
         </Button>
       </p>
-      <hr />
+      <hr/>
 
       <Row>
         <Col sm="12">

@@ -30,27 +30,44 @@
           "three": "意味ではない"
         }
       },
-      "stars": "Stars",
-      "name": "Name",
-      "explain": "Explain",
-      "softwareICO": "Software ICO",
-      "score": "Score",
-      "size": "Size",
-      "version": "Version",
-      "applySystem": "Apply System",
-      "show": "Show",
-      "allow": "Allow",
-      "downloadUrl": "Download Url",
-      "downloadNumber": "Download Number",
-      "browseNumber": "Browse Number",
-      "state": "State",
-      "createUser": "Create User",
-      "creatTime": "Creat Time",
-      "updateUser": "Update User",
-      "updateTime": "Update Time",
-      "note": "Note",
-      "softwareType": "Software Type",
-      "userLink": "User Link"
+      "stars": "星明かり",
+      "name": "名称",
+      "explain": "説明する",
+      "softwareICO": "アイコン",
+      "score": "スコア",
+      "size": "サイズ",
+      "version": "バージョン",
+      "applySystem": "適用システム",
+      "show": "ショー",
+      "allow": "許可する",
+      "downloadUrl": "ダウンロード",
+      "downloadNumber": "ダウンロード数",
+      "browseNumber": "閲覧番号",
+      "state": "状態",
+      "createUser": "ユーザーの作成",
+      "creatTime": "クリート時間",
+      "updateUser": "更新ユーザー",
+      "updateTime": "更新時間",
+      "note": "ノート",
+      "softwareType": "ソフトウェアタイプ",
+      "userLink": "ユーザーリンク",
+      "clickDownload" : "ダウンロード",
+      "getStars": {
+        "true": "星",
+        "false": "なし"
+      },
+      "getShow": {
+        "true": "ショー",
+        "false": "非表示"
+      },
+      "getAllow": {
+        "true": "許可",
+        "false": "禁止"
+      },
+      "getState": {
+        "true": "上",
+        "false": "下"
+      }
     }
   }
 }

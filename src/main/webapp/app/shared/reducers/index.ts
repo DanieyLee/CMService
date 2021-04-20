@@ -6,7 +6,7 @@ import authentication, { AuthenticationState } from './authentication';
 import applicationProfile, { ApplicationProfileState } from './application-profile';
 
 import administration, { AdministrationState } from 'app/modules/administration/administration.reducer';
-import userManagement, { UserManagementState } from 'app/modules/administration/user-management/user-management.reducer';
+import userManagement, { UserManagementState } from 'app/modules/system/user-management/user-management.reducer';
 import register, { RegisterState } from 'app/modules/account/register/register.reducer';
 import activate, { ActivateState } from 'app/modules/account/activate/activate.reducer';
 import password, { PasswordState } from 'app/modules/account/password/password.reducer';
@@ -37,9 +37,9 @@ import article, {
   ArticleState
 } from 'app/entities/article/article.reducer';
 // prettier-ignore
-import articlEnclosure, {
-  ArticlEnclosureState
-} from 'app/entities/articl-enclosure/articl-enclosure.reducer';
+import articleEnclosure, {
+  ArticleEnclosureState
+} from 'app/entities/article-enclosure/article-enclosure.reducer';
 // prettier-ignore
 import articleType, {
   ArticleTypeState
@@ -60,6 +60,10 @@ import systemImage, {
 import keyBox, {
   KeyBoxState
 } from 'app/entities/key-box/key-box.reducer';
+// prettier-ignore
+import phone, {
+  PhoneState
+} from 'app/entities/phone/phone.reducer';
 /* jhipster-needle-add-reducer-import - JHipster will add reducer here */
 
 export interface IRootState {
@@ -79,12 +83,13 @@ export interface IRootState {
   readonly softwareComments: SoftwareCommentsState;
   readonly softwareScore: SoftwareScoreState;
   readonly article: ArticleState;
-  readonly articlEnclosure: ArticlEnclosureState;
+  readonly articleEnclosure: ArticleEnclosureState;
   readonly articleType: ArticleTypeState;
   readonly articleComment: ArticleCommentState;
   readonly wallpaper: WallpaperState;
   readonly systemImage: SystemImageState;
   readonly keyBox: KeyBoxState;
+  readonly phone: PhoneState;
   /* jhipster-needle-add-reducer-type - JHipster will add reducer type here */
   readonly loadingBar: any;
 }
@@ -106,12 +111,13 @@ const rootReducer = combineReducers<IRootState>({
   softwareComments,
   softwareScore,
   article,
-  articlEnclosure,
+  articleEnclosure,
   articleType,
   articleComment,
   wallpaper,
   systemImage,
   keyBox,
+  phone,
   /* jhipster-needle-add-reducer-combine - JHipster will add reducer here */
   loadingBar,
 });

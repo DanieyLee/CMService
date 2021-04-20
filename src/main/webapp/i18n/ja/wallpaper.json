@@ -7,9 +7,9 @@
         "createOrEditLabel": "壁紙を追加または編集",
         "notFound": "壁紙が見つかりませんでした"
       },
-      "created": "A new Wallpaper is created with identifier {{ param }}",
-      "updated": "A Wallpaper is updated with identifier {{ param }}",
-      "deleted": "A Wallpaper is deleted with identifier {{ param }}",
+      "created": "新しい壁紙は、識別子 {{ param }}",
+      "updated": "壁紙は識別子で更新されます {{ param }}",
+      "deleted": "壁紙は識別子で削除されます {{ param }}",
       "delete": {
         "question": "壁紙 {{ id }}を削除してもよろしいですか？"
       },
@@ -30,20 +30,26 @@
           "three": "意味ではない"
         }
       },
-      "imageName": "Image Name",
-      "imageUrl": "Image Url",
-      "imagePixel": "Image Pixel",
-      "imageType": "Image Type",
-      "visitorVolume": "Visitor Volume",
-      "isDownload": "Is Download",
-      "like": "Like",
-      "state": "State",
-      "createUser": "Create User",
-      "creatTime": "Creat Time",
-      "updateUser": "Update User",
-      "updateTime": "Update Time",
-      "note": "Note",
-      "userLink": "User Link"
+      "imageName": "画像名",
+      "imageUrl": "イメージアドレス",
+      "imagePixel": "解像度",
+      "imageType": "タイプ",
+      "visitorVolume": "閲覧人数",
+      "isDownload": "ダウンロードが許可されていますか",
+      "like": "好き",
+      "state": "架台状態",
+      "createUser": "創建者",
+      "creatTime": "作成時間",
+      "updateUser": "修正者",
+      "updateTime": "修正時間",
+      "note": "備考",
+      "userLink": "所属ユーザー",
+      "lastPage": "前のページ",
+      "nextPage": "次のページ",
+      "getState": {
+        "true": "上",
+        "false": "下"
+      }
     }
   }
 }

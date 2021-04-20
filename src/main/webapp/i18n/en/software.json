@@ -50,7 +50,24 @@
       "updateTime": "Update Time",
       "note": "Note",
       "softwareType": "Software Type",
-      "userLink": "User Link"
+      "userLink": "User Link",
+      "clickDownload" : "Download",
+      "getStars": {
+        "true": "Stars",
+        "false": "Empty"
+      },
+      "getShow": {
+        "true": "Show",
+        "false": "Hide"
+      },
+      "getAllow": {
+        "true": "Allow",
+        "false": "Not"
+      },
+      "getState": {
+        "true": "Upper",
+        "false": "Lower"
+      }
     }
   }
 }

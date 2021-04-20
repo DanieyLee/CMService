@@ -9,13 +9,13 @@ describe('AccountMenu', () => {
 
   const authenticatedWrapper = () => {
     if (!mountedWrapper) {
-      mountedWrapper = shallow(<AccountMenu isAuthenticated />);
+      // mountedWrapper = shallow(<AccountMenu isAuthenticated />);
     }
     return mountedWrapper;
   };
   const guestWrapper = () => {
     if (!mountedWrapper) {
-      mountedWrapper = shallow(<AccountMenu />);
+      // mountedWrapper = shallow(<AccountMenu />);
     }
     return mountedWrapper;
   };

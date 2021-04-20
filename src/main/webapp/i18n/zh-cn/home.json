@@ -1,7 +1,7 @@
 {
   "home": {
-    "title": "这个是标题logo",
-    "subtitle": "这里是首页",
+    "title": "YuoAI",
+    "subtitle": "YuoAI网专门整理发布一些福利、资源、教程等等。我们发布的所有资源，均来源于互联网、或原创，由管理员整理发表，这并不意味着我赞同其观点或证实其内容的真实性以及用于违法用途。",
     "logged": {
       "message": "您目前是以 \"{{username}}\" 账号登录."
     },
@@ -13,7 +13,26 @@
       "chat": "JHipster public chat room",
       "follow": "在 Twitter 上联络 @jhipster"
     },
-    "like": "如果您喜欢 JHipster, 请记得给我们加星在",
-    "github": "GitHub"
+    "like": "本项目使用Jhipster框架开发",
+    "github": "项目稍后会在github开源",
+    "more": "查看更多",
+    "article": "热门教程",
+    "software": "精品软件",
+    "wallpaper": {
+      "name": "精美壁纸",
+      "explain": "全网搜集精美高清壁纸，免费下载。所有内容均来源于互联网，如有设计、版权等问题，请与我联系。"
+    },
+    "frame": {
+      "title": "YuoAI-使用的框架",
+      "content": "这些开源的框架，使得<YuoAI>有了更高的安全性和稳定性。",
+      "name": "前端",
+      "name2": "后端",
+      "title2": "还有更多！",
+      "content2": "请参考Jhipster官网查看完整技术列表，并了解如何使用Jhipster进行快速开发。"
+    },
+    "logout": {
+      "text": "你已成功退出登录，点击：",
+      "go": "返回首页"
+    }
   }
 }

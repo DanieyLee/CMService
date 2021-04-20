@@ -28,7 +28,6 @@ public interface SoftwareService {
      */
     Page<SoftwareDTO> findAll(Pageable pageable);
 
-
     /**
      * Get the "id" software.
      *

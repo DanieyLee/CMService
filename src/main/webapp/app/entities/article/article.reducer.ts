@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { ICrudGetAction, ICrudGetAllAction, ICrudPutAction, ICrudDeleteAction } from 'react-jhipster';
 
 import { cleanEntity } from 'app/shared/util/entity-utils';
@@ -121,11 +121,19 @@ export const getEntities: ICrudGetAllAction<IArticle> = (page, size, sort) => {
   };
 };
 
-export const getPublicEntities: ICrudGetAllAction<IArticle> = (page, size, sort) => {
-  const requestUrl = `api/public/articles${sort ? `?page=${page}&size=${size}&sort=${sort}` : ''}`;
+export const getPublicTypeEntities: (id, page, size, sort) => { payload: Promise<AxiosResponse>; type: string } = (id, page, size, sort) => {
+  const requestUrl = `api/public/articles/type/${id}${sort ? `?page=${page}&size=${size}&sort=${sort}` : ''}`;
   return {
     type: ACTION_TYPES.FETCH_ARTICLE_LIST,
     payload: axios.get<IArticle>(`${requestUrl}${sort ? '&' : '?'}cacheBuster=${new Date().getTime()}`),
+  };
+};
+
+export const getTopPublicEntities: ICrudGetAllAction<IArticle> = () => {
+  const requestUrl = `api/public/articles/top`;
+  return {
+    type: ACTION_TYPES.FETCH_ARTICLE_LIST,
+    payload: axios.get<IArticle>(requestUrl),
   };
 };
 
@@ -145,12 +153,37 @@ export const getPublicEntity: ICrudGetAction<IArticle> = id => {
   };
 };
 
+export const likeEntity: ICrudGetAction<IArticle> = id => {
+  const requestUrl = `api/public/articles/like/${id}`;
+  return {
+    type: ACTION_TYPES.FETCH_ARTICLE,
+    payload: axios.get<IArticle>(requestUrl),
+  };
+};
+
 export const createEntity: ICrudPutAction<IArticle> = entity => async dispatch => {
   const result = await dispatch({
     type: ACTION_TYPES.CREATE_ARTICLE,
     payload: axios.post(apiUrl, cleanEntity(entity)),
   });
   dispatch(getEntities());
+  return result;
+};
+
+export const createUserEntity: ICrudPutAction<IArticle> = entity => async dispatch => {
+  const result = await dispatch({
+    type: ACTION_TYPES.CREATE_ARTICLE,
+    payload: axios.post(`${apiUrl}/create`, cleanEntity(entity)),
+  });
+  dispatch(getEntities());
+  return result;
+};
+
+export const updateUserEntity: ICrudPutAction<IArticle> = entity => async dispatch => {
+  const result = await dispatch({
+    type: ACTION_TYPES.UPDATE_ARTICLE,
+    payload: axios.put(`${apiUrl}/update`, cleanEntity(entity)),
+  });
   return result;
 };
 
@@ -169,6 +202,14 @@ export const deleteEntity: ICrudDeleteAction<IArticle> = id => async dispatch =>
     payload: axios.delete(requestUrl),
   });
   dispatch(getEntities());
+  return result;
+};
+
+export const updateArticleFile: ICrudDeleteAction<IArticle> = File => async dispatch => {
+  const result = await dispatch({
+    type: ACTION_TYPES.CREATE_ARTICLE,
+    payload: axios.post(`api/article-enclosures/create`, File),
+  });
   return result;
 };
 

@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { ICrudGetAction, ICrudGetAllAction, ICrudPutAction, ICrudDeleteAction } from 'react-jhipster';
 
 import { cleanEntity } from 'app/shared/util/entity-utils';
@@ -109,6 +109,14 @@ export const getEntities: ICrudGetAllAction<IArticleComment> = (page, size, sort
   };
 };
 
+export const getPublicArticleEntities: (id, page, size, sort) => { payload: Promise<AxiosResponse>; type: string } = (id, page, size, sort) => {
+  const requestUrl = `api/public/article-comments/${id}${sort ? `?page=${page}&size=${size}&sort=${sort}` : ''}`;
+  return {
+    type: ACTION_TYPES.FETCH_ARTICLECOMMENT_LIST,
+    payload: axios.get<IArticleComment>(`${requestUrl}${sort ? '&' : '?'}cacheBuster=${new Date().getTime()}`),
+  };
+};
+
 export const getEntity: ICrudGetAction<IArticleComment> = id => {
   const requestUrl = `${apiUrl}/${id}`;
   return {
@@ -124,6 +132,14 @@ export const createEntity: ICrudPutAction<IArticleComment> = entity => async dis
   });
   dispatch(getEntities());
   return result;
+};
+
+export const replyArticle: ICrudPutAction<IArticleComment> = entity => {
+  const requestUrl = `${apiUrl}/reply`;
+  return {
+    type: ACTION_TYPES.FETCH_ARTICLECOMMENT_LIST,
+    payload: axios.post<IArticleComment>(requestUrl, cleanEntity(entity)),
+  };
 };
 
 export const updateEntity: ICrudPutAction<IArticleComment> = entity => async dispatch => {

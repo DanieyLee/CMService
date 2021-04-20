@@ -1,0 +1,36 @@
+{
+  "explain": {
+    "title": {
+      "about": "Yuoai - born for sharing",
+      "link": "Contact Yuoai.com",
+      "hide": "Privacy policy",
+      "copy": "Copyright/Statement notice"
+    },
+    "subtitle": {
+      "about": "we only share free, safe, no advertising, no speed limit boutique software, and all by the webmaster personally test, please rest assured to use. ",
+      "link": "Software copyright and cooperation, please email once a week, thank you for your cooperation.",
+      "hide": "Yuoai.com We attach great importance to the protection of users' privacy and personal information. When you use the website, we will not collect any of your personal information.However, when you use our password box service, we will ask for part of your personal information. The information is provided voluntarily or not, which does not affect the use of the password box."
+    },
+    "text": {
+      "about": "In Yuoai.com, \nThere are not only excellent tutorials and free software,\nThere are also many scarce resources on the market.\nThese tutorials and tools,\nIt can help you study and study easily;\nThey're not just tools,\nMaybe you can also become a 'good friend, good brother' who grows up together with you.\nResources are good enough to be more efficient!\nYuoai.com For you!",
+      "hide": "When using the password box, we will collect your following information:"
+    },
+    "copy": "Copy",
+    "copy.success": "Copy succeeded！",
+    "keybox": {
+      "name": "Name",
+      "sex": "Sex",
+      "age": "Age",
+      "passwordKey": "PasswordKey",
+      "phone": "Phone",
+      "explain": {
+        "name": "When the system sends a message, it is used to address you.",
+        "sex": "Not for the time being.",
+        "age": "It is used to deal with minors' downloading and browsing information.",
+        "passwordKey": "Encrypt your password to prevent the server from being attacked and revealing your password.",
+        "phone": "Used for account registration."
+      }
+    }
+  }
+}
+

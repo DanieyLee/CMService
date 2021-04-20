@@ -3,13 +3,17 @@
     "article": {
       "home": {
         "title": "文章",
-        "createLabel": "创建新文章",
-        "createOrEditLabel": "创建或编辑文章",
+        "createLabel": "发布新文章",
+        "createOrEditLabel": "发布或修改文章",
         "notFound": "没有找到文章"
       },
       "created": "文章 {{ param }} 创建成功",
       "updated": "文章 {{ param }} 更新成功",
       "deleted": "文章 {{ param }} 删除成功",
+      "modify": {
+        "title": "该内容由: {{ name }} 于 ",
+        "tail": " 修改"
+      },
       "delete": {
         "question": "你确定要删除文章 {{ id }} 吗？"
       },
@@ -21,7 +25,7 @@
         "content": {
           "one": "请勿用于",
           "two": "所有内容均来源于",
-          "three": "，由尤艾网所整理发表，",
+          "three": "，由YuoAI网所整理发表，",
           "four": "着我赞同其观点或证实其内容的真实性。"
         },
         "sign": {
@@ -42,7 +46,12 @@
       "updateTime": "修改时间",
       "note": "备注",
       "articleType": "文章类型",
-      "userLink": "所属用户"
+      "userLink": "所属用户",
+      "warning": "服务器资源有限，请使用图床等外链来插入图片。",
+      "getState": {
+        "true": "已上架",
+        "false": "下架中"
+      }
     }
   }
 }

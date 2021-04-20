@@ -1,9 +1,11 @@
 package cn.hupig.www.code.cmservice.repository;
 
-import cn.hupig.www.code.cmservice.domain.SoftwareComments;
-
-import org.springframework.data.jpa.repository.*;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import cn.hupig.www.code.cmservice.domain.SoftwareComments;
 
 /**
  * Spring Data  repository for the SoftwareComments entity.
@@ -11,4 +13,5 @@ import org.springframework.stereotype.Repository;
 @SuppressWarnings("unused")
 @Repository
 public interface SoftwareCommentsRepository extends JpaRepository<SoftwareComments, Long> {
+	Page<SoftwareComments> findAllBySoftwareId(Pageable pageable, Long softwareId);
 }

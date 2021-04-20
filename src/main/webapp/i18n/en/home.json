@@ -1,7 +1,7 @@
 {
   "home": {
-    "title": "Welcome, Java Hipster!",
-    "subtitle": "This is your homepage",
+    "title": "YuoAI",
+    "subtitle": "Youai specially arranges and publishes some welfare, resources, tutorials and so on. All the resources we publish come from the Internet, or original, and are organized and published by administrators. This does not mean that I agree with their views or confirm the authenticity of their contents and use them for illegal purposes.",
     "logged": {
       "message": "You are logged in as user \"{{username}}\"."
     },
@@ -13,7 +13,26 @@
       "chat": "JHipster public chat room",
       "follow": "follow @jhipster on Twitter"
     },
-    "like": "If you like JHipster, don't forget to give us a star on",
-    "github": "GitHub"
+    "like": "This project is developed with jhipster framework",
+    "github": "The project will be open source in GitHub later",
+    "more": "more",
+    "article": "Hot tutorials",
+    "software": "Star software",
+    "wallpaper": {
+      "name": "Wallpaper",
+      "explain": "Collect exquisite high-definition wallpapers and download them for free. All contents are from the Internet. If you have any questions about design and copyright, please contact me."
+    },
+    "frame": {
+      "title": "Yuoai - framework used",
+      "content": "These open source frameworks make Youai more secure and stable.",
+      "name": "WEB",
+      "name2": "Service",
+      "title2": "There's more!",
+      "content2": "Please refer to the official website of jhipster for a complete list of technologies and learn how to use jhipster for rapid development."
+    },
+    "logout": {
+      "text": "You have successfully logged out. Click：",
+      "go": "Go home"
+    }
   }
 }

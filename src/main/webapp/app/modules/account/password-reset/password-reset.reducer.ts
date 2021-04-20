@@ -69,6 +69,14 @@ export const handlePasswordResetFinish = (key, newPassword) => ({
   },
 });
 
+export const handlePasswordReset = (phone, code, newPassword) => ({
+  type: ACTION_TYPES.RESET_PASSWORD_FINISH,
+  payload: axios.post(`api/public/account/reset-password`, {phone, code, newPassword }),
+  meta: {
+    successMessage: translate('password.messages.success'),
+  },
+});
+
 export const reset = () => ({
   type: ACTION_TYPES.RESET,
 });

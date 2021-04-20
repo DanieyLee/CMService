@@ -2,7 +2,8 @@
   "register": {
     "title": "注册",
     "form": {
-      "button": "注册"
+      "button": "注册",
+      "send": "发送验证码"
     },
     "messages": {
       "validate": {
@@ -13,7 +14,8 @@
           "pattern": "Your username is invalid."
         }
       },
-      "success": "<strong>注册成功!</strong> 请检查您的邮箱.",
+      "send": "验证码发送成功，请检查你的短信，此验证码24小时内有效。",
+      "success": "<strong>注册成功!</strong> .",
       "error": {
         "fail": "<strong>注册失败!</strong> 请稍后再试.",
         "userexists": "<strong>账号已被注册!</strong> 请选择其它账号.",

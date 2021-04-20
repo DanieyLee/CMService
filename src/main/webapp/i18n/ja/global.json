@@ -1,14 +1,14 @@
 {
   "global": {
-    "title": "尤艾",
+    "title": "YuoAI",
     "browsehappy": "<strong>古い</strong>ブラウザーが使われています。より良い体験を得るために<a href=\"http://browsehappy.com/?locale=en\">ブラウザをアップデート</a>してください。",
     "menu": {
       "home": "ホーム",
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "articles": "分かち合う",
       "softwares": "ソフトウェア",
-      "pictures": "壁紙",
-      "code-boxs": "キーホルダー",
+      "wallpapers": "壁紙",
+      "key-boxs": "キーホルダー",
       "entities": {
         "main": "エンティティ",
         "userLink": "ユーザ拡張情報",
@@ -23,6 +23,7 @@
         "wallpaper": "壁紙",
         "systemImage": "システムイメージ",
         "keyBox": "キーボックス",
+        "phone": "電話",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
@@ -36,14 +37,22 @@
       },
       "admin": {
         "main": "管理",
+        "system": "システム",
         "userManagement": "ユーザー管理",
+        "userLinkManagement": "ユーザ付加情報",
+        "articleManagement": "文章",
+        "softwareManagement": "ソフトウェア",
+        "wallpaperManagement": "壁紙",
+        "smsRecord": "メッセージ",
+        "articleTypeManagement": "記事タイプ",
+        "softwareTypeManagement": "ソフトウェアタイプ",
         "tracker": "ユーザートラッカー",
         "metrics": "メトリクス",
         "health": "ヘルスステータス",
         "configuration": "設定",
         "logs": "ログ",
         "audits": "監査",
-        "apidocs": "API",
+        "apidocs": "インターフェース",
         "database": "データベース",
         "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
       },
@@ -52,14 +61,18 @@
     "form": {
       "username.label": "ユーザー名",
       "username.placeholder": "ユーザー名",
-      "currentpassword.label": "Current password",
-      "currentpassword.placeholder": "Current password",
+      "code.label": "認証コード",
+      "code.placeholder": "受信した認証コード",
+      "currentpassword.label": "現在のパスワード",
+      "currentpassword.placeholder": "現在のパスワード",
       "newpassword.label": "新しいパスワード",
       "newpassword.placeholder": "新しいパスワード",
       "confirmpassword.label": "新しいパスワード(確認)",
       "confirmpassword.placeholder": "新しいパスワード(確認)",
-      "email.label": "メールアドレス",
-      "email.placeholder": "あなたのメールアドレス"
+      "phone.label": "携帯の番号",
+      "phone.placeholder": "あなたの携帯番号",
+      "email.label": "電子メール",
+      "email.placeholder": "あなたのメール"
     },
     "messages": {
       "info": {
@@ -69,7 +82,7 @@
         },
         "register": {
           "noaccount": "もしあなたがまだアカウントを持っていないなら、クリックしてください",
-          "link": "アカウントを登録する"
+          "link": "登録する"
         }
       },
       "error": {
@@ -87,11 +100,23 @@
           "minlength": "パスワード(確認)は4文字以上で入力してください。",
           "maxlength": "パスワード(確認)は50文字以下で入力してください。"
         },
+        "phone": {
+          "required": "携帯番号は必須項目です。",
+          "invalid": "あなたの携帯番号のフォーマットは正しくないです。",
+          "minlength": "あなたの携帯番号の長さは少なくとも8文字が必要です。",
+          "maxlength": "あなたの携帯番号は11文字を超えてはいけません。"
+        },
+        "code": {
+          "required": "認証コードは必須項目です。",
+          "invalid": "認証コードフォーマットが不正です。",
+          "minlength": "認証コードの長さは少なくとも6文字必要です。",
+          "maxlength": "認証コードの長さは6文字を超えてはいけません。"
+        },
         "email": {
-          "required": "メールアドレスを入力してください。",
-          "invalid": "正しいメールアドレスを入力してください。",
-          "minlength": "メールアドレスは5文字以上で入力してください。",
-          "maxlength": "メールアドレスは50文字以下で入力してください。"
+          "required": "あなたのメールは必須項目です.",
+          "invalid": "メールのフォーマットが正しくありません.",
+          "minlength": "メールの長さは少なくとも5文字が必要です.",
+          "maxlength": "あなたのメールの長さは50文字を超えてはいけません."
         }
       }
     },
@@ -136,24 +161,29 @@
     }
   },
   "error": {
-    "internalServerError": "Internal server error",
-    "server.not.reachable": "Server not reachable",
-    "url.not.found": "Not found",
-    "NotNull": "Field {{fieldName}} cannot be empty!",
-    "Size": "Field {{fieldName}} does not meet min/max size requirements!",
-    "userexists": "Login name already used!",
-    "emailexists": "Email is already in use!",
-    "idexists": "A new {{entityName}} cannot already have an ID",
-    "idnull": "Invalid ID",
+    "internalServerError": "サーバ内部エラー",
+    "server.not.reachable": "サーバが到達できない",
+    "url.not.found": "見出されない",
+    "NotNull": "{{ fieldName }} 空きできない!",
+    "Size": "{{ fieldName }} 長さ誤差!",
+    "nofindexists": "削除するものが見つからないです。",
+    "userexists": "ユーザ名は既に存在します!",
+    "userphoneexists": "携帯番号が間違っています!",
+    "phoneexists": "認証コードエラー!",
+    "fileexists": "ファイルアップロードエラー!",
+    "phonecodeexists": "検証コードは24時間有効です。重複して送らないでください!",
+    "emailexists": "Eメールは既に使用中です!",
+    "imageexists": "壁紙はもうありません",
+    "idexists": "新しい {{entityName}} は既にIDを持つことができません",
+    "idnull": "無効なID",
     "file": {
       "could.not.extract": "Could not extract file",
       "not.image": "File was expected to be an image but was found to be \"{{ fileType }}\""
     }
   },
   "footer": {
-    "statement": "免責声明：",
-    "statement.one": "尤艾網が発表した文章、情報、画像、ソフトウェアなどはインターネットから由来しています。尤艾網が整理して発表したものです。その観点に賛成したり、内容の真実性を確認したり、違法用途に使うことを意味していません。",
-    "statement.two": "尤艾ネットはもっと多い情報を伝達することができることを望んで、もっと多い内容を学んで、もし設計、著作権などの問題があるならば、直ちに連絡して下さい。lixin 520 gj@163.comあなたの権利を保証します。ありがとうございます。",
+    "statement.one": "YuoAI網が発表した文章、情報、画像、ソフトウェアなどはインターネットから由来しています。YuoAI網が整理して発表したものです。その観点に賛成したり、内容の真実性を確認したり、違法用途に使うことを意味していません。",
+    "statement.two": "YuoAIネットはもっと多い情報を伝達することができることを望んで、もっと多い内容を学んで、もし設計、著作権などの問題があるならば、直ちに連絡して下さい。lixin520gj@163.comあなたの権利を保証します。ありがとうございます。",
     "down.cloud": "Yuoai.comスペース & 騰訊雲サービスの利用",
     "down.icp": "Copyright © 2020 Yuoai.com | 広東ICP準備 2020135022号-1",
     "down.copyright": "広東省の公共網が整備されている 44030502002265",
@@ -166,8 +196,8 @@
     "stars.software": "星標",
     "explain": "説明",
     "about": "について",
-    "contact": "連絡してください",
-    "help": "ヘルプ",
-    "copyright": "著作権声明"
+    "link": "連絡してください",
+    "hide": "プライバシー",
+    "copy": "著作権声明"
   }
 }

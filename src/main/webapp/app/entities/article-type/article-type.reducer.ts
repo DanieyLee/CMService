@@ -121,6 +121,14 @@ export const getEntities: ICrudGetAllAction<IArticleType> = (page, size, sort) =
   };
 };
 
+export const getArticleTypeEntities: ICrudGetAllAction<IArticleType> = (page, size, sort) => {
+  const requestUrl = `api/public/article-types${sort ? `?page=${page}&size=${size}&sort=${sort}` : ''}`;
+  return {
+    type: ACTION_TYPES.FETCH_ARTICLETYPE_LIST,
+    payload: axios.get<IArticleType>(`${requestUrl}${sort ? '&' : '?'}cacheBuster=${new Date().getTime()}`),
+  };
+};
+
 export const getEntity: ICrudGetAction<IArticleType> = id => {
   const requestUrl = `${apiUrl}/${id}`;
   return {
@@ -133,6 +141,22 @@ export const createEntity: ICrudPutAction<IArticleType> = entity => async dispat
   const result = await dispatch({
     type: ACTION_TYPES.CREATE_ARTICLETYPE,
     payload: axios.post(apiUrl, cleanEntity(entity)),
+  });
+  return result;
+};
+
+export const createUserEntity: ICrudPutAction<IArticleType> = entity => async dispatch => {
+  const result = await dispatch({
+    type: ACTION_TYPES.CREATE_ARTICLETYPE,
+    payload: axios.post(`${apiUrl}/create`, cleanEntity(entity)),
+  });
+  return result;
+};
+
+export const updateUserEntity: ICrudPutAction<IArticleType> = entity => async dispatch => {
+  const result = await dispatch({
+    type: ACTION_TYPES.UPDATE_ARTICLETYPE,
+    payload: axios.put(`${apiUrl}/update`, cleanEntity(entity)),
   });
   return result;
 };

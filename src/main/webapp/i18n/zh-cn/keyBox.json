@@ -5,11 +5,12 @@
         "title": "密码盒子",
         "createLabel": "创建新密码",
         "createOrEditLabel": "创建或编辑密码",
+        "editLabel": "修改密码信息",
         "notFound": "没有找到密码"
       },
-      "created": "密码 {{ param }} 创建成功",
-      "updated": "密码 {{ param }} 更新成功",
-      "deleted": "密码 {{ param }} 删除成功",
+      "created": "成功创建密码",
+      "updated": "成功更新密码",
+      "deleted": "成功删除密码",
       "delete": {
         "question": "你确定要删除密码 {{ id }} 吗？"
       },
@@ -33,14 +34,14 @@
       "userAccount": "账号",
       "password": "密码",
       "secondPassword": "二级密码",
-      "loginAddress": "访问地址",
-      "explain": "说明",
+      "loginAddress": "地址",
+      "explain": "名称",
       "display": "是否显示",
       "createUser": "创建者",
       "creatTime": "创建时间",
       "updateUser": "修改者",
       "updateTime": "修改时间",
-      "note": "名称",
+      "note": "备注",
       "userLink": "所属用户"
     }
   }

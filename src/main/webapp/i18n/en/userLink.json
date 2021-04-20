@@ -17,7 +17,7 @@
         "title": "User Link"
       },
       "firstName": "First Name",
-      "sex": "Sex",
+      "sex": "Sex(male if selected, female if not selected)",
       "age": "Age",
       "theme": "Theme",
       "passwordKey": "Password Key",

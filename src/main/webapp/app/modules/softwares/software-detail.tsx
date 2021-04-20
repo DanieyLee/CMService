@@ -4,11 +4,13 @@ import { Link, RouteComponentProps } from 'react-router-dom';
 import { Button, Row, Col } from 'reactstrap';
 import { Translate, ICrudGetAction, openFile, byteSize, TextFormat } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { AvForm } from 'availity-reactstrap-validation';
 
 import { IRootState } from 'app/shared/reducers';
-import { getPublicEntity } from 'app/entities/software/software.reducer';
-import { ISoftware } from 'app/shared/model/software.model';
-import { APP_DATE_FORMAT, APP_LOCAL_DATE_FORMAT } from 'app/config/constants';
+import { getPublicEntity, likeEntity, downloadEntity } from 'app/entities/software/software.reducer';
+import { APP_DATE_FORMAT_SIMPLE_ZH_CN } from 'app/config/constants';
+import SoftwareComment from './software-comment';
+import ErrorBoundaryRoute from 'app/shared/error/error-boundary-route';
 
 export interface ISoftwareDetailProps extends StateProps, DispatchProps, RouteComponentProps<{ id: string }> {}
 
@@ -17,163 +19,103 @@ export const SoftwareDetail = (props: ISoftwareDetailProps) => {
     props.getPublicEntity(props.match.params.id);
   }, []);
 
+  const countDown = (name, time) => {
+    const button = document.getElementById(name) as HTMLButtonElement;
+    let num = time;
+    button.setAttribute("disabled","true");
+    const interval = setInterval(() => {
+      if (num > 1){
+        num--;
+      } else {
+        button.removeAttribute("disabled");
+        clearInterval(interval);
+      }
+    }, 1000);
+  }
+
+  const downloadFile = (event) => {
+    countDown("software-download",10);
+    props.downloadEntity(props.match.params.id);
+    event.preventDefault();
+  }
+
+  const likeValidSubmit = (event) => {
+    countDown("send-submit",10);
+    props.likeEntity(props.match.params.id);
+    event.preventDefault();
+  };
+
   const { softwareEntity } = props;
   return (
-    <Row>
-      <Col md="8">
-        <h2>
-          <Translate contentKey="cmServiceApp.software.detail.title">Software</Translate> [<b>{softwareEntity.id}</b>]
-        </h2>
-        <dl className="jh-entity-details">
-          <dt>
-            <span id="stars">
-              <Translate contentKey="cmServiceApp.software.stars">Stars</Translate>
-            </span>
-          </dt>
-          <dd>{softwareEntity.stars ? 'true' : 'false'}</dd>
-          <dt>
-            <span id="name">
-              <Translate contentKey="cmServiceApp.software.name">Name</Translate>
-            </span>
-          </dt>
-          <dd>{softwareEntity.name}</dd>
-          <dt>
-            <span id="explain">
-              <Translate contentKey="cmServiceApp.software.explain">Explain</Translate>
-            </span>
-          </dt>
-          <dd>{softwareEntity.explain}</dd>
-          <dt>
-            <span id="softwareICO">
-              <Translate contentKey="cmServiceApp.software.softwareICO">Software ICO</Translate>
-            </span>
-          </dt>
-          <dd>
-            {softwareEntity.softwareICO ? (
-              <div>
-                {softwareEntity.softwareICOContentType ? (
-                  <a onClick={openFile(softwareEntity.softwareICOContentType, softwareEntity.softwareICO)}>
-                    <img
-                      src={`data:${softwareEntity.softwareICOContentType};base64,${softwareEntity.softwareICO}`}
-                      style={{ maxHeight: '30px' }}
-                    />
-                  </a>
-                ) : null}
-                <span>
-                  {softwareEntity.softwareICOContentType}, {byteSize(softwareEntity.softwareICO)}
-                </span>
-              </div>
-            ) : null}
-          </dd>
-          <dt>
-            <span id="score">
-              <Translate contentKey="cmServiceApp.software.score">Score</Translate>
-            </span>
-          </dt>
-          <dd>{softwareEntity.score}</dd>
-          <dt>
-            <span id="size">
-              <Translate contentKey="cmServiceApp.software.size">Size</Translate>
-            </span>
-          </dt>
-          <dd>{softwareEntity.size}</dd>
-          <dt>
-            <span id="version">
-              <Translate contentKey="cmServiceApp.software.version">Version</Translate>
-            </span>
-          </dt>
-          <dd>{softwareEntity.version}</dd>
-          <dt>
-            <span id="applySystem">
+    <div className="content-software-details">
+      <Row>
+        <Col md="8">
+          <Col md="12" className="content-software-details-title">
+            <span>{softwareEntity.softwareTypeType}</span>
+            {softwareEntity.stars ? (<FontAwesomeIcon icon={'star'}/>) : ''}
+            <span>{softwareEntity.name}</span>
+          </Col>
+          <Row className="content-software-details-system">
+            <Col md="4">
               <Translate contentKey="cmServiceApp.software.applySystem">Apply System</Translate>
-            </span>
-          </dt>
-          <dd>{softwareEntity.applySystem}</dd>
-          <dt>
-            <span id="show">
-              <Translate contentKey="cmServiceApp.software.show">Show</Translate>
-            </span>
-          </dt>
-          <dd>{softwareEntity.show ? 'true' : 'false'}</dd>
-          <dt>
-            <span id="allow">
-              <Translate contentKey="cmServiceApp.software.allow">Allow</Translate>
-            </span>
-          </dt>
-          <dd>{softwareEntity.allow ? 'true' : 'false'}</dd>
-          <dt>
-            <span id="downloadUrl">
-              <Translate contentKey="cmServiceApp.software.downloadUrl">Download Url</Translate>
-            </span>
-          </dt>
-          <dd>{softwareEntity.downloadUrl}</dd>
-          <dt>
-            <span id="downloadNumber">
-              <Translate contentKey="cmServiceApp.software.downloadNumber">Download Number</Translate>
-            </span>
-          </dt>
-          <dd>{softwareEntity.downloadNumber}</dd>
-          <dt>
-            <span id="browseNumber">
-              <Translate contentKey="cmServiceApp.software.browseNumber">Browse Number</Translate>
-            </span>
-          </dt>
-          <dd>{softwareEntity.browseNumber}</dd>
-          <dt>
-            <span id="state">
-              <Translate contentKey="cmServiceApp.software.state">State</Translate>
-            </span>
-          </dt>
-          <dd>{softwareEntity.state ? 'true' : 'false'}</dd>
-          <dt>
-            <span id="createUser">
-              <Translate contentKey="cmServiceApp.software.createUser">Create User</Translate>
-            </span>
-          </dt>
-          <dd>{softwareEntity.createUser}</dd>
-          <dt>
-            <span id="creatTime">
-              <Translate contentKey="cmServiceApp.software.creatTime">Creat Time</Translate>
-            </span>
-          </dt>
-          <dd>{softwareEntity.creatTime ? <TextFormat value={softwareEntity.creatTime} type="date" format={APP_DATE_FORMAT} /> : null}</dd>
-          <dt>
-            <span id="updateUser">
-              <Translate contentKey="cmServiceApp.software.updateUser">Update User</Translate>
-            </span>
-          </dt>
-          <dd>{softwareEntity.updateUser}</dd>
-          <dt>
-            <span id="updateTime">
-              <Translate contentKey="cmServiceApp.software.updateTime">Update Time</Translate>
-            </span>
-          </dt>
-          <dd>
-            {softwareEntity.updateTime ? <TextFormat value={softwareEntity.updateTime} type="date" format={APP_DATE_FORMAT} /> : null}
-          </dd>
-          <dt>
-            <span id="note">
-              <Translate contentKey="cmServiceApp.software.note">Note</Translate>
-            </span>
-          </dt>
-          <dd>{softwareEntity.note}</dd>
-          <dt>
-            <Translate contentKey="cmServiceApp.software.softwareType">Software Type</Translate>
-          </dt>
-          <dd>{softwareEntity.softwareTypeType ? softwareEntity.softwareTypeType : ''}</dd>
-          <dt>
-            <Translate contentKey="cmServiceApp.software.userLink">User Link</Translate>
-          </dt>
-          <dd>{softwareEntity.userLinkFirstName ? softwareEntity.userLinkFirstName : ''}</dd>
-        </dl>
-        <Button tag={Link} to="/softwares" replace color="info">
-          <FontAwesomeIcon icon="arrow-left" />{' '}
-          <span className="d-none d-md-inline">
-            <Translate contentKey="entity.action.back">Back</Translate>
-          </span>
-        </Button>
-      </Col>
-    </Row>
+              ：{softwareEntity.applySystem}
+            </Col>
+            <Col md="4">
+              <Translate contentKey="cmServiceApp.software.version">Version</Translate>
+              ：{softwareEntity.version}
+            </Col>
+            <Col md="4">
+              <Translate contentKey="cmServiceApp.software.size">Size</Translate>
+              ：{softwareEntity.size}
+            </Col>
+          </Row>
+          <Col md="12" className="content-software-details-download">
+            <AvForm id="send-form" onValidSubmit={downloadFile}>
+              <Button id="software-download" className={softwareEntity.allow ? "" : "content-software-details-title-no-allow"} type="submit">
+                <Translate contentKey="cmServiceApp.software.clickDownload">Click Download</Translate>
+              </Button>
+              <span>({softwareEntity.downloadNumber})</span>
+            </AvForm>
+          </Col>
+        </Col>
+        <Col md="4" className="content-software-details-ico">
+          <div>
+            {softwareEntity.softwareICO ? (
+              <img
+                src={`data:${softwareEntity.softwareICOContentType};base64,${softwareEntity.softwareICO}`}
+              />
+              ) : <img src="content/images/image.svg" alt="image" />}
+          </div>
+        </Col>
+        <Col md="12" className="content-software-details-explain">
+          <div>{softwareEntity.explain}</div>
+        </Col>
+        <Row className="content-software-details-like">
+          <Col md="9">
+            <Translate contentKey="cmServiceApp.article.modify.title" interpolate={{ name: softwareEntity.updateUser,time:'' }} />
+            <TextFormat value={softwareEntity.updateTime} type="date" format={APP_DATE_FORMAT_SIMPLE_ZH_CN} />
+            <Translate contentKey="cmServiceApp.article.modify.tail">tail</Translate>
+          </Col>
+          <Col md="3">
+            <FontAwesomeIcon icon={'eye'} />
+            <span>{softwareEntity.browseNumber > 1000 ? softwareEntity.browseNumber.toString().substring(0,softwareEntity.browseNumber.toString().length-3) + "k" : softwareEntity.browseNumber}</span>
+            <FontAwesomeIcon icon={'heart'} />
+            <span>{softwareEntity.score > 1000? softwareEntity.score.toString().substring(0,softwareEntity.score.toString().length-3) + "k" : softwareEntity.score}</span>
+          </Col>
+          <Col md="12">
+            <div>{softwareEntity.note}</div>
+          </Col>
+          <AvForm id="send-form" onValidSubmit={likeValidSubmit}>
+            <Button id="send-submit" color="primary" type="submit">
+              <img src="content/images/like.svg" alt="like" />
+              <Translate contentKey="cmServiceApp.wallpaper.like">Like</Translate>
+            </Button>
+          </AvForm>
+        </Row>
+      </Row>
+      <hr/>
+      <ErrorBoundaryRoute path={`/softwares/detail/:id`} component={SoftwareComment} />
+    </div>
   );
 };
 
@@ -181,7 +123,11 @@ const mapStateToProps = ({ software }: IRootState) => ({
   softwareEntity: software.entity,
 });
 
-const mapDispatchToProps = { getPublicEntity };
+const mapDispatchToProps = {
+  getPublicEntity,
+  likeEntity,
+  downloadEntity
+};
 
 type StateProps = ReturnType<typeof mapStateToProps>;
 type DispatchProps = typeof mapDispatchToProps;

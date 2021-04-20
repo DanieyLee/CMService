@@ -6,7 +6,12 @@ import { Translate } from 'react-jhipster';
 import { connect } from 'react-redux';
 import { Row, Col, Alert } from 'reactstrap';
 
-import { IRootState } from 'app/shared/reducers';
+import ErrorBoundaryRoute from 'app/shared/error/error-boundary-route';
+
+import Articles from './home-article';
+import Softwares from './home-software';
+import Wallpaper from './home-wallpaper';
+import { Frame } from './home-components';
 
 export type IHomeProp = StateProps;
 
@@ -14,46 +19,59 @@ export const Home = (props: IHomeProp) => {
   const { account } = props;
 
   return (
-    <Row>
-      <Col md="9">
-        <h2>
-          <Translate contentKey="home.title">Welcome, Java Hipster!</Translate>
-        </h2>
-        <p className="lead">
-          <Translate contentKey="home.subtitle">This is your homepage</Translate>
-        </p>
+    <div className="content-home">
+      <div className="content-home-title">
+        <Row>
+          <Col md="4">
+            <img src="content/images/yuoai.png" alt="Logo" />
+          </Col>
+          <Col md="8">
+            <h3>
+              <Translate contentKey="home.title">Welcome</Translate>
+            </h3>
+            <p>
+              <Translate contentKey="home.subtitle">This is your homepage</Translate>
+            </p>
+          </Col>
+        </Row>
         {account && account.login ? (
-          <div>
-            <Alert color="success">
-              <Translate contentKey="home.logged.message" interpolate={{ username: account.login }}>
-                You are logged in as user {account.login}.
-              </Translate>
-            </Alert>
-          </div>
+          <Alert color="success">
+            <Translate contentKey="home.logged.message" interpolate={{ username: account.login }}>
+              You are logged in as user {account.login}.
+            </Translate>
+          </Alert>
         ) : (
-          <div>
-            <Alert color="warning">
-              <Translate contentKey="global.messages.info.authenticated.prefix">If you want to </Translate>
-              <Link to="/login" className="alert-link">
-                <Translate contentKey="global.messages.info.authenticated.link"> sign in</Translate>
-              </Link>
-            </Alert>
-
-            <Alert color="warning">
-              <Translate contentKey="global.messages.info.register.noaccount">You do not have an account yet?</Translate>&nbsp;
-              <Link to="/account/register" className="alert-link">
-                <Translate contentKey="global.messages.info.register.link">Register a new account</Translate>
-              </Link>
-            </Alert>
-          </div>
+          <Alert color="warning">
+            <Link to="/login" className="alert-link">
+              <Translate contentKey="global.messages.info.authenticated.link"> sign in</Translate>
+            </Link>
+            <Link to="/account/register" className="alert-link">
+              <Translate contentKey="global.messages.info.register.link">Register a new account</Translate>
+            </Link>
+          </Alert>
         )}
-        <p></p>
-
-      </Col>
-      <Col md="3" className="pad">
-        <span className="hipster rounded" />
-      </Col>
-    </Row>
+        <div className="content-home-title-github">
+          <p>
+            <Translate contentKey="home.like">Like</Translate>
+          </p>
+          <p>
+            <Translate contentKey="home.github">Github</Translate>
+          </p>
+        </div>
+      </div>
+      <Row>
+        <Col md="6">
+          <ErrorBoundaryRoute component={Articles} />
+        </Col>
+        <Col md="6">
+          <ErrorBoundaryRoute component={Softwares} />
+        </Col>
+      </Row>
+      <div>
+        <ErrorBoundaryRoute component={Wallpaper} />
+      </div>
+      <Frame />
+    </div>
   );
 };
 

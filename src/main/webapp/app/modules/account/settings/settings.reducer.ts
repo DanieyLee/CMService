@@ -69,6 +69,20 @@ export const saveAccountSettings: (account: any) => void = account => async disp
   await dispatch(getSession());
 };
 
+export const saveAccountSettingsImage: (account: any) => void = account => async dispatch => {
+  await dispatch({
+    type: ACTION_TYPES.UPDATE_ACCOUNT,
+    payload: axios.post(`${apiUrl}/setting`, account),
+    meta: {
+      successMessage: translate('settings.messages.success'),
+    },
+  });
+  if (Storage.session.get(`locale`)) {
+    Storage.session.remove(`locale`);
+  }
+  await dispatch(getSession());
+};
+
 export const reset = () => ({
   type: ACTION_TYPES.RESET,
 });
