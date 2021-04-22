@@ -106,7 +106,9 @@ export const Article = (props: IArticleProps) => {
               <Row key={`entity-${i}`}>
                 <Col md="9">
                   <h6>
-                    {article.articleTypeType == null ? "无" : article.articleTypeType}
+                    {article.articleTypeType == null ?
+                      <Translate contentKey="global.messages.error.null">Null</Translate>
+                      : article.articleTypeType}
                   </h6>
                   <Button tag={Link} to={`/articles/detail/${article.id}`} color="link" size="sm">
                     <span>{article.title}</span>

@@ -86,7 +86,8 @@
         }
       },
       "error": {
-        "dontmatch": "パスワードが一致しません!"
+        "dontmatch": "パスワードが一致しません!",
+        "null": "なし"
       },
       "validate": {
         "newpassword": {

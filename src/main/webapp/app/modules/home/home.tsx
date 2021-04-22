@@ -56,6 +56,8 @@ export const Home = (props: IHomeProp) => {
           </p>
           <p>
             <Translate contentKey="home.github">Github</Translate>
+            {/* eslint-disable-next-line react/jsx-no-target-blank */}
+            <a href="https://github.com/DanieyLee/CMService" target='_blank' rel='noopener noreferer'>CMService</a>
           </p>
         </div>
       </div>

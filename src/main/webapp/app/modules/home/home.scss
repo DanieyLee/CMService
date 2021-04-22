@@ -352,6 +352,9 @@ body {
             color: $color-blue;
             margin-bottom: 20px;
           }
+          a {
+            color: $color-red;
+          }
         }
       }
       @media only screen and (max-width: 575px) { // 首页-标题区自适应
@@ -2535,8 +2538,8 @@ body {
     } // 内容区-短信记录
     .content-article-type-management {
       color: $color-dirty-white;
-      margin: 30px 0 80px 0;
-      padding: 20px;
+      margin: 30px 0 0 0;
+      padding: 20px 20px 80px 20px;
       h2 {
         color: $color-pure-white;
         font-size: 1.75rem;
@@ -2598,8 +2601,8 @@ body {
     } // 内容区-后台单个文章分类编辑
     .content-software-type-management {
       color: $color-dirty-white;
-      margin: 30px 0 80px 0;
-      padding: 20px;
+      margin: 30px 0 0 0;
+      padding: 20px 20px 80px 20px;
       h2 {
         color: $color-pure-white;
         font-size: 1.75rem;
@@ -2828,6 +2831,7 @@ body {
     .content-explain-copy {
       margin-top: 80px;
       padding: 0 20px;
+      margin-bottom: 80px;
       h2 {
         margin: 30px auto;
         color: $color-pure-white;

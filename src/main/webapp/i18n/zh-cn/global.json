@@ -86,7 +86,8 @@
         }
       },
       "error": {
-        "dontmatch": "您输入的密码和确认密码不匹配!"
+        "dontmatch": "您输入的密码和确认密码不匹配!",
+        "null": "无"
       },
       "validate": {
         "newpassword": {

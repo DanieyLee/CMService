@@ -177,7 +177,9 @@ export const SoftwareManagement = (props: ISoftwareManagementProps) => {
                       </Button>
                     )}
                   </td>
-                  {software.softwareTypeType ? <td>{software.softwareTypeType}</td> : ''}
+                  <td>
+                    {software.softwareTypeType ? software.softwareTypeType : ''}
+                  </td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button

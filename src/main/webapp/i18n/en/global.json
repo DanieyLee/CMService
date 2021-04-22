@@ -86,7 +86,8 @@
         }
       },
       "error": {
-        "dontmatch": "The password and its confirmation do not match!"
+        "dontmatch": "The password and its confirmation do not match!",
+        "null": "Null"
       },
       "validate": {
         "newpassword": {

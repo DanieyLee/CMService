@@ -144,7 +144,9 @@ export const ArticleManagement = (props: IArticleManagementProps) => {
                       </Button>
                     )}
                   </td>
-                  {article.articleTypeType ? <td>{article.articleTypeType}</td> : ''}
+                  <td>
+                    {article.articleTypeType ? article.articleTypeType : ''}
+                  </td>
                   <td className="text-right">
                     <div className="btn-group flex-btn-group-container">
                       <Button
