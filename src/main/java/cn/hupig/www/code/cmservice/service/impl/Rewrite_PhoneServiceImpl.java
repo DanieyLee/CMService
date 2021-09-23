@@ -15,6 +15,7 @@ import cn.hupig.www.code.cmservice.service.Rewrite_PhoneService;
 import cn.hupig.www.code.cmservice.service.dto.PhoneDTO;
 import cn.hupig.www.code.cmservice.service.mapper.PhoneMapper;
 import cn.hupig.www.code.cmservice.service.utils.Numbers;
+import cn.hupig.www.code.cmservice.service.utils.SendSms;
 import cn.hupig.www.code.cmservice.service.utils.Times;
 import cn.hupig.www.code.cmservice.web.rest.errors.PhoneAlreadyUsedException;
 
@@ -52,7 +53,8 @@ public class Rewrite_PhoneServiceImpl implements Rewrite_PhoneService {
         phone.setUpdateTime(Times.getInstant());
         phone.setCode(Integer.valueOf(Numbers.getRandom(6)));
         try {
-//			SendSms.sendCode(phoneNumber, phone.getCode().toString()); // 发信息
+        	System.out.println("传入的信息是：" + phoneNumber + "<--分隔符-->" + phone.getCode().toString());
+			SendSms.sendCode(phoneNumber, phone.getCode().toString()); // 发信息
 		} catch (Exception e) {
 			e.printStackTrace(); 
 		} finally {

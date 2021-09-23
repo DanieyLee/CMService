@@ -19,8 +19,10 @@ public class FileOperation {
 	 * fileAddress本机文件存放位置
 	 * saveAddress服务器的文件访问路径
 	 */
-	private static String fileAddress = "C:/Users/lixin/Desktop/CMService/target/classes/static/content/images/";
-	private static String saveAddress = "content/images/";
+	private static String fileAddress = "/home/apache-tomcat-10.0.0-M10/webapps/ROOT/";
+	// 开发机windows的项目上传位置
+//	private static String fileAddress = "C:/Users/lixin/Desktop/CMService/target/classes/static/content/images/";
+	private static String saveAddress = "/webfile/";
 
 	/**
 	 * 删除文件，传入文件名+地址（本机文件存放地址）

@@ -42,7 +42,7 @@
 		<!-- thumbnailator -->
 		<thumbnailator-version>0.4.14</thumbnailator-version>
 		<!-- aliyun SendSms -->
-		<aliyun-sendSms-version>2.0.1</aliyun-sendSms-version>
+		<aliyun-sendSms-version>4.5.25</aliyun-sendSms-version>
         <!-- Dependency versions -->
         <jhipster-dependencies.version>3.9.1</jhipster-dependencies.version>
         <!-- The spring-boot version should match the one managed by
@@ -319,7 +319,7 @@
         <!-- jhipster-needle-maven-add-dependency -->
         <dependency>
             <groupId>com.aliyun</groupId>
-            <artifactId>dysmsapi20170525</artifactId>
+            <artifactId>aliyun-java-sdk-core</artifactId>
             <version>${aliyun-sendSms-version}</version>
         </dependency>
         <!-- aliyun SendSms -->

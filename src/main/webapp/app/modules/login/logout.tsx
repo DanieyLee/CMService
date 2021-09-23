@@ -26,7 +26,7 @@ export const Logout = (props: ILogoutProps) => {
   });
 
   return (
-    <div>
+    <div className="content-logout">
       <h4>
         <Translate contentKey="home.logout.text">text</Translate>
         <NavLink tag={Link} to="/">

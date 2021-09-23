@@ -239,6 +239,21 @@ body {
       }
     }
   } // 登录框
+  .content-logout {
+    h4 {
+      margin: 40px auto;
+      text-align: center;
+      span {
+        color: $color-dirty-white;
+      }
+      a span {
+        color: $color-red;
+      }
+      a span:hover{
+        color: $color-blue;
+      }
+    }
+  } // 退出登录框
   .content-modal-dialog-alert {
     top: 60px;
     .modal-content {
