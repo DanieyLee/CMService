@@ -11,6 +11,14 @@ public final class Constants {
     public static final String SYSTEM_ACCOUNT = "system";
     public static final String DEFAULT_LANGUAGE = "zh-cn";
     public static final String ANONYMOUS_USER = "anonymoususer";
+    
+	/**
+	 * fileAddress开发机文件存放位置
+	 * C:/Users/lixin/Desktop/CMService/target/classes/static/content/images/
+	 * saveAddress服务器的文件访问路径
+	 */
+    public static final String fileAddress = "/home/apache-tomcat-10.0.0-M10/webapps/ROOT/";
+    public static final String saveAddress = "/webfile/";
 
     private Constants() {
     }
