@@ -53,7 +53,6 @@ public class Rewrite_PhoneServiceImpl implements Rewrite_PhoneService {
         phone.setUpdateTime(Times.getInstant());
         phone.setCode(Integer.valueOf(Numbers.getRandom(6)));
         try {
-        	System.out.println("传入的信息是：" + phoneNumber + "<--分隔符-->" + phone.getCode().toString());
 			SendSms.sendCode(phoneNumber, phone.getCode().toString()); // 发信息
 		} catch (Exception e) {
 			e.printStackTrace(); 
