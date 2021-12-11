@@ -1,13 +1,13 @@
 $color-red: #f7236f; // 主题红
 $color-blue: #50a1ff; // 主题蓝
-$color-yellow: #FFDE25; // 主题黄
+$color-yellow: #ffde25; // 主题黄
 $color-pure-white: #ffffff; // 纯白
 $color-dirty-white: rgba(255, 255, 255, 0.7); // 暗白
 $color-dirty-black: rgba(20, 20, 20, 0.85); // 暗黑
 $color-dark-black: #171717; // 背景黑
 $color-light-black: #202020; // 前景黑
-$color-dark-grey: hsla(210,8%,51%,.09); // 边框灰
-$color-light-grey: hsla(210,8%,51%,.23); // 横线灰
+$color-dark-grey: hsla(210, 8%, 51%, 0.09); // 边框灰
+$color-light-grey: hsla(210, 8%, 51%, 0.23); // 横线灰
 /* ==========================================================================
 全局配色方案
 ========================================================================== */
@@ -80,7 +80,8 @@ body {
     background-color: $color-light-black;
     padding: 0 10px;
     height: 60px;
-    .header-logo { // 头部-logo区
+    .header-logo {
+      // 头部-logo区
       padding: 10px 0 14px 0;
       margin-right: 5px;
       .header-icon {
@@ -94,7 +95,8 @@ body {
           height: 100%;
         }
       }
-      .header-title { // logo区-标题文字
+      .header-title {
+        // logo区-标题文字
         font-size: 1.5rem;
         font-weight: 400;
         color: $color-pure-white;
@@ -102,33 +104,38 @@ body {
           color: $color-red;
         }
       }
-      .header-version { // logo区-版本号
+      .header-version {
+        // logo区-版本号
         font-size: 0.8rem;
         font-weight: 400;
         color: $color-dirty-white;
         padding: 0 0 0 10px;
       }
     }
-    .header-label { // 头部-标签区
+    .header-label {
+      // 头部-标签区
       width: 100%;
       padding: 10px 0 10px 50px;
       background-color: $color-light-black;
       border-radius: 5px;
       white-space: nowrap;
       text-overflow: ellipsis;
-      .align-items-center { // 标签区-左侧文字
+      .align-items-center {
+        // 标签区-左侧文字
         margin-right: 1.6rem;
         font-size: 1rem;
         font-weight: 400 !important;
       }
-      .header-label-width { // 标签区-中间分隔符
+      .header-label-width {
+        // 标签区-中间分隔符
         float: right;
         margin-left: auto;
       }
       .dropdown-toggle::after {
         display: none;
       }
-      .header-label-account { // 标签区-登录后头像
+      .header-label-account {
+        // 标签区-登录后头像
         position: relative;
         width: 50px;
         .header-label-account-logo {
@@ -155,7 +162,8 @@ body {
           margin-left: 10px;
         }
       }
-      .dropdown .align-items-center { // 标签区-右侧图标
+      .dropdown .align-items-center {
+        // 标签区-右侧图标
         margin-right: 0;
         padding: 12px 10px;
         svg {
@@ -167,7 +175,8 @@ body {
         }
       }
     }
-    @media only screen and (max-width: 575px) { // 头部-缩小方案-导航菜单设置
+    @media only screen and (max-width: 575px) {
+      // 头部-缩小方案-导航菜单设置
       .header-label {
         width: 60%;
         float: left;
@@ -183,8 +192,9 @@ body {
             display: none !important;
           }
         }
-        .header-label-account { // 标签区-登录后头像
-          .nav-item .align-items-center span{
+        .header-label-account {
+          // 标签区-登录后头像
+          .nav-item .align-items-center span {
             display: none !important;
           }
         }
@@ -193,28 +203,33 @@ body {
   } // 头部
   .content-login {
     margin-top: 80px;
-    .modal-content { // 登录框-登录窗口
+    .modal-content {
+      // 登录框-登录窗口
       color: $color-pure-white;
       background-color: $color-light-black !important;
       border: 1px solid $color-dark-grey;
-      .modal-header { // 登录窗口-标题
+      .modal-header {
+        // 登录窗口-标题
         border-bottom: 1px solid $color-light-grey;
         .modal-title {
           font-size: 1.2rem;
           font-weight: 400;
         }
       }
-      .close { // 登录窗口-关闭按钮
+      .close {
+        // 登录窗口-关闭按钮
         color: $color-dirty-white;
       }
-      .content-login-link { // 登录窗口-注册和忘记密码按钮
+      .content-login-link {
+        // 登录窗口-注册和忘记密码按钮
         float: right;
         margin-left: 20px;
         color: $color-dirty-white;
         font-size: 1rem;
         font-weight: 400;
       }
-      .modal-body { // 登录窗口-内容区
+      .modal-body {
+        // 登录窗口-内容区
         .form-check {
           overflow: hidden;
           .form-check-input {
@@ -229,7 +244,8 @@ body {
           }
         }
       }
-      .modal-footer { // 登录窗口-页尾
+      .modal-footer {
+        // 登录窗口-页尾
         border-top: 1px solid $color-light-grey;
         button {
           width: 100px;
@@ -249,7 +265,7 @@ body {
       a span {
         color: $color-red;
       }
-      a span:hover{
+      a span:hover {
         color: $color-blue;
       }
     }
@@ -290,9 +306,11 @@ body {
       padding: 20px;
       max-width: 1400px;
       margin: 0 auto;
-      .content-home-title { // 首页-标题区
+      .content-home-title {
+        // 首页-标题区
         padding: 80px 60px;
-        .row { // 标题区-logo
+        .row {
+          // 标题区-logo
           margin-bottom: 80px;
           .col-md-4 {
             margin-top: 40px;
@@ -317,14 +335,16 @@ body {
             }
           }
         }
-        .alert { // 标题区-注册登录通用
+        .alert {
+          // 标题区-注册登录通用
           background-color: transparent;
           border: 0;
           text-align: center;
           font-size: 0.85rem;
           font-weight: 200;
         }
-        .alert-warning { // 标题区-未登录
+        .alert-warning {
+          // 标题区-未登录
           .alert-link {
             color: $color-dark-black;
             background-color: $color-pure-white;
@@ -334,15 +354,18 @@ body {
               background-color: $color-dirty-white;
             }
           }
-          .alert-link:first-child { // 未登录-按钮左侧
+          .alert-link:first-child {
+            // 未登录-按钮左侧
             border-radius: 4px 0 0 4px;
             border-right: 0;
           }
-          .alert-link:not(:first-child) { // 未登录-按钮右侧
+          .alert-link:not(:first-child) {
+            // 未登录-按钮右侧
             border-radius: 0 4px 4px 0;
           }
         }
-        .alert-success { // 标题区-登陆后
+        .alert-success {
+          // 标题区-登陆后
           margin: 10px auto;
           width: auto;
           display: table;
@@ -352,7 +375,8 @@ body {
           background-color: $color-pure-white;
           border-right: 4px;
         }
-        .content-home-title-github { // 标题区-github说明
+        .content-home-title-github {
+          // 标题区-github说明
           margin: 0 auto;
           text-align: center;
           p:first-child {
@@ -372,7 +396,8 @@ body {
           }
         }
       }
-      @media only screen and (max-width: 575px) { // 首页-标题区自适应
+      @media only screen and (max-width: 575px) {
+        // 首页-标题区自适应
         .content-home-title {
           padding: 10px 5px;
           .row {
@@ -380,17 +405,20 @@ body {
           }
         }
       }
-      .content-home-article { // 首页-文章模块
+      .content-home-article {
+        // 首页-文章模块
         border: 1px solid $color-dark-grey;
         background-color: $color-light-black;
         padding: 20px 20px;
         border-radius: 5px;
         height: 560px;
         margin-bottom: 80px;
-        .content-home-article-list { // 文章模块-文章列表
+        .content-home-article-list {
+          // 文章模块-文章列表
           line-height: 1.44;
           height: 468px;
-          .content-home-article-list-title { // 文章列表-表名
+          .content-home-article-list-title {
+            // 文章列表-表名
             color: $color-pure-white;
             font-size: 1.2rem;
             font-weight: 400;
@@ -401,7 +429,8 @@ body {
               text-overflow: ellipsis;
             }
           }
-          .content-home-article-list-name a{ // 文章列表-标题
+          .content-home-article-list-name a {
+            // 文章列表-标题
             padding: 0;
             text-align: left;
             color: $color-pure-white;
@@ -412,12 +441,15 @@ body {
             overflow: hidden;
             text-overflow: ellipsis;
           }
-          .content-home-article-list-content { // 文章列表-内容
-            .btn { // 内容-外层a标签
+          .content-home-article-list-content {
+            // 文章列表-内容
+            .btn {
+              // 内容-外层a标签
               padding: 0;
               border: none;
               width: 100%;
-              div:first-child { // 外层a标签-第一个div
+              div:first-child {
+                // 外层a标签-第一个div
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
@@ -446,13 +478,15 @@ body {
             }
           }
         }
-        hr { // 文章模块-分隔符
+        hr {
+          // 文章模块-分隔符
           border: none;
           height: 1px;
           flex-shrink: 0;
           background-color: $color-light-grey;
         }
-        .nav-link { // 文章模块-查看更多
+        .nav-link {
+          // 文章模块-查看更多
           color: $color-pure-white;
           font-size: 0.95rem;
           font-weight: 400;
@@ -462,20 +496,23 @@ body {
           text-overflow: ellipsis;
         }
       }
-      .content-home-software { // 首页-软件模块
+      .content-home-software {
+        // 首页-软件模块
         border: 1px solid $color-dark-grey;
         background-color: $color-light-black;
         padding: 20px 20px;
         border-radius: 5px;
         height: 560px;
         margin-bottom: 80px;
-        .content-home-software-list { // 软件模块-软件列表
+        .content-home-software-list {
+          // 软件模块-软件列表
           line-height: 1.44;
           height: 468px;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
-          .content-home-software-list-title { // 软件列表-表名
+          .content-home-software-list-title {
+            // 软件列表-表名
             color: $color-pure-white;
             font-size: 1.2rem;
             font-weight: 400;
@@ -486,7 +523,8 @@ body {
               text-overflow: ellipsis;
             }
           }
-          .content-home-software-list-item { // 软件列表-单个选项
+          .content-home-software-list-item {
+            // 软件列表-单个选项
             float: left;
             margin: 10px 2%;
             border: 1px solid $color-dark-grey;
@@ -495,12 +533,14 @@ body {
             text-align: center;
             padding: 18px 10px 16px 10px;
             width: 21%;
-            img { // 单个选项-图片
+            img {
+              // 单个选项-图片
               width: 60px;
               height: 60px;
               margin-bottom: 4px;
             }
-            a { // 单个选项-文字
+            a {
+              // 单个选项-文字
               color: $color-dirty-white;
               white-space: nowrap;
               overflow: hidden;
@@ -511,39 +551,42 @@ body {
               font-weight: 400;
             }
           }
-          @media only screen and (max-width: 980px){ // 软件列表-缩小方案-自动换行
-            .content-home-software-list-item{
+          @media only screen and (max-width: 980px) {
+            // 软件列表-缩小方案-自动换行
+            .content-home-software-list-item {
               width: 29.2%;
             }
           }
-          @media only screen and (max-width: 767px){
-            .content-home-software-list-item{
+          @media only screen and (max-width: 767px) {
+            .content-home-software-list-item {
               width: 21%;
             }
           }
-          @media only screen and (max-width: 500px){
-            .content-home-software-list-item{
+          @media only screen and (max-width: 500px) {
+            .content-home-software-list-item {
               width: 29.2%;
             }
           }
-          @media only screen and (max-width: 400px){
-            .content-home-software-list-item{
+          @media only screen and (max-width: 400px) {
+            .content-home-software-list-item {
               width: 46%;
             }
           }
-          @media only screen and (max-width: 300px){
-            .content-home-software-list-item{
+          @media only screen and (max-width: 300px) {
+            .content-home-software-list-item {
               width: 100%;
             }
           }
         }
-        hr { // 软件模块-分隔符
+        hr {
+          // 软件模块-分隔符
           border: none;
           height: 1px;
           flex-shrink: 0;
           background-color: $color-light-grey;
         }
-        .nav-link { // 软件模块-查看更多
+        .nav-link {
+          // 软件模块-查看更多
           color: $color-pure-white;
           font-size: 0.95rem;
           font-weight: 400;
@@ -553,25 +596,30 @@ body {
           text-overflow: ellipsis;
         }
       }
-      .content-home-wallpaper { // 首页-壁纸模块
-        .content-home-wallpaper-title { // 壁纸模块-标题
+      .content-home-wallpaper {
+        // 首页-壁纸模块
+        .content-home-wallpaper-title {
+          // 壁纸模块-标题
           font-size: 1.2rem;
           margin: 0 auto 30px auto;
           text-align: center;
           line-height: 1.8;
-          span:first-child { // 标题-名字
+          span:first-child {
+            // 标题-名字
             color: $color-pure-white;
             font-size: 1.8rem;
             font-weight: 400;
           }
-          span:last-child { // 标题-说明
+          span:last-child {
+            // 标题-说明
             color: $color-dirty-white;
             font-size: 1rem;
             font-weight: 200;
             margin-bottom: 50px;
           }
         }
-        .content-home-wallpaper-item { // 壁纸模块-单个选项
+        .content-home-wallpaper-item {
+          // 壁纸模块-单个选项
           padding: 0;
           div:first-child {
             background-color: $color-light-black;
@@ -580,10 +628,12 @@ body {
             overflow: hidden;
             height: 360px;
             margin: 12px 10px;
-            img { // 单个选项-图像
+            img {
+              // 单个选项-图像
               width: 100%;
             }
-            a { // 单个选项-链接文字
+            a {
+              // 单个选项-链接文字
               position: absolute;
               margin: 10px;
               left: 0;
@@ -597,7 +647,8 @@ body {
             }
           }
         }
-        .content-home-wallpaper-more { // 壁纸模块-更多按钮
+        .content-home-wallpaper-more {
+          // 壁纸模块-更多按钮
           font-size: 0.875rem;
           text-align: center;
           font-weight: 400;
@@ -616,17 +667,19 @@ body {
             }
           }
         }
-        hr { // 壁纸模块-分隔符
+        hr {
+          // 壁纸模块-分隔符
           border: none;
           height: 1px;
           flex-shrink: 0;
           background-color: $color-light-grey;
         }
       }
-      .content-home-frame { // 首页-框架模块
-          text-align: center;
-          padding: 80px 0;
-          margin: 0 auto;
+      .content-home-frame {
+        // 首页-框架模块
+        text-align: center;
+        padding: 80px 0;
+        margin: 0 auto;
         h2 {
           margin-bottom: 20px;
           font-size: 1.8rem;
@@ -645,7 +698,8 @@ body {
             margin: 0 8px 4px 0;
           }
         }
-        img { // 框架模块-图标
+        img {
+          // 框架模块-图标
           width: 128px;
           height: 128px;
           margin: 10px;
@@ -668,7 +722,8 @@ body {
       color: $color-dirty-white;
       margin: 30px 0 80px 0;
       padding: 20px;
-      .content-article-title { // 文章-标题
+      .content-article-title {
+        // 文章-标题
         color: $color-pure-white;
         a span {
           color: $color-blue;
@@ -687,14 +742,15 @@ body {
           font-weight: 200;
           margin-bottom: 20px;
         }
-        h5{
+        h5 {
           color: $color-dirty-white;
           font-size: 0.95rem;
           font-weight: 200;
           margin-bottom: 20px;
         }
       }
-      .content-article-type { // 文章-类型
+      .content-article-type {
+        // 文章-类型
         width: 100%;
         height: 2rem;
         white-space: nowrap;
@@ -717,7 +773,8 @@ body {
           }
         }
       }
-      .row { // 文章-列表
+      .row {
+        // 文章-列表
         color: $color-dirty-white;
         padding: 10px 0;
         border-bottom: 1px solid $color-light-grey;
@@ -726,7 +783,8 @@ body {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        .col-md-9 { // 列表-名称
+        .col-md-9 {
+          // 列表-名称
           padding: 0;
           h6 {
             float: left;
@@ -748,7 +806,8 @@ body {
             text-overflow: ellipsis;
           }
         }
-        .col-md-3 { // 列表-浏览喜欢次数
+        .col-md-3 {
+          // 列表-浏览喜欢次数
           padding: 0;
           text-align: right;
           color: $color-dirty-white;
@@ -758,9 +817,11 @@ body {
             margin: 3px 8px -2px 14px;
           }
         }
-        .row { // 列表-下层内容
+        .row {
+          // 列表-下层内容
           border-bottom: 0;
-          .col-md-1 { // 下层内容-作者
+          .col-md-1 {
+            // 下层内容-作者
             padding: 0;
             margin-top: 2px;
             img {
@@ -776,16 +837,18 @@ body {
               text-align: left;
             }
           }
-          .col-md-11 { // 下层内容-内容
+          .col-md-11 {
+            // 下层内容-内容
             padding: 0;
             height: 1.5rem;
             margin: 0;
             text-align: left;
-            .btn{
+            .btn {
               padding: 0;
               border: none;
               width: 100%;
-              div:first-child { // 外层a标签-第一个div
+              div:first-child {
+                // 外层a标签-第一个div
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
@@ -820,13 +883,15 @@ body {
       color: $color-dirty-white;
       margin: 40px auto 160px auto;
       padding: 20px;
-      .content-article-item-hr { // 文章详情-分隔符
+      .content-article-item-hr {
+        // 文章详情-分隔符
         border: none;
         height: 1px;
         flex-shrink: 0;
         background-color: $color-light-grey;
       }
-      .content-article-item-h1 { // 文章详情-标题
+      .content-article-item-h1 {
+        // 文章详情-标题
         span {
           float: left;
           font-size: 1.25rem;
@@ -846,7 +911,8 @@ body {
           text-overflow: ellipsis;
         }
       }
-      .content-article-item-h2 { // 文章详情-时间作者
+      .content-article-item-h2 {
+        // 文章详情-时间作者
         font-size: 0.95rem;
         font-weight: 400;
         color: $color-dirty-white;
@@ -864,9 +930,11 @@ body {
           float: left;
         }
       }
-      .row { // 文章详情-最后编辑时间
+      .row {
+        // 文章详情-最后编辑时间
         margin: 0 0 30px 0;
-        .col-md-9 { // 最后编辑时间-时间
+        .col-md-9 {
+          // 最后编辑时间-时间
           padding: 0;
           color: $color-pure-white;
           font-size: 1.15rem;
@@ -879,7 +947,8 @@ body {
             margin: 0 10px;
           }
         }
-        .col-md-3 { // 最后编辑时间-喜欢
+        .col-md-3 {
+          // 最后编辑时间-喜欢
           padding: 0;
           text-align: right;
           font-size: 0.95rem;
@@ -890,12 +959,14 @@ body {
             margin: 2px 8px -1px 14px;
           }
         }
-        .col-md-12 { // 最后编辑时间-备注
+        .col-md-12 {
+          // 最后编辑时间-备注
           padding: 0;
           margin-top: 20px;
           font-size: 0.95rem;
         }
-        .av-valid { // 最后编辑时间-喜欢按钮
+        .av-valid {
+          // 最后编辑时间-喜欢按钮
           margin: 15px 0;
           width: 100%;
           text-align: center;
@@ -912,8 +983,9 @@ body {
           }
         }
       }
-      .content-article-item-comment { // 文章详情-评论列表
-        .table-responsive div div{
+      .content-article-item-comment {
+        // 文章详情-评论列表
+        .table-responsive div div {
           h5 {
             font-size: 1rem;
             color: $color-pure-white;
@@ -931,14 +1003,16 @@ body {
           }
         }
       }
-      .content-article-item-comment-reply {  // 文章详情-回复窗
+      .content-article-item-comment-reply {
+        // 文章详情-回复窗
         h2 {
           color: $color-pure-white;
           font-size: 1.25rem;
           font-weight: 500;
           margin: 10px 0;
         }
-        .content-article-item-comment-reply-not-login { // 回复窗-未登录状态
+        .content-article-item-comment-reply-not-login {
+          // 回复窗-未登录状态
           text-align: center;
           font-size: 1.05rem;
           padding: 80px 0;
@@ -951,14 +1025,15 @@ body {
             font-weight: 400;
             color: $color-dirty-white;
           }
-          a span{
+          a span {
             color: $color-red;
             &:hover {
               color: $color-blue;
             }
           }
         }
-        .form-group { // 回复窗-登陆后的回复窗
+        .form-group {
+          // 回复窗-登陆后的回复窗
           .form-control {
             height: 185px;
             background-color: $color-light-black;
@@ -967,7 +1042,8 @@ body {
             color: $color-dirty-white;
           }
         }
-        .content-article-item-comment-reply-button { // 回复窗-下方按钮
+        .content-article-item-comment-reply-button {
+          // 回复窗-下方按钮
           .btn {
             width: 100px;
             height: 35px;
@@ -975,9 +1051,10 @@ body {
             margin-right: 20px;
           }
         }
-        @media only screen and (max-width: 767px){ // 软件回复窗-按钮缩小
+        @media only screen and (max-width: 767px) {
+          // 软件回复窗-按钮缩小
           .content-article-item-comment-reply-button {
-            .btn span{
+            .btn span {
               display: block !important;
             }
           }
@@ -988,7 +1065,8 @@ body {
       color: $color-dirty-white;
       margin: 30px 0 80px 0;
       padding: 20px;
-      .content-software-title { // 软件-标题
+      .content-software-title {
+        // 软件-标题
         color: $color-pure-white;
         a span {
           color: $color-blue;
@@ -1007,14 +1085,15 @@ body {
           font-weight: 200;
           margin-bottom: 20px;
         }
-        h5{
+        h5 {
           color: $color-dirty-white;
           font-size: 0.95rem;
           font-weight: 200;
           margin-bottom: 20px;
         }
       }
-      .content-software-type { // 软件-类型
+      .content-software-type {
+        // 软件-类型
         width: 100%;
         height: 2rem;
         white-space: nowrap;
@@ -1037,9 +1116,11 @@ body {
           }
         }
       }
-      .content-software-item { // 软件-列表
+      .content-software-item {
+        // 软件-列表
         overflow: hidden;
-        .content-software-item-num { // 列表-单个项目
+        .content-software-item-num {
+          // 列表-单个项目
           position: relative;
           width: 19%;
           border: 1px solid $color-dark-grey;
@@ -1050,7 +1131,8 @@ body {
           margin: 10px 0.5%;
           text-align: center;
           float: left;
-          .btn { // 列表-图标
+          .btn {
+            // 列表-图标
             margin: 0 auto;
             height: 82px;
             img {
@@ -1058,7 +1140,8 @@ body {
               height: 72px;
             }
           }
-          .content-software-item-num-content { // 单个项目-详细内容
+          .content-software-item-num-content {
+            // 单个项目-详细内容
             width: 100%;
             div {
               width: 100%;
@@ -1113,7 +1196,8 @@ body {
               text-overflow: ellipsis;
             }
           }
-          .content-software-item-num-img { // 单个项目-底部图标
+          .content-software-item-num-img {
+            // 单个项目-底部图标
             position: absolute;
             bottom: 10px;
             width: calc(100% - 40px);
@@ -1138,25 +1222,25 @@ body {
           }
         }
       }
-      @media only screen and (max-width: 1500px){
-        .content-software-item-num{
+      @media only screen and (max-width: 1500px) {
+        .content-software-item-num {
           width: 24% !important;
         }
       }
-      @media only screen and (max-width: 1100px){
-        .content-software-item-num{
+      @media only screen and (max-width: 1100px) {
+        .content-software-item-num {
           width: 32.33% !important;
         }
       }
-      @media only screen and (max-width: 767px){
-        .content-software-item-num{
+      @media only screen and (max-width: 767px) {
+        .content-software-item-num {
           width: 49% !important;
         }
       }
-      @media only screen and (max-width: 575px){
-        .content-software-item-num{
+      @media only screen and (max-width: 575px) {
+        .content-software-item-num {
           width: 99% !important;
-          .content-software-item-num-img .col-md-4{
+          .content-software-item-num-img .col-md-4 {
             width: 33.33%;
           }
         }
@@ -1169,9 +1253,11 @@ body {
       .row {
         margin: 0;
       }
-      .col-md-8 { // 软件详情-标题区
+      .col-md-8 {
+        // 软件详情-标题区
         padding: 0;
-        .content-software-details-title { // 标题区-名称区
+        .content-software-details-title {
+          // 标题区-名称区
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
@@ -1205,7 +1291,8 @@ body {
             text-overflow: ellipsis;
           }
         }
-        .content-software-details-system { // 标题区-系统版本区
+        .content-software-details-system {
+          // 标题区-系统版本区
           font-size: 0.95rem;
           .col-md-4 {
             white-space: nowrap;
@@ -1219,7 +1306,8 @@ body {
             }
           }
         }
-        .content-software-details-download { // 标题区-下载地址
+        .content-software-details-download {
+          // 标题区-下载地址
           text-align: center;
           padding: 0;
           .btn {
@@ -1241,7 +1329,8 @@ body {
           }
         }
       }
-      .content-software-details-ico { // 软件详情-图标
+      .content-software-details-ico {
+        // 软件详情-图标
         padding: 0;
         div {
           margin: 20px auto;
@@ -1257,17 +1346,20 @@ body {
           }
         }
       }
-      .content-software-details-explain { // 软件详情-说明文字
+      .content-software-details-explain {
+        // 软件详情-说明文字
         border-top: 1px solid $color-light-grey;
         min-height: 200px;
         padding: 15px 0;
       }
-      .content-software-details-like { // 软件详情-修改点赞区
+      .content-software-details-like {
+        // 软件详情-修改点赞区
         margin: 20px 0 30px 0;
         width: 100%;
         padding: 15px 0;
         border-top: 1px solid $color-light-grey;
-        .col-md-9 { // 最后编辑时间-时间
+        .col-md-9 {
+          // 最后编辑时间-时间
           padding: 0;
           color: $color-pure-white;
           font-size: 1.15rem;
@@ -1280,7 +1372,8 @@ body {
             margin: 0 10px;
           }
         }
-        .col-md-3 { // 最后编辑时间-喜欢
+        .col-md-3 {
+          // 最后编辑时间-喜欢
           padding: 0;
           text-align: right;
           font-size: 0.95rem;
@@ -1291,12 +1384,14 @@ body {
             margin: 2px 8px -1px 14px;
           }
         }
-        .col-md-12 { // 最后编辑时间-备注
+        .col-md-12 {
+          // 最后编辑时间-备注
           padding: 0;
           margin-top: 20px;
           font-size: 0.95rem;
         }
-        .av-valid { // 最后编辑时间-喜欢按钮
+        .av-valid {
+          // 最后编辑时间-喜欢按钮
           margin: 15px 0;
           width: 100%;
           text-align: center;
@@ -1313,14 +1408,16 @@ body {
           }
         }
       }
-      hr { // 文章详情-分隔符
+      hr {
+        // 文章详情-分隔符
         border: none;
         height: 1px;
         flex-shrink: 0;
         background-color: $color-light-grey;
       }
-      .content-software-item-comment { // 软件详情-评论列表
-        .table-responsive div div{
+      .content-software-item-comment {
+        // 软件详情-评论列表
+        .table-responsive div div {
           h5 {
             font-size: 1rem;
             color: $color-pure-white;
@@ -1338,14 +1435,16 @@ body {
           }
         }
       }
-      .content-software-item-comment-reply {  // 软件详情-回复窗
+      .content-software-item-comment-reply {
+        // 软件详情-回复窗
         h2 {
           color: $color-pure-white;
           font-size: 1.25rem;
           font-weight: 500;
           margin: 10px 0;
         }
-        .content-software-item-comment-reply-not-login { // 回复窗-未登录状态
+        .content-software-item-comment-reply-not-login {
+          // 回复窗-未登录状态
           text-align: center;
           font-size: 1.05rem;
           padding: 80px 0;
@@ -1358,14 +1457,15 @@ body {
             font-weight: 400;
             color: $color-dirty-white;
           }
-          a span{
+          a span {
             color: $color-red;
             &:hover {
               color: $color-blue;
             }
           }
         }
-        .form-group { // 回复窗-登陆后的回复窗
+        .form-group {
+          // 回复窗-登陆后的回复窗
           .form-control {
             height: 185px;
             background-color: $color-light-black;
@@ -1374,7 +1474,8 @@ body {
             color: $color-dirty-white;
           }
         }
-        .content-software-item-comment-reply-button { // 回复窗-下方按钮
+        .content-software-item-comment-reply-button {
+          // 回复窗-下方按钮
           .btn {
             width: 100px;
             height: 35px;
@@ -1382,9 +1483,10 @@ body {
             margin-right: 20px;
           }
         }
-        @media only screen and (max-width: 767px){ // 软件回复窗-按钮缩小
+        @media only screen and (max-width: 767px) {
+          // 软件回复窗-按钮缩小
           .content-software-item-comment-reply-button {
-            .btn span{
+            .btn span {
               display: block !important;
             }
           }
@@ -1395,7 +1497,8 @@ body {
       color: $color-dirty-white;
       margin: 30px 0 80px 0;
       padding: 20px;
-      .content-wallpaper-title { // 壁纸-标题
+      .content-wallpaper-title {
+        // 壁纸-标题
         color: $color-pure-white;
         a span {
           color: $color-blue;
@@ -1414,25 +1517,28 @@ body {
           font-weight: 200;
           margin-bottom: 20px;
         }
-        h5{
+        h5 {
           color: $color-dirty-white;
           font-size: 0.95rem;
           font-weight: 200;
           margin-bottom: 20px;
         }
       }
-      .content-wallpaper-item { // 壁纸-列表
+      .content-wallpaper-item {
+        // 壁纸-列表
         width: 100%;
         margin: 20px auto;
         columns: 5;
         column-gap: 20px;
-        .content-wallpaper-item-num { // 列表-单个项目
+        .content-wallpaper-item-num {
+          // 列表-单个项目
           width: 100%;
           break-inside: avoid;
           margin-bottom: 20px;
           border: 1px solid $color-dark-grey;
           border-radius: 5px;
-          a:first-child { // 单个项目-图像
+          a:first-child {
+            // 单个项目-图像
             padding: 0;
             border: 0;
             text-align: right;
@@ -1453,7 +1559,8 @@ body {
               }
             }
           }
-          a:last-child { // 单个项目-名称
+          a:last-child {
+            // 单个项目-名称
             font-size: 1rem;
             font-weight: 400;
             color: $color-dirty-white;
@@ -1473,23 +1580,23 @@ body {
           }
         }
       }
-      @media only screen and (max-width: 1600px){
-        .content-wallpaper-item{
+      @media only screen and (max-width: 1600px) {
+        .content-wallpaper-item {
           columns: 4;
         }
       }
-      @media only screen and (max-width: 1200px){
-        .content-wallpaper-item{
+      @media only screen and (max-width: 1200px) {
+        .content-wallpaper-item {
           columns: 3;
         }
       }
-      @media only screen and (max-width: 888px){
-        .content-wallpaper-item{
+      @media only screen and (max-width: 888px) {
+        .content-wallpaper-item {
           columns: 2;
         }
       }
-      @media only screen and (max-width: 575px){
-        .content-wallpaper-item{
+      @media only screen and (max-width: 575px) {
+        .content-wallpaper-item {
           columns: 1;
         }
       }
@@ -1619,7 +1726,8 @@ body {
       color: $color-dirty-white;
       margin: 30px 0 80px 0;
       padding: 20px;
-      .content-key-box-title { // 密码盒子-标题
+      .content-key-box-title {
+        // 密码盒子-标题
         color: $color-pure-white;
         a span {
           color: $color-blue;
@@ -1635,7 +1743,7 @@ body {
           a {
             height: 33px;
             padding: 4px 8px;
-            span{
+            span {
               color: $color-pure-white;
               &:hover {
                 color: $color-dirty-white;
@@ -1648,23 +1756,26 @@ body {
           font-weight: 200;
           margin-bottom: 20px;
         }
-        h5{
+        h5 {
           color: $color-dirty-white;
           font-size: 0.95rem;
           font-weight: 200;
           margin-bottom: 20px;
         }
       }
-      .content-key-box-item { // 密码盒子-内容区
+      .content-key-box-item {
+        // 密码盒子-内容区
         width: 100%;
-        .form-control { // 内容区-搜索框
+        .form-control {
+          // 内容区-搜索框
           margin-top: 20px;
           margin-bottom: 30px;
           background-color: $color-light-black;
           border: 1px solid $color-dark-grey;
           color: $color-pure-white;
         }
-        .content-key-box-item-num { // 内容区-单个项目
+        .content-key-box-item-num {
+          // 内容区-单个项目
           background-color: $color-light-black;
           border: 1px solid $color-dark-grey;
           margin: 10px 0;
@@ -1674,7 +1785,7 @@ body {
           div {
             font-size: 0.95rem;
             text-align: left;
-            a{
+            a {
               color: $color-red;
             }
           }
@@ -1731,8 +1842,9 @@ body {
             }
           }
         }
-        @media only screen and (max-width: 767px){ // 注册-发送验证码按钮-自适应
-          .content-key-box-item-num{
+        @media only screen and (max-width: 767px) {
+          // 注册-发送验证码按钮-自适应
+          .content-key-box-item-num {
             .content-key-box-item-num-note {
               width: calc(100% - 70px);
             }
@@ -1750,7 +1862,8 @@ body {
       color: $color-dirty-white;
       margin: 30px 0 80px 0;
       padding: 20px;
-      .content-key-box-edit-title { // 编辑密码盒子-标题
+      .content-key-box-edit-title {
+        // 编辑密码盒子-标题
         color: $color-pure-white;
         font-size: 1.75rem;
         font-weight: 400;
@@ -1784,18 +1897,18 @@ body {
         padding: 5px;
         margin-right: 20px;
       }
-      @media only screen and (max-width: 767px){ // 软件回复窗-按钮缩小
+      @media only screen and (max-width: 767px) {
+        // 软件回复窗-按钮缩小
         .content-key-box-edit-label {
           display: none;
         }
-        .btn span{
+        .btn span {
           display: block !important;
         }
         #key-box-note {
           min-height: 200px;
         }
       }
-
     } // 内容区-密码盒子详情
     .content-account-register {
       margin: 60px auto;
@@ -1804,16 +1917,20 @@ body {
       color: $color-dirty-white;
       max-width: 1400px;
       padding: 0 20px;
-      h1 { // 注册-标题
+      h1 {
+        // 注册-标题
         font-size: 1.95rem;
         margin-bottom: 40px;
         margin-top: 40px;
         font-weight: 300;
         color: $color-pure-white;
       }
-      form { // 注册-表单区
-        .col-md-3 { // 表单区-验证码按钮
-          label { // 验证码按钮-上方占位符
+      form {
+        // 注册-表单区
+        .col-md-3 {
+          // 表单区-验证码按钮
+          label {
+            // 验证码按钮-上方占位符
             width: 100%;
           }
           button {
@@ -1828,12 +1945,13 @@ body {
         }
       }
     } // 内容区-注册
-    @media only screen and (max-width: 767px){ // 注册-发送验证码按钮-自适应
-      .content-account-register{
+    @media only screen and (max-width: 767px) {
+      // 注册-发送验证码按钮-自适应
+      .content-account-register {
         margin: 20px auto;
         width: 100%;
         form .col-md-3 {
-          label{
+          label {
             display: none;
           }
           button {
@@ -1849,16 +1967,20 @@ body {
       color: $color-dirty-white;
       padding: 0 20px;
       max-width: 1400px;
-      h1 { // 找回密码-标题
+      h1 {
+        // 找回密码-标题
         font-size: 1.95rem;
         margin-bottom: 40px;
         margin-top: 40px;
         font-weight: 300;
         color: $color-pure-white;
       }
-      form { // 找回密码-表单区
-        .col-md-3 { // 表单区-验证码按钮
-          label { // 验证码按钮-上方占位符
+      form {
+        // 找回密码-表单区
+        .col-md-3 {
+          // 表单区-验证码按钮
+          label {
+            // 验证码按钮-上方占位符
             width: 100%;
           }
           button {
@@ -1873,12 +1995,13 @@ body {
         }
       }
     } // 内容区-找回密码
-    @media only screen and (max-width: 767px){ // 找回密码-发送验证码按钮-自适应
-      .content-reset-password{
+    @media only screen and (max-width: 767px) {
+      // 找回密码-发送验证码按钮-自适应
+      .content-reset-password {
         margin: 20px auto;
         width: 100%;
         form .col-md-3 {
-          label{
+          label {
             display: none;
           }
           button {
@@ -1894,14 +2017,16 @@ body {
       width: 100%;
       text-align: left;
       color: $color-dirty-white;
-      h2 { // 修改密码-标题
+      h2 {
+        // 修改密码-标题
         font-size: 1.95rem;
         margin-bottom: 40px;
         margin-top: 40px;
         font-weight: 300;
         color: $color-pure-white;
       }
-      form { // 修改密码-表单区
+      form {
+        // 修改密码-表单区
         .btn {
           width: 100px;
           height: 35px;
@@ -1917,16 +2042,19 @@ body {
       max-width: 1200px;
       text-align: left;
       color: $color-dirty-white;
-      h2 { // 个人设置-标题
+      h2 {
+        // 个人设置-标题
         font-size: 1.95rem;
         margin-bottom: 50px;
         font-weight: 300;
         color: $color-pure-white;
       }
-      .col-md-4 { // 个人设置-头像
+      .col-md-4 {
+        // 个人设置-头像
         padding: 5px;
         position: relative;
-        .content-account-settings-portrait { // 头像-主体
+        .content-account-settings-portrait {
+          // 头像-主体
           width: 25vw;
           height: 25vw;
           max-width: 334px;
@@ -1944,7 +2072,8 @@ body {
             height: 100%;
             margin: 0 auto;
           }
-          .content-account-settings-portrait-select { // 主体-按钮区
+          .content-account-settings-portrait-select {
+            // 主体-按钮区
             position: absolute;
             left: 0;
             bottom: 0;
@@ -1965,12 +2094,14 @@ body {
               white-space: nowrap;
               overflow: hidden;
               text-overflow: ellipsis;
-              span { // 按钮区-显示的文字
+              span {
+                // 按钮区-显示的文字
                 font-size: 0.95rem;
                 font-weight: 500;
                 color: $color-pure-white;
               }
-              input { // 按钮区-隐藏按钮
+              input {
+                // 按钮区-隐藏按钮
                 position: absolute;
                 bottom: -10px;
                 left: 0;
@@ -1983,7 +2114,8 @@ body {
             }
           }
         }
-        .content-account-settings-portrait-cancel { // 头像-关闭按钮
+        .content-account-settings-portrait-cancel {
+          // 头像-关闭按钮
           position: absolute;
           top: 0;
           right: 5%;
@@ -2000,7 +2132,8 @@ body {
           margin-right: 20px;
         }
       }
-      @media only screen and (max-width: 767px) { // 个人设置-头像大小
+      @media only screen and (max-width: 767px) {
+        // 个人设置-头像大小
         .col-md-4 {
           margin-bottom: 40px;
           .content-account-settings-portrait {
@@ -2076,7 +2209,7 @@ body {
           height: 30px;
           padding: 3px 8px;
         }
-        @media only screen and (max-width: 767px){
+        @media only screen and (max-width: 767px) {
           .btn {
             svg {
               display: none;
@@ -2104,8 +2237,9 @@ body {
         padding: 5px;
         margin-right: 20px;
       }
-      @media only screen and (max-width: 767px){ // 软件回复窗-按钮缩小
-        .btn span{
+      @media only screen and (max-width: 767px) {
+        // 软件回复窗-按钮缩小
+        .btn span {
           display: block !important;
         }
       }
@@ -2139,7 +2273,7 @@ body {
           height: 30px;
           padding: 3px 8px;
         }
-        @media only screen and (max-width: 767px){
+        @media only screen and (max-width: 767px) {
           .btn {
             svg {
               display: none;
@@ -2167,8 +2301,9 @@ body {
         padding: 5px;
         margin-right: 20px;
       }
-      @media only screen and (max-width: 767px){ // 软件回复窗-按钮缩小
-        .btn span{
+      @media only screen and (max-width: 767px) {
+        // 软件回复窗-按钮缩小
+        .btn span {
           display: block !important;
         }
       }
@@ -2202,7 +2337,7 @@ body {
           height: 30px;
           padding: 3px 8px;
         }
-        @media only screen and (max-width: 767px){
+        @media only screen and (max-width: 767px) {
           .btn {
             svg {
               display: none;
@@ -2242,7 +2377,7 @@ body {
         }
         .col-md-1 {
           padding: 0 10px;
-          .form-group{
+          .form-group {
             margin-bottom: 0;
           }
         }
@@ -2279,8 +2414,9 @@ body {
           color: $color-red;
           margin: 10px 0;
         }
-        @media only screen and (max-width: 767px){ // 文章编辑-按钮缩小
-          .btn span{
+        @media only screen and (max-width: 767px) {
+          // 文章编辑-按钮缩小
+          .btn span {
             display: block !important;
           }
         }
@@ -2315,7 +2451,7 @@ body {
           height: 30px;
           padding: 3px 8px;
         }
-        @media only screen and (max-width: 767px){
+        @media only screen and (max-width: 767px) {
           .btn {
             svg {
               display: none;
@@ -2403,8 +2539,9 @@ body {
             padding: 5px;
             margin-right: 20px;
           }
-          @media only screen and (max-width: 767px){ // 壁纸编辑-按钮缩小
-            .btn span{
+          @media only screen and (max-width: 767px) {
+            // 壁纸编辑-按钮缩小
+            .btn span {
               display: block !important;
             }
           }
@@ -2440,7 +2577,7 @@ body {
           height: 30px;
           padding: 3px 8px;
         }
-        @media only screen and (max-width: 767px){
+        @media only screen and (max-width: 767px) {
           .btn {
             svg {
               display: none;
@@ -2484,7 +2621,7 @@ body {
         .col-md-4 {
           padding: 0 10px;
         }
-        .col-md-1 .form-group{
+        .col-md-1 .form-group {
           margin-bottom: 0;
         }
         .col-md-12 {
@@ -2517,8 +2654,9 @@ body {
               }
             }
           }
-          @media only screen and (max-width: 767px){ // 壁纸编辑-按钮缩小
-            .btn span{
+          @media only screen and (max-width: 767px) {
+            // 壁纸编辑-按钮缩小
+            .btn span {
               display: block !important;
             }
           }
@@ -2580,7 +2718,7 @@ body {
           height: 30px;
           padding: 3px 8px;
         }
-        @media only screen and (max-width: 767px){
+        @media only screen and (max-width: 767px) {
           .btn {
             svg {
               display: none;
@@ -2608,8 +2746,9 @@ body {
         padding: 5px;
         margin-right: 20px;
       }
-      @media only screen and (max-width: 767px){ // 软件回复窗-按钮缩小
-        .btn span{
+      @media only screen and (max-width: 767px) {
+        // 软件回复窗-按钮缩小
+        .btn span {
           display: block !important;
         }
       }
@@ -2643,7 +2782,7 @@ body {
           height: 30px;
           padding: 3px 8px;
         }
-        @media only screen and (max-width: 767px){
+        @media only screen and (max-width: 767px) {
           .btn {
             svg {
               display: none;
@@ -2671,8 +2810,9 @@ body {
         padding: 5px;
         margin-right: 20px;
       }
-      @media only screen and (max-width: 767px){ // 软件回复窗-按钮缩小
-        .btn span{
+      @media only screen and (max-width: 767px) {
+        // 软件回复窗-按钮缩小
+        .btn span {
           display: block !important;
         }
       }
@@ -2691,12 +2831,13 @@ body {
           float: right;
         }
         .jhi-item-count {
-          display:none
+          display: none;
         }
         .disabled {
-          display:none
+          display: none;
         }
-        li { // 翻页-页数
+        li {
+          // 翻页-页数
           margin: 0 10px;
           border: 1px solid $color-dark-grey !important;
           border-radius: 50%;
@@ -2738,7 +2879,8 @@ body {
         margin-bottom: 40px;
         color: $color-dirty-white;
       }
-      p { // 关于我们-详细内容
+      p {
+        // 关于我们-详细内容
         border: 1px solid $color-dark-grey;
         background-color: $color-light-black;
         color: $color-dirty-white;
@@ -2767,12 +2909,13 @@ body {
         margin: 20px 0;
         color: $color-pure-white;
       }
-      .content-explain-link-input { // 联系我-输入框
+      .content-explain-link-input {
+        // 联系我-输入框
         width: 80%;
         margin: 0 auto;
         max-width: 900px;
         .col-md-8 {
-          input{
+          input {
             width: 100%;
             border-radius: 5px;
             background-color: $color-light-black;
@@ -2781,20 +2924,21 @@ body {
           }
         }
         .col-md-4 {
-          button{
+          button {
             width: 100%;
             border-radius: 5px;
           }
         }
       }
-      .content-explain-link-code { // 联系我-二维码
+      .content-explain-link-code {
+        // 联系我-二维码
         text-align: center;
         width: 80%;
         margin: 0 auto;
         max-width: 920px;
         .col-md-6 {
           padding: 20px;
-          img{
+          img {
             border-radius: 5px;
             width: 100%;
           }
@@ -2808,11 +2952,13 @@ body {
       color: $color-dirty-white;
       width: 80%;
       max-width: 1400px;
-      h2 { // 隐私-标题
+      h2 {
+        // 隐私-标题
         margin: 15px auto;
         color: $color-pure-white;
       }
-      h5 { // 隐私-说明
+      h5 {
+        // 隐私-说明
         font-weight: 400;
         font-size: 16px;
         text-align: left;
@@ -2822,23 +2968,24 @@ body {
       p {
         text-align: left;
       }
-      .table tbody tr { // 隐私-列表
+      .table tbody tr {
+        // 隐私-列表
         background-color: $color-light-black;
-        td:first-child{
+        td:first-child {
           color: $color-pure-white;
           text-align: center;
           border: 1px solid $color-dark-grey;
           border-right: 0;
         }
-        td:last-child{
+        td:last-child {
           color: $color-dirty-white;
           text-align: left;
           border: 1px solid $color-dark-grey;
         }
       }
-
     } // 内容区-隐私
-    @media only screen and (max-width: 575px) { // 隐私-列表自适应
+    @media only screen and (max-width: 575px) {
+      // 隐私-列表自适应
       .content-explain-hide {
         width: 100%;
       }
@@ -2867,9 +3014,9 @@ body {
         line-height: 50px;
         text-indent: 2em;
       }
-
     } // 内容区-版权
-    @media only screen and (max-width: 575px) { // 版权-内容自适应
+    @media only screen and (max-width: 575px) {
+      // 版权-内容自适应
       .content-explain-copy {
         margin-top: 40px;
         p {
@@ -2881,20 +3028,23 @@ body {
     .footer {
       padding: 30px 0 50px 0;
       border-top: 1px solid $color-light-grey;
-      .footer-function { // 尾部-功能区
+      .footer-function {
+        // 尾部-功能区
         padding: 40px 50px;
         .col-md-3 {
           text-align: -webkit-center;
           tbody {
             text-align: left;
-            tr a { // 功能区-全部超链接
+            tr a {
+              // 功能区-全部超链接
               color: $color-dirty-white;
               font-weight: 400;
               font-size: 15px;
               display: inline-block;
               padding: 5px 0;
             }
-            tr div { // 功能区-列标题
+            tr div {
+              // 功能区-列标题
               color: $color-pure-white;
               font-size: 22px;
               font-weight: 400;
@@ -2902,7 +3052,8 @@ body {
             }
           }
         }
-        .footer-function-title { // 功能区-logo列
+        .footer-function-title {
+          // 功能区-logo列
           tr {
             margin-bottom: 0 !important;
 
@@ -2916,7 +3067,8 @@ body {
               }
             }
           }
-          tr:not(:first-child) img { // logo列-底部图标
+          tr:not(:first-child) img {
+            // logo列-底部图标
             width: 22px;
             height: 16px;
             padding: 0 2px;
@@ -2924,8 +3076,9 @@ body {
             &:hover {
               filter: brightness(0.6);
             }
-           }
-          .footer-function-title-logo { // logo列-头部一行
+          }
+          .footer-function-title-logo {
+            // logo列-头部一行
             img {
               width: auto;
               height: 30px;
@@ -2938,7 +3091,8 @@ body {
           }
         }
       }
-      .footer-language { // 尾部-语言区
+      .footer-language {
+        // 尾部-语言区
         margin: 0 22px 22px 0;
         font-size: 80%;
         color: $color-dirty-white;
@@ -2953,7 +3107,8 @@ body {
           color: $color-pure-white;
         }
       }
-      .footer-copyright { // 尾部-版权区
+      .footer-copyright {
+        // 尾部-版权区
         font-size: 80%;
         color: $color-dirty-white;
         border-top: 1px solid $color-light-grey;
@@ -2966,12 +3121,20 @@ body {
           color: $color-pure-white;
           margin: 2px 6px -2px 6px;
         }
+        a {
+          color: $color-pure-white;
+          font-size: 80%;
+          font-weight: 400;
+          text-decoration: underline;
+        }
         img {
           margin: 0 8px 2px 8px;
         }
       }
-      @media only screen and (max-width: 767px){ // 尾部-缩小方案-功能区设置
-        .footer-function { // 尾部-功能区
+      @media only screen and (max-width: 767px) {
+        // 尾部-缩小方案-功能区设置
+        .footer-function {
+          // 尾部-功能区
           padding: 40px 30px;
           .col-md-3:first-child {
             width: 100%;
@@ -2981,7 +3144,7 @@ body {
               float: left;
               margin-right: 20px;
             }
-            tbody tr:not(:first-child){
+            tbody tr:not(:first-child) {
               float: left;
               a {
                 padding: 0;
@@ -2997,7 +3160,8 @@ body {
           }
         }
       }
-      @media only screen and (max-width: 575px) { // 尾部-缩小方案-功能区手机端布局
+      @media only screen and (max-width: 575px) {
+        // 尾部-缩小方案-功能区手机端布局
         .footer-function {
           .col-md-3:not(:first-child) {
             width: 50%;
@@ -3020,10 +3184,12 @@ body {
         color: $color-pure-white;
         opacity: 1;
       }
-      .modal-header { // 文章附件库-头部
+      .modal-header {
+        // 文章附件库-头部
         border-bottom: 1px solid $color-light-grey;
       }
-      .modal-footer { // 文章附件库-尾部
+      .modal-footer {
+        // 文章附件库-尾部
         border-top: 1px solid $color-light-grey;
         .btn {
           width: 100px;
@@ -3079,23 +3245,23 @@ body {
         }
       }
     }
-    @media only screen and (max-width: 1600px){
-      .alert-article-enclosure-media{
+    @media only screen and (max-width: 1600px) {
+      .alert-article-enclosure-media {
         columns: 4;
       }
     }
-    @media only screen and (max-width: 1200px){
-      .alert-article-enclosure-media{
+    @media only screen and (max-width: 1200px) {
+      .alert-article-enclosure-media {
         columns: 3;
       }
     }
-    @media only screen and (max-width: 888px){
-      .alert-article-enclosure-media{
+    @media only screen and (max-width: 888px) {
+      .alert-article-enclosure-media {
         columns: 2;
       }
     }
-    @media only screen and (max-width: 575px){
-      .alert-article-enclosure-media{
+    @media only screen and (max-width: 575px) {
+      .alert-article-enclosure-media {
         columns: 1;
       }
     }

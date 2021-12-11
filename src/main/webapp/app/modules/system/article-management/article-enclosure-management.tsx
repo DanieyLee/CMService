@@ -121,6 +121,7 @@ export const ArticleEnclosureManagement = (props: IArticleEnclosureManagementPro
         <Button color="primary" onClick={handleClose}>
           <Translate contentKey="cmServiceApp.articleEnclosure.upload">Upload</Translate>
         </Button>
+        {/*<input id="file" type="file" accept="image/*" />*/}
         <Button color="secondary" onClick={handleClose}>
           <Translate contentKey="cmServiceApp.articleEnclosure.close">Close</Translate>
         </Button>

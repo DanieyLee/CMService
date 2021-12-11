@@ -54,6 +54,9 @@ const Footer = (props: IFooterProps) => {
           <Translate contentKey="footer.down.cloud">Cloud</Translate>
         </div>
         <Translate contentKey="footer.down.icp">Icp</Translate>
+        <a href="https://beian.miit.gov.cn/" rel='noopener noreferer'>
+          <Translate contentKey="footer.down.icp.num">Icp</Translate>
+        </a>
         <img src="content/images/police.svg" alt="police"/>
         <Translate contentKey="footer.down.copyright">Copyright</Translate>
       </div>
